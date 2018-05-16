@@ -296,9 +296,6 @@ class fr_apl_02 extends CI_Controller {
 			$data			= $this->m_globalval->getAllData();		
 			$form_name		= $data["form_name"];
 			
-			$addtionalParam	= $this->m_param->updateDt($data);
-			$queryResult1	= $this->m_crud->updateDt("FR_APL_01", $addtionalParam);
-			
 			if(count($this->input->post($form_name[143]))>0)
 				{
 					$addtionalParam	= $this->m_param->deleteDt_APL01_UK($data, $this->input->post($form_name[134]));
@@ -306,15 +303,6 @@ class fr_apl_02 extends CI_Controller {
 			
 					$paramArr		= $this->m_param->saveDt_APL01_UK($data, $this->input->post($form_name[134]));
 					$queryResult3	= $this->m_crud->insertArrDt("APL01_UK", $paramArr);
-				}
-				
-			if(count($this->input->post($form_name[139]))>0)
-				{
-					$addtionalParam	= $this->m_param->deleteDt_APL01_bukti($data, $this->input->post($form_name[134]));
-					$queryResult4	= $this->m_crud->deleteDt("APL01_BUKTI", $addtionalParam);
-			
-					$paramArr		= $this->m_param->saveDt_APL01_bukti($data, $this->input->post($form_name[134]));
-					$queryResult5	= $this->m_crud->insertArrDt("APL01_BUKTI", $paramArr);
 				}
 			
 			echo '1';
