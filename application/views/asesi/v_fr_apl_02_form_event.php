@@ -1,18 +1,6 @@
 <script text="text/javascript">
-	var table;
-	
-	
-	
-		
-	function reloadDt()
-		{
-			table.ajax.reload(null,false); 
-		}
-		
 	$(document).ready(function() {				
 		setDt134();
-		
-		
 	});
 	
 	function setDt134()
@@ -31,7 +19,7 @@
 							document.getElementById('<?php echo $form_id[102]; ?>').value = data.NOMOR_SKEMA;                  
 							document.getElementById('<?php echo $form_id[101]; ?>').value = data.NAMA_SKEMA;                   
 							
-							$("#<?php echo $form_id[117]; ?>").load("<?php echo $ajax_url[148]; ?>"+param+"/"+data.UUID_SKEMA);
+							$("#<?php echo $form_id[117]; ?>").load("<?php echo $ajax_url[148]; ?>"+param+"/"+data.UUID_SKEMA+"/"+'<?php echo $saveMethod; ?>'+'/'+'<?php echo $$form_name[146]; ?>');
 							$('select#<?php echo $form_id[173]; ?>').multipleSelect({width: '100%'});
 							$('#<?php echo $form_id[180]; ?>').attr('onClick', 'saveDt();');
 							$('#<?php echo $form_id[180]; ?>').removeAttr('disabled');

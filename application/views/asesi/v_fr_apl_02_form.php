@@ -3,7 +3,7 @@
 	  <?php if($saveMethod=="add"){ ?>
 		  <h3 class="box-title"> <?php echo $menu_title[111]; ?> </h3>
 	  <?php }else{ ?>
-		  <h3 class="box-title"> <?php echo $menu_title[117]; ?> </h3>
+		  <h3 class="box-title"> <?php echo $menu_title[112]; ?> </h3>
 	  <?php } ?>
 	</div>
 	
@@ -22,16 +22,23 @@
 					<div class="form-group">
 						<label class="control-label col-md-2"> <?php echo $form_label[158]; ?> </label>
 						<div class="col-md-5">
-							<select name="<?php echo $form_name[134]; ?>" id="<?php echo $form_id[178]; ?>" onChange="setDt134()" class="form-control">
-								<option value = ""><?php echo $form_label[159]; ?></option>
-								<?php foreach($listApl01->result() as $row){ ?>
-									<?php if($$form_name[134]==$row->UUID_APL01){?>
-										<option value = "<?php echo $row->UUID_APL01; ?>" selected><?php echo "(".date('d M y - H:i', strtotime($row->DTM_CRT)).") ".$row->NAMA_SKEMA." (ID ".$row->NO_DOKUMEN.")"; ?></option>
-									<?php }else{ ?>
-										<option value = "<?php echo $row->UUID_APL01; ?>"><?php echo "(".date('d M y - H:i', strtotime($row->DTM_CRT)).") ".$row->NAMA_SKEMA." (ID ".$row->NO_DOKUMEN.")"; ?></option>
+							<?php if($$form_name[134]==""){ ?>
+								<select name="<?php echo $form_name[134]; ?>" id="<?php echo $form_id[178]; ?>" onChange="setDt134()" class="form-control">
+									<option value = ""><?php echo $form_label[159]; ?></option>
+									<?php foreach($listApl01->result() as $row){ ?>
+											<option value = "<?php echo $row->UUID_APL01; ?>"><?php echo "(".date('d M y - H:i', strtotime($row->DTM_CRT)).") ".$row->NAMA_SKEMA." (ID ".$row->NO_DOKUMEN.")"; ?></option>
 									<?php } ?>
-								<?php } ?>
-							</select>
+								</select>
+							<?php }else{ ?>
+								<select name="<?php echo $form_name[134]; ?>" id="<?php echo $form_id[178]; ?>" class="form-control" disabled>
+									<option value = ""><?php echo $form_label[159]; ?></option>
+									<?php foreach($listApl01->result() as $row){ ?>
+										<?php if($$form_name[134]==$row->UUID_APL01){?>
+											<option value = "<?php echo $row->UUID_APL01; ?>" selected><?php echo "(".date('d M y - H:i', strtotime($row->DTM_CRT)).") ".$row->NAMA_SKEMA." (ID ".$row->NO_DOKUMEN.")"; ?></option>
+										<?php } ?>
+									<?php } ?>
+								</select>
+							<?php } ?>
 							<span class="help-block"></span>
 						</div>
 					</div>	

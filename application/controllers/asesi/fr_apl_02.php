@@ -35,7 +35,7 @@ class fr_apl_02 extends CI_Controller {
 			$data["saveMethod"]		= "add";
 			
 			$data[$form_name[145]] 	= "Karid Nurvenus";
-			$data[$form_name[146]] 	= "";
+			$data[$form_name[146]] 	= "-";
 			$data[$form_name[147]] 	= "";
 			$data[$form_name[148]] 	= "";
 			$data[$form_name[134]] 	= "";
@@ -47,10 +47,7 @@ class fr_apl_02 extends CI_Controller {
 			
 			$listApl01				= $this->m_custom->getDt_FN134('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
 			$data["listApl01"]		= $listApl01;
-			/*
-			$formApl02				= $this->m_custom->getADt_FN134_AllJoinedTable('b12a2a81-469a-11e8-a478-a4c494eed0da', '57797303-31d0-11e8-89f9-64006a4fef6c');	
-			$data["formApl02"]		= $formApl02;*/
-			
+		
 			$addtionalParam			= $this->m_param->getADt_FN136('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
 			$listBukti				= $this->m_crud->selectDt("BUKTI",  $addtionalParam);
 			$data["listBukti"]		= $listBukti;
@@ -84,62 +81,59 @@ class fr_apl_02 extends CI_Controller {
 			$form_name 				= $data['form_name'];
 			$view					= $data['view'];
 			$data["saveMethod"]		= "edit";
-			
-			$addtionalParam			= $this->m_param->getADt($uuid);
-			$res					= $this->m_custom->getADt($uuid);
-			$result 				= $res->row();
-				
-			$data[$form_name[134]] 	= $result->UUID_APL01;
-			$data[$form_name[115]]	= $result->NAMA_LENGKAP;
-			$data[$form_name[116]] 	= $result->TEMPAT_LAHIR;
-			$data[$form_name[117]] 	= $result->TGL_LAHIR;
-			$data[$form_name[118]] 	= $result->JENIS_KELAMIN;
-			$data[$form_name[119]] 	= $result->KEBANGSAAN;
-			$data[$form_name[120]] 	= $result->ALAMAT_RUMAH;
-			$data[$form_name[121]] 	= $result->KODE_POS_RUMAH;
-			$data[$form_name[122]] 	= $result->NO_TLP_RUMAH;
-			$data[$form_name[123]] 	= $result->NO_TLP_HP;
-			$data[$form_name[124]] 	= $result->EMAIL;
-			$data[$form_name[125]] 	= $result->PENDIDIKAN_TERAKHIR;
-			$data[$form_name[126]] 	= $result->NAMA_PERUSAHAAN;
-			$data[$form_name[127]] 	= $result->JABATAN;
-			$data[$form_name[128]] 	= $result->ALAMAT_KANTOR;
-			$data[$form_name[129]] 	= $result->KODE_POS_PERUSAHAAN;
-			$data[$form_name[130]] 	= $result->NO_TLP_KANTOR;
-			$data[$form_name[131]] 	= $result->FAX_KANTOR;
-			$data[$form_name[132]] 	= $result->EMAIL_KANTOR;
-			$data[$form_name[133]] 	= $result->TUJUAN_ASESMEN;
-			$data[$form_name[141]] 	= $result->TUJUAN_ASESMEN_LAINNYA_KETERANGAN;
-			$data[$form_name[144]] 	= $result->JENIS_SKEMA;
-			$data[$form_name[102]] 	= $result->UUID_SKEMA;
-			$data[$form_name[101]] 	= $result->NOMOR_SKEMA;
-			$data[$form_name[105]] 	= "";
-			$data[$form_name[136]] 	= "";
 					
-			$addtionalParam			= $this->m_param->getDt_102($data);
-			$listSkema				= $this->m_crud->selectDt("SKEMA",  $addtionalParam);
-			$data["listSkema"]		= $listSkema;
+			$listApl01				= $this->m_custom->getDt_FN134('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
+			$data["listApl01"]		= $listApl01;
 			
-			$this->load->view($view[117], $data);
-			$this->load->view($view[118], $data);
+			//uuidApl01
+			$param 					= $this->m_param->getADt($uuid);
+			$uuidApl01				= $this->m_crud->selectDt('FR_APL_02', $param)->row()->UUID_APL01;
+			
+			$data[$form_name[145]] 	= "Karid Nurvenus";
+			$data[$form_name[146]] 	= $uuid;
+			$data[$form_name[147]] 	= "";
+			$data[$form_name[148]] 	= "";
+			$data[$form_name[134]] 	= $uuidApl01;
+			$data[$form_name[101]] 	= "";
+			$data[$form_name[100]] 	= "";
+			$data[$form_name[104]] 	= "";
+			$data[$form_name[103]] 	= "";
+			$data[$form_name[109]] 	= "";
+			
+			$this->load->view($view[126], $data);
+			$this->load->view($view[127], $data);
 		}
 		
-	public function pagingChildAdd($uuidApl01, $uuidSkema)
+	public function pagingChild($uuidApl01, $uuidSkema, $saveMethod, $uuidApl02)
 		{
-			$data					= $this->m_globalval->getAllData();
-			$form_name				= $data['form_name'];
-			$view					= $data['view'];	
-			$data["saveMethod"]		= "add";
+			$data						= $this->m_globalval->getAllData();
+			$form_name					= $data['form_name'];
+			$view						= $data['view'];	
+			$data["saveMethod"]			= "add";
 			
-			$listKUK				= $this->m_custom->getADt_FN134_AllJoinedTable($uuidApl01, $uuidSkema);	
-			$data["listKUK"]		= $listKUK;
+			$listKUK					= $this->m_custom->getADt_FN134_AllJoinedTable($uuidApl01, $uuidSkema);	
+			$data["listKUK"]			= $listKUK;
 			
-			$addtionalParam			= $this->m_param->getADt_FN136('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
-			$listBukti				= $this->m_crud->selectDt("BUKTI",  $addtionalParam);
-			$data["listBukti"]		= $listBukti;
+			$addtionalParam				= $this->m_param->getADt_FN136('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
+			$listBukti					= $this->m_crud->selectDt("BUKTI",  $addtionalParam);
+			$data["listBukti"]			= $listBukti;
+			$data['saveMethod']			= $saveMethod;
 			
-			$data[$form_name[134]]	= $uuidApl01;
-			$data[$form_name[102]]	= $uuidSkema;
+			if($saveMethod == 'edit')
+				{
+					$listAnswer			= $this->m_custom->getDt_listAnswer($uuidApl02);
+					
+					$i = 0;
+					foreach($listAnswer->result() as $row)
+						{
+							$data[$form_name[149].'_'.$i] 	= $row->IS_KOMPETEN;
+							$data[$form_name[136].'_'.$i]	= explode(';', $row->UUID_BUKTI);
+							$i++;
+						}
+				}
+			
+			$data[$form_name[134]]		= $uuidApl01;
+			$data[$form_name[102]]		= $uuidSkema;
 			
 			$this->load->view($view[120], $data);
 		}

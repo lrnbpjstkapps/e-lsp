@@ -80,7 +80,7 @@
 						$query .= ",";
 					}
 				}
-			
+				
 			$result = $this->db->query($query);
 			return $result;
 		}

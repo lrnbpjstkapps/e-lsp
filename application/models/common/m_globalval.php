@@ -406,7 +406,7 @@
 				$ajax_url[145] 	= base_url()."asesi/fr_apl_02/pagingList";
 				$ajax_url[146] 	= base_url()."asesi/fr_apl_02/pagingEdit/";
 				$ajax_url[147] 	= base_url()."asesi/fr_apl_02/getADt_FN134";
-				$ajax_url[148] 	= base_url()."asesi/fr_apl_02/pagingChildAdd/";
+				$ajax_url[148] 	= base_url()."asesi/fr_apl_02/pagingChild/";
 				$ajax_url[149] 	= base_url()."asesi/fr_apl_02/saveDt";
 				$ajax_url[150] 	= base_url()."asesi/fr_apl_02/updateDt";
 				$ajax_url[151] 	= base_url()."asesi/fr_apl_02/deleteDt/";

@@ -70,6 +70,7 @@
 									"UUID_APL01"			=> "'".$this->input->post($form_name[134])."'",
 									"UUID_APL02"			=> $uuidApl02,
 									"UUID_UK"				=> "'".$this->input->post($form_name[105].'_'.$i)."'",
+									"UUID_EK"				=> "'".$this->input->post($form_name[109].'_'.$i)."'",
 									"UUID_KUK"				=> "'".$this->input->post($form_name[113].'_'.$i)."'",
 									"IS_KOMPETEN"			=> "'".$this->input->post($form_name[149].'_'.$i)."'",
 									"UUID_BUKTI"			=> "'".$uuidBukti."'",
@@ -87,7 +88,9 @@
 									"UUID_APL01"			=> "'".$this->input->post($form_name[134])."'",
 									"UUID_APL02"			=> $uuidApl02,
 									"UUID_UK"				=> "'".$this->input->post($form_name[105].'_'.$i)."'",
+									"UUID_EK"				=> "'".$this->input->post($form_name[109].'_'.$i)."'",
 									"UUID_KUK"				=> "'".$this->input->post($form_name[113].'_'.$i)."'",
+									"IS_KOMPETEN"			=> "'".$this->input->post($form_name[149].'_'.$i)."'",
 									"USR_CRT"				=> "'".$application[102]."'",
 									"DTM_CRT"				=> "NOW()",	
 									"IS_ACTIVE"				=> "'1'"							
@@ -150,7 +153,7 @@
 				
 				$condition 			= array
 					(
-						"UUID_APL01"	=> "'".$uuid."'",
+						"UUID_APL02"	=> "'".$uuid."'",
 						"IS_ACTIVE"		=> "'1'"							
 					);
 					
@@ -163,42 +166,6 @@
 				$optLogic 		= array
 					(
 						"AND"
-					);
-					
-				$returnedData['condition'] 	= $condition;
-				$returnedData['optComp']	= $optComp;
-				$returnedData['optLogic']	= $optLogic;
-				$returnedData['order']		= $order;
-				return $returnedData;
-			}
-			
-		public function getDt_142($uuid)
-			{
-				$returnedData			= array();
-				$optComp				= array();	
-				$optLogic				= array();	
-				$order					= array();
-				
-				$condition 				= array
-					(
-						"UUID_USER"	=> "'".$uuid."'",
-						"IS_ACTIVE"		=> "'1'"							
-					);
-					
-				$optComp 				= array
-					(
-						"=",
-						"="
-					);
-					
-				$optLogic 				= array
-					(
-						"AND"
-					);
-					
-				$order 					= array
-					(
-						"KETERANGAN ASC"
 					);
 					
 				$returnedData['condition'] 	= $condition;
@@ -269,6 +236,38 @@
 						"KETERANGAN ASC"
 					);
 					
+				$returnedData['condition'] 	= $condition;
+				$returnedData['optComp']	= $optComp;
+				$returnedData['optLogic']	= $optLogic;
+				$returnedData['order']		= $order;
+				return $returnedData;
+			}
+			
+		public function getDt_142($uuid)
+			{				
+				$condition 				= array
+					(
+						"UUID_USER"		=> "'".$uuid."'",
+						"IS_ACTIVE"		=> "'1'"							
+					);
+					
+				$optComp 				= array
+					(
+						"=",
+						"="
+					);
+					
+				$optLogic 				= array
+					(
+						"AND"
+					);
+					
+				$order 					= array
+					(
+						"KETERANGAN ASC"
+					);
+					
+				$returnedData				= array();	
 				$returnedData['condition'] 	= $condition;
 				$returnedData['optComp']	= $optComp;
 				$returnedData['optLogic']	= $optLogic;

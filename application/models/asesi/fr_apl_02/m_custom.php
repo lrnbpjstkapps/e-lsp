@@ -68,10 +68,10 @@
 		function getADt_FN134_AllJoinedTable($uuidApl01, $uuidSkema)
 			{				
 				$this->db->select('APL01.UUID_APL01, SKE.NOMOR_SKEMA, SKE.NAMA_SKEMA, 
-					UK.UUID_UK, UK.KODE_UK, UK.JUDUL_UK, EK.NOMOR_EK, EK.NAMA_EK, KUK.UUID_KUK, KUK.NOMOR_KUK, KUK.PERNYATAAN, KUK.PERTANYAAN');
+					UK.UUID_UK, UK.KODE_UK, UK.JUDUL_UK, EK.UUID_EK, EK.NOMOR_EK, EK.NAMA_EK, KUK.UUID_KUK, KUK.NOMOR_KUK, KUK.PERNYATAAN, KUK.PERTANYAAN');
 				$this->db->from("FR_APL_01 AS APL01");
 				$this->db->join("APL01_UK AS 01UK", "APL01.UUID_APL01 = 01UK.UUID_APL01", "LEFT");
-				$this->db->join("UNIT_KOMPETENSI AS UK", "01UK.UUID_UK = UK.UUID_UK ", "LEFT");
+				$this->db->join("UNIT_KOMPETENSI AS UK", "01UK.UUID_UK = UK.UUID_UK", "LEFT");
 				$this->db->join("SKEMA_UK AS SKEUK", "01UK.UUID_UK = SKEUK.UUID_UK", "LEFT");
 				$this->db->join("SKEMA AS SKE", "SKEUK.UUID_SKEMA = SKE.UUID_SKEMA", "LEFT");
 				$this->db->join("ELEMEN_KOMPETENSI AS EK", "01UK.UUID_UK = EK.UUID_UK", "LEFT");
@@ -79,7 +79,22 @@
 				$this->db->where('APL01.UUID_APL01', $uuidApl01);
 				$this->db->where('SKE.UUID_SKEMA', $uuidSkema);
 				$this->db->where('APL01.IS_ACTIVE', '1');
+				$this->db->order_by("UK.KODE_UK", "ASC");
+				$this->db->order_by("EK.NOMOR_EK", "ASC");
+				$this->db->order_by("KUK.NOMOR_KUK", "ASC");
 				return $this->db->get();
 			}
+			
+			function getDt_listAnswer($uuid)
+				{
+					$this->db->select('UK.UUID_UK, EK.UUID_EK, KUK.UUID_KUK, IS_KOMPETEN, UUID_BUKTI');
+					$this->db->from('ANSWER_APL_02 AS ANS_APL_02');
+					$this->db->join('UNIT_KOMPETENSI UK', 'ANS_APL_02.UUID_UK = UK.UUID_UK', 'LEFT');
+					$this->db->join('ELEMEN_KOMPETENSI EK', 'ANS_APL_02.UUID_EK = EK.UUID_EK', 'LEFT');
+					$this->db->join('KRITERIA_UNJUK_KERJA KUK', 'ANS_APL_02.UUID_KUK = KUK.UUID_KUK', 'LEFT');
+					$this->db->where('UUID_APL02', $uuid);
+					$this->db->order_by("UK.KODE_UK, EK.NOMOR_EK, KUK.NOMOR_KUK", "ASC");
+					return $this->db->get();
+				}
 	}
 ?>

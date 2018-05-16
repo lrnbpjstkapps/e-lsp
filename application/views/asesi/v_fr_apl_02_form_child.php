@@ -27,6 +27,7 @@
 					foreach($listKUK->result() as $row){ ?>
 						<input type = "hidden" name = "<?php echo $form_name[105].'_'.$i; ?>" value = "<?php echo $row->UUID_UK; ?>">
 						<input type = "hidden" name = "<?php echo $form_name[113].'_'.$i; ?>" value = "<?php echo $row->UUID_KUK; ?>">
+						<input type = "hidden" name = "<?php echo $form_name[109].'_'.$i; ?>" value = "<?php echo $row->UUID_EK; ?>">
 						<tr>
 							<td>
 								<?php echo ($i+1); ?>
@@ -43,23 +44,49 @@
 							<td>
 								<?php echo $row->PERTANYAAN; ?>
 							</td>
-							<td>
-								<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "1">
-							</td>
-							<td>
-								<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "0"> 
-							</td>
-							<td>
-								<select multiple="multiple" name="<?php echo $form_name[136].'_'.$i.'[]'; ?>" id="<?php echo $form_id[173]; ?>">															
-									<?php foreach($listBukti->result() as $row){ ?>
-										<?php if($$form_name[136]==$row->UUID_BUKTI){?>
-											<option value = "<?php echo $row->UUID_BUKTI; ?>" selected><?php echo $row->KETERANGAN; ?></option>
-										<?php }else{ ?>
+							<?php if($saveMethod == "add"){ ?>
+								<td>
+									<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "1">
+								</td>
+								<td>
+									<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "0"> 
+								</td>
+								<td>								
+									<select multiple="multiple" name="<?php echo $form_name[136].'_'.$i.'[]'; ?>" id="<?php echo $form_id[173]; ?>">															
+										<?php foreach($listBukti->result() as $row){ ?>
 											<option value = "<?php echo $row->UUID_BUKTI; ?>"><?php echo $row->KETERANGAN; ?></option>
 										<?php } ?>
-									<?php } ?>
-								</select>
-							</td>
+									</select>								
+								</td>
+							<?php }else{ ?>
+								<?php if(${$form_name[149].'_'.$i} == '1'){ ?>
+									<td>
+										<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "1" checked>
+									</td>
+									<td>
+										<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "0"> 
+									</td>
+								<?php } else { ?>
+									<td>
+										<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "1">
+									</td>
+									<td>
+										<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "0" checked> 
+									</td>
+								<?php } ?>
+								<td>								
+									<select multiple="multiple" name="<?php echo $form_name[136].'_'.$i.'[]'; ?>" id="<?php echo $form_id[173]; ?>">															
+										<?php foreach($listBukti->result() as $row){ ?>
+											<?php if(in_array($row->UUID_BUKTI, ${$form_name[136].'_'.$i})){ ?>
+												<option value = "<?php echo $row->UUID_BUKTI; ?>" selected><?php echo $row->KETERANGAN; ?></option>
+											<?php }else{ ?>
+												<option value = "<?php echo $row->UUID_BUKTI; ?>"><?php echo $row->KETERANGAN; ?></option>
+											<?php } ?>
+										<?php } ?>
+									</select>								
+								</td>
+							<?php } ?>
+							
 						</tr>					
 				<?php 
 						$i++; 
