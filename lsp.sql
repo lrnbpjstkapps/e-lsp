@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.1
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
--- Inang: 127.0.0.1
--- Waktu pembuatan: 13 Mei 2018 pada 13.20
--- Versi Server: 5.6.11
--- Versi PHP: 5.5.3
+-- Host: 127.0.0.1
+-- Generation Time: May 16, 2018 at 02:06 PM
+-- Server version: 5.5.32
+-- PHP Version: 5.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Basis data: `lsp`
+-- Database: `lsp`
 --
 CREATE DATABASE IF NOT EXISTS `lsp` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `lsp`;
@@ -25,7 +25,7 @@ USE `lsp`;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `administrasi`
+-- Table structure for table `administrasi`
 --
 
 CREATE TABLE IF NOT EXISTS `administrasi` (
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `administrasi` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `answer_apl_02`
+-- Table structure for table `answer_apl_02`
 --
 
 CREATE TABLE IF NOT EXISTS `answer_apl_02` (
@@ -71,6 +71,7 @@ CREATE TABLE IF NOT EXISTS `answer_apl_02` (
   `UUID_APL01` varchar(36) DEFAULT NULL,
   `UUID_APL02` varchar(36) DEFAULT NULL,
   `UUID_UK` varchar(36) DEFAULT NULL,
+  `UUID_EK` varchar(36) DEFAULT NULL,
   `UUID_KUK` varchar(36) DEFAULT NULL,
   `IS_KOMPETEN` varchar(255) DEFAULT NULL,
   `UUID_BUKTI` text,
@@ -84,41 +85,32 @@ CREATE TABLE IF NOT EXISTS `answer_apl_02` (
   KEY `UUID_APL01_ANSWER_APL_02` (`UUID_APL01`),
   KEY `UUID_APL02_ANSWER_APL_02` (`UUID_APL02`),
   KEY `UUID_UK_ANSWER_APL_02` (`UUID_UK`),
-  KEY `UUID_KUK_ANSWER_APL_02` (`UUID_KUK`)
+  KEY `UUID_KUK_ANSWER_APL_02` (`UUID_KUK`),
+  KEY `UUID_EK_ANS_APL_02` (`UUID_EK`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `answer_apl_02`
+-- Dumping data for table `answer_apl_02`
 --
 
-INSERT INTO `answer_apl_02` (`UUID_ANS_APL02`, `UUID_USER`, `UUID_APL01`, `UUID_APL02`, `UUID_UK`, `UUID_KUK`, `IS_KOMPETEN`, `UUID_BUKTI`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
-('029d0c7c-174e-401c-96d5-10b811c10ec7', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'fe7966f3-a347-4d50-9074-91017d35fd95', '23d244d2-3303-11e8-89f9-64006a4fef6c', '6f661d24-4132-11e8-8c73-64006a4fef6c', NULL, NULL, 'Super Admin', '2018-05-13 02:19:52', NULL, NULL, '1'),
-('13122091-fae6-4978-bbb9-dac7c5bb1d2c', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'fe7966f3-a347-4d50-9074-91017d35fd95', '23d244d2-3303-11e8-89f9-64006a4fef6c', '22346307-4132-11e8-8c73-64006a4fef6c', NULL, NULL, 'Super Admin', '2018-05-13 02:19:52', NULL, NULL, '1'),
-('164feade-3ffe-462b-8eb5-d3f40190731b', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '15c4caa4-d8ed-45c5-83bf-5f1066691ea9', '6cc208e5-3302-11e8-89f9-64006a4fef6c', 'bd371b01-414a-11e8-8c73-64006a4fef6c', '0', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f;8ec61877-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-13 02:16:53', NULL, NULL, '1'),
-('1ac595ec-71b8-46c2-b4a6-37f1fed85530', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '15c4caa4-d8ed-45c5-83bf-5f1066691ea9', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '0a320a85-414b-11e8-8c73-64006a4fef6c', NULL, NULL, 'Super Admin', '2018-05-13 02:16:53', NULL, NULL, '1'),
-('1daca587-00f5-4d19-813a-ab8abfb5657a', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '15c4caa4-d8ed-45c5-83bf-5f1066691ea9', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '32266cdd-414b-11e8-8c73-64006a4fef6c', NULL, NULL, 'Super Admin', '2018-05-13 02:16:53', NULL, NULL, '1'),
-('2f6ee9e7-742b-4435-bcdb-d30336ae65b2', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '15c4caa4-d8ed-45c5-83bf-5f1066691ea9', '6cc208e5-3302-11e8-89f9-64006a4fef6c', 'ef4d6d59-4149-11e8-8c73-64006a4fef6c', NULL, NULL, 'Super Admin', '2018-05-13 02:16:53', NULL, NULL, '1'),
-('32a833fc-be6b-47f6-891a-2cd8a8826c96', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '15c4caa4-d8ed-45c5-83bf-5f1066691ea9', '6cc208e5-3302-11e8-89f9-64006a4fef6c', 'fd9f04ba-414a-11e8-8c73-64006a4fef6c', NULL, NULL, 'Super Admin', '2018-05-13 02:16:53', NULL, NULL, '1'),
-('6667b8dd-260c-4ea0-b6b8-ce6d2f416b2f', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'fe7966f3-a347-4d50-9074-91017d35fd95', '23d244d2-3303-11e8-89f9-64006a4fef6c', '63b5fc70-4132-11e8-8c73-64006a4fef6c', NULL, NULL, 'Super Admin', '2018-05-13 02:19:52', NULL, NULL, '1'),
-('67bfaa3f-28ea-441b-a60c-b3683213958c', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'fe7966f3-a347-4d50-9074-91017d35fd95', '23d244d2-3303-11e8-89f9-64006a4fef6c', 'd2da6d23-4131-11e8-8c73-64006a4fef6c', '1', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f;8ec61877-4f4e-11e8-a823-00ff0b0c062f;92a98576-4f4e-11e8-a823-00ff0b0c062f;96ee4baa-4f4e-11e8-a823-00ff0b0c062f;9a7fb69d-4f4e-11e8-a823-00ff0b0c062f;a94347e8-4f4e-11e8-a823-00ff0b0c062f;185093a2-4f51-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-13 02:19:52', NULL, NULL, '1'),
-('6f144b71-6c0f-4d42-8af5-755b05da6f97', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'fe7966f3-a347-4d50-9074-91017d35fd95', '23d244d2-3303-11e8-89f9-64006a4fef6c', 'fddbb2b2-4131-11e8-8c73-64006a4fef6c', '1', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f;8ec61877-4f4e-11e8-a823-00ff0b0c062f;92a98576-4f4e-11e8-a823-00ff0b0c062f;96ee4baa-4f4e-11e8-a823-00ff0b0c062f;9a7fb69d-4f4e-11e8-a823-00ff0b0c062f;a94347e8-4f4e-11e8-a823-00ff0b0c062f;185093a2-4f51-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-13 02:19:52', NULL, NULL, '1'),
-('720a7e1b-9d8f-4668-8ae2-3e37e69e4849', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '15c4caa4-d8ed-45c5-83bf-5f1066691ea9', '6cc208e5-3302-11e8-89f9-64006a4fef6c', 'cc68a49b-414a-11e8-8c73-64006a4fef6c', '1', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f;8ec61877-4f4e-11e8-a823-00ff0b0c062f;92a98576-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-13 02:16:53', NULL, NULL, '1'),
-('7ef62b29-af5a-4aa0-bda3-fb95852e6d83', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'fe7966f3-a347-4d50-9074-91017d35fd95', '23d244d2-3303-11e8-89f9-64006a4fef6c', '4f75a1bf-4132-11e8-8c73-64006a4fef6c', NULL, NULL, 'Super Admin', '2018-05-13 02:19:52', NULL, NULL, '1'),
-('a0a224ba-fb4f-4639-9066-89450c8cf0ac', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '15c4caa4-d8ed-45c5-83bf-5f1066691ea9', '6cc208e5-3302-11e8-89f9-64006a4fef6c', 'f132dea9-414a-11e8-8c73-64006a4fef6c', NULL, NULL, 'Super Admin', '2018-05-13 02:16:53', NULL, NULL, '1'),
-('a46faf1b-1ea5-4ace-a9bb-b8e6cec46859', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'fe7966f3-a347-4d50-9074-91017d35fd95', '23d244d2-3303-11e8-89f9-64006a4fef6c', '16d79db1-4132-11e8-8c73-64006a4fef6c', '1', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f;8ec61877-4f4e-11e8-a823-00ff0b0c062f;92a98576-4f4e-11e8-a823-00ff0b0c062f;96ee4baa-4f4e-11e8-a823-00ff0b0c062f;9a7fb69d-4f4e-11e8-a823-00ff0b0c062f;a94347e8-4f4e-11e8-a823-00ff0b0c062f;185093a2-4f51-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-13 02:19:52', NULL, NULL, '1'),
-('a84624b5-8b72-42bd-bdd6-ebfc33e47b06', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '15c4caa4-d8ed-45c5-83bf-5f1066691ea9', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '9f5b049e-414a-11e8-8c73-64006a4fef6c', '1', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-13 02:16:53', NULL, NULL, '1'),
-('aba4d48b-ea84-4a60-af6a-930d3f76de2a', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '15c4caa4-d8ed-45c5-83bf-5f1066691ea9', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '42f87224-414b-11e8-8c73-64006a4fef6c', NULL, NULL, 'Super Admin', '2018-05-13 02:16:53', NULL, NULL, '1'),
-('baade9b9-e3bc-4d29-89f9-d0a431a8e949', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'fe7966f3-a347-4d50-9074-91017d35fd95', '23d244d2-3303-11e8-89f9-64006a4fef6c', 'f1da9657-4131-11e8-8c73-64006a4fef6c', '1', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f;8ec61877-4f4e-11e8-a823-00ff0b0c062f;92a98576-4f4e-11e8-a823-00ff0b0c062f;96ee4baa-4f4e-11e8-a823-00ff0b0c062f;9a7fb69d-4f4e-11e8-a823-00ff0b0c062f;a94347e8-4f4e-11e8-a823-00ff0b0c062f;185093a2-4f51-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-13 02:19:52', NULL, NULL, '1'),
-('bb89efbc-bad2-493c-9a28-ce6467814984', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '15c4caa4-d8ed-45c5-83bf-5f1066691ea9', '6cc208e5-3302-11e8-89f9-64006a4fef6c', 'ff36483a-4149-11e8-8c73-64006a4fef6c', NULL, NULL, 'Super Admin', '2018-05-13 02:16:53', NULL, NULL, '1'),
-('c560a023-0dee-4c35-b7c7-258931c9abae', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '15c4caa4-d8ed-45c5-83bf-5f1066691ea9', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '15f9ed21-414b-11e8-8c73-64006a4fef6c', NULL, NULL, 'Super Admin', '2018-05-13 02:16:53', NULL, NULL, '1'),
-('ccba0cd0-76df-414f-93bc-2e3220ce0fab', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '15c4caa4-d8ed-45c5-83bf-5f1066691ea9', '6cc208e5-3302-11e8-89f9-64006a4fef6c', 'dfd52a4c-414a-11e8-8c73-64006a4fef6c', '0', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f;8ec61877-4f4e-11e8-a823-00ff0b0c062f;92a98576-4f4e-11e8-a823-00ff0b0c062f;96ee4baa-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-13 02:16:53', NULL, NULL, '1'),
-('d85fa15e-b9f7-4e9c-bc3e-d491b850d899', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'fe7966f3-a347-4d50-9074-91017d35fd95', '23d244d2-3303-11e8-89f9-64006a4fef6c', '09fb96e9-4132-11e8-8c73-64006a4fef6c', '1', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f;8ec61877-4f4e-11e8-a823-00ff0b0c062f;92a98576-4f4e-11e8-a823-00ff0b0c062f;96ee4baa-4f4e-11e8-a823-00ff0b0c062f;9a7fb69d-4f4e-11e8-a823-00ff0b0c062f;a94347e8-4f4e-11e8-a823-00ff0b0c062f;185093a2-4f51-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-13 02:19:52', NULL, NULL, '1'),
-('f8e9e04c-1813-4cbe-ae7f-3de5388da006', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'fe7966f3-a347-4d50-9074-91017d35fd95', '23d244d2-3303-11e8-89f9-64006a4fef6c', '2e011932-4132-11e8-8c73-64006a4fef6c', NULL, NULL, 'Super Admin', '2018-05-13 02:19:52', NULL, NULL, '1');
+INSERT INTO `answer_apl_02` (`UUID_ANS_APL02`, `UUID_USER`, `UUID_APL01`, `UUID_APL02`, `UUID_UK`, `UUID_EK`, `UUID_KUK`, `IS_KOMPETEN`, `UUID_BUKTI`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
+('06a784a4-e5e2-482a-9ddd-a4b46850c395', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', 'fd1fb86c-3e42-11e8-8647-64006a4fef6c', 'ef4d6d59-4149-11e8-8c73-64006a4fef6c', '1', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f;8ec61877-4f4e-11e8-a823-00ff0b0c062f;92a98576-4f4e-11e8-a823-00ff0b0c062f;96ee4baa-4f4e-11e8-a823-00ff0b0c062f;9a7fb69d-4f4e-11e8-a823-00ff0b0c062f;a94347e8-4f4e-11e8-a823-00ff0b0c062f;185093a2-4f51-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
+('214ef2f8-092c-45ab-8ba5-3aa300eff8e0', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '031a4630-3e43-11e8-8647-64006a4fef6c', '9f5b049e-414a-11e8-8c73-64006a4fef6c', '1', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f;8ec61877-4f4e-11e8-a823-00ff0b0c062f;92a98576-4f4e-11e8-a823-00ff0b0c062f;96ee4baa-4f4e-11e8-a823-00ff0b0c062f;9a7fb69d-4f4e-11e8-a823-00ff0b0c062f;a94347e8-4f4e-11e8-a823-00ff0b0c062f;185093a2-4f51-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
+('5d1e889b-8e9e-4e9a-a452-9f9d4c7ae0ed', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', 'fd1fb86c-3e42-11e8-8647-64006a4fef6c', 'ff36483a-4149-11e8-8c73-64006a4fef6c', '1', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f;8ec61877-4f4e-11e8-a823-00ff0b0c062f;92a98576-4f4e-11e8-a823-00ff0b0c062f;96ee4baa-4f4e-11e8-a823-00ff0b0c062f;9a7fb69d-4f4e-11e8-a823-00ff0b0c062f;a94347e8-4f4e-11e8-a823-00ff0b0c062f;185093a2-4f51-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
+('8798fc1d-ac5b-4898-bf98-c014ef3bd064', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '031a4630-3e43-11e8-8647-64006a4fef6c', 'cc68a49b-414a-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
+('a74d6bfb-b93a-4ee6-a018-b5a5ff2d57d0', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '0ae50f22-3e43-11e8-8647-64006a4fef6c', 'f132dea9-414a-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
+('adada0a2-c180-46c4-a736-2f5d99c972b2', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '0ae50f22-3e43-11e8-8647-64006a4fef6c', '42f87224-414b-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
+('b3710b57-1ffd-4986-bd66-3257481cdad0', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '031a4630-3e43-11e8-8647-64006a4fef6c', 'bd371b01-414a-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
+('d1a85eef-728a-491c-a688-88f96ca2b89a', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '0ae50f22-3e43-11e8-8647-64006a4fef6c', 'fd9f04ba-414a-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
+('d302922b-c321-4955-bf87-1110a02d807f', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '0ae50f22-3e43-11e8-8647-64006a4fef6c', '15f9ed21-414b-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
+('d5ec1de7-ffd7-48fa-a2dd-94f68367fe04', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '0ae50f22-3e43-11e8-8647-64006a4fef6c', '32266cdd-414b-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
+('eb815c2c-b8a6-46fd-a013-4a946853f30d', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '0ae50f22-3e43-11e8-8647-64006a4fef6c', '0a320a85-414b-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
+('f0ebbed5-4c32-4f55-bf24-1f248db1e9f6', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '031a4630-3e43-11e8-8647-64006a4fef6c', 'dfd52a4c-414a-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `apl01_bukti`
+-- Table structure for table `apl01_bukti`
 --
 
 CREATE TABLE IF NOT EXISTS `apl01_bukti` (
@@ -136,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `apl01_bukti` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `apl01_bukti`
+-- Dumping data for table `apl01_bukti`
 --
 
 INSERT INTO `apl01_bukti` (`UUID_APL01_BUKTI`, `UUID_APL01`, `UUID_BUKTI`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
@@ -158,7 +150,7 @@ INSERT INTO `apl01_bukti` (`UUID_APL01_BUKTI`, `UUID_APL01`, `UUID_BUKTI`, `USR_
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `apl01_ek`
+-- Table structure for table `apl01_ek`
 --
 
 CREATE TABLE IF NOT EXISTS `apl01_ek` (
@@ -178,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `apl01_ek` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `apl01_uk`
+-- Table structure for table `apl01_uk`
 --
 
 CREATE TABLE IF NOT EXISTS `apl01_uk` (
@@ -196,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `apl01_uk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `apl01_uk`
+-- Dumping data for table `apl01_uk`
 --
 
 INSERT INTO `apl01_uk` (`UUID_APL01_UK`, `UUID_APL01`, `UUID_UK`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
@@ -206,7 +198,7 @@ INSERT INTO `apl01_uk` (`UUID_APL01_UK`, `UUID_APL01`, `UUID_UK`, `USR_CRT`, `DT
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `apl02_kuk`
+-- Table structure for table `apl02_kuk`
 --
 
 CREATE TABLE IF NOT EXISTS `apl02_kuk` (
@@ -233,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `apl02_kuk` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `bukti`
+-- Table structure for table `bukti`
 --
 
 CREATE TABLE IF NOT EXISTS `bukti` (
@@ -252,7 +244,7 @@ CREATE TABLE IF NOT EXISTS `bukti` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `bukti`
+-- Dumping data for table `bukti`
 --
 
 INSERT INTO `bukti` (`UUID_BUKTI`, `UUID_USER`, `ID`, `KETERANGAN`, `URL`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
@@ -270,7 +262,7 @@ INSERT INTO `bukti` (`UUID_BUKTI`, `UUID_USER`, `ID`, `KETERANGAN`, `URL`, `USR_
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `elemen_kompetensi`
+-- Table structure for table `elemen_kompetensi`
 --
 
 CREATE TABLE IF NOT EXISTS `elemen_kompetensi` (
@@ -288,7 +280,7 @@ CREATE TABLE IF NOT EXISTS `elemen_kompetensi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `elemen_kompetensi`
+-- Dumping data for table `elemen_kompetensi`
 --
 
 INSERT INTO `elemen_kompetensi` (`UUID_EK`, `UUID_UK`, `NOMOR_EK`, `NAMA_EK`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
@@ -435,7 +427,7 @@ INSERT INTO `elemen_kompetensi` (`UUID_EK`, `UUID_UK`, `NOMOR_EK`, `NAMA_EK`, `U
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `fr_apl_01`
+-- Table structure for table `fr_apl_01`
 --
 
 CREATE TABLE IF NOT EXISTS `fr_apl_01` (
@@ -479,7 +471,7 @@ CREATE TABLE IF NOT EXISTS `fr_apl_01` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `fr_apl_01`
+-- Dumping data for table `fr_apl_01`
 --
 
 INSERT INTO `fr_apl_01` (`UUID_APL01`, `UUID_ADM`, `UUID_USER`, `NO_DOKUMEN`, `NAMA_LENGKAP`, `TEMPAT_LAHIR`, `TGL_LAHIR`, `JENIS_KELAMIN`, `KEBANGSAAN`, `ALAMAT_RUMAH`, `KODE_POS_RUMAH`, `NO_TLP_RUMAH`, `NO_TLP_HP`, `NO_TLP_KANTOR`, `EMAIL`, `PENDIDIKAN_TERAKHIR`, `NAMA_PERUSAHAAN`, `JABATAN`, `ALAMAT_KANTOR`, `KODE_POS_PERUSAHAAN`, `EMAIL_KANTOR`, `FAX_KANTOR`, `TUJUAN_ASESMEN`, `TUJUAN_ASESMEN_LAINNYA_KETERANGAN`, `JENIS_SKEMA`, `UUID_SKEMA`, `IS_DITERIMA`, `IS_MEMENUHI_SYARAT`, `ALASAN_KURANG_SYARAT`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
@@ -489,7 +481,7 @@ INSERT INTO `fr_apl_01` (`UUID_APL01`, `UUID_ADM`, `UUID_USER`, `NO_DOKUMEN`, `N
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `fr_apl_02`
+-- Table structure for table `fr_apl_02`
 --
 
 CREATE TABLE IF NOT EXISTS `fr_apl_02` (
@@ -514,17 +506,16 @@ CREATE TABLE IF NOT EXISTS `fr_apl_02` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `fr_apl_02`
+-- Dumping data for table `fr_apl_02`
 --
 
 INSERT INTO `fr_apl_02` (`UUID_APL02`, `UUID_APL01`, `NO_DOKUMEN`, `UUID_ADM`, `TUK`, `IS_KOMPETEN`, `ALASAN_BLM_KOMPETEN`, `IS_DILANJUTKAN`, `CATATAN_1`, `CATATAN_2`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
-('15c4caa4-d8ed-45c5-83bf-5f1066691ea9', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'CD633FCAPL02', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Super Admin', '2018-05-13 02:16:53', NULL, NULL, '1'),
-('fe7966f3-a347-4d50-9074-91017d35fd95', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'ADE40DDAPL02', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Super Admin', '2018-05-13 02:19:52', NULL, NULL, '1');
+('e246b59d-a6b0-466d-b108-9d09c57b47a6', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '046FA4DAPL02', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `fr_mak_02`
+-- Table structure for table `fr_mak_02`
 --
 
 CREATE TABLE IF NOT EXISTS `fr_mak_02` (
@@ -547,7 +538,7 @@ CREATE TABLE IF NOT EXISTS `fr_mak_02` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `fr_mak_03`
+-- Table structure for table `fr_mak_03`
 --
 
 CREATE TABLE IF NOT EXISTS `fr_mak_03` (
@@ -565,7 +556,7 @@ CREATE TABLE IF NOT EXISTS `fr_mak_03` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `fr_mma`
+-- Table structure for table `fr_mma`
 --
 
 CREATE TABLE IF NOT EXISTS `fr_mma` (
@@ -629,7 +620,7 @@ CREATE TABLE IF NOT EXISTS `fr_mma` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `group_master`
+-- Table structure for table `group_master`
 --
 
 CREATE TABLE IF NOT EXISTS `group_master` (
@@ -647,7 +638,7 @@ CREATE TABLE IF NOT EXISTS `group_master` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `group_master_menu`
+-- Table structure for table `group_master_menu`
 --
 
 CREATE TABLE IF NOT EXISTS `group_master_menu` (
@@ -669,7 +660,7 @@ CREATE TABLE IF NOT EXISTS `group_master_menu` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kriteria_unjuk_kerja`
+-- Table structure for table `kriteria_unjuk_kerja`
 --
 
 CREATE TABLE IF NOT EXISTS `kriteria_unjuk_kerja` (
@@ -688,7 +679,7 @@ CREATE TABLE IF NOT EXISTS `kriteria_unjuk_kerja` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kriteria_unjuk_kerja`
+-- Dumping data for table `kriteria_unjuk_kerja`
 --
 
 INSERT INTO `kriteria_unjuk_kerja` (`UUID_KUK`, `UUID_EK`, `NOMOR_KUK`, `PERNYATAAN`, `PERTANYAAN`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
@@ -1184,7 +1175,7 @@ INSERT INTO `kriteria_unjuk_kerja` (`UUID_KUK`, `UUID_EK`, `NOMOR_KUK`, `PERNYAT
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `menu`
+-- Table structure for table `menu`
 --
 
 CREATE TABLE IF NOT EXISTS `menu` (
@@ -1203,7 +1194,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `menu`
+-- Dumping data for table `menu`
 --
 
 INSERT INTO `menu` (`UUID_MENU`, `UUID_MENU_PARENT`, `MENU_NAME`, `MENU_LEVEL`, `URL`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
@@ -1221,7 +1212,7 @@ INSERT INTO `menu` (`UUID_MENU`, `UUID_MENU_PARENT`, `MENU_NAME`, `MENU_LEVEL`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mma_kuk`
+-- Table structure for table `mma_kuk`
 --
 
 CREATE TABLE IF NOT EXISTS `mma_kuk` (
@@ -1244,7 +1235,7 @@ CREATE TABLE IF NOT EXISTS `mma_kuk` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `role`
+-- Table structure for table `role`
 --
 
 CREATE TABLE IF NOT EXISTS `role` (
@@ -1259,7 +1250,7 @@ CREATE TABLE IF NOT EXISTS `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `role`
+-- Dumping data for table `role`
 --
 
 INSERT INTO `role` (`UUID_ROLE`, `ROLE_NAME`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
@@ -1274,7 +1265,7 @@ INSERT INTO `role` (`UUID_ROLE`, `ROLE_NAME`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `skema`
+-- Table structure for table `skema`
 --
 
 CREATE TABLE IF NOT EXISTS `skema` (
@@ -1290,7 +1281,7 @@ CREATE TABLE IF NOT EXISTS `skema` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `skema`
+-- Dumping data for table `skema`
 --
 
 INSERT INTO `skema` (`UUID_SKEMA`, `NAMA_SKEMA`, `NOMOR_SKEMA`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
@@ -1304,7 +1295,7 @@ INSERT INTO `skema` (`UUID_SKEMA`, `NAMA_SKEMA`, `NOMOR_SKEMA`, `USR_CRT`, `DTM_
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `skema_uk`
+-- Table structure for table `skema_uk`
 --
 
 CREATE TABLE IF NOT EXISTS `skema_uk` (
@@ -1321,7 +1312,7 @@ CREATE TABLE IF NOT EXISTS `skema_uk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `skema_uk`
+-- Dumping data for table `skema_uk`
 --
 
 INSERT INTO `skema_uk` (`UUID_SKEMA_UK`, `UUID_SKEMA`, `UUID_UK`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
@@ -1394,7 +1385,7 @@ INSERT INTO `skema_uk` (`UUID_SKEMA_UK`, `UUID_SKEMA`, `UUID_UK`, `USR_CRT`, `DT
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `status_administrasi`
+-- Table structure for table `status_administrasi`
 --
 
 CREATE TABLE IF NOT EXISTS `status_administrasi` (
@@ -1413,7 +1404,7 @@ CREATE TABLE IF NOT EXISTS `status_administrasi` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tipe_bukti`
+-- Table structure for table `tipe_bukti`
 --
 
 CREATE TABLE IF NOT EXISTS `tipe_bukti` (
@@ -1431,7 +1422,7 @@ CREATE TABLE IF NOT EXISTS `tipe_bukti` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `unit_kompetensi`
+-- Table structure for table `unit_kompetensi`
 --
 
 CREATE TABLE IF NOT EXISTS `unit_kompetensi` (
@@ -1447,7 +1438,7 @@ CREATE TABLE IF NOT EXISTS `unit_kompetensi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `unit_kompetensi`
+-- Dumping data for table `unit_kompetensi`
 --
 
 INSERT INTO `unit_kompetensi` (`UUID_UK`, `KODE_UK`, `JUDUL_UK`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
@@ -1499,7 +1490,7 @@ INSERT INTO `unit_kompetensi` (`UUID_UK`, `KODE_UK`, `JUDUL_UK`, `USR_CRT`, `DTM
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
@@ -1519,7 +1510,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`UUID_USER`, `LOGIN_ID`, `USER_NAME`, `EMAIL`, `PASSWORD`, `PHONE`, `IS_ONLINE`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
@@ -1528,7 +1519,7 @@ INSERT INTO `user` (`UUID_USER`, `LOGIN_ID`, `USER_NAME`, `EMAIL`, `PASSWORD`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_role`
+-- Table structure for table `user_role`
 --
 
 CREATE TABLE IF NOT EXISTS `user_role` (
@@ -1546,11 +1537,11 @@ CREATE TABLE IF NOT EXISTS `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `administrasi`
+-- Constraints for table `administrasi`
 --
 ALTER TABLE `administrasi`
   ADD CONSTRAINT `UUID_APL01_ADM` FOREIGN KEY (`UUID_APL01`) REFERENCES `fr_apl_01` (`UUID_APL01`),
@@ -1563,9 +1554,10 @@ ALTER TABLE `administrasi`
   ADD CONSTRAINT `UUID_SA_ADM` FOREIGN KEY (`UUID_SA`) REFERENCES `status_administrasi` (`UUID_SA`);
 
 --
--- Ketidakleluasaan untuk tabel `answer_apl_02`
+-- Constraints for table `answer_apl_02`
 --
 ALTER TABLE `answer_apl_02`
+  ADD CONSTRAINT `UUID_EK_ANS_APL_02` FOREIGN KEY (`UUID_EK`) REFERENCES `elemen_kompetensi` (`UUID_EK`),
   ADD CONSTRAINT `UUID_APL01_ANSWER_APL_02` FOREIGN KEY (`UUID_APL01`) REFERENCES `fr_apl_01` (`UUID_APL01`),
   ADD CONSTRAINT `UUID_APL02_ANSWER_APL_02` FOREIGN KEY (`UUID_APL02`) REFERENCES `fr_apl_02` (`UUID_APL02`),
   ADD CONSTRAINT `UUID_KUK_ANSWER_APL_02` FOREIGN KEY (`UUID_KUK`) REFERENCES `kriteria_unjuk_kerja` (`UUID_KUK`),
@@ -1573,28 +1565,28 @@ ALTER TABLE `answer_apl_02`
   ADD CONSTRAINT `UUID_USER_ANSWER_APL_02` FOREIGN KEY (`UUID_USER`) REFERENCES `user` (`UUID_USER`);
 
 --
--- Ketidakleluasaan untuk tabel `apl01_bukti`
+-- Constraints for table `apl01_bukti`
 --
 ALTER TABLE `apl01_bukti`
   ADD CONSTRAINT `UUID_APL01_APL01_BUKTI` FOREIGN KEY (`UUID_APL01`) REFERENCES `fr_apl_01` (`UUID_APL01`),
   ADD CONSTRAINT `UUID_BUKTI_APL01_BUKTI` FOREIGN KEY (`UUID_BUKTI`) REFERENCES `bukti` (`UUID_BUKTI`);
 
 --
--- Ketidakleluasaan untuk tabel `apl01_ek`
+-- Constraints for table `apl01_ek`
 --
 ALTER TABLE `apl01_ek`
   ADD CONSTRAINT `UUID_APL01_APL01_EK` FOREIGN KEY (`UUID_APL01`) REFERENCES `fr_apl_01` (`UUID_APL01`),
   ADD CONSTRAINT `UUID_EK_APL01_EK` FOREIGN KEY (`UUID_EK`) REFERENCES `elemen_kompetensi` (`UUID_EK`);
 
 --
--- Ketidakleluasaan untuk tabel `apl01_uk`
+-- Constraints for table `apl01_uk`
 --
 ALTER TABLE `apl01_uk`
   ADD CONSTRAINT `UUID_APL01_APL01_UK` FOREIGN KEY (`UUID_APL01`) REFERENCES `fr_apl_01` (`UUID_APL01`),
   ADD CONSTRAINT `UUID_UK_APL01_UK` FOREIGN KEY (`UUID_UK`) REFERENCES `unit_kompetensi` (`UUID_UK`);
 
 --
--- Ketidakleluasaan untuk tabel `apl02_kuk`
+-- Constraints for table `apl02_kuk`
 --
 ALTER TABLE `apl02_kuk`
   ADD CONSTRAINT `UUID_APL02_APL02_KUK` FOREIGN KEY (`UUID_APL02`) REFERENCES `fr_apl_02` (`UUID_APL02`),
@@ -1602,51 +1594,51 @@ ALTER TABLE `apl02_kuk`
   ADD CONSTRAINT `UUID_KUK_APL02_KUK` FOREIGN KEY (`UUID_KUK`) REFERENCES `kriteria_unjuk_kerja` (`UUID_KUK`);
 
 --
--- Ketidakleluasaan untuk tabel `bukti`
+-- Constraints for table `bukti`
 --
 ALTER TABLE `bukti`
   ADD CONSTRAINT `UUID_USER_BUKTI` FOREIGN KEY (`UUID_USER`) REFERENCES `user` (`UUID_USER`);
 
 --
--- Ketidakleluasaan untuk tabel `elemen_kompetensi`
+-- Constraints for table `elemen_kompetensi`
 --
 ALTER TABLE `elemen_kompetensi`
   ADD CONSTRAINT `UUID_UK_EK` FOREIGN KEY (`UUID_UK`) REFERENCES `unit_kompetensi` (`UUID_UK`);
 
 --
--- Ketidakleluasaan untuk tabel `fr_apl_01`
+-- Constraints for table `fr_apl_01`
 --
 ALTER TABLE `fr_apl_01`
   ADD CONSTRAINT `UUID_ADM_APL01` FOREIGN KEY (`UUID_ADM`) REFERENCES `administrasi` (`UUID_ADM`),
   ADD CONSTRAINT `UUID_USER_FR_APL_01` FOREIGN KEY (`UUID_USER`) REFERENCES `user` (`UUID_USER`);
 
 --
--- Ketidakleluasaan untuk tabel `fr_apl_02`
+-- Constraints for table `fr_apl_02`
 --
 ALTER TABLE `fr_apl_02`
   ADD CONSTRAINT `UUID_ADM_FR_APL_02` FOREIGN KEY (`UUID_ADM`) REFERENCES `administrasi` (`UUID_ADM`),
   ADD CONSTRAINT `UUID_APL01_FR_APL_02` FOREIGN KEY (`UUID_APL01`) REFERENCES `fr_apl_01` (`UUID_APL01`);
 
 --
--- Ketidakleluasaan untuk tabel `fr_mak_02`
+-- Constraints for table `fr_mak_02`
 --
 ALTER TABLE `fr_mak_02`
   ADD CONSTRAINT `UUID_ADM_MAK02` FOREIGN KEY (`UUID_ADM`) REFERENCES `administrasi` (`UUID_ADM`);
 
 --
--- Ketidakleluasaan untuk tabel `fr_mak_03`
+-- Constraints for table `fr_mak_03`
 --
 ALTER TABLE `fr_mak_03`
   ADD CONSTRAINT `UUID_ADM_MAK03` FOREIGN KEY (`UUID_ADM`) REFERENCES `administrasi` (`UUID_ADM`);
 
 --
--- Ketidakleluasaan untuk tabel `fr_mma`
+-- Constraints for table `fr_mma`
 --
 ALTER TABLE `fr_mma`
   ADD CONSTRAINT `UUID_ADM_MMA` FOREIGN KEY (`UUID_ADM`) REFERENCES `administrasi` (`UUID_ADM`);
 
 --
--- Ketidakleluasaan untuk tabel `group_master_menu`
+-- Constraints for table `group_master_menu`
 --
 ALTER TABLE `group_master_menu`
   ADD CONSTRAINT `UUID_GROUP_GROUP_MASTER_MENU` FOREIGN KEY (`UUID_GROUP`) REFERENCES `group_master` (`UUID_GROUP`),
@@ -1654,33 +1646,33 @@ ALTER TABLE `group_master_menu`
   ADD CONSTRAINT `UUID_USER_ROLE_GROUP_MASTER_MENU` FOREIGN KEY (`UUID_USER_ROLE`) REFERENCES `user_role` (`UUID_USER_ROLE`);
 
 --
--- Ketidakleluasaan untuk tabel `kriteria_unjuk_kerja`
+-- Constraints for table `kriteria_unjuk_kerja`
 --
 ALTER TABLE `kriteria_unjuk_kerja`
   ADD CONSTRAINT `UUID_EK_KUK` FOREIGN KEY (`UUID_EK`) REFERENCES `elemen_kompetensi` (`UUID_EK`);
 
 --
--- Ketidakleluasaan untuk tabel `menu`
+-- Constraints for table `menu`
 --
 ALTER TABLE `menu`
   ADD CONSTRAINT `UUID_MENU_PARENT_MENU` FOREIGN KEY (`UUID_MENU_PARENT`) REFERENCES `menu` (`UUID_MENU`);
 
 --
--- Ketidakleluasaan untuk tabel `mma_kuk`
+-- Constraints for table `mma_kuk`
 --
 ALTER TABLE `mma_kuk`
   ADD CONSTRAINT `UUID_KUK_MMA_KUK` FOREIGN KEY (`UUID_KUK`) REFERENCES `kriteria_unjuk_kerja` (`UUID_KUK`),
   ADD CONSTRAINT `UUID_MMA_MMA_KUK` FOREIGN KEY (`UUID_MMA`) REFERENCES `fr_mma` (`UUID_MMA`);
 
 --
--- Ketidakleluasaan untuk tabel `skema_uk`
+-- Constraints for table `skema_uk`
 --
 ALTER TABLE `skema_uk`
   ADD CONSTRAINT `UUID_SKEMA_SKEMA_UK` FOREIGN KEY (`UUID_SKEMA`) REFERENCES `skema` (`UUID_SKEMA`),
   ADD CONSTRAINT `UUID_UK_SKEMA_UK` FOREIGN KEY (`UUID_UK`) REFERENCES `unit_kompetensi` (`UUID_UK`);
 
 --
--- Ketidakleluasaan untuk tabel `user_role`
+-- Constraints for table `user_role`
 --
 ALTER TABLE `user_role`
   ADD CONSTRAINT `UUID_ROLE_USER_ROLE` FOREIGN KEY (`UUID_ROLE`) REFERENCES `role` (`UUID_ROLE`),
