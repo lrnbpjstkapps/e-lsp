@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2018 at 02:20 PM
+-- Generation Time: May 18, 2018 at 12:16 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -67,8 +67,6 @@ CREATE TABLE IF NOT EXISTS `administrasi` (
 
 CREATE TABLE IF NOT EXISTS `answer_apl_02` (
   `UUID_ANS_APL02` varchar(36) NOT NULL,
-  `UUID_USER` varchar(36) DEFAULT NULL,
-  `UUID_APL01` varchar(36) DEFAULT NULL,
   `UUID_APL02` varchar(36) DEFAULT NULL,
   `UUID_UK` varchar(36) DEFAULT NULL,
   `UUID_EK` varchar(36) DEFAULT NULL,
@@ -81,51 +79,28 @@ CREATE TABLE IF NOT EXISTS `answer_apl_02` (
   `DTM_UPD` varchar(255) DEFAULT NULL,
   `IS_ACTIVE` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`UUID_ANS_APL02`),
-  KEY `UUID_USER_ANSWER_APL_02` (`UUID_USER`),
-  KEY `UUID_APL01_ANSWER_APL_02` (`UUID_APL01`),
   KEY `UUID_APL02_ANSWER_APL_02` (`UUID_APL02`),
   KEY `UUID_UK_ANSWER_APL_02` (`UUID_UK`),
   KEY `UUID_KUK_ANSWER_APL_02` (`UUID_KUK`),
-  KEY `UUID_EK_ANS_APL_02` (`UUID_EK`)
+  KEY `UUID_EK_ANSWER_APL_02` (`UUID_EK`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `answer_apl_02`
 --
 
-INSERT INTO `answer_apl_02` (`UUID_ANS_APL02`, `UUID_USER`, `UUID_APL01`, `UUID_APL02`, `UUID_UK`, `UUID_EK`, `UUID_KUK`, `IS_KOMPETEN`, `UUID_BUKTI`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
-('032c5c8b-a2dd-4af9-94af-8c4905eb9d20', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'a1a6c1fd-c6c8-47a9-9060-1d7cb9c7200e', '23d244d2-3303-11e8-89f9-64006a4fef6c', 'a87e6cef-3e3e-11e8-8647-64006a4fef6c', '6f661d24-4132-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-16 19:09:49', NULL, NULL, '1'),
-('05ad7f7e-b307-4620-8bf8-44ced5a5dbb8', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'a1a6c1fd-c6c8-47a9-9060-1d7cb9c7200e', '23d244d2-3303-11e8-89f9-64006a4fef6c', 'a87e6cef-3e3e-11e8-8647-64006a4fef6c', '63b5fc70-4132-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 19:09:49', NULL, NULL, '1'),
-('061ea3aa-1943-4405-957a-3b0ce274b243', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'adc646d7-2419-4d3f-9594-1841c6c22596', '23d244d2-3303-11e8-89f9-64006a4fef6c', '986d2957-3e3e-11e8-8647-64006a4fef6c', '09fb96e9-4132-11e8-8c73-64006a4fef6c', '1', '96ee4baa-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-16 19:08:24', NULL, NULL, '1'),
-('06a784a4-e5e2-482a-9ddd-a4b46850c395', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', 'fd1fb86c-3e42-11e8-8647-64006a4fef6c', 'ef4d6d59-4149-11e8-8c73-64006a4fef6c', '1', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f;8ec61877-4f4e-11e8-a823-00ff0b0c062f;92a98576-4f4e-11e8-a823-00ff0b0c062f;96ee4baa-4f4e-11e8-a823-00ff0b0c062f;9a7fb69d-4f4e-11e8-a823-00ff0b0c062f;a94347e8-4f4e-11e8-a823-00ff0b0c062f;185093a2-4f51-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
-('204c002d-6686-4036-89e2-ab2f6af6d787', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'a1a6c1fd-c6c8-47a9-9060-1d7cb9c7200e', '23d244d2-3303-11e8-89f9-64006a4fef6c', '986d2957-3e3e-11e8-8647-64006a4fef6c', '09fb96e9-4132-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-16 19:09:49', NULL, NULL, '1'),
-('214ef2f8-092c-45ab-8ba5-3aa300eff8e0', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '031a4630-3e43-11e8-8647-64006a4fef6c', '9f5b049e-414a-11e8-8c73-64006a4fef6c', '1', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f;8ec61877-4f4e-11e8-a823-00ff0b0c062f;92a98576-4f4e-11e8-a823-00ff0b0c062f;96ee4baa-4f4e-11e8-a823-00ff0b0c062f;9a7fb69d-4f4e-11e8-a823-00ff0b0c062f;a94347e8-4f4e-11e8-a823-00ff0b0c062f;185093a2-4f51-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
-('3925d219-6ef8-4e9f-a0fc-78ea6077afbd', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'adc646d7-2419-4d3f-9594-1841c6c22596', '23d244d2-3303-11e8-89f9-64006a4fef6c', '986d2957-3e3e-11e8-8647-64006a4fef6c', 'f1da9657-4131-11e8-8c73-64006a4fef6c', '1', '8ec61877-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-16 19:08:24', NULL, NULL, '1'),
-('3f5cc3e3-4e38-4daf-ab43-0a2be800a6d4', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'a1a6c1fd-c6c8-47a9-9060-1d7cb9c7200e', '23d244d2-3303-11e8-89f9-64006a4fef6c', 'a87e6cef-3e3e-11e8-8647-64006a4fef6c', '4f75a1bf-4132-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-16 19:09:49', NULL, NULL, '1'),
-('455d5c59-8d14-42e8-8d47-4e1f01898152', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'a1a6c1fd-c6c8-47a9-9060-1d7cb9c7200e', '23d244d2-3303-11e8-89f9-64006a4fef6c', '9f0e8454-3e3e-11e8-8647-64006a4fef6c', '22346307-4132-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-16 19:09:49', NULL, NULL, '1'),
-('4a2eb4b9-7e82-4db0-8dbc-aa7284dbb7f7', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'adc646d7-2419-4d3f-9594-1841c6c22596', '23d244d2-3303-11e8-89f9-64006a4fef6c', '986d2957-3e3e-11e8-8647-64006a4fef6c', 'd2da6d23-4131-11e8-8c73-64006a4fef6c', '0', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-16 19:08:24', NULL, NULL, '1'),
-('5d1e889b-8e9e-4e9a-a452-9f9d4c7ae0ed', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', 'fd1fb86c-3e42-11e8-8647-64006a4fef6c', 'ff36483a-4149-11e8-8c73-64006a4fef6c', '1', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f;8ec61877-4f4e-11e8-a823-00ff0b0c062f;92a98576-4f4e-11e8-a823-00ff0b0c062f;96ee4baa-4f4e-11e8-a823-00ff0b0c062f;9a7fb69d-4f4e-11e8-a823-00ff0b0c062f;a94347e8-4f4e-11e8-a823-00ff0b0c062f;185093a2-4f51-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
-('622fd3df-8673-4243-a9c2-bdc9b385613c', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'adc646d7-2419-4d3f-9594-1841c6c22596', '23d244d2-3303-11e8-89f9-64006a4fef6c', 'a87e6cef-3e3e-11e8-8647-64006a4fef6c', '63b5fc70-4132-11e8-8c73-64006a4fef6c', '0', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f;92a98576-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-16 19:08:24', NULL, NULL, '1'),
-('6f9d7a9b-6498-48c0-9c22-fba48f4341ce', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'adc646d7-2419-4d3f-9594-1841c6c22596', '23d244d2-3303-11e8-89f9-64006a4fef6c', '9f0e8454-3e3e-11e8-8647-64006a4fef6c', '22346307-4132-11e8-8c73-64006a4fef6c', '1', 'a94347e8-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-16 19:08:24', NULL, NULL, '1'),
-('76709de5-dedc-4a09-9b4b-7455e5329a60', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'adc646d7-2419-4d3f-9594-1841c6c22596', '23d244d2-3303-11e8-89f9-64006a4fef6c', 'a87e6cef-3e3e-11e8-8647-64006a4fef6c', '4f75a1bf-4132-11e8-8c73-64006a4fef6c', '1', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f;8ec61877-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-16 19:08:24', NULL, NULL, '1'),
-('780c1275-cfac-4096-9f6e-b778aa4b6f6d', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'adc646d7-2419-4d3f-9594-1841c6c22596', '23d244d2-3303-11e8-89f9-64006a4fef6c', '9f0e8454-3e3e-11e8-8647-64006a4fef6c', '2e011932-4132-11e8-8c73-64006a4fef6c', '0', '185093a2-4f51-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-16 19:08:24', NULL, NULL, '1'),
-('8798fc1d-ac5b-4898-bf98-c014ef3bd064', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '031a4630-3e43-11e8-8647-64006a4fef6c', 'cc68a49b-414a-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
-('9cf8f350-765a-47c6-9675-221f1898d65e', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'a1a6c1fd-c6c8-47a9-9060-1d7cb9c7200e', '23d244d2-3303-11e8-89f9-64006a4fef6c', '9f0e8454-3e3e-11e8-8647-64006a4fef6c', '2e011932-4132-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 19:09:49', NULL, NULL, '1'),
-('a74d6bfb-b93a-4ee6-a018-b5a5ff2d57d0', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '0ae50f22-3e43-11e8-8647-64006a4fef6c', 'f132dea9-414a-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
-('adada0a2-c180-46c4-a736-2f5d99c972b2', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '0ae50f22-3e43-11e8-8647-64006a4fef6c', '42f87224-414b-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
-('b1c7297a-c328-4bc6-9ebc-04b84d485db1', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'a1a6c1fd-c6c8-47a9-9060-1d7cb9c7200e', '23d244d2-3303-11e8-89f9-64006a4fef6c', '986d2957-3e3e-11e8-8647-64006a4fef6c', 'd2da6d23-4131-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 19:09:49', NULL, NULL, '1'),
-('b3710b57-1ffd-4986-bd66-3257481cdad0', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '031a4630-3e43-11e8-8647-64006a4fef6c', 'bd371b01-414a-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
-('bbba4813-a30d-4771-9aef-c9d5286d6048', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'adc646d7-2419-4d3f-9594-1841c6c22596', '23d244d2-3303-11e8-89f9-64006a4fef6c', 'a87e6cef-3e3e-11e8-8647-64006a4fef6c', '6f661d24-4132-11e8-8c73-64006a4fef6c', '1', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f;96ee4baa-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-16 19:08:24', NULL, NULL, '1'),
-('c41aa5f2-b655-4dc3-beee-140ba023b301', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'adc646d7-2419-4d3f-9594-1841c6c22596', '23d244d2-3303-11e8-89f9-64006a4fef6c', '9f0e8454-3e3e-11e8-8647-64006a4fef6c', '16d79db1-4132-11e8-8c73-64006a4fef6c', '0', '9a7fb69d-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-16 19:08:24', NULL, NULL, '1'),
-('c4917336-9e2d-447b-8f00-cd3aac9f5606', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'a1a6c1fd-c6c8-47a9-9060-1d7cb9c7200e', '23d244d2-3303-11e8-89f9-64006a4fef6c', '986d2957-3e3e-11e8-8647-64006a4fef6c', 'fddbb2b2-4131-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 19:09:49', NULL, NULL, '1'),
-('d1a85eef-728a-491c-a688-88f96ca2b89a', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '0ae50f22-3e43-11e8-8647-64006a4fef6c', 'fd9f04ba-414a-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
-('d302922b-c321-4955-bf87-1110a02d807f', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '0ae50f22-3e43-11e8-8647-64006a4fef6c', '15f9ed21-414b-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
-('d5ec1de7-ffd7-48fa-a2dd-94f68367fe04', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '0ae50f22-3e43-11e8-8647-64006a4fef6c', '32266cdd-414b-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
-('d60c2161-5a22-4130-81b4-eb91d009266c', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'a1a6c1fd-c6c8-47a9-9060-1d7cb9c7200e', '23d244d2-3303-11e8-89f9-64006a4fef6c', '9f0e8454-3e3e-11e8-8647-64006a4fef6c', '16d79db1-4132-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 19:09:49', NULL, NULL, '1'),
-('dcc61ed7-825f-48ba-8d97-c48a00773a58', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'a1a6c1fd-c6c8-47a9-9060-1d7cb9c7200e', '23d244d2-3303-11e8-89f9-64006a4fef6c', '986d2957-3e3e-11e8-8647-64006a4fef6c', 'f1da9657-4131-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-16 19:09:49', NULL, NULL, '1'),
-('eb815c2c-b8a6-46fd-a013-4a946853f30d', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '0ae50f22-3e43-11e8-8647-64006a4fef6c', '0a320a85-414b-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
-('f0ebbed5-4c32-4f55-bf24-1f248db1e9f6', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'e246b59d-a6b0-466d-b108-9d09c57b47a6', '6cc208e5-3302-11e8-89f9-64006a4fef6c', '031a4630-3e43-11e8-8647-64006a4fef6c', 'dfd52a4c-414a-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1'),
-('f4eceaf8-702e-4825-be4f-b49bf7e433ad', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'adc646d7-2419-4d3f-9594-1841c6c22596', '23d244d2-3303-11e8-89f9-64006a4fef6c', '986d2957-3e3e-11e8-8647-64006a4fef6c', 'fddbb2b2-4131-11e8-8c73-64006a4fef6c', '0', '92a98576-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-16 19:08:24', NULL, NULL, '1');
+INSERT INTO `answer_apl_02` (`UUID_ANS_APL02`, `UUID_APL02`, `UUID_UK`, `UUID_EK`, `UUID_KUK`, `IS_KOMPETEN`, `UUID_BUKTI`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
+('430ef277-a93c-45b6-bf3e-2c3c9d7de9e8', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '20c91d71-3e3f-11e8-8647-64006a4fef6c', 'bb448510-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
+('4a925c55-b397-41c4-af10-d6ea63069a82', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '20c91d71-3e3f-11e8-8647-64006a4fef6c', 'a7954752-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
+('52dc3ad9-772c-45a6-9795-fce5b20d7234', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '19d48a95-3e3f-11e8-8647-64006a4fef6c', '92ddde67-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
+('55c443fb-379c-441a-88ed-cd7ff4f34dad', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '19d48a95-3e3f-11e8-8647-64006a4fef6c', '74762230-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
+('6fccb1db-2fbe-47fa-95a7-0825044aa97f', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '11849299-3e3f-11e8-8647-64006a4fef6c', '41464b25-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
+('7aab450a-fdf5-4eff-9bde-5211226fcdc3', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '20c91d71-3e3f-11e8-8647-64006a4fef6c', 'dd15d5d0-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
+('cacc5909-1086-47cb-a72c-e48dcf72c88e', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '19d48a95-3e3f-11e8-8647-64006a4fef6c', '645b54c3-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
+('ccdcbcda-7a46-46a6-a342-1d2065fc72a8', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '19d48a95-3e3f-11e8-8647-64006a4fef6c', '834d27a8-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
+('d0a68116-9b48-41bb-83ea-87103f3f6d1c', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '11849299-3e3f-11e8-8647-64006a4fef6c', '5051af73-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
+('eff53389-70f6-4a87-91f3-9768852f20f5', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '20c91d71-3e3f-11e8-8647-64006a4fef6c', 'ed05bc24-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
+('fb55cf55-8cac-4beb-82cd-fd6316cd3e79', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '20c91d71-3e3f-11e8-8647-64006a4fef6c', 'ccd7613e-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -152,20 +127,8 @@ CREATE TABLE IF NOT EXISTS `apl01_bukti` (
 --
 
 INSERT INTO `apl01_bukti` (`UUID_APL01_BUKTI`, `UUID_APL01`, `UUID_BUKTI`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
-('e35b9891-54e7-11e8-aad0-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-11 13:52:37', NULL, NULL, '1'),
-('e3633ef4-54e7-11e8-aad0-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '8ec61877-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-11 13:52:37', NULL, NULL, '1'),
-('e363aeed-54e7-11e8-aad0-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '92a98576-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-11 13:52:37', NULL, NULL, '1'),
-('e369affc-54e7-11e8-aad0-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '96ee4baa-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-11 13:52:37', NULL, NULL, '1'),
-('e36e0e95-54e7-11e8-aad0-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '9a7fb69d-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-11 13:52:37', NULL, NULL, '1'),
-('e3758ed3-54e7-11e8-aad0-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'a94347e8-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-11 13:52:37', NULL, NULL, '1'),
-('e37b6c9f-54e7-11e8-aad0-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '185093a2-4f51-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-11 13:52:37', NULL, NULL, '1'),
-('f06d35e7-550d-11e8-aad0-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-11 18:25:01', NULL, NULL, '1'),
-('f06d8643-550d-11e8-aad0-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', '8ec61877-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-11 18:25:01', NULL, NULL, '1'),
-('f071dbf1-550d-11e8-aad0-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', '92a98576-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-11 18:25:01', NULL, NULL, '1'),
-('f0771d11-550d-11e8-aad0-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', '96ee4baa-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-11 18:25:01', NULL, NULL, '1'),
-('f0777f8d-550d-11e8-aad0-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', '9a7fb69d-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-11 18:25:01', NULL, NULL, '1'),
-('f07c35dd-550d-11e8-aad0-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'a94347e8-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-11 18:25:01', NULL, NULL, '1'),
-('f089d54b-550d-11e8-aad0-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', '185093a2-4f51-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-11 18:25:01', NULL, NULL, '1');
+('df32eb8c-5a7a-11e8-afa4-a4c494eed0da', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-18 16:07:21', NULL, NULL, '1'),
+('df3d0371-5a7a-11e8-afa4-a4c494eed0da', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '8ec61877-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-18 16:07:21', NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -212,8 +175,7 @@ CREATE TABLE IF NOT EXISTS `apl01_uk` (
 --
 
 INSERT INTO `apl01_uk` (`UUID_APL01_UK`, `UUID_APL01`, `UUID_UK`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
-('e3548a81-54e7-11e8-aad0-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '6cc208e5-3302-11e8-89f9-64006a4fef6c', 'Super Admin', '2018-05-11 13:52:37', NULL, NULL, '1'),
-('f0600424-550d-11e8-aad0-00ff0b0c062f', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', '23d244d2-3303-11e8-89f9-64006a4fef6c', 'Super Admin', '2018-05-11 18:25:01', NULL, NULL, '1');
+('df238ac9-5a7a-11e8-afa4-a4c494eed0da', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '6cc208e5-3302-11e8-89f9-64006a4fef6c', 'Super Admin', '2018-05-18 16:07:21', NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -269,14 +231,14 @@ CREATE TABLE IF NOT EXISTS `bukti` (
 
 INSERT INTO `bukti` (`UUID_BUKTI`, `UUID_USER`, `ID`, `KETERANGAN`, `URL`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
 ('0c05d5df-4f4e-11e8-a823-00ff0b0c062f', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', NULL, '123456', 'assets/bukti_kelengkapan/LSP_BPJSTK_file_2f3611ce-c7ad-408f-bb77-621ce78dcc34.pdf', 'Super Admin', '2018-05-04 10:48:46', 'Super Admin', '2018-05-04 10:49:02', '0'),
-('185093a2-4f51-11e8-a823-00ff0b0c062f', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', NULL, 'Sertifikat 7', 'assets/bukti_kelengkapan/LSP_BPJSTK_file_635cd90d-4b1b-46a4-bfc0-b7e48f55a63d.pdf', 'Super Admin', '2018-05-04 11:10:35', NULL, NULL, '1'),
+('185093a2-4f51-11e8-a823-00ff0b0c062f', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', NULL, 'Sertifikat 7', 'assets/bukti_kelengkapan/LSP_BPJSTK_file_635cd90d-4b1b-46a4-bfc0-b7e48f55a63d.pdf', 'Super Admin', '2018-05-04 11:10:35', 'Super Admin', '2018-05-17 13:59:53', '1'),
 ('24775143-4f4e-11e8-a823-00ff0b0c062f', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', NULL, 'ket', 'assets/bukti_kelengkapan/LSP_BPJSTK_file_1a5016c1-8014-40e2-b441-2caf8a15f39b.pdf', 'Super Admin', '2018-05-04 10:49:27', 'Super Admin', '2018-05-04 10:52:00', '0'),
 ('620e2d49-4f4d-11e8-a823-00ff0b0c062f', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', NULL, 'Keterangan 123', 'assets/bukti_kelengkapan/LSP_BPJSTK_file_2c91951b-6fe7-439c-8890-dab0f1201141.pdf', 'Super Admin', '2018-05-04 10:44:01', 'Super Admin', '2018-05-04 10:49:08', '0'),
 ('8a871d3a-4f4e-11e8-a823-00ff0b0c062f', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', NULL, 'Sertifikat 1', 'assets/bukti_kelengkapan/LSP_BPJSTK_file_cc028418-23ae-4337-8fb5-36e5240d1ef1.pdf', 'Super Admin', '2018-05-04 10:52:18', NULL, NULL, '1'),
 ('8ec61877-4f4e-11e8-a823-00ff0b0c062f', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', NULL, 'Sertifikat 2', 'assets/bukti_kelengkapan/LSP_BPJSTK_file_3b5a9b3d-e0cd-4959-badd-896fbe6637fb.pdf', 'Super Admin', '2018-05-04 10:52:25', NULL, NULL, '1'),
 ('92a98576-4f4e-11e8-a823-00ff0b0c062f', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', NULL, 'Sertifikat 3', 'assets/bukti_kelengkapan/LSP_BPJSTK_file_cb06a2ba-f8dd-4038-a2da-2eb5c42ff377.pdf', 'Super Admin', '2018-05-04 10:52:32', NULL, NULL, '1'),
 ('96ee4baa-4f4e-11e8-a823-00ff0b0c062f', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', NULL, 'Sertifikat 4', 'assets/bukti_kelengkapan/LSP_BPJSTK_file_9e967cda-26cc-4940-a88c-8703b4f26f6d.pdf', 'Super Admin', '2018-05-04 10:52:39', NULL, NULL, '1'),
-('9a7fb69d-4f4e-11e8-a823-00ff0b0c062f', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', NULL, 'Sertifikat 5', 'assets/bukti_kelengkapan/LSP_BPJSTK_file_20792488-0de2-48f5-ba31-bb00125bb608.pdf', 'Super Admin', '2018-05-04 10:52:45', NULL, NULL, '1'),
+('9a7fb69d-4f4e-11e8-a823-00ff0b0c062f', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', NULL, 'Sertifikat 5', 'assets/bukti_kelengkapan/LSP_BPJSTK_file_20792488-0de2-48f5-ba31-bb00125bb608.pdf', 'Super Admin', '2018-05-04 10:52:45', 'Super Admin', '2018-05-18 09:20:55', '1'),
 ('a94347e8-4f4e-11e8-a823-00ff0b0c062f', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', NULL, 'Sertifikat 6', 'assets/bukti_kelengkapan/LSP_BPJSTK_file_aad97c9e-40bb-4327-b5aa-0e9cdd2f10e7.pdf', 'Super Admin', '2018-05-04 10:53:10', NULL, NULL, '1');
 
 -- --------------------------------------------------------
@@ -495,8 +457,7 @@ CREATE TABLE IF NOT EXISTS `fr_apl_01` (
 --
 
 INSERT INTO `fr_apl_01` (`UUID_APL01`, `UUID_ADM`, `UUID_USER`, `NO_DOKUMEN`, `NAMA_LENGKAP`, `TEMPAT_LAHIR`, `TGL_LAHIR`, `JENIS_KELAMIN`, `KEBANGSAAN`, `ALAMAT_RUMAH`, `KODE_POS_RUMAH`, `NO_TLP_RUMAH`, `NO_TLP_HP`, `NO_TLP_KANTOR`, `EMAIL`, `PENDIDIKAN_TERAKHIR`, `NAMA_PERUSAHAAN`, `JABATAN`, `ALAMAT_KANTOR`, `KODE_POS_PERUSAHAAN`, `EMAIL_KANTOR`, `FAX_KANTOR`, `TUJUAN_ASESMEN`, `TUJUAN_ASESMEN_LAINNYA_KETERANGAN`, `JENIS_SKEMA`, `UUID_SKEMA`, `IS_DITERIMA`, `IS_MEMENUHI_SYARAT`, `ALASAN_KURANG_SYARAT`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
-('65fd4da5-ab14-44eb-9a4c-b0d7644190fa', NULL, 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '3214953APL01', 'Azhar Fadillah', '', '2018-04-01', 'Wanita', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, 'Klaster', '6f555fc3-2b31-11e8-b1df-64006a4fef6c', NULL, NULL, NULL, 'Super Admin', '2018-04-30 10:54:05', 'Super Admin', '2018-05-11 18:25:01', '1'),
-('b12a2a81-469a-11e8-a478-a4c494eed0da', NULL, 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '8B6BK2CAPL01', 'Karid Nurvenus', 'Kota Blitar', '1993-01-24', 'Laki - laki', 'Indonesia', 'Dsn. Manukan RT/RW 3/1 - Ds. Pojok - Kec. Garum - Kab. Blitar - Jawa Timur - Indonesia', '66182', '0342563506', '085790902042', '0215207797', 'karidnur@gmail.com', 'S1', 'BPJS Ketenagakerjaan', 'Penata Utama Teknologi dan Solusi Pembelajaran ', 'Jln. Dadali No. 79 Kota Bogor - Jawa Barat - Indonesia ', '16161', 'care@bpjsketenagakerjaan.go.id', '0215202310', 'Sertifikasi', NULL, 'Klaster', '57797303-31d0-11e8-89f9-64006a4fef6c', NULL, NULL, NULL, 'Super Admin', '2018-04-23 09:04:44', 'Super Admin', '2018-05-11 13:52:37', '1');
+('b12a2a81-469a-11e8-a478-a4c494eed0da', NULL, 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '8B6BK2CAPL01', 'Karid Nurvenus', 'Kota Blitar', '1993-01-24', 'Laki - laki', 'Indonesia', 'Dsn. Manukan RT/RW 3/1 - Ds. Pojok - Kec. Garum - Kab. Blitar - Jawa Timur - Indonesia', '66182', '0342563506', '085790902042', '0215207797', 'karidnur@gmail.com', 'S1', 'BPJS Ketenagakerjaan', 'Penata Utama Teknologi dan Solusi Pembelajaran ', 'Jln. Dadali No. 79 Kota Bogor - Jawa Barat - Indonesia ', '16161', 'care@bpjsketenagakerjaan.go.id', '0215202310', 'Sertifikasi', NULL, 'Klaster', '57797303-31d0-11e8-89f9-64006a4fef6c', NULL, NULL, NULL, 'Super Admin', '2018-04-23 09:04:44', 'Super Admin', '2018-05-18 16:07:20', '1');
 
 -- --------------------------------------------------------
 
@@ -506,9 +467,9 @@ INSERT INTO `fr_apl_01` (`UUID_APL01`, `UUID_ADM`, `UUID_USER`, `NO_DOKUMEN`, `N
 
 CREATE TABLE IF NOT EXISTS `fr_apl_02` (
   `UUID_APL02` varchar(36) NOT NULL,
+  `UUID_ADM` varchar(36) DEFAULT NULL,
   `UUID_APL01` varchar(36) DEFAULT NULL,
   `NO_DOKUMEN` varchar(50) DEFAULT NULL,
-  `UUID_ADM` varchar(36) DEFAULT NULL,
   `TUK` varchar(10) DEFAULT NULL,
   `IS_KOMPETEN` varchar(1) DEFAULT NULL,
   `ALASAN_BLM_KOMPETEN` varchar(80) DEFAULT NULL,
@@ -529,10 +490,8 @@ CREATE TABLE IF NOT EXISTS `fr_apl_02` (
 -- Dumping data for table `fr_apl_02`
 --
 
-INSERT INTO `fr_apl_02` (`UUID_APL02`, `UUID_APL01`, `NO_DOKUMEN`, `UUID_ADM`, `TUK`, `IS_KOMPETEN`, `ALASAN_BLM_KOMPETEN`, `IS_DILANJUTKAN`, `CATATAN_1`, `CATATAN_2`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
-('a1a6c1fd-c6c8-47a9-9060-1d7cb9c7200e', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', 'AD5C722APL02', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Super Admin', '2018-05-16 19:09:49', NULL, NULL, '1'),
-('adc646d7-2419-4d3f-9594-1841c6c22596', '65fd4da5-ab14-44eb-9a4c-b0d7644190fa', '3B494E1APL02', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Super Admin', '2018-05-16 19:08:24', NULL, NULL, '1'),
-('e246b59d-a6b0-466d-b108-9d09c57b47a6', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '046FA4DAPL02', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Super Admin', '2018-05-16 16:25:32', NULL, NULL, '1');
+INSERT INTO `fr_apl_02` (`UUID_APL02`, `UUID_ADM`, `UUID_APL01`, `NO_DOKUMEN`, `TUK`, `IS_KOMPETEN`, `ALASAN_BLM_KOMPETEN`, `IS_DILANJUTKAN`, `CATATAN_1`, `CATATAN_2`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
+('392d1bfc-403e-4b9f-9e3e-7e7a539dabad', NULL, 'b12a2a81-469a-11e8-a478-a4c494eed0da', '59514FAAPL02', NULL, NULL, NULL, NULL, NULL, NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -584,6 +543,8 @@ CREATE TABLE IF NOT EXISTS `fr_mak_03` (
 CREATE TABLE IF NOT EXISTS `fr_mma` (
   `UUID_MMA` varchar(36) NOT NULL,
   `UUID_ADM` varchar(36) DEFAULT NULL,
+  `UUID_APL_01` varchar(36) DEFAULT NULL,
+  `UUID_APL_02` varchar(36) DEFAULT NULL,
   `NAMA_LSP` varchar(50) DEFAULT NULL,
   `TUK` varchar(10) DEFAULT NULL,
   `KONTEKS_ASESMEN` varchar(18) DEFAULT NULL,
@@ -1579,12 +1540,10 @@ ALTER TABLE `administrasi`
 -- Constraints for table `answer_apl_02`
 --
 ALTER TABLE `answer_apl_02`
-  ADD CONSTRAINT `UUID_EK_ANS_APL_02` FOREIGN KEY (`UUID_EK`) REFERENCES `elemen_kompetensi` (`UUID_EK`),
-  ADD CONSTRAINT `UUID_APL01_ANSWER_APL_02` FOREIGN KEY (`UUID_APL01`) REFERENCES `fr_apl_01` (`UUID_APL01`),
   ADD CONSTRAINT `UUID_APL02_ANSWER_APL_02` FOREIGN KEY (`UUID_APL02`) REFERENCES `fr_apl_02` (`UUID_APL02`),
+  ADD CONSTRAINT `UUID_EK_ANSWER_APL_02` FOREIGN KEY (`UUID_EK`) REFERENCES `elemen_kompetensi` (`UUID_EK`),
   ADD CONSTRAINT `UUID_KUK_ANSWER_APL_02` FOREIGN KEY (`UUID_KUK`) REFERENCES `kriteria_unjuk_kerja` (`UUID_KUK`),
-  ADD CONSTRAINT `UUID_UK_ANSWER_APL_02` FOREIGN KEY (`UUID_UK`) REFERENCES `unit_kompetensi` (`UUID_UK`),
-  ADD CONSTRAINT `UUID_USER_ANSWER_APL_02` FOREIGN KEY (`UUID_USER`) REFERENCES `user` (`UUID_USER`);
+  ADD CONSTRAINT `UUID_UK_ANSWER_APL_02` FOREIGN KEY (`UUID_UK`) REFERENCES `unit_kompetensi` (`UUID_UK`);
 
 --
 -- Constraints for table `apl01_bukti`
