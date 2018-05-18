@@ -43,7 +43,7 @@
 					$column .= ")";
 					$values .= ")";
 					$query = "INSERT INTO ".$table." ".$column." VALUES ".$values;
-					
+
 					$this->db->query($query);					
 				}
 			return $this->db->affected_rows();
@@ -116,7 +116,6 @@
 					}
 				}
 				
-			//echo $query;
 			$this->db->query($query);
 			return $this->db->affected_rows();
 		}

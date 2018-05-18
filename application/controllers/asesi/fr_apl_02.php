@@ -110,20 +110,23 @@ class fr_apl_02 extends CI_Controller {
 			$view						= $data['view'];	
 			$data["saveMethod"]			= "add";
 			
-			$listKUK					= $this->m_custom->getADt_FN134_AllJoinedTable($uuidApl01, $uuidSkema);	
-			$data["listKUK"]			= $listKUK;
-			
 			$addtionalParam				= $this->m_param->getADt_FN136('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
 			$listBukti					= $this->m_crud->selectDt("BUKTI",  $addtionalParam);
 			$data["listBukti"]			= $listBukti;
 			$data['saveMethod']			= $saveMethod;
 			
-			if($saveMethod == 'edit')
+			if($saveMethod == 'add')
 				{
-					$listAnswer			= $this->m_custom->getDt_listAnswer($uuidApl02);
+					$listKUK			= $this->m_custom->getADt_FN134_AllJoinedTable($uuidApl01, $uuidSkema);	
+					$data["listKUK"]	= $listKUK;
+				}
+			else
+				{
+					$listKUK			= $this->m_custom->getDt_listAnswer($uuidApl01, $uuidApl02);
+					$data["listKUK"]	= $listKUK;
 					
 					$i = 0;
-					foreach($listAnswer->result() as $row)
+					foreach($listKUK->result() as $row)
 						{
 							$data[$form_name[149].'_'.$i] 	= $row->IS_KOMPETEN;
 							$data[$form_name[136].'_'.$i]	= explode(';', $row->UUID_BUKTI);
@@ -290,20 +293,17 @@ class fr_apl_02 extends CI_Controller {
 			$queryResult1		= 1;
 			$queryResult2		= 1;
 			
-			$listKUK			= $this->m_custom->getADt_FN134_AllJoinedTable($this->input->post($form_name[134]), $this->input->post($form_name[102]));
-			$data['listKUK']	= $listKUK;
+			$listKUK			= $this->m_custom->getDt_listAnswer($this->input->post($form_name[134]), $this->input->post($form_name[146]));
+			$data["listKUK"]	= $listKUK;
 			
 			$data['saveMethod']	= 'edit';
 			$data['UUID_APL02']	= "'".$this->input->post($form_name[146])."'";
 					
-			if($listKUK->num_rows() > 0)
-				{
-					$addtionalParam		= $this->m_param->deleteDt($data, $this->input->post($form_name[146]));
-					$queryResult1		= $this->m_crud->deleteDt("ANSWER_APL_02", $addtionalParam);
-			
-					$paramArr			= $this->m_param->save_fId_181_ANS_APL_02($data);
-					$queryResult2		= $this->m_crud->insertArrDt("ANSWER_APL_02", $paramArr);				
-				}
+			$addtionalParam		= $this->m_param->deleteDt($data, $this->input->post($form_name[146]));
+			$queryResult1		= $this->m_crud->deleteDt("ANSWER_APL_02", $addtionalParam);
+	
+			$paramArr			= $this->m_param->save_fId_181_ANS_APL_02($data);
+			$queryResult2		= $this->m_crud->insertArrDt("ANSWER_APL_02", $paramArr);
 				
 			if($queryResult1 == -1 || $queryResult2 == -1)
 				{

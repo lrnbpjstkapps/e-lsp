@@ -130,6 +130,23 @@
 		}
 		
 	$(document).ready(function() {	
+		<?php 
+			if($listKUK->num_rows()==0)
+				{
+				?>
+					$("#<?php echo $form_id[180]; ?>").attr('onClick','').unbind('click');
+					$('#<?php echo $form_id[180]; ?>').attr('disabled', 'disable');
+				<?php
+				}
+			else
+				{
+				?>
+					$("#<?php echo $form_id[180]; ?>").attr('onClick', 'saveDt();');
+					$('#<?php echo $form_id[180]; ?>').removeAttr('disabled');
+				<?php
+				}
+		?>
+			
 		validator = $("#<?php echo $form_id[181]; ?>").validate({
 			submitHandler: function (form)
 				{

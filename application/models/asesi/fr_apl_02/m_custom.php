@@ -106,16 +106,18 @@
 				return $this->db->get();
 			}
 			
-		function getDt_listAnswer($uuid)
+		function getDt_listAnswer($uuidApl01, $uuidApl02)
 			{
-				$this->db->select('UK.UUID_UK, EK.UUID_EK, KUK.UUID_KUK, IS_KOMPETEN, UUID_BUKTI');
-				$this->db->from('ANSWER_APL_02 AS ANS_APL_02');
-				$this->db->join('UNIT_KOMPETENSI UK', 'ANS_APL_02.UUID_UK = UK.UUID_UK', 'LEFT');
-				$this->db->join('ELEMEN_KOMPETENSI EK', 'ANS_APL_02.UUID_EK = EK.UUID_EK', 'LEFT');
-				$this->db->join('KRITERIA_UNJUK_KERJA KUK', 'ANS_APL_02.UUID_KUK = KUK.UUID_KUK', 'LEFT');
-				$this->db->where('UUID_APL02', $uuid);
-				$this->db->order_by("UK.KODE_UK, EK.NOMOR_EK, KUK.NOMOR_KUK", "ASC");
-				return $this->db->get();
+				$query = 
+					'SELECT UK.UUID_UK, EK.UUID_EK, KUK.UUID_KUK, UK.JUDUL_UK, KUK.PERTANYAAN, ANS_APL_02.IS_KOMPETEN, ANS_APL_02.UUID_BUKTI
+					FROM ANSWER_APL_02 AS ANS_APL_02
+					LEFT JOIN FR_APL_02 AS APL02 ON ANS_APL_02.UUID_APL02 = APL02.UUID_APL02
+					LEFT JOIN UNIT_KOMPETENSI UK ON ANS_APL_02.UUID_UK = UK.UUID_UK
+					LEFT JOIN ELEMEN_KOMPETENSI EK ON ANS_APL_02.UUID_EK = EK.UUID_EK
+					LEFT JOIN KRITERIA_UNJUK_KERJA KUK ON ANS_APL_02.UUID_KUK = KUK.UUID_KUK
+					WHERE ANS_APL_02.UUID_APL02 = \''.$uuidApl02.'\' AND ANS_APL_02.UUID_UK IN (SELECT UUID_UK FROM APL01_UK WHERE UUID_APL01 = \''.$uuidApl01.'\')
+					ORDER BY UK.KODE_UK, EK.NOMOR_EK, KUK.NOMOR_KUK';
+				return $this->db->query($query);
 			}
 	}
 ?>
