@@ -11,6 +11,10 @@
 			validator.resetForm();
 			$('#<?php echo $form_id[168]; ?> .form-control').removeClass('error');
 			
+			$('#<?php echo $form_id[183]; ?>')[0].reset();
+			validator2.resetForm(); 
+			$('#<?php echo $form_id[183]; ?> .form-control').removeClass('error');	
+			
 			$('.modal-title').text('<?php echo $form_title[112]; ?>');
 			$('#<?php echo $form_id[171]; ?>').modal('show');
 		};
@@ -20,7 +24,11 @@
 			save_method = "update";	
 			$('#<?php echo $form_id[168]; ?>')[0].reset();	
 			validator.resetForm(); 
-			$('#<?php echo $form_id[168]; ?> .form-control').removeClass('error');			
+			$('#<?php echo $form_id[168]; ?> .form-control').removeClass('error');		
+			
+			$('#<?php echo $form_id[183]; ?>')[0].reset();
+			validator2.resetForm(); 
+			$('#<?php echo $form_id[183]; ?> .form-control').removeClass('error');			
 			
 			$.ajax({
 				url 		: "<?php echo $ajax_url[141]; ?>" + uuid,
@@ -170,10 +178,6 @@
 									alertify.error('<?php echo $form_label[109]; ?>');
 								}
 							}
-
-							$('#<?php echo $form_id[168]; ?>')[0].reset();	
-							validator.resetForm(); 
-							$('#<?php echo $form_id[168]; ?> .form-control').removeClass('error');	
 						}
 					});
 					return false;
@@ -238,10 +242,6 @@
 									alertify.error('<?php echo $form_label[109]; ?>');
 								}
 							}
-
-							$('#<?php echo $form_id[183]; ?>')[0].reset();	
-							validator2.resetForm(); 
-							$('#<?php echo $form_id[183]; ?> .form-control').removeClass('error');	
 						}
 					});
 					return false;

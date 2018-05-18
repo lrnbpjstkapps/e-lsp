@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class about extends CI_Controller {
 
-	// LSP		
+	// Asesor		
 	public function __construct()
 		{
 			parent::__construct();
@@ -17,9 +17,9 @@ class about extends CI_Controller {
 			$layout					= $data['layout'];
 			$view					= $data['view'];
 			
-			$data["dview"]			= $view[114];
-			$data["dviewEvent"]		= $view[121];
-			$data["dlayoutMenu"]	= $layout[105];
+			$data["dview"]			= $view[135];
+			$data["dviewEvent"]		= $view[136];
+			$data["dlayoutMenu"]	= $layout[106];
 			$this->load->view($layout[100], $data);
 		}
 }

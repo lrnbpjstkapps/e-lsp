@@ -1,7 +1,7 @@
 <div id="<?php echo $form_button[100]; ?>" class = "animate-bottom">
 	<div class="box">
 		<div class="box-header with-border">
-			<a onClick="addDt()" class="btn bg-navy pull-right"> <?php echo $form_button[100]; ?> </a>
+			<a onClick="addDt()" class="btn bg-navy pull-right"> <?php echo $form_button[106]; ?> </a>
 		</div>
 		<div class="box-body pad table-responsive">
 			<dl class="dl-horizontal">

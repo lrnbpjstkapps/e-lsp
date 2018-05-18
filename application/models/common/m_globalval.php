@@ -66,6 +66,9 @@
 				$menu_title[111] 	= "FR-APL-02. Asesmen Mandiri - Tambah";
 				$menu_title[112] 	= "FR-APL-02. Asesmen Mandiri - Edit";
 				$menu_title[113] 	= "FR-APL-02. Asesmen Mandiri - Upload";
+				$menu_title[114] 	= "FR-MMA. Merencanakan dan Mengorganisasikan Asesmen";
+				$menu_title[115] 	= "FR-MMA. Merencanakan dan Mengorganisasikan Asesmen - Tambah";
+				$menu_title[116] 	= "FR-MMA. Merencanakan dan Mengorganisasikan Asesmen - Edit";
 				return $menu_title;
 			}		
 		
@@ -413,6 +416,14 @@
 				$ajax_url[150] 	= base_url()."asesi/fr_apl_02/updateDt";
 				$ajax_url[151] 	= base_url()."asesi/fr_apl_02/deleteDt/";
 				$ajax_url[152] 	= base_url()."asesi/fr_apl_02/getList";
+				$ajax_url[153] 	= base_url()."asesor/fr_mma/pagingList";
+				$ajax_url[154] 	= base_url()."asesor/fr_mma/pagingAdd";
+				$ajax_url[155] 	= base_url()."asesor/fr_mma/pagingEdit";
+				$ajax_url[156] 	= base_url()."asesor/fr_mma/pagingChild";
+				$ajax_url[157] 	= base_url()."asesor/fr_mma/getList";
+				$ajax_url[158] 	= base_url()."asesor/fr_mma/saveDt";
+				$ajax_url[159] 	= base_url()."asesor/fr_mma/updateDt";
+				$ajax_url[160] 	= base_url()."asesor/fr_mma/deleteDt";
 				return $ajax_url;
 			}
 		
@@ -454,6 +465,7 @@
 				$layout[103]	= "common/v_layout_title";
 				$layout[104]	= "common/v_layout_footer";
 				$layout[105]	= "common/v_layout_menu_asesi";
+				$layout[106]	= "common/v_layout_menu_asesor";
 				return $layout;
 			}
 			
@@ -481,7 +493,7 @@
 				$view[118]	= "asesi/v_fr_apl_01_form_event";
 				$view[119]	= "asesi/v_fr_apl_01_paging_event";
 				$view[120]	= "asesi/v_fr_apl_02_form_child";
-				$view[121]	= "";
+				$view[121]	= "asesi/v_about_event";
 				$view[122]	= "asesi/v_bukti_kelengkapan";
 				$view[123]	= "asesi/v_bukti_kelengkapan_event";
 				$view[124]	= "asesi/v_fr_apl_02";
@@ -489,6 +501,14 @@
 				$view[126]	= "asesi/v_fr_apl_02_form";
 				$view[127]	= "asesi/v_fr_apl_02_form_event";
 				$view[128]	= "asesi/v_fr_apl_02_paging_event";
+				$view[129]	= "asesor/v_fr_mma";
+				$view[130]	= "asesor/v_fr_mma_event";
+				$view[131]	= "asesor/v_fr_mma_form";
+				$view[132]	= "asesor/v_fr_mma_form_event";
+				$view[133]	= "asesor/v_fr_mma_form_child";
+				$view[134]	= "asesor/v_fr_mma_paging_event";
+				$view[135]	= "asesor/v_about";
+				$view[136]	= "asesor/v_about_event";
 				return $view;
 			}
 			
