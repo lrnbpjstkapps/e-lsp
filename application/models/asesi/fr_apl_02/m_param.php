@@ -38,7 +38,7 @@
 				return $param;
 			}
 			
-		public function save_fId_181_ANSWE_APL_02($data)
+		public function save_fId_181_ANS_APL_02($data)
 			{
 				$application		= $data['application'];
 				$form_name 			= $data['form_name'];
@@ -97,48 +97,6 @@
 								);
 						}
 				}
-				
-				return $paramArr;
-			}
-			
-		public function saveDt_APL01_UK($data, $uuid)
-			{
-				$application	= $data['application'];
-				$form_name 		= $data['form_name'];
-			
-				for ($i = 0; $i < count($this->input->post($form_name[143])); $i++)
-					{
-						$paramArr[$i] 		= array
-							(
-								"UUID_APL01_UK"	=> "UUID()",
-								"UUID_APL01"	=> "'".$uuid."'",
-								"UUID_UK"		=> "'".$this->input->post($form_name[143])[$i]."'",								
-								"USR_CRT"		=> "'".$application[102]."'",
-								"DTM_CRT"		=> "NOW()",	
-								"IS_ACTIVE"		=> "'1'"						
-							);
-					}
-				
-				return $paramArr;
-			}
-			
-		public function saveDt_APL01_bukti($data, $uuid)
-			{
-				$application	= $data['application'];
-				$form_name 		= $data['form_name'];
-			
-				for ($i = 0; $i < count($this->input->post($form_name[139])); $i++)
-					{
-						$paramArr[$i] 		= array
-							(
-								"UUID_APL01_BUKTI"	=> "UUID()",
-								"UUID_APL01"		=> "'".$uuid."'",
-								"UUID_BUKTI"		=> "'".$this->input->post($form_name[139])[$i]."'",								
-								"USR_CRT"			=> "'".$application[102]."'",
-								"DTM_CRT"			=> "NOW()",	
-								"IS_ACTIVE"			=> "'1'"						
-							);
-					}
 				
 				return $paramArr;
 			}
@@ -371,52 +329,6 @@
 				$condition		= array
 					(
 						"UUID_APL02"	=> "'".$uuid."'"
-					);
-					
-				$optComp 		= array
-					(
-						"="
-					);
-					
-				$returnedData['condition']	= $condition;
-				$returnedData['optComp']	= $optComp;
-				$returnedData['optLogic']	= $optLogic;
-				return $returnedData;
-			}
-
-			public function deleteDt_APL01_UK($data, $uuid)
-			{
-				$returnedData	= array();
-				$condition		= array();
-				$optComp		= array();	
-				$optLogic		= array();	 		
-				
-				$condition		= array
-					(
-						"UUID_APL01"	=> "'".$uuid."'"
-					);
-					
-				$optComp 		= array
-					(
-						"="
-					);
-					
-				$returnedData['condition']	= $condition;
-				$returnedData['optComp']	= $optComp;
-				$returnedData['optLogic']	= $optLogic;
-				return $returnedData;
-			}
-			
-			public function deleteDt_APL01_bukti($data, $uuid)
-			{
-				$returnedData	= array();
-				$condition		= array();
-				$optComp		= array();	
-				$optLogic		= array();	 		
-				
-				$condition		= array
-					(
-						"UUID_APL01"	=> "'".$uuid."'"
 					);
 					
 				$optComp 		= array

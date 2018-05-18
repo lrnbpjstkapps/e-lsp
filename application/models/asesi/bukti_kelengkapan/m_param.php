@@ -92,6 +92,7 @@
 						$row[]	= $no;
 						$row[] 	= $values->KETERANGAN;
 						$row[] 	= '<a href="'.base_url().$values->URL.'" target="_blank"><i class="fa fa-file"></i></a>';
+						$row[] 	= '<a href="javascript:void(0)" onclick="editDt('."'".$values->UUID_BUKTI."'".')"><i class="fa fa-edit"></i></a>';
 						$row[] 	= '<a href="javascript:void(0)" onclick="deleteDt('."'".$values->UUID_BUKTI."'".')"><i class="fa fa-trash"></i></a>';
 						$data[]	= $row;
 					}
@@ -112,7 +113,6 @@
 			{
 				$application	= $data['application'];
 				$form_name 		= $data['form_name'];
-				$filename		= $data['filename'];
 				$returnedData	= array();				
 				$condition		= array();	
 				$optComp		= array();			
@@ -121,7 +121,6 @@
 				$param 			= array
 					(
 						"KETERANGAN"	=> "'".$this->input->post($form_name[138])."'",
-						"URL"			=> "'/assets/bukti_kelengkapan/".$filename.".pdf'",
 						"USR_UPD"		=> "'".$application[102]."'",
 						"DTM_UPD"		=> "NOW()"						
 					);			

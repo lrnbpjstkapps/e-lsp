@@ -305,6 +305,8 @@
 				$form_id[180]		= "fr_apl_02_saveButton";
 				$form_id[181]		= "fr_apl_02_form";
 				$form_id[182]		= "fr_apl_02_tabel";
+				$form_id[183]		= "bukti_kelengkapan_form_edit";
+				$form_id[184]		= "bukti_kelengkapan_modal_edit";
 				return $form_id;
 			}	
 

@@ -1,6 +1,6 @@
 <script text="text/javascript">
 	var table;
-	var validator;
+	var validator, validator2;
 	var save_method;
 	var url;
 	
@@ -29,7 +29,6 @@
 				success		: function(data)
 					{						
 						$('[name="<?php echo $form_name[136]; ?>"]').val(data.UUID_BUKTI);
-						$('[name="<?php echo $form_name[137]; ?>"]').val('http://localhost/e-lsp/assets/bukti_kelengkapan/LSP_BPJSTK_file_a8f0a5be-6b9a-468c-9f8d-0db1d7e7c978.pdf');
 						$('[name="<?php echo $form_name[138]; ?>"]').val(data.KETERANGAN);	
 					},
 				error		: function (jqXHR, textStatus, errorThrown)
@@ -39,7 +38,7 @@
 			});
 			
 			$('.modal-title').text('<?php echo $form_title[113]; ?>');
-			$('#<?php echo $form_id[171]; ?>').modal('show'); 
+			$('#<?php echo $form_id[184]; ?>').modal('show'); 
 		}
 		
 	function saveDt()
@@ -53,9 +52,9 @@
 			} else {				
 				url = "<?php echo $ajax_url[139]; ?>";
 				
-				if ($("#<?php echo $form_id[168]; ?>").valid()) {
+				if ($("#<?php echo $form_id[183]; ?>").valid()) {
 					alertify.confirm('<?php echo $form_label[103]; ?>', function(){
-						$("#<?php echo $form_id[168]; ?>").submit();						
+						$("#<?php echo $form_id[183]; ?>").submit();						
 					}).setting({
 						'labels'	: {
 							ok		: '<?php echo $form_button[102]; ?>',
@@ -180,6 +179,74 @@
 					return false;
 				}
 		});
+		
+		validator2 = $("#<?php echo $form_id[183]; ?>").validate({
+			rules: 
+				{
+					<?php echo $form_name[138]; ?>: 
+						{
+							required	: true,
+							maxlength	: 75,
+							remote 		: 
+								{ 
+									url		: "<?php echo $isvalid_url[104]; ?>", 
+									type	:"post",
+									data	: 
+										{
+											<?php echo $form_name[136]; ?>: 
+												function() {
+													return $("#<?php echo $form_id[173]; ?>").val();
+												}
+										}
+								}
+						}
+				}, 
+			messages:
+				{
+					<?php echo $form_name[137]; ?> : 
+						{ 
+							extension : "<?php echo $validationMsg[104]; ?>" 
+						},
+					<?php echo $form_name[138]; ?> : 
+						{ 
+							remote : "<?php echo $validationMsg[105]; ?>" 
+						}
+				},
+			submitHandler: function (form)
+				{
+					$.ajax({
+						url			: url,
+						type		: 'POST',
+						data		: new FormData($("#<?php echo $form_id[183]; ?>")[0]),
+						cache		: false,
+						contentType	: false,
+						processData	: false,
+						success		: function(data){
+							$("[data-dismiss=modal]").trigger({ type: "click" });
+							reloadDt();		
+							
+							if(save_method == "add"){
+								if(data=="1"){		
+									alertify.success('<?php echo $form_label[105]; ?>');
+								}else{
+									alertify.error('<?php echo $form_label[108]; ?>');
+								}	
+							}else{
+								if(data=="1"){		
+									alertify.success('<?php echo $form_label[106]; ?>');
+								}else{
+									alertify.error('<?php echo $form_label[109]; ?>');
+								}
+							}
+
+							$('#<?php echo $form_id[183]; ?>')[0].reset();	
+							validator2.resetForm(); 
+							$('#<?php echo $form_id[183]; ?> .form-control').removeClass('error');	
+						}
+					});
+					return false;
+				}
+		});
 			
 		table = $('#<?php echo $form_id[172]; ?>').DataTable({ 		
 			"processing"		: true, 
@@ -196,7 +263,7 @@
 			"columnDefs"		: 
 				[
 					{ 
-						"targets"	: [ 0, 1, 2, 3 ], 
+						"targets"	: [ 0, 1, 2, 3, 4 ], 
 						"orderable"	: false
 					}
 				],

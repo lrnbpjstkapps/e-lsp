@@ -45,7 +45,7 @@ class fr_apl_02 extends CI_Controller {
 			$data[$form_name[103]] 	= "";
 			$data[$form_name[109]] 	= "";
 			
-			$listApl01				= $this->m_custom->getDt_FN134('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
+			$listApl01				= $this->m_custom->getDt_FN134_add('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
 			$data["listApl01"]		= $listApl01;
 		
 			$addtionalParam			= $this->m_param->getADt_FN136('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
@@ -82,10 +82,9 @@ class fr_apl_02 extends CI_Controller {
 			$view					= $data['view'];
 			$data["saveMethod"]		= "edit";
 					
-			$listApl01				= $this->m_custom->getDt_FN134('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
+			$listApl01				= $this->m_custom->getDt_FN134_edit('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
 			$data["listApl01"]		= $listApl01;
 			
-			//uuidApl01
 			$param 					= $this->m_param->getADt($uuid);
 			$uuidApl01				= $this->m_crud->selectDt('FR_APL_02', $param)->row()->UUID_APL01;
 			
@@ -134,6 +133,7 @@ class fr_apl_02 extends CI_Controller {
 			
 			$data[$form_name[134]]		= $uuidApl01;
 			$data[$form_name[102]]		= $uuidSkema;
+			$data[$form_name[146]]		= $uuidApl02;
 			
 			$this->load->view($view[120], $data);
 		}
@@ -146,7 +146,6 @@ class fr_apl_02 extends CI_Controller {
 			$queryResult1			= 1;
 			$queryResult2			= 1;
 			
-			//input to APL_02
 			$param					= $this->m_param->save_fId_181_APL_02($data);
 			$queryResult1			= $this->m_crud->insertDt('FR_APL_02', $param);
 			
@@ -155,29 +154,22 @@ class fr_apl_02 extends CI_Controller {
 					$listKUK				= $this->m_custom->getADt_FN134_AllJoinedTable($this->input->post($form_name[134]), $this->input->post($form_name[102]));
 					$data['listKUK']		= $listKUK;
 					
-					//input to ANSWER_APL_02
-					$data['UUID_APL02']		= $param['UUID_APL02'];
-					$param					= $this->m_param->save_fId_181_ANSWE_APL_02($data);
-					$queryResult2			= $this->m_crud->insertArrDt('ANSWER_APL_02', $param);
+					if($listKUK->num_rows() > 0)
+						{
+							$data['UUID_APL02']		= $param['UUID_APL02'];
+							$param					= $this->m_param->save_fId_181_ANS_APL_02($data);
+							$queryResult2			= $this->m_crud->insertArrDt('ANSWER_APL_02', $param);
+						} 
 				}
 				
-			if($queryResult1 == 1 || $queryResult2 == 1)
-				{
-					echo 1;
-				}
-			else
+			if($queryResult1 == -1 || $queryResult2 == -1)
 				{
 					echo -1;
 				}
-		}
-		
-	public function saveFile()
-		{
-			$data	= $this->m_globalval->getAllData();		
-			
-			//$param	= $this->m_param->saveDt($data);
-			//echo $this->m_crud->insertDt("FR_APL_01", $param);
-			echo "1";
+			else
+				{
+					echo 1;
+				}
 		}
 		
 	// READ	
@@ -293,41 +285,34 @@ class fr_apl_02 extends CI_Controller {
 	// UPDATE		
 	public function updateDt()
 		{
-			$data			= $this->m_globalval->getAllData();		
-			$form_name		= $data["form_name"];
+			$data				= $this->m_globalval->getAllData();		
+			$form_name			= $data["form_name"];
+			$queryResult1		= 1;
+			$queryResult2		= 1;
 			
-			if(count($this->input->post($form_name[143]))>0)
+			$listKUK			= $this->m_custom->getADt_FN134_AllJoinedTable($this->input->post($form_name[134]), $this->input->post($form_name[102]));
+			$data['listKUK']	= $listKUK;
+			
+			$data['saveMethod']	= 'edit';
+			$data['UUID_APL02']	= "'".$this->input->post($form_name[146])."'";
+					
+			if($listKUK->num_rows() > 0)
 				{
-					$addtionalParam	= $this->m_param->deleteDt_APL01_UK($data, $this->input->post($form_name[134]));
-					$queryResult2	= $this->m_crud->deleteDt("APL01_UK", $addtionalParam);
+					$addtionalParam		= $this->m_param->deleteDt($data, $this->input->post($form_name[146]));
+					$queryResult1		= $this->m_crud->deleteDt("ANSWER_APL_02", $addtionalParam);
 			
-					$paramArr		= $this->m_param->saveDt_APL01_UK($data, $this->input->post($form_name[134]));
-					$queryResult3	= $this->m_crud->insertArrDt("APL01_UK", $paramArr);
+					$paramArr			= $this->m_param->save_fId_181_ANS_APL_02($data);
+					$queryResult2		= $this->m_crud->insertArrDt("ANSWER_APL_02", $paramArr);				
 				}
-			
-			echo '1';
-		}
-		
-	public function updateFile()
-		{
-			$data			= $this->m_globalval->getAllData();		
-			$form_name		= $data["form_name"];
-			
-			/*$addtionalParam	= $this->m_param->updateDt($data);
-			$queryResult1	= $this->m_crud->updateDt("FR_APL_01", $addtionalParam);
-			
-			if(count($this->input->post($form_name[143]))>0)
+				
+			if($queryResult1 == -1 || $queryResult2 == -1)
 				{
-					$addtionalParam	= $this->m_param->deleteDt_APL01_UK($data, $this->input->post($form_name[134]));
-					$queryResult2	= $this->m_crud->deleteDt("APL01_UK", $addtionalParam);
-			
-					$paramArr		= $this->m_param->saveDt_APL01_UK($data, $this->input->post($form_name[134]));
-					echo $this->m_crud->insertArrDt("APL01_UK", $paramArr);
+					echo -1;
 				}
-			else
+			else	
 				{
-					echo $queryResult1;
-				}*/
+					echo 1;
+				}
 		}
 	
 	// DELETE

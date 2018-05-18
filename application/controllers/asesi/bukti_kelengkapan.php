@@ -58,7 +58,6 @@ class bukti_kelengkapan extends CI_Controller {
 		{
 			$data				= $this->m_globalval->getAllData();		
 			
-			$data['filename']	= $this->m_param->uploadDt($data);
 			$addtionalParam		= $this->m_param->updateDt($data);
 			echo $this->m_crud->updateDt("BUKTI", $addtionalParam);
 		}

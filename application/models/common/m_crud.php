@@ -139,6 +139,7 @@
 					}
 				}
 			$this->db->query($query);
+			
 			return $this->db->affected_rows();
 		}
 	}
