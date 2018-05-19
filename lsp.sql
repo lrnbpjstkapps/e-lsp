@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2018 at 12:16 PM
+-- Generation Time: May 19, 2018 at 12:09 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -67,6 +67,8 @@ CREATE TABLE IF NOT EXISTS `administrasi` (
 
 CREATE TABLE IF NOT EXISTS `answer_apl_02` (
   `UUID_ANS_APL02` varchar(36) NOT NULL,
+  `UUID_USER` varchar(36) DEFAULT NULL,
+  `UUID_APL01` varchar(36) DEFAULT NULL,
   `UUID_APL02` varchar(36) DEFAULT NULL,
   `UUID_UK` varchar(36) DEFAULT NULL,
   `UUID_EK` varchar(36) DEFAULT NULL,
@@ -82,25 +84,26 @@ CREATE TABLE IF NOT EXISTS `answer_apl_02` (
   KEY `UUID_APL02_ANSWER_APL_02` (`UUID_APL02`),
   KEY `UUID_UK_ANSWER_APL_02` (`UUID_UK`),
   KEY `UUID_KUK_ANSWER_APL_02` (`UUID_KUK`),
-  KEY `UUID_EK_ANSWER_APL_02` (`UUID_EK`)
+  KEY `UUID_EK_ANSWER_APL_02` (`UUID_EK`),
+  KEY `UUID_APL01_ANSWER_APL_02` (`UUID_APL01`),
+  KEY `UUID_USER_ANSWER_APL_02` (`UUID_USER`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `answer_apl_02`
 --
 
-INSERT INTO `answer_apl_02` (`UUID_ANS_APL02`, `UUID_APL02`, `UUID_UK`, `UUID_EK`, `UUID_KUK`, `IS_KOMPETEN`, `UUID_BUKTI`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
-('430ef277-a93c-45b6-bf3e-2c3c9d7de9e8', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '20c91d71-3e3f-11e8-8647-64006a4fef6c', 'bb448510-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
-('4a925c55-b397-41c4-af10-d6ea63069a82', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '20c91d71-3e3f-11e8-8647-64006a4fef6c', 'a7954752-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
-('52dc3ad9-772c-45a6-9795-fce5b20d7234', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '19d48a95-3e3f-11e8-8647-64006a4fef6c', '92ddde67-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
-('55c443fb-379c-441a-88ed-cd7ff4f34dad', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '19d48a95-3e3f-11e8-8647-64006a4fef6c', '74762230-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
-('6fccb1db-2fbe-47fa-95a7-0825044aa97f', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '11849299-3e3f-11e8-8647-64006a4fef6c', '41464b25-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
-('7aab450a-fdf5-4eff-9bde-5211226fcdc3', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '20c91d71-3e3f-11e8-8647-64006a4fef6c', 'dd15d5d0-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
-('cacc5909-1086-47cb-a72c-e48dcf72c88e', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '19d48a95-3e3f-11e8-8647-64006a4fef6c', '645b54c3-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
-('ccdcbcda-7a46-46a6-a342-1d2065fc72a8', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '19d48a95-3e3f-11e8-8647-64006a4fef6c', '834d27a8-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
-('d0a68116-9b48-41bb-83ea-87103f3f6d1c', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '11849299-3e3f-11e8-8647-64006a4fef6c', '5051af73-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
-('eff53389-70f6-4a87-91f3-9768852f20f5', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '20c91d71-3e3f-11e8-8647-64006a4fef6c', 'ed05bc24-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1'),
-('fb55cf55-8cac-4beb-82cd-fd6316cd3e79', '392d1bfc-403e-4b9f-9e3e-7e7a539dabad', 'd9e75bdb-3301-11e8-89f9-64006a4fef6c', '20c91d71-3e3f-11e8-8647-64006a4fef6c', 'ccd7613e-41f3-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1');
+INSERT INTO `answer_apl_02` (`UUID_ANS_APL02`, `UUID_USER`, `UUID_APL01`, `UUID_APL02`, `UUID_UK`, `UUID_EK`, `UUID_KUK`, `IS_KOMPETEN`, `UUID_BUKTI`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
+('085ff1ae-5085-47ba-b00a-e48e14564205', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'd06d6cbf-da7c-41cf-a985-d2037213ae78', 'ee8978e1-3301-11e8-89f9-64006a4fef6c', '34dc4853-3e3f-11e8-8647-64006a4fef6c', '76735072-41f4-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-19 16:05:32', NULL, NULL, '1'),
+('2e1700b7-d66b-4867-abf3-ae778c899c22', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'd06d6cbf-da7c-41cf-a985-d2037213ae78', 'ee8978e1-3301-11e8-89f9-64006a4fef6c', '2cd13cba-3e3f-11e8-8647-64006a4fef6c', '4fb20c80-41f4-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-19 16:05:31', NULL, NULL, '1'),
+('3a7824ef-3f10-4c4c-ac9f-c85897f2ab8b', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'd06d6cbf-da7c-41cf-a985-d2037213ae78', 'ee8978e1-3301-11e8-89f9-64006a4fef6c', '3ae0498f-3e3f-11e8-8647-64006a4fef6c', '9e86b89f-41f4-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-19 16:05:32', NULL, NULL, '1'),
+('48bb53e4-895f-434f-9679-851c1e1634be', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'd06d6cbf-da7c-41cf-a985-d2037213ae78', 'ee8978e1-3301-11e8-89f9-64006a4fef6c', '3ae0498f-3e3f-11e8-8647-64006a4fef6c', 'be2fbd92-41f4-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-19 16:05:32', NULL, NULL, '1'),
+('4d948b80-7cc7-4f84-a0ea-4f79f1d2bba2', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'd06d6cbf-da7c-41cf-a985-d2037213ae78', 'ee8978e1-3301-11e8-89f9-64006a4fef6c', '34dc4853-3e3f-11e8-8647-64006a4fef6c', '8a594a09-41f4-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-19 16:05:32', NULL, NULL, '1'),
+('58f1268a-e802-4871-b198-30ac56a17cd4', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'd06d6cbf-da7c-41cf-a985-d2037213ae78', 'ee8978e1-3301-11e8-89f9-64006a4fef6c', '2cd13cba-3e3f-11e8-8647-64006a4fef6c', '0a4d7f16-41f4-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-19 16:05:31', NULL, NULL, '1'),
+('622ff610-9c66-4fb5-ae25-0dadadb8d1cc', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'd06d6cbf-da7c-41cf-a985-d2037213ae78', 'ee8978e1-3301-11e8-89f9-64006a4fef6c', '2cd13cba-3e3f-11e8-8647-64006a4fef6c', '38993d58-41f4-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-19 16:05:31', NULL, NULL, '1'),
+('b63ff649-ccc4-4726-bc9c-61e017efa6b5', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'd06d6cbf-da7c-41cf-a985-d2037213ae78', 'ee8978e1-3301-11e8-89f9-64006a4fef6c', '2cd13cba-3e3f-11e8-8647-64006a4fef6c', '61affdc4-41f4-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-19 16:05:31', NULL, NULL, '1'),
+('e1a58417-b27d-47cd-9811-27ea932c2391', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'd06d6cbf-da7c-41cf-a985-d2037213ae78', 'ee8978e1-3301-11e8-89f9-64006a4fef6c', '2cd13cba-3e3f-11e8-8647-64006a4fef6c', '1ec24420-41f4-11e8-8c73-64006a4fef6c', '1', NULL, 'Super Admin', '2018-05-19 16:05:31', NULL, NULL, '1'),
+('eff1cfe1-024a-410b-bdf4-d83509542e03', 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'd06d6cbf-da7c-41cf-a985-d2037213ae78', 'ee8978e1-3301-11e8-89f9-64006a4fef6c', '3ae0498f-3e3f-11e8-8647-64006a4fef6c', 'ad83c49d-41f4-11e8-8c73-64006a4fef6c', '0', NULL, 'Super Admin', '2018-05-19 16:05:32', NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -127,8 +130,15 @@ CREATE TABLE IF NOT EXISTS `apl01_bukti` (
 --
 
 INSERT INTO `apl01_bukti` (`UUID_APL01_BUKTI`, `UUID_APL01`, `UUID_BUKTI`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
-('df32eb8c-5a7a-11e8-afa4-a4c494eed0da', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-18 16:07:21', NULL, NULL, '1'),
-('df3d0371-5a7a-11e8-afa4-a4c494eed0da', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '8ec61877-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-18 16:07:21', NULL, NULL, '1');
+('0372b7c9-5b34-11e8-a5e5-a4c494eed0da', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-19 14:12:38', NULL, NULL, '1'),
+('037798a0-5b34-11e8-a5e5-a4c494eed0da', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '8ec61877-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-19 14:12:38', NULL, NULL, '1'),
+('de99ee24-5b43-11e8-a5e5-a4c494eed0da', '58ddf08f-fc20-490d-b617-274fca9e140f', '8a871d3a-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-19 16:06:09', NULL, NULL, '1'),
+('dea3a49f-5b43-11e8-a5e5-a4c494eed0da', '58ddf08f-fc20-490d-b617-274fca9e140f', '8ec61877-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-19 16:06:09', NULL, NULL, '1'),
+('deced0aa-5b43-11e8-a5e5-a4c494eed0da', '58ddf08f-fc20-490d-b617-274fca9e140f', '92a98576-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-19 16:06:09', NULL, NULL, '1'),
+('def752b8-5b43-11e8-a5e5-a4c494eed0da', '58ddf08f-fc20-490d-b617-274fca9e140f', '96ee4baa-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-19 16:06:09', NULL, NULL, '1'),
+('df1fefbb-5b43-11e8-a5e5-a4c494eed0da', '58ddf08f-fc20-490d-b617-274fca9e140f', '9a7fb69d-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-19 16:06:09', NULL, NULL, '1'),
+('df2e2eb8-5b43-11e8-a5e5-a4c494eed0da', '58ddf08f-fc20-490d-b617-274fca9e140f', 'a94347e8-4f4e-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-19 16:06:10', NULL, NULL, '1'),
+('df333948-5b43-11e8-a5e5-a4c494eed0da', '58ddf08f-fc20-490d-b617-274fca9e140f', '185093a2-4f51-11e8-a823-00ff0b0c062f', 'Super Admin', '2018-05-19 16:06:10', NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -175,7 +185,8 @@ CREATE TABLE IF NOT EXISTS `apl01_uk` (
 --
 
 INSERT INTO `apl01_uk` (`UUID_APL01_UK`, `UUID_APL01`, `UUID_UK`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
-('df238ac9-5a7a-11e8-afa4-a4c494eed0da', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '6cc208e5-3302-11e8-89f9-64006a4fef6c', 'Super Admin', '2018-05-18 16:07:21', NULL, NULL, '1');
+('036732cc-5b34-11e8-a5e5-a4c494eed0da', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'ee8978e1-3301-11e8-89f9-64006a4fef6c', 'Super Admin', '2018-05-19 14:12:38', NULL, NULL, '1'),
+('de350864-5b43-11e8-a5e5-a4c494eed0da', '58ddf08f-fc20-490d-b617-274fca9e140f', '873735d1-3303-11e8-89f9-64006a4fef6c', 'Super Admin', '2018-05-19 16:06:08', NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -457,7 +468,8 @@ CREATE TABLE IF NOT EXISTS `fr_apl_01` (
 --
 
 INSERT INTO `fr_apl_01` (`UUID_APL01`, `UUID_ADM`, `UUID_USER`, `NO_DOKUMEN`, `NAMA_LENGKAP`, `TEMPAT_LAHIR`, `TGL_LAHIR`, `JENIS_KELAMIN`, `KEBANGSAAN`, `ALAMAT_RUMAH`, `KODE_POS_RUMAH`, `NO_TLP_RUMAH`, `NO_TLP_HP`, `NO_TLP_KANTOR`, `EMAIL`, `PENDIDIKAN_TERAKHIR`, `NAMA_PERUSAHAAN`, `JABATAN`, `ALAMAT_KANTOR`, `KODE_POS_PERUSAHAAN`, `EMAIL_KANTOR`, `FAX_KANTOR`, `TUJUAN_ASESMEN`, `TUJUAN_ASESMEN_LAINNYA_KETERANGAN`, `JENIS_SKEMA`, `UUID_SKEMA`, `IS_DITERIMA`, `IS_MEMENUHI_SYARAT`, `ALASAN_KURANG_SYARAT`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
-('b12a2a81-469a-11e8-a478-a4c494eed0da', NULL, 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '8B6BK2CAPL01', 'Karid Nurvenus', 'Kota Blitar', '1993-01-24', 'Laki - laki', 'Indonesia', 'Dsn. Manukan RT/RW 3/1 - Ds. Pojok - Kec. Garum - Kab. Blitar - Jawa Timur - Indonesia', '66182', '0342563506', '085790902042', '0215207797', 'karidnur@gmail.com', 'S1', 'BPJS Ketenagakerjaan', 'Penata Utama Teknologi dan Solusi Pembelajaran ', 'Jln. Dadali No. 79 Kota Bogor - Jawa Barat - Indonesia ', '16161', 'care@bpjsketenagakerjaan.go.id', '0215202310', 'Sertifikasi', NULL, 'Klaster', '57797303-31d0-11e8-89f9-64006a4fef6c', NULL, NULL, NULL, 'Super Admin', '2018-04-23 09:04:44', 'Super Admin', '2018-05-18 16:07:20', '1');
+('58ddf08f-fc20-490d-b617-274fca9e140f', NULL, 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '67DA7EEAPL01', 'Azhar Fadillah', '', '0000-00-00', 'Laki - laki', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, 'Klaster', '6f555fc3-2b31-11e8-b1df-64006a4fef6c', NULL, NULL, NULL, 'Super Admin', '2018-05-19 14:52:25', 'Super Admin', '2018-05-19 16:06:08', '1'),
+('b12a2a81-469a-11e8-a478-a4c494eed0da', NULL, 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', '8B6BK2CAPL01', 'Karid Nurvenus', 'Kota Blitar', '1993-01-24', 'Laki - laki', 'Indonesia', 'Dsn. Manukan RT/RW 3/1 - Ds. Pojok - Kec. Garum - Kab. Blitar - Jawa Timur - Indonesia', '66182', '0342563506', '085790902042', '0215207797', 'karidnur@gmail.com', 'S1', 'BPJS Ketenagakerjaan', 'Penata Utama Teknologi dan Solusi Pembelajaran ', 'Jln. Dadali No. 79 Kota Bogor - Jawa Barat - Indonesia ', '16161', 'care@bpjsketenagakerjaan.go.id', '0215202310', 'Sertifikasi', NULL, 'Klaster', '57797303-31d0-11e8-89f9-64006a4fef6c', NULL, NULL, NULL, 'Super Admin', '2018-04-23 09:04:44', 'Super Admin', '2018-05-19 14:12:38', '1');
 
 -- --------------------------------------------------------
 
@@ -468,6 +480,7 @@ INSERT INTO `fr_apl_01` (`UUID_APL01`, `UUID_ADM`, `UUID_USER`, `NO_DOKUMEN`, `N
 CREATE TABLE IF NOT EXISTS `fr_apl_02` (
   `UUID_APL02` varchar(36) NOT NULL,
   `UUID_ADM` varchar(36) DEFAULT NULL,
+  `UUID_USER` varchar(36) DEFAULT NULL,
   `UUID_APL01` varchar(36) DEFAULT NULL,
   `NO_DOKUMEN` varchar(50) DEFAULT NULL,
   `TUK` varchar(10) DEFAULT NULL,
@@ -483,15 +496,16 @@ CREATE TABLE IF NOT EXISTS `fr_apl_02` (
   `IS_ACTIVE` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`UUID_APL02`),
   KEY `UUID_APL01_FR_APL_02` (`UUID_APL01`),
-  KEY `UUID_ADM_FR_APL_02` (`UUID_ADM`) USING BTREE
+  KEY `UUID_ADM_FR_APL_02` (`UUID_ADM`) USING BTREE,
+  KEY `UUID_USER_APL_02` (`UUID_USER`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `fr_apl_02`
 --
 
-INSERT INTO `fr_apl_02` (`UUID_APL02`, `UUID_ADM`, `UUID_APL01`, `NO_DOKUMEN`, `TUK`, `IS_KOMPETEN`, `ALASAN_BLM_KOMPETEN`, `IS_DILANJUTKAN`, `CATATAN_1`, `CATATAN_2`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
-('392d1bfc-403e-4b9f-9e3e-7e7a539dabad', NULL, 'b12a2a81-469a-11e8-a478-a4c494eed0da', '59514FAAPL02', NULL, NULL, NULL, NULL, NULL, NULL, 'Super Admin', '2018-05-18 16:06:26', NULL, NULL, '1');
+INSERT INTO `fr_apl_02` (`UUID_APL02`, `UUID_ADM`, `UUID_USER`, `UUID_APL01`, `NO_DOKUMEN`, `TUK`, `IS_KOMPETEN`, `ALASAN_BLM_KOMPETEN`, `IS_DILANJUTKAN`, `CATATAN_1`, `CATATAN_2`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
+('d06d6cbf-da7c-41cf-a985-d2037213ae78', NULL, 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', '94D1248APL02', NULL, NULL, NULL, NULL, NULL, NULL, 'Super Admin', '2018-05-19 16:05:31', NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -543,8 +557,10 @@ CREATE TABLE IF NOT EXISTS `fr_mak_03` (
 CREATE TABLE IF NOT EXISTS `fr_mma` (
   `UUID_MMA` varchar(36) NOT NULL,
   `UUID_ADM` varchar(36) DEFAULT NULL,
+  `UUID_USER` varchar(36) DEFAULT NULL,
   `UUID_APL_01` varchar(36) DEFAULT NULL,
   `UUID_APL_02` varchar(36) DEFAULT NULL,
+  `NO_DOKUMEN` varchar(50) DEFAULT NULL,
   `NAMA_LSP` varchar(50) DEFAULT NULL,
   `TUK` varchar(10) DEFAULT NULL,
   `KONTEKS_ASESMEN` varchar(18) DEFAULT NULL,
@@ -597,8 +613,16 @@ CREATE TABLE IF NOT EXISTS `fr_mma` (
   `DTM_UPD` datetime DEFAULT NULL,
   `IS_ACTIVE` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`UUID_MMA`),
-  KEY `UUID_ADM_MMA` (`UUID_ADM`)
+  KEY `UUID_ADM_MMA` (`UUID_ADM`),
+  KEY `UUID_USER_FR_MMA` (`UUID_USER`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `fr_mma`
+--
+
+INSERT INTO `fr_mma` (`UUID_MMA`, `UUID_ADM`, `UUID_USER`, `UUID_APL_01`, `UUID_APL_02`, `NO_DOKUMEN`, `NAMA_LSP`, `TUK`, `KONTEKS_ASESMEN`, `PENDEKATAN_ASESMEN`, `STRATEGI_ASESMEN`, `ACUAN_PEMBANDING`, `KET_ACUAN_PEMBANDING`, `BATASAN_VARIABEL`, `PANDUAN_ASESMEN`, `TGL_ASESMEN`, `CLO_DURASI`, `CLO_START`, `CLO_END`, `CLP_DURASI`, `CLP_START`, `CLP_END`, `DPL_DURASI`, `DPL_START`, `DPL_END`, `DPT_DURASI`, `DPT_START`, `DPT_END`, `PW_DURASI`, `PW_START`, `PW_END`, `VPK_DURASI`, `VPK_START`, `VPK_END`, `SK_DURASI`, `SK_START`, `SK_END`, `LAIN_DURASI`, `LAIN_START`, `LAIN_END`, `KARAKTERISTIK_PESERTA`, `PENYESUAIAN_KEBUTUHAN`, `3.3_1`, `3.3_2`, `3.3_3`, `3.3_4`, `3.4`, `3.4_CATATAN`, `3.5`, `3.6`, `PENGATURAN_DKGN_SPESIALIS`, `STRATEGI_KOMUNIKASI`, `USR_CRT`, `DTM_CRT`, `USR_UPD`, `DTM_UPD`, `IS_ACTIVE`) VALUES
+('c3784ee2-5b44-11e8-a5e5-a4c494eed0da', NULL, 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f', 'b12a2a81-469a-11e8-a478-a4c494eed0da', 'd06d6cbf-da7c-41cf-a985-d2037213ae78', '39D1275MMA00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1540,6 +1564,8 @@ ALTER TABLE `administrasi`
 -- Constraints for table `answer_apl_02`
 --
 ALTER TABLE `answer_apl_02`
+  ADD CONSTRAINT `UUID_USER_ANSWER_APL_02` FOREIGN KEY (`UUID_USER`) REFERENCES `user` (`UUID_USER`),
+  ADD CONSTRAINT `UUID_APL01_ANSWER_APL_02` FOREIGN KEY (`UUID_APL01`) REFERENCES `fr_apl_01` (`UUID_APL01`),
   ADD CONSTRAINT `UUID_APL02_ANSWER_APL_02` FOREIGN KEY (`UUID_APL02`) REFERENCES `fr_apl_02` (`UUID_APL02`),
   ADD CONSTRAINT `UUID_EK_ANSWER_APL_02` FOREIGN KEY (`UUID_EK`) REFERENCES `elemen_kompetensi` (`UUID_EK`),
   ADD CONSTRAINT `UUID_KUK_ANSWER_APL_02` FOREIGN KEY (`UUID_KUK`) REFERENCES `kriteria_unjuk_kerja` (`UUID_KUK`),
@@ -1597,6 +1623,7 @@ ALTER TABLE `fr_apl_01`
 -- Constraints for table `fr_apl_02`
 --
 ALTER TABLE `fr_apl_02`
+  ADD CONSTRAINT `UUID_USER_APL_02` FOREIGN KEY (`UUID_USER`) REFERENCES `user` (`UUID_USER`),
   ADD CONSTRAINT `UUID_ADM_FR_APL_02` FOREIGN KEY (`UUID_ADM`) REFERENCES `administrasi` (`UUID_ADM`),
   ADD CONSTRAINT `UUID_APL01_FR_APL_02` FOREIGN KEY (`UUID_APL01`) REFERENCES `fr_apl_01` (`UUID_APL01`);
 
@@ -1616,6 +1643,7 @@ ALTER TABLE `fr_mak_03`
 -- Constraints for table `fr_mma`
 --
 ALTER TABLE `fr_mma`
+  ADD CONSTRAINT `UUID_USER_FR_MMA` FOREIGN KEY (`UUID_USER`) REFERENCES `user` (`UUID_USER`),
   ADD CONSTRAINT `UUID_ADM_MMA` FOREIGN KEY (`UUID_ADM`) REFERENCES `administrasi` (`UUID_ADM`);
 
 --
