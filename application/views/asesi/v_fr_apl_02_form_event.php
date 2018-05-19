@@ -7,7 +7,7 @@
 		{			
 			var select_id 	= document.getElementById('<?php echo $form_id[178]; ?>');
 			var param 		= select_id.options[select_id.selectedIndex].value;
-			
+
 			if(param != "")
 				{
 					$.ajax({

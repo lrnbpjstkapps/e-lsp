@@ -66,7 +66,7 @@
 							$paramArr[$i]	= array
 								(
 									"UUID_ANS_APL02"		=> "'".$this->uuid->v4()."'",
-									"UUID_USER"				=> "'d8c702c5-4e7f-11e8-bf00-00ff0b0c062f'",							
+									"UUID_USER"				=> "'d8c702c5-4e7f-11e8-bf00-00ff0b0c062f'",
 									"UUID_APL01"			=> "'".$this->input->post($form_name[134])."'",
 									"UUID_APL02"			=> $uuidApl02,
 									"UUID_UK"				=> "'".$this->input->post($form_name[105].'_'.$i)."'",
@@ -84,7 +84,7 @@
 							$paramArr[$i]	= array
 								(
 									"UUID_ANS_APL02"		=> "'".$this->uuid->v4()."'",
-									"UUID_USER"				=> "'d8c702c5-4e7f-11e8-bf00-00ff0b0c062f'",							
+									"UUID_USER"				=> "'d8c702c5-4e7f-11e8-bf00-00ff0b0c062f'",
 									"UUID_APL01"			=> "'".$this->input->post($form_name[134])."'",
 									"UUID_APL02"			=> $uuidApl02,
 									"UUID_UK"				=> "'".$this->input->post($form_name[105].'_'.$i)."'",
@@ -165,7 +165,7 @@
 				return $returnedData;
 			}
 			
-		public function getADt_FN136($uuid)
+		public function getDt_FN136($uuid)
 			{
 				$returnedData			= array();
 				$optComp				= array();	
@@ -243,8 +243,10 @@
 						$no++;
 						$row	= array();
 						$row[]	= $no;
-						$row[] 	= $values->NO_DOKUMEN02;
+						$row[] 	= $values->NO_DOKUMEN00;
+						$row[] 	= $values->USER_NAME;
 						$row[] 	= $values->NO_DOKUMEN01;
+						$row[] 	= $values->NO_DOKUMEN02;
 						$row[] 	= $values->NAMA_SKEMA;
 						$row[] 	= date('d M y - H:i', strtotime($values->DTM_CRT));
 						$row[] 	= '<a href="javascript:void(0)" onclick="editDt('."'".$values->UUID_APL02."'".')"><i class="fa fa-edit"></i></a>';

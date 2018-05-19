@@ -30,6 +30,7 @@
 						"UUID_APL01"			=> "'".$this->uuid->v4()."'",
 						"NO_DOKUMEN"			=> "'".$this->uniqidReal(7)."APL01'",
 						//"UUID_ADM"				=> "'".$this->input->post($form_name[100])."'",
+						"UUID_USER"				=> "'d8c702c5-4e7f-11e8-bf00-00ff0b0c062f'",
 						"NAMA_LENGKAP"			=> "'".$this->input->post($form_name[115])."'",
 						"TEMPAT_LAHIR"			=> "'".$this->input->post($form_name[116])."'",
 						"TGL_LAHIR"				=> "'".$this->input->post($form_name[117])."'",

@@ -52,13 +52,13 @@
 			"order"				: [], 
 			"ajax"				: 
 				{
-					"url"		: "<?php echo $ajax_url[152]; ?>",
+					"url"		: "<?php echo $ajax_url[157]; ?>",
 					"type"		: "POST"
 				},
 			"columnDefs"		: 
 				[
 					{ 
-						"targets"	: [ 0, 1, 2, 3, 4, 5, 6 ], 
+						"targets"	: [ 0, 1, 2, 3, 4, 5, 6, 7 ], 
 						"orderable"	: false
 					}
 				],

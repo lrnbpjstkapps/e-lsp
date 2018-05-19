@@ -4,97 +4,99 @@
 	<input type = "hidden" name = "<?php echo $form_name[146]; ?>" value = "<?php echo $$form_name[146]; ?>">
 	
 	<div class = "table-responsive">
-		<table class = "table table-hover" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-					<th rowspan="2"> <?php echo $table_column[100]; ?> </th>
-					<!--th rowspan="2"> <?php echo $table_column[105]; ?> </th-->
-					<th rowspan="2"> <?php echo $table_column[104]; ?> </th>
-					<!--th rowspan="2"> <?php echo $table_column[116]; ?> </th-->
-					<th rowspan="2"> <?php echo $table_column[117]; ?> </th>
-					<th colspan = "2"> <?php echo $table_column[118]; ?> </th>
-					<th rowspan="2" style="width: 15%"> <?php echo $table_column[121]; ?> </th>
-					<th class="sorting_disabled" align = "center" rowspan="2"> <?php echo $table_column[101]; ?> </th>
-					<th class="sorting_disabled" align = "center" rowspan="2"> <?php echo $table_column[101]; ?> </th>
-				</tr>
-				<tr>							
-					<th> <?php echo $table_column[119]; ?> </th>
-					<th> <?php echo $table_column[120]; ?> </th>
-				</tr>
-			</thead>		
-			<tbody>
-				<?php 
-					$i = 0;		
-					foreach($listKUK->result() as $row){ ?>
-						<input type = "hidden" name = "<?php echo $form_name[105].'_'.$i; ?>" value = "<?php echo $row->UUID_UK; ?>">
-						<input type = "hidden" name = "<?php echo $form_name[113].'_'.$i; ?>" value = "<?php echo $row->UUID_KUK; ?>">
-						<input type = "hidden" name = "<?php echo $form_name[109].'_'.$i; ?>" value = "<?php echo $row->UUID_EK; ?>">
-						<tr>
-							<td>
-								<?php echo ($i+1); ?>
-							</td>
-							<!--td>
-								<?php echo $row->KODE_UK; ?>
-							</td-->
-							<td>
-								<?php echo $row->JUDUL_UK; ?>
-							</td>
-							<!--td>
-								<?php echo $row->NOMOR_KUK; ?>
-							</td-->
-							<td>
-								<?php echo $row->PERTANYAAN; ?>
-							</td>
-							<?php if($saveMethod == "add"){ ?>
+		<?php if($listKUK->num_rows() > 0){ ?>
+			<table class = "table table-hover" cellspacing="0" width="100%">
+				<thead>
+					<tr>
+						<th rowspan="2"> <?php echo $table_column[100]; ?> </th>
+						<!--th rowspan="2"> <?php echo $table_column[105]; ?> </th-->
+						<th rowspan="2"> <?php echo $table_column[104]; ?> </th>
+						<!--th rowspan="2"> <?php echo $table_column[116]; ?> </th-->
+						<th rowspan="2"> <?php echo $table_column[117]; ?> </th>
+						<th colspan = "2"> <?php echo $table_column[118]; ?> </th>
+						<th rowspan="2" style="width: 15%"> <?php echo $table_column[121]; ?> </th>
+						<th class="sorting_disabled" align = "center" rowspan="2"> <?php echo $table_column[101]; ?> </th>
+						<th class="sorting_disabled" align = "center" rowspan="2"> <?php echo $table_column[101]; ?> </th>
+					</tr>
+					<tr>							
+						<th> <?php echo $table_column[119]; ?> </th>
+						<th> <?php echo $table_column[120]; ?> </th>
+					</tr>
+				</thead>		
+				<tbody>
+					<?php 
+						$i = 0;		
+						foreach($listKUK->result() as $row){ ?>
+							<input type = "hidden" name = "<?php echo $form_name[105].'_'.$i; ?>" value = "<?php echo $row->UUID_UK; ?>">
+							<input type = "hidden" name = "<?php echo $form_name[113].'_'.$i; ?>" value = "<?php echo $row->UUID_KUK; ?>">
+							<input type = "hidden" name = "<?php echo $form_name[109].'_'.$i; ?>" value = "<?php echo $row->UUID_EK; ?>">
+							<tr>
 								<td>
-									<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "1">
+									<?php echo ($i+1); ?>
 								</td>
+								<!--td>
+									<?php echo $row->KODE_UK; ?>
+								</td-->
 								<td>
-									<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "0"> 
+									<?php echo $row->JUDUL_UK; ?>
 								</td>
-								<td>								
-									<select multiple="multiple" name="<?php echo $form_name[136].'_'.$i.'[]'; ?>" id="<?php echo $form_id[173]; ?>">															
-										<?php foreach($listBukti->result() as $row){ ?>
-											<option value = "<?php echo $row->UUID_BUKTI; ?>"><?php echo $row->KETERANGAN; ?></option>
-										<?php } ?>
-									</select>								
+								<!--td>
+									<?php echo $row->NOMOR_KUK; ?>
+								</td-->
+								<td>
+									<?php echo $row->PERTANYAAN; ?>
 								</td>
-							<?php }else{ ?>
-								<?php if(${$form_name[149].'_'.$i} == '1'){ ?>
-									<td>
-										<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "1" checked>
-									</td>
-									<td>
-										<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "0"> 
-									</td>
-								<?php } else { ?>
+								<?php if($saveMethod == "add"){ ?>
 									<td>
 										<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "1">
 									</td>
 									<td>
-										<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "0" checked> 
+										<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "0"> 
 									</td>
-								<?php } ?>
-								<td>								
-									<select multiple="multiple" name="<?php echo $form_name[136].'_'.$i.'[]'; ?>" id="<?php echo $form_id[173]; ?>">															
-										<?php foreach($listBukti->result() as $row){ ?>
-											<?php if(in_array($row->UUID_BUKTI, ${$form_name[136].'_'.$i})){ ?>
-												<option value = "<?php echo $row->UUID_BUKTI; ?>" selected><?php echo $row->KETERANGAN; ?></option>
-											<?php }else{ ?>
+									<td>								
+										<select multiple="multiple" name="<?php echo $form_name[136].'_'.$i.'[]'; ?>" id="<?php echo $form_id[173]; ?>">															
+											<?php foreach($listBukti->result() as $row){ ?>
 												<option value = "<?php echo $row->UUID_BUKTI; ?>"><?php echo $row->KETERANGAN; ?></option>
 											<?php } ?>
-										<?php } ?>
-									</select>								
-								</td>
-							<?php } ?>
-							
-						</tr>					
-				<?php 
-						$i++; 
-					} 
-				?>
-			</tbody>
-		</table>
+										</select>								
+									</td>
+								<?php }else{ ?>
+									<?php if(${$form_name[149].'_'.$i} == '1'){ ?>
+										<td>
+											<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "1" checked>
+										</td>
+										<td>
+											<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "0"> 
+										</td>
+									<?php } else { ?>
+										<td>
+											<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "1">
+										</td>
+										<td>
+											<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "0" checked> 
+										</td>
+									<?php } ?>
+									<td>								
+										<select multiple="multiple" name="<?php echo $form_name[136].'_'.$i.'[]'; ?>" id="<?php echo $form_id[173]; ?>">															
+											<?php foreach($listBukti->result() as $row){ ?>
+												<?php if(in_array($row->UUID_BUKTI, ${$form_name[136].'_'.$i})){ ?>
+													<option value = "<?php echo $row->UUID_BUKTI; ?>" selected><?php echo $row->KETERANGAN; ?></option>
+												<?php }else{ ?>
+													<option value = "<?php echo $row->UUID_BUKTI; ?>"><?php echo $row->KETERANGAN; ?></option>
+												<?php } ?>
+											<?php } ?>
+										</select>								
+									</td>
+								<?php } ?>
+								
+							</tr>					
+					<?php 
+							$i++; 
+						} 
+					?>
+				</tbody>
+			</table>
+		<?php } ?>
 	</div>
 </form>
 

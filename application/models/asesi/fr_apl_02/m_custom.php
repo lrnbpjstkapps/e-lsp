@@ -119,5 +119,16 @@
 					ORDER BY UK.KODE_UK, EK.NOMOR_EK, KUK.NOMOR_KUK';
 				return $this->db->query($query);
 			}
+			
+		function getDt_listBukti($uuidApl01)
+			{
+				$query = 
+					'SELECT 01_BUK.UUID_APL01, 01_BUK.UUID_BUKTI, BUK.KETERANGAN
+					FROM APL01_BUKTI AS 01_BUK 
+					LEFT JOIN BUKTI AS BUK ON 01_BUK.UUID_BUKTI = BUK.UUID_BUKTI
+					WHERE 01_BUK.UUID_APL01 = \''.$uuidApl01.'\'
+					ORDER BY BUK.KETERANGAN';
+				return $this->db->query($query);
+			}
 	}
 ?>

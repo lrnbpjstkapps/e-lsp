@@ -453,6 +453,8 @@
 				$table_column[120]	= "BK";
 				$table_column[121]	= "Bukti - bukti Pendukung";
 				$table_column[122]	= "FR-APL-01";
+				$table_column[123]	= "FR-APL-02";
+				$table_column[124]	= "Calon Asesi";
 				return $table_column;
 			}		
 		

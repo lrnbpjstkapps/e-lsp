@@ -10,7 +10,9 @@
 			<tr>
 				<th> <?php echo $table_column[100]; ?> </th>
 				<th> <?php echo $table_column[112]; ?> </th>
+				<th> <?php echo $table_column[124]; ?> </th>
 				<th> <?php echo $table_column[122]; ?> </th>
+				<th> <?php echo $table_column[123]; ?> </th>
 				<th> <?php echo $table_column[106]; ?> </th>
 				<th> <?php echo $table_column[113]; ?> </th>
 				<th class="sorting_disabled" align = "center"> <?php echo $table_column[101]; ?> </th>

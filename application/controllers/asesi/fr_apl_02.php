@@ -48,7 +48,7 @@ class fr_apl_02 extends CI_Controller {
 			$listApl01				= $this->m_custom->getDt_FN134_add('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
 			$data["listApl01"]		= $listApl01;
 		
-			$addtionalParam			= $this->m_param->getADt_FN136('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
+			$addtionalParam			= $this->m_param->getDt_FN136('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
 			$listBukti				= $this->m_crud->selectDt("BUKTI",  $addtionalParam);
 			$data["listBukti"]		= $listBukti;
 			
@@ -110,8 +110,7 @@ class fr_apl_02 extends CI_Controller {
 			$view						= $data['view'];	
 			$data["saveMethod"]			= "add";
 			
-			$addtionalParam				= $this->m_param->getADt_FN136('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
-			$listBukti					= $this->m_crud->selectDt("BUKTI",  $addtionalParam);
+			$listBukti					= $this->m_custom->getDt_listBukti($uuidApl01);
 			$data["listBukti"]			= $listBukti;
 			$data['saveMethod']			= $saveMethod;
 			

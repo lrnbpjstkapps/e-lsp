@@ -1,7 +1,7 @@
 <?php
 	class m_list_fr_mma extends CI_Model{
-		var $table = "FR_APL_02 AS APL02";
-		var $order1 = array('APL02.DTM_CRT' => 'desc'); 
+		var $table = "FR_MMA AS MMA";
+		var $order1 = array('MMA.DTM_CRT' => 'desc'); 
 		
 		var $column_order = 
 			array(
@@ -14,14 +14,16 @@
 			
 		var $column_search = 
 			array(
-				'ID_DOKUMEN'
+				'NO_DOKUMEN'
 			);
 			
 		public function _get_datatables_query(){
-			$this->db->select('APL02.UUID_APL02, APL02.NO_DOKUMEN AS NO_DOKUMEN02, APL01.NO_DOKUMEN AS NO_DOKUMEN01, SKE.NAMA_SKEMA, APL02.DTM_CRT');
+			$this->db->select('MMA.UUID_MMA, MMA.NO_DOKUMEN AS NO_DOKUMEN00, APL01.NO_DOKUMEN AS NO_DOKUMEN01, APL02.NO_DOKUMEN AS NO_DOKUMEN02, SKE.NAMA_SKEMA, USE.USER_NAME ,MMA.DTM_CRT');
 			$this->db->from($this->table);
-			$this->db->join("FR_APL_01 AS APL01", "APL01.UUID_APL01 = APL02.UUID_APL01", "LEFT");
+			$this->db->join("FR_APL_01 AS APL01", "MMA.UUID_APL01 = APL01.UUID_APL01", "LEFT");
+			$this->db->join("FR_APL_02 AS APL02", "MMA.UUID_APL02 = APL02.UUID_APL02", "LEFT");
 			$this->db->join("SKEMA AS SKE", "APL01.UUID_SKEMA = SKE.UUID_SKEMA", "LEFT");
+			$this->db->join("USER AS USE", "MMA.UUID_USER = USE.UUID_USER", "LEFT");
 			
 			$i = 0;
 			foreach ($this->column_search as $item){
@@ -41,7 +43,7 @@
 				$i++;
 			}
 			
-			$this->db->where('APL02.IS_ACTIVE', '1');
+			$this->db->where('MMA.IS_ACTIVE', '1');
 			
 			if(isset($_POST['order'])){
 				$this->db->order_by($this->column_order[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
@@ -71,7 +73,8 @@
 			$this->db->from($this->table);
 			$this->db->join("FR_APL_01 AS APL01", "APL01.UUID_APL01 = APL02.UUID_APL01", "LEFT");
 			$this->db->join("SKEMA AS SKE", "APL01.UUID_SKEMA = SKE.UUID_SKEMA", "LEFT");
-			$this->db->where('APL02.IS_ACTIVE', '1');
+			$this->db->join("USER AS USE", "MMA.UUID_USER = USE.UUID_USER", "LEFT");
+			$this->db->where('MMA.IS_ACTIVE', '1');
 			
 			return $this->db->count_all_results();
 		}

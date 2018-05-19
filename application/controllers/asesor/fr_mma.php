@@ -263,9 +263,9 @@ class fr_mma extends CI_Controller {
 		
 	public function getList()
 		{				
-			$result				= $this->m_list_apl02->get_datatables();
-			$recordsTotal		= $this->m_list_apl02->count_all();
-			$recordsFiltered	= $this->m_list_apl02->count_filtered();
+			$result				= $this->m_list_mma->get_datatables();
+			$recordsTotal		= $this->m_list_mma->count_all();
+			$recordsFiltered	= $this->m_list_mma->count_filtered();
 
 			$output				= $this->m_param->getDt_list($result, $recordsTotal, $recordsFiltered);
 			
