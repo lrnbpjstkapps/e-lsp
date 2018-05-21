@@ -67,8 +67,8 @@
 				$menu_title[112] 	= "FR-APL-02. Asesmen Mandiri - Edit";
 				$menu_title[113] 	= "FR-APL-02. Asesmen Mandiri - Upload";
 				$menu_title[114] 	= "FR-MMA. Merencanakan dan Mengorganisasikan Asesmen";
-				$menu_title[115] 	= "FR-MMA. Merencanakan dan Mengorganisasikan Asesmen - Tambah";
-				$menu_title[116] 	= "FR-MMA. Merencanakan dan Mengorganisasikan Asesmen - Edit";
+				$menu_title[115] 	= "";
+				$menu_title[116] 	= "FR-MMA. Merencanakan dan Mengorganisasikan Asesmen - Validasi";
 				return $menu_title;
 			}		
 		
@@ -164,6 +164,27 @@
 				$form_label[157]	= "TUK";
 				$form_label[158]	= "FR-APL-01";
 				$form_label[159]	= "-- Pilih salah satu --";
+				$form_label[160]	= "LSP";
+				$form_label[162]	= "Tanggal";
+				$form_label[163]	= "1.1";
+				$form_label[164]	= "1.2";
+				$form_label[165]	= "1.3";
+				$form_label[166]	= "1.4";
+				$form_label[167]	= ":";
+				$form_label[168]	= "Konteks Asesmen";
+				$form_label[169]	= "Pendekatan / Jalur asesmen";
+				$form_label[170]	= "Strategi asesmen";
+				$form_label[171]	= "Acuan Pembanding / Benchmark";
+				$form_label[172]	= "Benchmark asesmen (unit kompetensi)";
+				$form_label[173]	= "RPL arrangements";
+				$form_label[174]	= "Metode dan alat asesmen";
+				$form_label[175]	= "Pengorganisasian asesmen";
+				$form_label[176]	= "Aturan paket kualifikasi";
+				$form_label[177]	= "Persyaratan khusus";
+				$form_label[178]	= "Mekanisme jaminan mutu";
+				
+				
+				
 				return $form_label;
 			}	
 
@@ -214,12 +235,16 @@
 				$form_name[142]		= "val_apl01_skema_sertifikasi";
 				$form_name[143]		= "val_unit_kompetensi_uuid[]";
 				$form_name[144]		= "val_apl01_jenis_skema_sertifikasi";
-				$form_name[145]		= "val_apl02_nama_peserta";
+				$form_name[145]		= "val_mma_jenis_bukti";
 				$form_name[146]		= "val_apl02_uuid";
 				$form_name[147]		= "val_apl02_nama_asesor";
 				$form_name[148]		= "val_apl02_tuk";
 				$form_name[149]		= "val_apl02_penilaian";
 				$form_name[150]		= "val_apl01_no_dokumen";
+				$form_name[151]		= "val_mma_lsp";
+				$form_name[152]		= "val_mma_asesor";
+				$form_name[153]		= "val_mma_tanggal";
+				$form_name[154]		= "val_mma_metode";
 				return $form_name;
 			}		
 		
@@ -299,7 +324,7 @@
 				$form_id[171]		= "bukti_kelengkapan_modal";
 				$form_id[172]		= "bukti_kelengkapan_tabel";
 				$form_id[173]		= "bukti_kelengkapan_uuid";
-				$form_id[174]		= "fr_apl_02_nama_peserta";
+				$form_id[174]		= "fr_mma_jenis_bukti";
 				$form_id[175]		= "fr_apl_02_uuid";
 				$form_id[176]		= "fr_apl_02_nama_asesor";
 				$form_id[177]		= "fr_apl_02_tuk";
@@ -310,6 +335,11 @@
 				$form_id[182]		= "fr_apl_02_tabel";
 				$form_id[183]		= "bukti_kelengkapan_form_edit";
 				$form_id[184]		= "bukti_kelengkapan_modal_edit";
+				$form_id[185]		= "fr_mma_tabel";
+				$form_id[186]		= "fr_mma_lsp";
+				$form_id[187]		= "fr_mma_asesor";
+				$form_id[188]		= "fr_mma_tanggal";
+				$form_id[189]		= "fr_mma_metode";
 				return $form_id;
 			}	
 
@@ -345,6 +375,14 @@
 				$form_desc[114]		= "2. Laksanakan penilaian mandiri dengan mempelajari dan menilai kemampuan yang anda miliki secara obyektif terhadap seluruh daftar pertanyaan yang ada, serta tentukan apakah anda kompeten (K) atau belum kompeten (BK) dengan memberi tanda (v).";
 				$form_desc[115]		= "3. Tuliskan bukti-bukti pendukung yang anda anggap relevan terhadap setiap elemen/KUK sesuai unit kompetensi pada skema sertifikasi yang dipilih.";
 				$form_desc[116]		= "4. Bagian Sertifikasi LSP atau Asesor bersama Peserta (Asesi) menandatangani form Asesmen Mandiri.";
+				$form_desc[117]		= "1. Menentukan pendekatan asesmen";
+				$form_desc[118]		= "2. Mempersiapkan Rencana Asesmen";
+				$form_desc[119]		= "Sumber Daya Fisik / Material:";
+				$form_desc[120]		= "- Observasi demonstrasi:";
+				$form_desc[121]		= "Checklist observasi, perangkat komputer dengan aplikasi ms office, sistem aplikasi man power plan, jaringan internet, peraturan - peraturan terkait, alat komunikasi (telpon / hp), printer, kertas";
+				$form_desc[122]	 	= "- Tes lisan:";
+				$form_desc[123]		= "Ruangan tes lisan, satu set meja kursi, form tes lisan, alat tulis dan kertas, alat perekam (bila diperlukan)";
+				
 				return $form_desc;
 			}
 
@@ -418,7 +456,7 @@
 				$ajax_url[152] 	= base_url()."asesi/fr_apl_02/getList";
 				$ajax_url[153] 	= base_url()."asesor/fr_mma/pagingList";
 				$ajax_url[154] 	= base_url()."asesor/fr_mma/pagingAdd";
-				$ajax_url[155] 	= base_url()."asesor/fr_mma/pagingEdit";
+				$ajax_url[155] 	= base_url()."asesor/fr_mma/pagingEdit/";
 				$ajax_url[156] 	= base_url()."asesor/fr_mma/pagingChild";
 				$ajax_url[157] 	= base_url()."asesor/fr_mma/getList";
 				$ajax_url[158] 	= base_url()."asesor/fr_mma/saveDt";
@@ -455,6 +493,28 @@
 				$table_column[122]	= "FR-APL-01";
 				$table_column[123]	= "FR-APL-02";
 				$table_column[124]	= "Calon Asesi";
+				$table_column[125]	= "Kriteria Unjuk Kerja";
+				$table_column[126]	= "Unit Kompetensi";
+				$table_column[127]	= "Jenis Bukti";
+				$table_column[128]	= "L";
+				$table_column[129]	= "TL";
+				$table_column[130]	= "T";
+				$table_column[131]	= "Metode";
+				$table_column[132]	= "Observasi Demonstrasi";
+				$table_column[133]	= "Verifikasi Portofolio";
+				$table_column[134]	= "Tes Lisan";
+				$table_column[135]	= "Tes Tertulis";
+				$table_column[136]	= "Wawancara";
+				$table_column[137]	= "Verifikasi Pihak Ketiga";
+				$table_column[138]	= "Studi Kasus";
+				$table_column[139]	= "Lainnya ...";
+				$table_column[140]	= "Perangkat Asesmen";
+				$table_column[141]	= "CLO: Ceklis Observasi, CLP: Ceklis Portofolio, DPL: Daftar Pertanyaan Lisan, DPT *): Daftar Pertanyaan Tertulis, PW: Pertanyaan Wawancara, VPK: Verifikasi Pihak Ketiga, SK: Studi Kasus";
+				$table_column[142]	= "L: Bukti langsung, TL: Bukti tidak langsung, T: Bukti tambahan";
+				$table_column[143]	= "Pemenuhan terhadap seluruh bagian unit standar kompetensi: (bila tersedia)";
+				$table_column[144]	= "Batasan Variabel";
+				$table_column[145]	= "Panduan Asesmen";
+				$table_column[146]	= "Ya";
 				return $table_column;
 			}		
 		

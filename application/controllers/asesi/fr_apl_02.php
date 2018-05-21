@@ -88,7 +88,7 @@ class fr_apl_02 extends CI_Controller {
 			$param 					= $this->m_param->getADt($uuid);
 			$uuidApl01				= $this->m_crud->selectDt('FR_APL_02', $param)->row()->UUID_APL01;
 			
-			$data[$form_name[145]] 	= "Karid Nurvenus";
+			$data[$form_name[115]] 	= "Karid Nurvenus";
 			$data[$form_name[146]] 	= $uuid;
 			$data[$form_name[147]] 	= "";
 			$data[$form_name[148]] 	= "";

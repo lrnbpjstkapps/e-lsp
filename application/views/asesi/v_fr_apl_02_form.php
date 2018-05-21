@@ -11,7 +11,8 @@
 		<form class="form-horizontal">
 			<div class="modal-body form">                
 				<div class="form-body">					
-					<p class="text-muted well well-sm no-shadow"> <?php echo $form_desc[112]; ?> 		
+					<p class="text-muted well well-sm no-shadow"> 
+						<?php echo $form_desc[112]; ?> 		
 						</br><?php echo $form_desc[113]; ?> 		
 						</br><?php echo $form_desc[114]; ?> 		
 						</br><?php echo $form_desc[115]; ?> 		
@@ -47,7 +48,7 @@
 					<div class="form-group">
 						<label class="control-label col-md-2"> <?php echo $form_label[155]; ?> </label>
 						<div class="col-md-4">
-							<input name="<?php echo $form_name[145]; ?>" value="<?php echo $$form_name[145]; ?>" id="<?php echo $form_id[174]; ?>" class="form-control" type="text" readonly>
+							<input name="<?php echo $form_name[115]; ?>" value="<?php echo $$form_name[115]; ?>" id="<?php echo $form_id[174]; ?>" class="form-control" type="text" readonly>
 							<span class="help-block"></span>
 						</div>
 					</div>

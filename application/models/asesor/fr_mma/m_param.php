@@ -102,7 +102,7 @@
 			}
 		
 		// READ
-		public function getADt($uuid)
+		public function getADt($uuidMMA)
 			{
 				$returnedData	= array();
 				$optComp		= array();	
@@ -111,7 +111,7 @@
 				
 				$condition 			= array
 					(
-						"UUID_APL02"	=> "'".$uuid."'",
+						"UUID_MMA"	=> "'".$uuidMMA."'",
 						"IS_ACTIVE"		=> "'1'"							
 					);
 					
@@ -249,8 +249,7 @@
 						$row[] 	= $values->NO_DOKUMEN02;
 						$row[] 	= $values->NAMA_SKEMA;
 						$row[] 	= date('d M y - H:i', strtotime($values->DTM_CRT));
-						$row[] 	= '<a href="javascript:void(0)" onclick="editDt('."'".$values->UUID_APL02."'".')"><i class="fa fa-edit"></i></a>';
-						$row[] 	= '<a href="javascript:void(0)" onclick="deleteDt('."'".$values->UUID_APL02."'".')"><i class="fa fa-trash"></i></a>';
+						$row[] 	= '<a href="javascript:void(0)" onclick="editDt('."'".$values->UUID_MMA."'".','."'".$values->UUID_APL_01."'".','."'".$values->UUID_APL_02."'".')"><i class="fa fa-edit"></i></a>';
 						$data[]	= $row;
 					}
 		

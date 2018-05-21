@@ -9,9 +9,7 @@
 				<thead>
 					<tr>
 						<th rowspan="2"> <?php echo $table_column[100]; ?> </th>
-						<!--th rowspan="2"> <?php echo $table_column[105]; ?> </th-->
 						<th rowspan="2"> <?php echo $table_column[104]; ?> </th>
-						<!--th rowspan="2"> <?php echo $table_column[116]; ?> </th-->
 						<th rowspan="2"> <?php echo $table_column[117]; ?> </th>
 						<th colspan = "2"> <?php echo $table_column[118]; ?> </th>
 						<th rowspan="2" style="width: 15%"> <?php echo $table_column[121]; ?> </th>
@@ -34,15 +32,9 @@
 								<td>
 									<?php echo ($i+1); ?>
 								</td>
-								<!--td>
-									<?php echo $row->KODE_UK; ?>
-								</td-->
 								<td>
 									<?php echo $row->JUDUL_UK; ?>
 								</td>
-								<!--td>
-									<?php echo $row->NOMOR_KUK; ?>
-								</td-->
 								<td>
 									<?php echo $row->PERTANYAAN; ?>
 								</td>

@@ -26,36 +26,7 @@ class fr_mma extends CI_Controller {
 			$this->load->view($layout[100], $data);
 		}
 	
-	//PAGING
-	public function pagingAdd()
-		{
-			$data					= $this->m_globalval->getAllData();
-			$form_name 				= $data['form_name'];
-			$view					= $data['view'];			
-			$data["saveMethod"]		= "add";
-			
-			$data[$form_name[145]] 	= "Karid Nurvenus";
-			$data[$form_name[146]] 	= "-";
-			$data[$form_name[147]] 	= "";
-			$data[$form_name[148]] 	= "";
-			$data[$form_name[134]] 	= "";
-			$data[$form_name[101]] 	= "";
-			$data[$form_name[100]] 	= "";
-			$data[$form_name[104]] 	= "";
-			$data[$form_name[103]] 	= "";
-			$data[$form_name[109]] 	= "";
-			
-			$listApl01				= $this->m_custom->getDt_FN134_add('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
-			$data["listApl01"]		= $listApl01;
-		
-			$addtionalParam			= $this->m_param->getADt_FN136('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
-			$listBukti				= $this->m_crud->selectDt("BUKTI",  $addtionalParam);
-			$data["listBukti"]		= $listBukti;
-			
-			$this->load->view($view[126], $data);
-			$this->load->view($view[127], $data);
-		}
-		
+	//PAGING		
 	public function pagingList()
 		{
 			$data	= $this->m_globalval->getAllData();
@@ -65,32 +36,38 @@ class fr_mma extends CI_Controller {
 			$this->load->view($view[130], $data);
 		}
 		
-	public function pagingEdit($uuid)
+	public function pagingEdit($uuidMMA, $uuidApl01, $uuidApl02)
 		{
 			$data					= $this->m_globalval->getAllData();		
 			$form_name 				= $data['form_name'];
 			$view					= $data['view'];
 			$data["saveMethod"]		= "edit";
-					
-			$listApl01				= $this->m_custom->getDt_FN134_edit('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
-			$data["listApl01"]		= $listApl01;
 			
-			$param 					= $this->m_param->getADt($uuid);
-			$uuidApl01				= $this->m_crud->selectDt('FR_APL_02', $param)->row()->UUID_APL01;
+			$result					= $this->m_custom->getADt_FR_MMA($uuidMMA);			
+			$data[$form_name[115]] 	= "Karid Nurvenus";
+			$data[$form_name[134]] 	= $result->row()->UUID_APL_01;
+			$data[$form_name[146]] 	= $result->row()->UUID_APL_02;
+			$data[$form_name[101]] 	= $result->row()->NOMOR_SKEMA;
+			$data[$form_name[100]] 	= $result->row()->NAMA_SKEMA;
+			$data[$form_name[151]]	= "P2 BPJS Ketenagakerjaan";
+			$data[$form_name[152]]	= "Dwi Andriani Puspitasari";
+			$data[$form_name[153]]	= "12 Desember 2018";
+			$data[$form_name[148]]	= "Sewaktu";
+			$data[$form_name[133]]	= $result->row()->TUJUAN_ASESMEN;
 			
-			$data[$form_name[145]] 	= "Karid Nurvenus";
-			$data[$form_name[146]] 	= $uuid;
-			$data[$form_name[147]] 	= "";
-			$data[$form_name[148]] 	= "";
-			$data[$form_name[134]] 	= $uuidApl01;
-			$data[$form_name[101]] 	= "";
-			$data[$form_name[100]] 	= "";
-			$data[$form_name[104]] 	= "";
-			$data[$form_name[103]] 	= "";
-			$data[$form_name[109]] 	= "";
+			$listAnswer				= $this->m_custom->getDt_listAnswer($uuidApl01, $uuidApl02);
+			$data['listAnswer']		= $listAnswer;
 			
-			$this->load->view($view[126], $data);
-			$this->load->view($view[127], $data);
+			$i = 0;
+			foreach($listAnswer->result() as $row)
+				{
+					$data[$form_name[149].'_'.$i] 	= $row->IS_KOMPETEN;
+					$data[$form_name[136].'_'.$i]	= explode(';', $row->UUID_BUKTI);
+					$i++;
+				}
+			
+			$this->load->view($view[131], $data);
+			$this->load->view($view[132], $data);
 		}
 		
 	public function pagingChild($uuidApl01, $uuidSkema, $saveMethod, $uuidApl02)
@@ -98,7 +75,6 @@ class fr_mma extends CI_Controller {
 			$data						= $this->m_globalval->getAllData();
 			$form_name					= $data['form_name'];
 			$view						= $data['view'];	
-			$data["saveMethod"]			= "add";
 			
 			$listKUK					= $this->m_custom->getADt_FN134_AllJoinedTable($uuidApl01, $uuidSkema);	
 			$data["listKUK"]			= $listKUK;
@@ -268,7 +244,6 @@ class fr_mma extends CI_Controller {
 			$recordsFiltered	= $this->m_list_mma->count_filtered();
 
 			$output				= $this->m_param->getDt_list($result, $recordsTotal, $recordsFiltered);
-			
 			echo json_encode($output);
 		}
 	
