@@ -110,7 +110,7 @@
 						<table class = "table table-hover" cellspacing="0" width="100%">
 							<thead>
 								<tr>
-									<th rowspan="4"><?php echo $table_column[100]; ?></th>
+									<th rowspan="4" vertical-align = "middle"><?php echo $table_column[100]; ?></th>
 									<th rowspan="4"><?php echo $table_column[126]; ?></th>
 									<th rowspan="4"><?php echo $table_column[125]; ?></th>
 									<th colspan = "3" rowspan = "2"><?php echo $table_column[127]; ?></th>
@@ -155,17 +155,17 @@
 											<td>
 												<?php echo $row->PERNYATAAN; ?>
 											</td>	
-											<td><input type = "radio" name = "<?php echo $form_name[145].' '.$i; ?>" id = "<?php echo $form_id[174]; ?>" ></td>
-											<td><input type = "radio" name = "<?php echo $form_name[145].' '.$i; ?>" id = "<?php echo $form_id[174]; ?>" ></td>
-											<td><input type = "radio" name = "<?php echo $form_name[145].' '.$i; ?>" id = "<?php echo $form_id[174]; ?>" ></td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" ></td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" ></td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" ></td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" ></td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" ></td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" ></td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" ></td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" ></td>
+											<td><input type = "radio" name = "<?php echo $form_name[145].' '.$i; ?>" id = "<?php echo $form_id[174]; ?>" > <?= $form_label[192] ?></td>
+											<td><input type = "radio" name = "<?php echo $form_name[145].' '.$i; ?>" id = "<?php echo $form_id[174]; ?>" > <?= $form_label[193] ?></td>
+											<td><input type = "radio" name = "<?php echo $form_name[145].' '.$i; ?>" id = "<?php echo $form_id[174]; ?>" > <?= $form_label[194] ?></td>
+											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > <?= $form_label[195] ?></td>
+											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > <?= $form_label[196] ?></td>
+											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > <?= $form_label[197] ?></td>
+											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > <?= $form_label[198] ?></td>
+											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > <?= $form_label[199] ?></td>
+											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > <?= $form_label[200] ?></td>
+											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > <?= $form_label[201] ?></td>
+											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > <?= $form_label[202] ?></td>
 										</tr>					
 								<?php 
 										$i++; 
@@ -181,10 +181,201 @@
 						</br><?php echo $form_desc[122]." ".$form_desc[123]; ?>
 					</p>
 					
-					<table>
+					<table class = "table table-hover" cellspacing = "0" width = "100%">
 						<tbody>
 							<tr>
-								<td rowspan = "2"><?php echo $table_column[143]; ?></td>
+								<td rowspan = "2" colspan = "2"><?php echo $table_column[143]; ?></td>
+								<td><?php echo $table_column[144]; ?></td>
+								<td><?php echo $table_column[145]; ?></td>
+							</tr>
+							<tr>
+								<td><input type = "checkbox"> <?php echo $table_column[146]; ?></td>
+								<td><input type = "checkbox"> <?php echo $table_column[146]; ?></td>
+							</tr>
+							<tr>
+								<td colspan = "4"><?php echo $table_column[147]; ?></td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<table class = "table table-hover" cellspacing = "0" width = "100%">
+						<thead>
+							<tr>
+								<th><?= $form_label[188] ?></th>
+								<th><?= $form_label[189] ?></th>
+								<th><?= $form_label[190] ?></th>
+								<th><?= $form_label[191] ?></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Asesor</td>
+								<td><?= $form_desc[129] ?></td>
+								<td><?= $form_desc[124] ?></td>
+								<td><input type = "checkbox" name = "" value = ""> <?= $form_desc[111] ?></td>
+							</tr>
+							<tr>
+								<td>Manajer Sertifikasi</td>
+								<td><?= $form_desc[125] ?></td>
+								<td><?= $form_desc[126] ?></td>
+								<td><?= $form_desc[130] ?></td>
+							</tr>
+							<tr>
+								<td>Koordinator TUK</td>
+								<td><?= $form_desc[128] ?></td>
+								<td><?= $form_desc[127] ?></td>
+								<td><?= $form_desc[130] ?></td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<table class = "table table-stripped" cellspacing = "0" width = "100%">
+						<tbody>
+							<tr>
+								<td rowspan = "4"><?= $table_column[148] ?></td>
+								<td><?= $form_label[179] ?></td> 
+								<td colspan = "2">: <input type = "date" name = ""></td>									
+							</tr>
+							<tr>
+								<td colspan = "3"><?= $form_label[180] ?></td>
+							</tr>
+							<tr>
+								<td><?= $form_label[181] ?></td>
+								<td colspan = "2">: <input type = "time" name = ""> - <input type = "time" name = ""></td>
+							</tr>
+							<tr>
+								<td><?= $form_label[182]; ?></td>
+								<td colspan = "2">: <input type = "time" name = ""> - <input type = "time" name = ""></td>
+							</tr>
+							<tr>
+								<td><?php echo $form_label[186]; ?></td>
+								<td colspan = "3"><?php echo $form_label[187]; ?></td>
+							</tr>
+						</tbody>
+					</table>
+					
+				<!-- 3. Kontekstualisasi dan meninjau rencana asesmen -->
+					</br><h5 style = "margin-bottom: 10px;"><?= $form_desc[131] ?></h5>
+					<table class = "table table-hover" cellspacing = "0" width = "100%">
+						<tbody>
+							<tr>
+								<td><?= $form_desc[132] ?></td>
+								<td><?= $form_desc[133] ?></td>
+							</tr>
+							<tr>
+								<td><?= $form_desc[134] ?></td>
+								<td><?= $form_desc[135] ?></td>
+							</tr>
+							<tr>
+								<td rowspan = "2"><?= $form_desc[136] ?></td>
+								<td><?= $form_desc[137] ?></td>
+							</tr>
+							<tr>
+								<td><?= $form_desc[138] ?></td>
+							</tr>
+							<tr>
+								<td colspan = "2"><?= $form_desc[139] ?></td>							
+							</tr>
+							<tr>
+								<td><?= $form_desc[140] ?></td>
+								<td><?= $form_desc[141] ?></td>
+							</tr>
+							<tr>
+								<td><?= $form_desc[142] ?></td>
+								<td><textarea> </textarea></td>
+							</tr>
+							<tr>
+								<td><?= $form_desc[143] ?></td>
+								<td><textarea> </textarea></td>
+							</tr>
+							<tr>
+								<td><?= $form_desc[144] ?></td>
+								<td><textarea> </textarea></td>
+							</tr>
+							<tr>
+								<td><?= $form_desc[145] ?></td>
+								<td><textarea> </textarea></td>
+							</tr>
+							<tr>
+								<td><?= $form_desc[146] ?></td>
+								<td><?= $form_desc[141] ?></td>
+							</tr>
+							<tr>
+								<td><?= $form_desc[147] ?></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td colspan = "2"><?= $form_desc[148] ?></td>								
+							</tr>
+							<tr>
+								<td colspan = "2"><?= $form_desc[149] ?></td>								
+							</tr>
+						</tbody>
+					</table>
+				<!-- 4. Mengorganisasikan asesmen -->
+					</br><h5 style = "margin-bottom: 10px;" ><?= $form_desc[150] ?></h5>
+					<table class = "table table-hover" cellspacing = "0" width = "100%">
+						<tbody>	
+							<tr>
+								<td rowspan = "4"><?= $form_desc[151] ?></td>
+								<td><?= $form_desc[152] ?></td>
+								<td><?= $form_desc[153] ?></td>
+								<td><?= $form_desc[154] ?></td>
+							</tr>
+							<tr>
+								<td><?= $form_desc[155] ?></td>
+								<td><?= $form_desc[156] ?></td>
+								<td><?= $form_desc[157] ?></td>
+							</tr>
+							<tr>
+								<td><?= $form_desc[158] ?></td>
+								<td><?= $form_desc[160] ?></td>
+								<td><?= $form_desc[157] ?></td>
+							</tr>
+							<tr>
+								<td><?= $form_desc[159] ?></td>
+								<td><?= $form_desc[160] ?></td>
+								<td><?= $form_desc[157] ?></td>
+							</tr>
+							<tr>
+								<td><?= $form_desc[161] ?></td>
+								<td colspan = "3"><?= $form_desc[162] ?></td>
+							</tr>
+							<tr>
+								<td rowspan = "4"><?= $form_desc[163] ?></td>
+								<td><?= $form_desc[164] ?></td>
+								<td colspan = "2"><?= $form_desc[165] ?></td>
+							</tr>
+							<tr>
+								<td><?= $form_desc[166] ?></td>
+								<td colspan = "2"><?= $form_desc[167] ?></td>
+							</tr>
+							<tr>
+								<td><?= $form_desc[168] ?></td>
+								<td colspan = "2"><?= $form_desc[169] ?></td>
+							</tr>
+							<tr>
+								<td><?= $form_desc[170] ?></td>
+								<td colspan = "2"><?= $form_desc[171] ?></td>
+							</tr>
+							<tr>
+								<td colspan = "4"><?= $form_desc[172] ?></td>
+							</tr>
+							<tr>
+								<td colspan = "4"><input type = "checkbox"> <?= $form_desc[173] ?></td>
+							</tr>
+							<tr>
+								<td colspan = "4"><input type = "checkbox"> <?= $form_desc[174] ?></td>
+							</tr>
+							<tr>
+								<td colspan = "4"><input type = "checkbox"> <?= $form_desc[175] ?></td>
+							</tr>
+							<tr>
+								<td colspan = "4"><input type = "checkbox"> <?= $form_desc[176] ?></td>
+							</tr>
+							<tr>
+								<td><?= $form_desc[178] ?></td>
+								<td colspan = "3"><?= $form_desc[179] ?></td>
 							</tr>
 						</tbody>
 					</table>
