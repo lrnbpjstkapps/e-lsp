@@ -17,8 +17,8 @@
 		public function insert_multiple_entry($form_name, $i)
 			{
 				$this->UUID_APL01_BUKTI		= $this->uuid->v4();
-				$this->UUID_APL01			= (empty($this->input->post($form_name[134])) ? null : $this->input->post($form_name[134]));
-				$this->UUID_BUKTI			= (empty($this->input->post($form_name[139])[$i]) ? null : $this->input->post($form_name[139])[$i]);
+				$this->UUID_APL01			= (!$this->input->post($form_name[134]) ? null : $this->input->post($form_name[134]));
+				$this->UUID_BUKTI			= (!$this->input->post($form_name[139])[$i] ? null : $this->input->post($form_name[139])[$i]);
 				$this->USR_CRT				= 'Karid Nurvenus';
 				$this->DTM_CRT				= date('Y-m-d H:i:s');
 				$this->IS_ACTIVE			= '1';
@@ -26,9 +26,9 @@
 				return $this->db->insert('APL01_BUKTI', $this);
 			}
 			
-		public function delete($condition)
+		public function delete_entry($condition)
 			{
-				return $this->db->where($condition);
+				return $this->db->delete('APL01_BUKTI', $condition);
 			}
 		
 	}

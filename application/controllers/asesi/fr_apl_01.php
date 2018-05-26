@@ -171,7 +171,8 @@ class fr_apl_01 extends CI_Controller {
 				{
 					echo -1;
 				}
-			else{			
+			else
+				{			
 					echo 1;
 				}
 		}
@@ -299,81 +300,89 @@ class fr_apl_01 extends CI_Controller {
 	// UPDATE		
 	public function updateDt()
 		{
-			$data			= $this->m_globalval->getAllData();		
-			$form_name		= $data["form_name"];
+			$data					= $this->m_globalval->getAllData();		
+			$form_name				= $data["form_name"];
 			
-			$condition		= array(
-				'UUID_APL01'=> $this->input->post($form_name[134]));
-			$data_apl_01	= $this->M_apl_01->get_entry($condition)->row();
+			$condition				= array(
+				'UUID_APL01'		=> $this->input->post($form_name[134]));
+			$data_apl_01			= $this->M_apl_01->get_entry($condition)->row();
 			
 			$_POST[$form_name[159]]	= '1';
-			$condition		= array(
-				'UUID_APL01'=> $this->input->post($form_name[134]));
-			$this->M_apl_01->update_entry($form_name, $data_apl_01, $condition);
+			$condition				= array(
+				'UUID_APL01'		=> $this->input->post($form_name[134]));
+			$qResult_apl_01			= $this->M_apl_01->update_entry($form_name, $data_apl_01, $condition);
+			$qResult_apl01_uk_del	= 1;
+			$qResult_apl01_uk_ins	= 1;
+			$qResult_apl01_bukti_del= 1;
+			$qResult_apl01_bukti_ins= 1;
 			
-			/*if(count($this->input->post($form_name[143]))>0)
-				{
-					$addtionalParam	= $this->m_param->deleteDt_APL01_UK($data, $this->input->post($form_name[134]));
-					$queryResult2	= $this->m_crud->deleteDt("APL01_UK", $addtionalParam);
-			
-					$paramArr		= $this->m_param->saveDt_APL01_UK($data, $this->input->post($form_name[134]));
-					$queryResult3	= $this->m_crud->insertArrDt("APL01_UK", $paramArr);
-				}
-				
-			if(count($this->input->post($form_name[139]))>0)
-				{
-					$addtionalParam	= $this->m_param->deleteDt_APL01_bukti($data, $this->input->post($form_name[134]));
-					$queryResult4	= $this->m_crud->deleteDt("APL01_BUKTI", $addtionalParam);
-			
-					$paramArr		= $this->m_param->saveDt_APL01_bukti($data, $this->input->post($form_name[134]));
-					$queryResult5	= $this->m_crud->insertArrDt("APL01_BUKTI", $paramArr);
-				}*/
-			
-			echo '1';
-		}
-		
-	public function updateFile()
-		{
-			$data			= $this->m_globalval->getAllData();		
-			$form_name		= $data["form_name"];
-			
-			/*$addtionalParam	= $this->m_param->updateDt($data);
-			$queryResult1	= $this->m_crud->updateDt("FR_APL_01", $addtionalParam);
-			
+			$condition 				= array(
+				'UUID_APL01'		=> $this->input->post($form_name[134]));
+			$qResult_apl01_uk_del	= $this->M_apl01_uk->delete_entry($condition);
+					
 			if(count($this->input->post($form_name[143]))>0)
 				{
-					$addtionalParam	= $this->m_param->deleteDt_APL01_UK($data, $this->input->post($form_name[134]));
-					$queryResult2	= $this->m_crud->deleteDt("APL01_UK", $addtionalParam);
-			
-					$paramArr		= $this->m_param->saveDt_APL01_UK($data, $this->input->post($form_name[134]));
-					echo $this->m_crud->insertArrDt("APL01_UK", $paramArr);
+					for($i = 0; $i < count($this->input->post($form_name[143])); $i++)
+						{
+							$qResult 		= $this->M_apl01_uk->insert_multiple_entry($form_name, $i);
+							if ($qResult != 1)
+								{	
+									$qResult_apl01_uk_ins = -1;
+								}
+						}
 				}
-			else
+				
+			$condition 					= array(
+				'UUID_APL01'			=> $this->input->post($form_name[134]));
+			$qResult_apl01_bukti_del	= $this->M_apl01_bukti->delete_entry($condition);
+					
+			if(count($this->input->post($form_name[139]))>0)
+				{			
+					for($i = 0; $i < count($this->input->post($form_name[139])); $i++)
+						{
+							$qResult			= $this->M_apl01_bukti->insert_multiple_entry($form_name, $i);
+							if($qResult != 1)
+								{
+									$qResult_apl01_bukti_ins = -1;
+								}
+						}
+				}
+			
+			if($qResult_apl_01 != 1 || $qResult_apl01_uk_del != 1 || $qResult_apl01_uk_ins != 1 || $qResult_apl01_bukti_del != 1 || $qResult_apl01_bukti_ins != 1)
 				{
-					echo $queryResult1;
-				}*/
+					echo -1;
+				}
+			else 
+				{
+					echo 1;
+				}
 		}
 	
 	// DELETE
 	public function deleteDt($uuid)
 		{
-			$data			= $this->m_globalval->getAllData();		
+			$data					= $this->m_globalval->getAllData();		
+			$form_name				= $data['form_name'];
 			
-			$addtionalParam	= $this->m_param->deleteDt_APL01_UK($data, $uuid);
-			$queryResult1	= $this->m_crud->deleteDt("APL01_UK", $addtionalParam);
+			$condition 				= array(
+				'UUID_APL01'		=> $uuid);
+			$qResult_apl01_uk_del	= $this->M_apl01_uk->delete_entry($condition);
 			
-			$addtionalParam	= $this->m_param->deleteDt_APL01_bukti($data, $uuid);
-			$queryResult2	= $this->m_crud->deleteDt("APL01_BUKTI", $addtionalParam);
+			$condition 				= array(
+				'UUID_APL01'		=> $uuid);
+			$qResult_apl01_bukti_del= $this->M_apl01_bukti->delete_entry($condition);
 					
-			$addtionalParam	= $this->m_param->deleteDt($data, $uuid);
-			$queryResult3	= $this->m_crud->deleteDt("FR_APL_01", $addtionalParam);
+			$condition 				= array(
+				'UUID_APL01'		=> $uuid);
+			$qResult_apl01			= $this->M_apl_01->delete_entry($condition);
 			
-			if($queryResult1 == -1 || $queryResult2 == -1 || $queryResult3 == -1)
+			if($qResult_apl01_uk_del != 1 || $qResult_apl01_bukti_del != 1 || $qResult_apl01 != 1)
 				{
 					echo -1;
 				}
-			else{			
-					echo '1';
+			else
+				{			
+					echo 1;
 				}
 		}
 		
