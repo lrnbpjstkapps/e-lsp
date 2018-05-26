@@ -176,14 +176,110 @@ class fr_apl_01 extends CI_Controller {
 					echo 1;
 				}
 		}
-		
-	public function saveFile()
+	
+	// UPDATE		
+	public function updateDt()
 		{
-			$data	= $this->m_globalval->getAllData();		
+			$data					= $this->m_globalval->getAllData();		
+			$form_name				= $data["form_name"];
 			
-			//$param	= $this->m_param->saveDt($data);
-			//echo $this->m_crud->insertDt("FR_APL_01", $param);
-			echo "1";
+			$condition				= array(
+				'UUID_APL01'		=> $this->input->post($form_name[134]));
+			$data_apl_01			= $this->M_apl_01->get_entry($condition)->row();
+			
+			$_POST[$form_name[159]]	= '1';
+			$condition				= array(
+				'UUID_APL01'		=> $this->input->post($form_name[134]));
+			$qResult_apl_01			= $this->M_apl_01->update_entry($form_name, $data_apl_01, $condition);
+			$qResult_apl01_uk_del	= 1;
+			$qResult_apl01_uk_ins	= 1;
+			$qResult_apl01_bukti_del= 1;
+			$qResult_apl01_bukti_ins= 1;
+			
+			$condition 				= array(
+				'UUID_APL01'		=> $this->input->post($form_name[134]));
+			$qResult_apl01_uk_del	= $this->M_apl01_uk->delete_entry($condition);
+					
+			if(count($this->input->post($form_name[143]))>0)
+				{
+					for($i = 0; $i < count($this->input->post($form_name[143])); $i++)
+						{
+							$qResult 		= $this->M_apl01_uk->insert_multiple_entry($form_name, $i);
+							if ($qResult != 1)
+								{	
+									$qResult_apl01_uk_ins = -1;
+								}
+						}
+				}
+				
+			$condition 					= array(
+				'UUID_APL01'			=> $this->input->post($form_name[134]));
+			$qResult_apl01_bukti_del	= $this->M_apl01_bukti->delete_entry($condition);
+					
+			if(count($this->input->post($form_name[139]))>0)
+				{			
+					for($i = 0; $i < count($this->input->post($form_name[139])); $i++)
+						{
+							$qResult			= $this->M_apl01_bukti->insert_multiple_entry($form_name, $i);
+							if($qResult != 1)
+								{
+									$qResult_apl01_bukti_ins = -1;
+								}
+						}
+				}
+			
+			if($qResult_apl_01 != 1 || $qResult_apl01_uk_del != 1 || $qResult_apl01_uk_ins != 1 || $qResult_apl01_bukti_del != 1 || $qResult_apl01_bukti_ins != 1)
+				{
+					echo -1;
+				}
+			else 
+				{
+					echo 1;
+				}
+		}
+	
+	// DELETE
+	public function deleteDt($uuid)
+		{
+			$data					= $this->m_globalval->getAllData();		
+			$form_name				= $data['form_name'];
+			
+			$condition 				= array(
+				'UUID_APL01'		=> $uuid);
+			$qResult_apl01_uk_del	= $this->M_apl01_uk->delete_entry($condition);
+			
+			$condition 				= array(
+				'UUID_APL01'		=> $uuid);
+			$qResult_apl01_bukti_del= $this->M_apl01_bukti->delete_entry($condition);
+					
+			$condition 				= array(
+				'UUID_APL01'		=> $uuid);
+			$qResult_apl01			= $this->M_apl_01->delete_entry($condition);
+			
+			if($qResult_apl01_uk_del != 1 || $qResult_apl01_bukti_del != 1 || $qResult_apl01 != 1)
+				{
+					echo -1;
+				}
+			else
+				{			
+					echo 1;
+				}
+		}
+		
+	//VALIDATION
+	public function isFN101valid()
+		{
+			$data			= $this->m_globalval->getAllData();			
+			$form_name		= $data["form_name"];
+			
+			$addtionalParam	= $this->m_param->isFN101valid($form_name[102], $form_name[101]);
+			$result			= $this->m_crud->selectDt("SKEMA", $addtionalParam);
+			
+			if($result->num_rows()>0){
+				echo "false";
+			}else{
+				echo "true";
+			}
 		}
 		
 	// READ	
@@ -295,111 +391,6 @@ class fr_apl_01 extends CI_Controller {
 			$output				= $this->m_param->getDt_list($result, $recordsTotal, $recordsFiltered);
 			
 			echo json_encode($output);
-		}
-	
-	// UPDATE		
-	public function updateDt()
-		{
-			$data					= $this->m_globalval->getAllData();		
-			$form_name				= $data["form_name"];
-			
-			$condition				= array(
-				'UUID_APL01'		=> $this->input->post($form_name[134]));
-			$data_apl_01			= $this->M_apl_01->get_entry($condition)->row();
-			
-			$_POST[$form_name[159]]	= '1';
-			$condition				= array(
-				'UUID_APL01'		=> $this->input->post($form_name[134]));
-			$qResult_apl_01			= $this->M_apl_01->update_entry($form_name, $data_apl_01, $condition);
-			$qResult_apl01_uk_del	= 1;
-			$qResult_apl01_uk_ins	= 1;
-			$qResult_apl01_bukti_del= 1;
-			$qResult_apl01_bukti_ins= 1;
-			
-			$condition 				= array(
-				'UUID_APL01'		=> $this->input->post($form_name[134]));
-			$qResult_apl01_uk_del	= $this->M_apl01_uk->delete_entry($condition);
-					
-			if(count($this->input->post($form_name[143]))>0)
-				{
-					for($i = 0; $i < count($this->input->post($form_name[143])); $i++)
-						{
-							$qResult 		= $this->M_apl01_uk->insert_multiple_entry($form_name, $i);
-							if ($qResult != 1)
-								{	
-									$qResult_apl01_uk_ins = -1;
-								}
-						}
-				}
-				
-			$condition 					= array(
-				'UUID_APL01'			=> $this->input->post($form_name[134]));
-			$qResult_apl01_bukti_del	= $this->M_apl01_bukti->delete_entry($condition);
-					
-			if(count($this->input->post($form_name[139]))>0)
-				{			
-					for($i = 0; $i < count($this->input->post($form_name[139])); $i++)
-						{
-							$qResult			= $this->M_apl01_bukti->insert_multiple_entry($form_name, $i);
-							if($qResult != 1)
-								{
-									$qResult_apl01_bukti_ins = -1;
-								}
-						}
-				}
-			
-			if($qResult_apl_01 != 1 || $qResult_apl01_uk_del != 1 || $qResult_apl01_uk_ins != 1 || $qResult_apl01_bukti_del != 1 || $qResult_apl01_bukti_ins != 1)
-				{
-					echo -1;
-				}
-			else 
-				{
-					echo 1;
-				}
-		}
-	
-	// DELETE
-	public function deleteDt($uuid)
-		{
-			$data					= $this->m_globalval->getAllData();		
-			$form_name				= $data['form_name'];
-			
-			$condition 				= array(
-				'UUID_APL01'		=> $uuid);
-			$qResult_apl01_uk_del	= $this->M_apl01_uk->delete_entry($condition);
-			
-			$condition 				= array(
-				'UUID_APL01'		=> $uuid);
-			$qResult_apl01_bukti_del= $this->M_apl01_bukti->delete_entry($condition);
-					
-			$condition 				= array(
-				'UUID_APL01'		=> $uuid);
-			$qResult_apl01			= $this->M_apl_01->delete_entry($condition);
-			
-			if($qResult_apl01_uk_del != 1 || $qResult_apl01_bukti_del != 1 || $qResult_apl01 != 1)
-				{
-					echo -1;
-				}
-			else
-				{			
-					echo 1;
-				}
-		}
-		
-	//VALIDATION
-	public function isFN101valid()
-		{
-			$data			= $this->m_globalval->getAllData();			
-			$form_name		= $data["form_name"];
-			
-			$addtionalParam	= $this->m_param->isFN101valid($form_name[102], $form_name[101]);
-			$result			= $this->m_crud->selectDt("SKEMA", $addtionalParam);
-			
-			if($result->num_rows()>0){
-				echo "false";
-			}else{
-				echo "true";
-			}
 		}
 	
 }
