@@ -121,7 +121,7 @@
 				},
 				data: 
 					{
-						"<?php echo $form_name[105]; ?>": valOpt1,
+						"<?php echo $form_name[102]; ?>": valOpt1,
 						"<?php echo $form_name[134]; ?>": '<?php echo $$form_name[134]; ?>'
 					},
 				success: function(msg){

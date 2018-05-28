@@ -111,19 +111,4 @@ class kriteria_unjuk_kerja extends CI_Controller {
 			echo $this->m_crud->deleteDt("KRITERIA_UNJUK_KERJA", $addtionalParam);
 		}
 		
-	//VALIDATION
-	public function isFN112valid()
-		{
-			$data			= $this->m_globalval->getAllData();			
-			$form_name		= $data["form_name"];
-			
-			$addtionalParam	= $this->m_param->isFN112valid($form_name[113], $form_name[112]);
-			$result			= $this->m_crud->selectDt("KRITERIA_UNJUK_KERJA", $addtionalParam);
-			
-			if($result->num_rows()>0){
-				echo "false";
-			}else{
-				echo "true";
-			}
-		}
 }

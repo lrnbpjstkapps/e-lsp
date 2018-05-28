@@ -107,20 +107,5 @@ class unit_kompetensi extends CI_Controller {
 				echo var_dump($e->getMessage());
 			}
 		}
-		
-	// VALIDATION
-	public function isFN104valid()
-		{
-			$data			= $this->m_globalval->getAllData();
-			
-			$form_name		= $data["form_name"];
-			$addtionalParam	= $this->m_param->isFN104valid($form_name[105], $form_name[104]);
-			$result			= $this->m_crud->selectDt("UNIT_KOMPETENSI", $addtionalParam);
-			
-			if($result->num_rows()>0){
-				echo "false";
-			}else{
-				echo "true";
-			}
-		}
+	
 }

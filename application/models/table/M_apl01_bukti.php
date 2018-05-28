@@ -13,6 +13,17 @@
 			{
 				return $this->db->get_where('APL01_BUKTI', $condition);
 			}
+		
+		public function get_detail_entry($condition)
+			{
+				$this->db->select('apl01bukti.UUID_APL01_BUKTI, apl01bukti.UUID_APL01, apl01bukti.UUID_BUKTI, 
+					apl01bukti.USR_CRT, apl01bukti.DTM_CRT, apl01bukti.USR_UPD, apl01bukti.DTM_UPD, apl01bukti.IS_ACTIVE,
+					bukti.UUID_USER, bukti.KETERANGAN, bukti.URL');
+				$this->db->from("APL01_BUKTI AS apl01bukti");
+				$this->db->join("BUKTI AS bukti", "apl01bukti.UUID_BUKTI = bukti.UUID_BUKTI", "LEFT");
+				$this->db->where($condition);
+				return $this->db->get();
+			}
 			
 		public function insert_multiple_entry($form_name, $i)
 			{

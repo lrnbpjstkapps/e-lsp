@@ -1,7 +1,7 @@
 <?php
-	class m_list_fr_apl_01 extends CI_Model{
+	class m_list_apl_01 extends CI_Model{
 		var $table = "FR_APL_01 AS apl01";
-		var $order1 = array('apl01.DTM_CRT' => 'desc'); 
+		var $order1 = array('apl01.DTM_CRT' => 'DESC'); 
 		
 		var $column_order = 
 			array(
@@ -14,14 +14,14 @@
 			
 		var $column_search = 
 			array(
-				'ID_DOKUMEN'
+				'apl01.NO_DOKUMEN'
 			);
 			
 		public function _get_datatables_query(){
-			$this->db->select('APL01.UUID_APL01, APL01.NO_DOKUMEN, SKE.NAMA_SKEMA, APL01.DTM_CRT');
+			$this->db->select('apl01.UUID_APL01, apl01.NO_DOKUMEN, skema.NAMA_SKEMA, apl01.DTM_CRT');
 			$this->db->from($this->table);
-			$this->db->join("SKEMA AS SKE", "APL01.UUID_SKEMA = SKE.UUID_SKEMA", "LEFT");
-			$this->db->where('APL01.IS_ACTIVE', '1');
+			$this->db->join("SKEMA AS skema", "apl01.UUID_SKEMA = skema.UUID_SKEMA", "LEFT");
+			$this->db->where('apl01.IS_ACTIVE', '1');
 			
 			$i = 0;
 			foreach ($this->column_search as $item){
@@ -66,11 +66,40 @@
 		}
 
 		public function count_all(){
+			$this->db->select('apl01.UUID_APL01, apl01.NO_DOKUMEN, skema.NAMA_SKEMA, apl01.DTM_CRT');
 			$this->db->from($this->table);
-			$this->db->join("SKEMA AS SKE", "APL01.UUID_SKEMA = SKE.UUID_SKEMA", "LEFT");
+			$this->db->join("SKEMA AS skema", "apl01.UUID_SKEMA = skema.UUID_SKEMA", "LEFT");
 			$this->db->where('apl01.IS_ACTIVE', '1');
 			
 			return $this->db->count_all_results();
 		}
+		
+		public function get_json($result, $recordsTotal, $recordsFiltered)
+			{			
+				$data 		= array();
+				$no			= $_POST['start'];
+				
+				foreach ($result as $values) 
+					{
+						$no++;
+						$row	= array();
+						$row[]	= $no;
+						$row[] 	= $values->NO_DOKUMEN;
+						$row[] 	= $values->NAMA_SKEMA;
+						$row[] 	= date('d-M-y H.i', strtotime($values->DTM_CRT));
+						$row[] 	= '<a href="javascript:void(0)" onclick="editDt('."'".$values->UUID_APL01."'".')"><i class="fa fa-edit"></i></a>';
+						$row[] 	= '<a href="javascript:void(0)" onclick="deleteDt('."'".$values->UUID_APL01."'".')"><i class="fa fa-trash"></i></a>';
+						$data[]	= $row;
+					}
+		
+				$output 	= array
+					(
+						"draw" => $_POST['draw'],
+						"recordsTotal" => $recordsTotal, 
+						"recordsFiltered" => $recordsFiltered,
+						"data" => $data
+					);
+				return $output;
+			}			
 	}
 ?>

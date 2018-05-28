@@ -11,11 +11,12 @@ class fr_apl_01 extends CI_Controller {
 			$this->load->model("table/M_fr_apl_01", "M_apl_01");
 			$this->load->model("table/M_apl01_uk", "M_apl01_uk");
 			$this->load->model("table/M_apl01_bukti", "M_apl01_bukti");
-			
-			$this->load->model("common/m_crud", "m_crud");
-			$this->load->model("asesi/fr_apl_01/m_custom", "m_custom");
-			$this->load->model("asesi/fr_apl_01/m_param", "m_param");
-			$this->load->model("asesi/fr_apl_01/m_list_fr_apl_01", "m_list_apl01");
+			$this->load->model("table/M_skema", "M_skema");
+			$this->load->model("table/M_unit_kompetensi", "M_uk");
+			$this->load->model("table/M_skema_uk", "M_skema_uk");
+			$this->load->model("table/M_bukti", "M_bukti");
+			$this->load->model("datatables/M_list_apl_01", "M_list_apl_01");
+			$this->load->model("form/M_form_apl_01", "M_form_apl_01");
 		}
 	
 	public function index()
@@ -24,65 +25,13 @@ class fr_apl_01 extends CI_Controller {
 			$layout					= $data['layout'];
 			$view					= $data['view'];
 			
-			$data["dview"]			= "";
+			$data["dview"]			= '';
 			$data["dviewEvent"]		= $view[119];
 			$data["dlayoutMenu"]	= $layout[105];
 			$this->load->view($layout[100], $data);
 		}
 	
-	//PAGING
-	public function pagingAdd()
-		{
-			$data					= $this->m_globalval->getAllData();
-			$form_name 				= $data['form_name'];
-			$view					= $data['view'];			
-			$data["saveMethod"]		= "add";
-			
-			$data[$form_name[134]] 	= "";
-			$data[$form_name[115]]	= "";
-			$data[$form_name[116]] 	= "";
-			$data[$form_name[117]] 	= "";
-			$data[$form_name[118]] 	= "";
-			$data[$form_name[119]] 	= "";
-			$data[$form_name[120]] 	= "";
-			$data[$form_name[121]] 	= "";
-			$data[$form_name[122]] 	= "";
-			$data[$form_name[123]] 	= "";
-			$data[$form_name[124]] 	= "";
-			$data[$form_name[125]] 	= "";
-			$data[$form_name[126]] 	= "";
-			$data[$form_name[127]] 	= "";
-			$data[$form_name[128]] 	= "";
-			$data[$form_name[129]] 	= "";
-			$data[$form_name[130]] 	= "";
-			$data[$form_name[131]] 	= "";
-			$data[$form_name[132]] 	= "";
-			$data[$form_name[133]] 	= "";
-			$data[$form_name[141]] 	= "";
-			$data[$form_name[144]] 	= "";
-			$data[$form_name[102]] 	= "";
-			$data[$form_name[101]] 	= "";
-			$data[$form_name[105]] 	= "";
-			$data[$form_name[136]] 	= "";
-			
-			$addtionalParam			= $this->m_param->getDt_102($data);
-			$listSkema				= $this->m_crud->selectDt("SKEMA",  $addtionalParam);
-			$data["listSkema"]		= $listSkema;
-			
-			$this->load->view($view[117], $data);
-			$this->load->view($view[118], $data);
-		}
-		
-	public function pagingUpload($uuid)
-		{
-			$data					= $this->m_globalval->getAllData();
-			$view					= $data['view'];
-			$data["saveMethod"]		= "add";
-			
-			$this->load->view($view[120], $data);
-			$this->load->view($view[121], $data);
-		}
-		
+	// PAGING
 	public function pagingList()
 		{
 			$data	= $this->m_globalval->getAllData();
@@ -92,54 +41,43 @@ class fr_apl_01 extends CI_Controller {
 			$this->load->view($view[116], $data);
 		}
 		
+	public function pagingAdd()
+		{
+			$data					= $this->m_globalval->getAllData();
+			$form_name 				= $data['form_name'];
+			$view					= $data['view'];				
+			
+			$data					= $this->M_form_apl_01->form_add($data, $form_name);
+			
+			$condition				= array(
+				'IS_ACTIVE' 		=> '1');
+			$data["listSkema"]		= $this->M_skema->get_entry($condition);
+			
+			$this->load->view($view[117], $data);
+			$this->load->view($view[118], $data);
+		}
+		
 	public function pagingEdit($uuid)
 		{
 			$data					= $this->m_globalval->getAllData();		
 			$form_name 				= $data['form_name'];
 			$view					= $data['view'];
-			$data["saveMethod"]		= "edit";
 			
-			$addtionalParam			= $this->m_param->getADt($uuid);
-			$res					= $this->m_custom->getADt($uuid);
-			$result 				= $res->row();
-				
-			$data[$form_name[134]] 	= $result->UUID_APL01;
-			$data[$form_name[115]]	= $result->NAMA_LENGKAP;
-			$data[$form_name[116]] 	= $result->TEMPAT_LAHIR;
-			$data[$form_name[117]] 	= $result->TGL_LAHIR;
-			$data[$form_name[118]] 	= $result->JENIS_KELAMIN;
-			$data[$form_name[119]] 	= $result->KEBANGSAAN;
-			$data[$form_name[120]] 	= $result->ALAMAT_RUMAH;
-			$data[$form_name[121]] 	= $result->KODE_POS_RUMAH;
-			$data[$form_name[122]] 	= $result->NO_TLP_RUMAH;
-			$data[$form_name[123]] 	= $result->NO_TLP_HP;
-			$data[$form_name[124]] 	= $result->EMAIL;
-			$data[$form_name[125]] 	= $result->PENDIDIKAN_TERAKHIR;
-			$data[$form_name[126]] 	= $result->NAMA_PERUSAHAAN;
-			$data[$form_name[127]] 	= $result->JABATAN;
-			$data[$form_name[128]] 	= $result->ALAMAT_KANTOR;
-			$data[$form_name[129]] 	= $result->KODE_POS_PERUSAHAAN;
-			$data[$form_name[130]] 	= $result->NO_TLP_KANTOR;
-			$data[$form_name[131]] 	= $result->FAX_KANTOR;
-			$data[$form_name[132]] 	= $result->EMAIL_KANTOR;
-			$data[$form_name[133]] 	= $result->TUJUAN_ASESMEN;
-			$data[$form_name[141]] 	= $result->TUJUAN_ASESMEN_LAINNYA_KETERANGAN;
-			$data[$form_name[144]] 	= $result->JENIS_SKEMA;
-			$data[$form_name[102]] 	= $result->UUID_SKEMA;
-			$data[$form_name[101]] 	= $result->NOMOR_SKEMA;
-			$data[$form_name[105]] 	= "";
-			$data[$form_name[136]] 	= "";
+			$condition				= array(
+				'UUID_APL01'		=> $uuid);
+			$result					= $this->M_apl_01->get_detail_entry($condition)->row();
+			$data					= $this->M_form_apl_01->form_edit($data, $form_name, $result);
 					
-			$addtionalParam			= $this->m_param->getDt_102($data);
-			$listSkema				= $this->m_crud->selectDt("SKEMA",  $addtionalParam);
-			$data["listSkema"]		= $listSkema;
+			$condition				= array(
+				'IS_ACTIVE' 		=> '1');
+			$data["listSkema"]		= $this->M_skema->get_entry($condition);
 			
 			$this->load->view($view[117], $data);
 			$this->load->view($view[118], $data);
 		}
 		
 	// CREATE		
-	public function saveDt()
+	public function saveDt_apl_01()
 		{
 			$data					= $this->m_globalval->getAllData();		
 			$form_name				= $data["form_name"];
@@ -178,7 +116,7 @@ class fr_apl_01 extends CI_Controller {
 		}
 	
 	// UPDATE		
-	public function updateDt()
+	public function updateDt_apl_01()
 		{
 			$data					= $this->m_globalval->getAllData();		
 			$form_name				= $data["form_name"];
@@ -239,7 +177,7 @@ class fr_apl_01 extends CI_Controller {
 		}
 	
 	// DELETE
-	public function deleteDt($uuid)
+	public function deleteDt_apl_01($uuid)
 		{
 			$data					= $this->m_globalval->getAllData();		
 			$form_name				= $data['form_name'];
@@ -266,96 +204,45 @@ class fr_apl_01 extends CI_Controller {
 				}
 		}
 		
-	//VALIDATION
-	public function isFN101valid()
-		{
-			$data			= $this->m_globalval->getAllData();			
-			$form_name		= $data["form_name"];
-			
-			$addtionalParam	= $this->m_param->isFN101valid($form_name[102], $form_name[101]);
-			$result			= $this->m_crud->selectDt("SKEMA", $addtionalParam);
-			
-			if($result->num_rows()>0){
-				echo "false";
-			}else{
-				echo "true";
-			}
-		}
-		
 	// READ	
-	public function getADt($uuid)
+	public function getOneDt_apl_01($uuid)
 		{
-			$addtionalParam	= $this->m_param->getADt($uuid);
-			$result			= $this->m_crud->selectDt("SKEMA",  $addtionalParam);
+			$condition		= array(
+				'UUID_APL01'=> $uuid);
+			$result			= $this->M_apl_01->get_entry($condition);
 			echo json_encode($result->row());
 		}
 		
-	public function getADt_FN101()
+	public function getOneDt_nomorSkema()
 		{
-			$data	= $this->m_globalval->getAllData();	
+			$data			= $this->m_globalval->getAllData();	
+			$form_name		= $data['form_name'];
 			
-			$addtionalParam	= $this->m_param->getADt_FN101($data);
-			$result			= $this->m_crud->selectDt("SKEMA",  $addtionalParam);
+			$condition		= array(
+				'UUID_SKEMA'=> $this->input->post($form_name[102]));
+			$result			= $this->M_skema->get_entry($condition);
 			
 			echo $result->row()->NOMOR_SKEMA;
 		}
 		
-	public function getDt_105()
+	public function getAllDt_bukti()
 		{			
-			$data							= $this->m_globalval->getAllData();
-			$form_name						= $data["form_name"];
+			$data						= $this->m_globalval->getAllData();
+			$form_name					= $data["form_name"];
 			
-			$uuid							= $this->input->post($form_name[105]);
-			$listUK							= $this->m_custom->getDt_FN105($uuid);
+			$condition					= array(
+				'UUID_USER'				=> $this->input->post($form_name[140]),
+				'IS_ACTIVE'				=> '1');
+			$listBukti					= $this->M_bukti->get_entry($condition);
 
-			$listUK_selected_temp			= array();
-			$listUK_selected				= array();
+			$listBukti_selected_temp	= array();
+			$listBukti_selected			= array();
 			if($this->input->post($form_name[134])!="")
 				{
-					$uuid					= $this->input->post($form_name[134]);
-					$listUK_selected_temp	= $this->m_custom->getDt_FN105_FN134($uuid);	
-
-					$i = 0;
-					foreach($listUK_selected_temp->result() as $row)
-						{
-							$listUK_selected[$i]	= $row->UUID_UK;	
-							$i++;
-						}					
-				}
+					$condition					= array(
+						'apl01bukti.UUID_APL01'	=> $this->input->post($form_name[134]));
+					$listBukti_selected_temp	= $this->M_apl01_bukti->get_detail_entry($condition);	
 				
-			if($listUK->num_rows()>0){
-				foreach($listUK->result() as $row){
-					if(in_array($row->UUID_UK, $listUK_selected))
-						{
-							echo "<option value='".$row->UUID_UK."' selected> ".$row->KODE_UK." - ".$row->JUDUL_UK."</option>";
-						}
-					else
-						{
-							echo "<option value='".$row->UUID_UK."'> ".$row->KODE_UK." - ".$row->JUDUL_UK."</option>";
-						}
-					
-				}
-			}
-			exit;				
-		}
-		
-	public function getDt_142()
-		{			
-			$data							= $this->m_globalval->getAllData();
-			$form_name						= $data["form_name"];
-			$uuid							= $this->input->post($form_name[140]);
-			
-			$addtionalParam					= $this->m_param->getDt_142($uuid);
-			$listBukti						= $this->m_crud->selectDt("BUKTI",  $addtionalParam);
-
-			$listBukti_selected_temp		= array();
-			$listBukti_selected				= array();
-			if($this->input->post($form_name[134])!="")
-				{
-					$uuid						= $this->input->post($form_name[134]);
-					$listBukti_selected_temp	= $this->m_custom->getDt_FN142_FN134($uuid);	
-				
-					echo $listBukti_selected_temp;
 					$i = 0;
 					if($listBukti_selected_temp!=""){
 						foreach($listBukti_selected_temp->result() as $row)
@@ -382,15 +269,58 @@ class fr_apl_01 extends CI_Controller {
 			exit;				
 		}
 		
-	public function getList()
-		{				
-			$result				= $this->m_list_apl01->get_datatables();
-			$recordsTotal		= $this->m_list_apl01->count_all();
-			$recordsFiltered	= $this->m_list_apl01->count_filtered();
+	public function getAllDt_skema_uk()
+		{			
+			$data					= $this->m_globalval->getAllData();
+			$form_name				= $data["form_name"];
+			
+			$condition				= array(
+				'skemauk.UUID_SKEMA'=> $this->input->post($form_name[102]),
+				'skemauk.IS_ACTIVE'	=> '1');
+			$listUK					= $this->M_skema_uk->get_detail_entry($condition);
 
-			$output				= $this->m_param->getDt_list($result, $recordsTotal, $recordsFiltered);
+			$listUK_selected_temp	= array();
+			$listUK_selected		= array();
+			if($this->input->post($form_name[134])!="")
+				{					
+					$condition					= array(
+						'apl01uk.UUID_APL01'	=> $this->input->post($form_name[134]),
+						'apl01uk.IS_ACTIVE'		=> '1');
+					$listUK_selected_temp 		= $this->M_apl01_uk->get_detail_entry($condition);
+					
+					$i = 0;
+					foreach($listUK_selected_temp->result() as $row)
+						{
+							$listUK_selected[$i]= $row->UUID_UK;	
+							$i++;
+						}					
+				}
+				
+			if($listUK->num_rows()>0){
+				foreach($listUK->result() as $row){
+					if(in_array($row->UUID_UK, $listUK_selected))
+						{
+							echo "<option value='".$row->UUID_UK."' selected> ".$row->KODE_UK." - ".$row->JUDUL_UK."</option>";
+						}
+					else
+						{
+							echo "<option value='".$row->UUID_UK."'> ".$row->KODE_UK." - ".$row->JUDUL_UK."</option>";
+						}
+					
+				}
+			}
+			exit;				
+		}
+		
+	// DATATABLES
+	public function getList_apl_01()
+		{				
+			$result				= $this->M_list_apl_01->get_datatables();
+			$recordsTotal		= $this->M_list_apl_01->count_all();
+			$recordsFiltered	= $this->M_list_apl_01->count_filtered();
+
+			$output				= $this->M_list_apl_01->get_json($result, $recordsTotal, $recordsFiltered);
 			
 			echo json_encode($output);
 		}
-	
 }

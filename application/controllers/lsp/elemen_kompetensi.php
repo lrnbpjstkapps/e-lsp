@@ -89,20 +89,4 @@ class elemen_kompetensi extends CI_Controller {
 			$addtionalParam	= $this->m_param->deleteDt($data, $uuid);
 			echo $this->m_crud->deleteDt("ELEMEN_KOMPETENSI", $addtionalParam);
 		}
-		
-	//VALIDATION
-	public function isFN107valid()
-		{
-			$data			= $this->m_globalval->getAllData();			
-			$form_name		= $data["form_name"];
-			
-			$addtionalParam	= $this->m_param->isFN107valid($form_name[109], $form_name[108]);
-			$result			= $this->m_crud->selectDt("ELEMEN_KOMPETENSI", $addtionalParam);
-			
-			if($result->num_rows()>0){
-				echo "false";
-			}else{
-				echo "true";
-			}
-		}
 }

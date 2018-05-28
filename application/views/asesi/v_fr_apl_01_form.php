@@ -240,9 +240,9 @@
 					<div class="form-group">
 						<label class="control-label col-md-2"> <?php echo $form_label[113]; ?> </label>
 						<div class="col-md-4">
-							<select name="<?php echo $form_name[100]; ?>" id="<?php echo $form_id[101]; ?>" onclick="setDt102()" class="form-control">
+							<select name="<?php echo $form_name[102]; ?>" id="<?php echo $form_id[101]; ?>" onclick="setDt102()" class="form-control">
 								<?php foreach($listSkema->result() as $row){ ?>
-									<?php if($$form_name[102]==$row->UUID_SKEMA){?>
+									<?php if($$form_name[158]==$row->UUID_SKEMA){?>
 										<option value = "<?php echo $row->UUID_SKEMA; ?>" selected><?php echo $row->NAMA_SKEMA; ?></option>
 									<?php }else{ ?>
 										<option value = "<?php echo $row->UUID_SKEMA; ?>"><?php echo $row->NAMA_SKEMA; ?></option>

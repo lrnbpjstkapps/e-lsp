@@ -213,21 +213,21 @@
 
 		public function getFormName()
 			{
-				$form_name[100]		= "val_skema_sertifikasi_judul";
-				$form_name[101]		= "val_skema_sertifikasi_nomor";
-				$form_name[102]		= "val_skema_sertifikasi_uuid";
-				$form_name[103]		= "val_unit_kompetensi_judul";
-				$form_name[104]		= "val_unit_kompetensi_kode";
-				$form_name[105]		= "val_unit_kompetensi_uuid";
-				$form_name[106]		= "val_skema_sertifikasi_uuid[]";
-				$form_name[107]		= "val_elemen_kompetensi_nama";
-				$form_name[108]		= "val_elemen_kompetensi_nomor";
-				$form_name[109]		= "val_elemen_kompetensi_uuid";
-				$form_name[110]		= "val_unit_kompetensi";
-				$form_name[111]		= "val_kriteria_unjuk_kerja_pernyataan";
-				$form_name[112]		= "val_kriteria_unjuk_kerja_nomor";
-				$form_name[113]		= "val_kriteria_unjuk_kerja_uuid";
-				$form_name[114]		= "val_kriteria_unjuk_kerja_pertanyaan";
+				$form_name[100]		= "val_skema_judul";
+				$form_name[101]		= "val_skema_nomor";
+				$form_name[102]		= "val_skema_uuid";
+				$form_name[103]		= "val_uk_judul";
+				$form_name[104]		= "val_uk_kode";
+				$form_name[105]		= "val_uk_uuid";
+				$form_name[106]		= "val_skema_uuid[]";
+				$form_name[107]		= "val_ek_nama";
+				$form_name[108]		= "val_ek_nomor";
+				$form_name[109]		= "val_ek_uuid";
+				$form_name[110]		= "val_uk";
+				$form_name[111]		= "val_kuk_pernyataan";
+				$form_name[112]		= "val_kuk_nomor";
+				$form_name[113]		= "val_kuk_uuid";
+				$form_name[114]		= "val_kuk_pertanyaan";
 				$form_name[115]		= "val_apl01_nama";
 				$form_name[116]		= "val_apl01_tempat_lahir";
 				$form_name[117]		= "val_apl01_tanggal_lahir";
@@ -249,15 +249,15 @@
 				$form_name[133]		= "val_apl01_tujuan_asesmen";
 				$form_name[134]		= "val_apl01_uuid";
 				$form_name[135]		= "val_apl01_bukti";
-				$form_name[136]		= "val_bukti_kelengkapan_uuid";
-				$form_name[137]		= "val_bukti_kelengkapan_file";
-				$form_name[138]		= "val_bukti_kelengkapan_keterangan";
-				$form_name[139]		= "val_bukti_kelengkapan_uuid[]";
+				$form_name[136]		= "val_bukti_uuid";
+				$form_name[137]		= "val_bukti_file";
+				$form_name[138]		= "val_bukti_keterangan";
+				$form_name[139]		= "val_bukti_uuid[]";
 				$form_name[140]		= "val_user_uuid";
 				$form_name[141]		= "val_apl01_tujuan_asesmen_lainnya_keterangan";
-				$form_name[142]		= "val_apl01_skema_sertifikasi";
-				$form_name[143]		= "val_unit_kompetensi_uuid[]";
-				$form_name[144]		= "val_apl01_jenis_skema_sertifikasi";
+				$form_name[142]		= "val_apl01_skema";
+				$form_name[143]		= "val_uk_uuid[]";
+				$form_name[144]		= "val_apl01_jenis_skema";
 				$form_name[145]		= "val_mma_jenis_bukti";
 				$form_name[146]		= "val_apl02_uuid";
 				$form_name[147]		= "val_apl02_nama_asesor";
@@ -268,15 +268,19 @@
 				$form_name[152]		= "val_mma_asesor";
 				$form_name[153]		= "val_mma_tanggal";
 				$form_name[154]		= "val_mma_metode";
-				$form_name[155]		= "";
-				$form_name[156]		= "";
-				$form_name[157]		= "";
-				$form_name[158]		= "";
+				$form_name[155]		= "val_skema_is_active";
+				$form_name[156]		= "val_uk_is_active";
+				$form_name[157]		= "val_skema_uk_uuid";
+				$form_name[158]		= "val_skema_uuid_2";
 				$form_name[159]		= "val_apl01_is_active";
 				$form_name[160]		= "val_apl01_alasan_kurang_syarat";
 				$form_name[161]		= "val_apl01_is_memenuhi_syarat";
 				$form_name[162]		= "val_apl01_is_diterima";
-				$form_name[163]		= "val_adm_uuid";
+				$form_name[163]		= "val_sa_uuid";
+				$form_name[164]		= "val_bukti_url";
+				$form_name[165]		= "val_bukti_is_active";
+				$form_name[166]		= "val_kuk_is_active";
+				$form_name[167]		= "val_ek_is_active";
 				return $form_name;
 			}		
 		
@@ -539,15 +543,15 @@
 				$ajax_url[121] 	= base_url()."lsp/kriteria_unjuk_kerja/updateDt";
 				$ajax_url[122] 	= base_url()."lsp/kriteria_unjuk_kerja/deleteDt/";
 				$ajax_url[123] 	= base_url()."lsp/kriteria_unjuk_kerja/getDt_109";
-				$ajax_url[124] 	= base_url()."asesi/fr_apl_01/saveDt";
-				$ajax_url[125] 	= base_url()."asesi/fr_apl_01/getList";
-				$ajax_url[126] 	= base_url()."asesi/fr_apl_01/getADt/";
-				$ajax_url[127] 	= base_url()."asesi/fr_apl_01/updateDt";
-				$ajax_url[128] 	= base_url()."asesi/fr_apl_01/deleteDt/";
+				$ajax_url[124] 	= base_url()."asesi/fr_apl_01/saveDt_apl_01";
+				$ajax_url[125] 	= base_url()."asesi/fr_apl_01/getList_apl_01";
+				$ajax_url[126] 	= base_url()."asesi/fr_apl_01/getOneDt_apl_01/";
+				$ajax_url[127] 	= base_url()."asesi/fr_apl_01/updateDt_apl_01";
+				$ajax_url[128] 	= base_url()."asesi/fr_apl_01/deleteDt_apl_01/";
 				$ajax_url[129] 	= base_url()."asesi/fr_apl_01/pagingAdd";
 				$ajax_url[130] 	= base_url()."asesi/fr_apl_01/pagingList";
-				$ajax_url[131] 	= base_url()."asesi/fr_apl_01/getADt_FN101";
-				$ajax_url[132] 	= base_url()."asesi/fr_apl_01/getDt_105";
+				$ajax_url[131] 	= base_url()."asesi/fr_apl_01/getOneDt_nomorSkema";
+				$ajax_url[132] 	= base_url()."asesi/fr_apl_01/getAllDt_skema_uk";
 				$ajax_url[133] 	= base_url()."asesi/fr_apl_01/pagingEdit/";
 				$ajax_url[134] 	= base_url()."asesi/fr_apl_01/pagingUpload/";
 				$ajax_url[135] 	= base_url()."asesi/fr_apl_01/saveFile";
@@ -557,7 +561,7 @@
 				$ajax_url[139] 	= base_url()."asesi/bukti_kelengkapan/updateDt";
 				$ajax_url[140] 	= base_url()."asesi/bukti_kelengkapan/deleteDt/";
 				$ajax_url[141] 	= base_url()."asesi/bukti_kelengkapan/getADt/";
-				$ajax_url[142] 	= base_url()."asesi/fr_apl_01/getDt_142";
+				$ajax_url[142] 	= base_url()."asesi/fr_apl_01/getAllDt_bukti";
 				$ajax_url[143] 	= base_url()."asesi/fr_apl_02/pagingAdd";
 				$ajax_url[144] 	= base_url()."asesi/fr_apl_02/pagingUpload/";
 				$ajax_url[145] 	= base_url()."asesi/fr_apl_02/pagingList";
@@ -693,11 +697,13 @@
 		/* VALIDATION URL */
 		public function getIsValidUrl()
 			{
-				$isvalid_url[100]	= base_url()."lsp/skema_sertifikasi/isFN101valid";
-				$isvalid_url[101]	= base_url()."lsp/unit_kompetensi/isFN104valid";
-				$isvalid_url[102]	= base_url()."lsp/elemen_kompetensi/isFN107valid";
-				$isvalid_url[103]	= base_url()."lsp/kriteria_unjuk_kerja/isFN112valid";
 				$isvalid_url[104]	= base_url()."asesi/bukti_kelengkapan/isFN138valid";
+				
+				$isvalid_url[100]	= base_url()."Validation/isSkemaNomorExist";
+				$isvalid_url[101]	= base_url()."Validation/isUkKodeExist";
+				$isvalid_url[102]	= base_url()."Validation/isEkNomorExist";
+				$isvalid_url[103]	= base_url()."Validation/isFN112valid";
+				$isvalid_url[104]	= base_url()."Validation/isFN138valid";
 				return $isvalid_url;
 			}
 	}
