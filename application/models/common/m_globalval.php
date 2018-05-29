@@ -377,7 +377,7 @@
 				$form_id[176]		= "fr_apl_02_nama_asesor";
 				$form_id[177]		= "fr_apl_02_tuk";
 				$form_id[178]		= "fr_apl_01_no_dokumen";
-				$form_id[179]		= "fr_apl_02_penilaian";
+				$form_id[179]		= "fr_apl_02_is_kompeten";
 				$form_id[180]		= "fr_apl_02_saveButton";
 				$form_id[181]		= "fr_apl_02_form";
 				$form_id[182]		= "fr_apl_02_tabel";

@@ -35,10 +35,10 @@
 		public function insert_multiple_entry($form_name, $i)
 			{
 				$uuidBukti 				= '';
-				if(count($this->input->post($form_name[136])) > 0)
+				if(count($this->input->post($form_name[136])[$i]) > 0)
 					{
 						$j 				= 0;
-						foreach($this->input->post($form_name[136][$i]) as $val)
+						foreach($this->input->post($form_name[136])[$i] as $val)
 							{
 								if($j > 0)
 									{
@@ -48,6 +48,7 @@
 									{
 										$uuidBukti .= $val;
 									}
+								$j++;
 							}
 					}
 				else
@@ -59,10 +60,10 @@
 				$this->UUID_USER		= (!$this->input->post($form_name[140]) ? null : $this->input->post($form_name[140]));
 				$this->UUID_APL01		= (!$this->input->post($form_name[134]) ? null : $this->input->post($form_name[134]));
 				$this->UUID_APL02		= (!$this->input->post($form_name[146]) ? null : $this->input->post($form_name[146]));
-				$this->UUID_UK			= (!$this->input->post($form_name[143])[$i] ? null : $this->input->post($form_name[143])[$i]);
-				$this->UUID_EK			= (!$this->input->post($form_name[177])[$i] ? null : $this->input->post($form_name[177])[$i]);
-				$this->UUID_KUK			= (!$this->input->post($form_name[178])[$i] ? null : $this->input->post($form_name[178])[$i]);
-				$this->IS_KOMPETEN		= (!$this->input->post($form_name[179])[$i] ? null : $this->input->post($form_name[179])[$i]);
+				$this->UUID_UK			= (!$this->input->post($form_name[105])[$i] ? null : $this->input->post($form_name[105])[$i]);
+				$this->UUID_EK			= (!$this->input->post($form_name[109])[$i] ? null : $this->input->post($form_name[109])[$i]);
+				$this->UUID_KUK			= (!$this->input->post($form_name[113])[$i] ? null : $this->input->post($form_name[113])[$i]);
+				$this->IS_KOMPETEN		= (!$this->input->post($form_name[169])[$i] ? null : $this->input->post($form_name[169])[$i]);
 				$this->UUID_BUKTI		= $uuidBukti;
 				$this->USR_CRT			= 'Karid Nurvenus';
 				$this->DTM_CRT			= date('Y-m-d H:i:s');

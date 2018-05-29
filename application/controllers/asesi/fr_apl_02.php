@@ -131,8 +131,8 @@ class fr_apl_02 extends CI_Controller {
 					$i = 0;
 					foreach($listKUK->result() as $row)
 						{
-							$data[$form_name[149].'_'.$i] 	= $row->IS_KOMPETEN;
-							$data[$form_name[136].'_'.$i]	= explode(';', $row->UUID_BUKTI);
+							$data[$form_name[169]][$i] 	= $row->IS_KOMPETEN;
+							$data[$form_name[136]][$i]	= explode(';', $row->UUID_BUKTI);
 							$i++;
 						}
 				}
@@ -154,9 +154,6 @@ class fr_apl_02 extends CI_Controller {
 			
 			$_POST[$form_name[146]]			= $this->uuid->v4();
 			$qResult_ans_apl_02_ins			= $this->M_apl_02->insert_entry($form_name);
-			
-			echo $qResult_ans_apl_02_ins.'-';
-			echo count($this->input->post($form_name[178]));
 			
 			if($qResult_apl_02_ins == 1)
 				{
