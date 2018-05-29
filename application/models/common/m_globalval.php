@@ -262,7 +262,7 @@
 				$form_name[146]		= "val_apl02_uuid";
 				$form_name[147]		= "val_apl02_nama_asesor";
 				$form_name[148]		= "val_apl02_tuk";
-				$form_name[149]		= "val_apl02_penilaian";
+				$form_name[149]		= "";
 				$form_name[150]		= "val_apl01_no_dokumen";
 				$form_name[151]		= "val_mma_lsp";
 				$form_name[152]		= "val_mma_asesor";
@@ -281,6 +281,18 @@
 				$form_name[165]		= "val_bukti_is_active";
 				$form_name[166]		= "val_kuk_is_active";
 				$form_name[167]		= "val_ek_is_active";
+				$form_name[168]		= "val_apl02_no_dokumen";
+				$form_name[169]		= "val_apl02_is_kompeten";
+				$form_name[170]		= "val_apl02_alasan_blm_kompeten";
+				$form_name[171]		= "val_apl02_is_dilanjutkan";
+				$form_name[172]		= "val_apl02_catatan_1";
+				$form_name[173]		= "val_apl02_catatan_2";
+				$form_name[174]		= "val_apl02_is_active";
+				$form_name[175]		= "val_ans_apl02_uuid";
+				$form_name[176]		= "val_ans_apl02_is_kompeten";
+				$form_name[177]		= "val_ek_uuid[]";
+				$form_name[178]		= "val_kuk_uuid[]";
+				$form_name[179]		= "val_apl02_is_kompeten[]";
 				return $form_name;
 			}		
 		
@@ -568,9 +580,9 @@
 				$ajax_url[146] 	= base_url()."asesi/fr_apl_02/pagingEdit/";
 				$ajax_url[147] 	= base_url()."asesi/fr_apl_02/getADt_FN134";
 				$ajax_url[148] 	= base_url()."asesi/fr_apl_02/pagingChild/";
-				$ajax_url[149] 	= base_url()."asesi/fr_apl_02/saveDt";
-				$ajax_url[150] 	= base_url()."asesi/fr_apl_02/updateDt";
-				$ajax_url[151] 	= base_url()."asesi/fr_apl_02/deleteDt/";
+				$ajax_url[149] 	= base_url()."asesi/fr_apl_02/saveDt_apl_02";
+				$ajax_url[150] 	= base_url()."asesi/fr_apl_02/updateDt_apl_02";
+				$ajax_url[151] 	= base_url()."asesi/fr_apl_02/deleteDt_apl_02/";
 				$ajax_url[152] 	= base_url()."asesi/fr_apl_02/getList";
 				$ajax_url[153] 	= base_url()."asesor/fr_mma/pagingList";
 				$ajax_url[154] 	= base_url()."asesor/fr_mma/pagingAdd";
@@ -702,7 +714,7 @@
 				$isvalid_url[100]	= base_url()."Validation/isSkemaNomorExist";
 				$isvalid_url[101]	= base_url()."Validation/isUkKodeExist";
 				$isvalid_url[102]	= base_url()."Validation/isEkNomorExist";
-				$isvalid_url[103]	= base_url()."Validation/isFN112valid";
+				$isvalid_url[103]	= base_url()."Validation/isKukNomorExist";
 				$isvalid_url[104]	= base_url()."Validation/isFN138valid";
 				return $isvalid_url;
 			}

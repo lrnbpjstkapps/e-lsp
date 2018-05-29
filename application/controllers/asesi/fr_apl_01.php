@@ -79,33 +79,36 @@ class fr_apl_01 extends CI_Controller {
 	// CREATE		
 	public function saveDt_apl_01()
 		{
-			$data					= $this->m_globalval->getAllData();		
-			$form_name				= $data["form_name"];
+			$data						= $this->m_globalval->getAllData();		
+			$form_name					= $data["form_name"];
 			
-			$_POST[$form_name[134]]	= $this->uuid->v4();
-			$qResult_apl_01			= $this->M_apl_01->insert_entry($form_name);
-			$qResult_apl_01_uk		= 1;
-			$qResult_apl_01_bukti	= 1;
+			$_POST[$form_name[134]]		= $this->uuid->v4();
+			$qResult_apl_01_ins			= $this->M_apl_01->insert_entry($form_name);
+			$qResult_apl_01_uk_ins		= 1;
+			$qResult_apl_01_bukti_ins	= 1;
 			
-			for ($i = 0; $i < count($this->input->post($form_name[143])); $i++)
-				{	
-					$qResult 		= $this->M_apl01_uk->insert_multiple_entry($form_name, $i);
-					if($qResult != 1)	
-						{
-							$qResult_apl_01_uk = -1;
-						}
-				}
-			
-			for ($i = 0; $i < count($this->input->post($form_name[139])); $i++)
+			if($qResult_apl_01_ins == 1)
 				{
-					$qResult		= $this->M_apl01_bukti->insert_multiple_entry($form_name, $i);	
-					if($qResult != 1)	
+					for ($i = 0; $i < count($this->input->post($form_name[143])); $i++)
+						{	
+							$qResult 	= $this->M_apl01_uk->insert_multiple_entry($form_name, $i);
+							if($qResult != 1)	
+								{
+									$qResult_apl_01_uk_ins = -1;
+								}
+						}
+					
+					for ($i = 0; $i < count($this->input->post($form_name[139])); $i++)
 						{
-							$qResult_apl_01_bukti = -1;
+							$qResult	= $this->M_apl01_bukti->insert_multiple_entry($form_name, $i);	
+							if($qResult != 1)	
+								{
+									$qResult_apl_01_bukti_ins = -1;
+								}
 						}
 				}
 					
-			if($qResult_apl_01 != 1 || $qResult_apl_01_uk != 1 || $qResult_apl_01_bukti != 1)
+			if($qResult_apl_01_ins != 1 || $qResult_apl_01_uk_ins != 1 || $qResult_apl_01_bukti_ins != 1)
 				{
 					echo -1;
 				}
@@ -128,7 +131,7 @@ class fr_apl_01 extends CI_Controller {
 			$_POST[$form_name[159]]	= '1';
 			$condition				= array(
 				'UUID_APL01'		=> $this->input->post($form_name[134]));
-			$qResult_apl_01			= $this->M_apl_01->update_entry($form_name, $data_apl_01, $condition);
+			$qResult_apl_01_upd		= $this->M_apl_01->update_entry($form_name, $data_apl_01, $condition);
 			$qResult_apl01_uk_del	= 1;
 			$qResult_apl01_uk_ins	= 1;
 			$qResult_apl01_bukti_del= 1;
@@ -166,7 +169,7 @@ class fr_apl_01 extends CI_Controller {
 						}
 				}
 			
-			if($qResult_apl_01 != 1 || $qResult_apl01_uk_del != 1 || $qResult_apl01_uk_ins != 1 || $qResult_apl01_bukti_del != 1 || $qResult_apl01_bukti_ins != 1)
+			if($qResult_apl_01_upd != 1 || $qResult_apl01_uk_del != 1 || $qResult_apl01_uk_ins != 1 || $qResult_apl01_bukti_del != 1 || $qResult_apl01_bukti_ins != 1)
 				{
 					echo -1;
 				}

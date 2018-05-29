@@ -1,21 +1,11 @@
 <?php
 	class m_list_apl_01 extends CI_Model{
-		var $table = "FR_APL_01 AS apl01";
-		var $order1 = array('apl01.DTM_CRT' => 'DESC'); 
-		
-		var $column_order = 
-			array(
-				null, 
-				null,
-				null,
-				null,
-				null
-			); 
-			
-		var $column_search = 
-			array(
-				'apl01.NO_DOKUMEN'
-			);
+		var $table			= "FR_APL_01 AS apl01";
+		var $order			= array('apl01.DTM_CRT' => 'DESC'); 
+		var $column_order	= array(
+			null, null, null, null, null, null); 
+		var $column_search	= array(
+			'apl01.NO_DOKUMEN');
 			
 		public function _get_datatables_query(){
 			$this->db->select('apl01.UUID_APL01, apl01.NO_DOKUMEN, skema.NAMA_SKEMA, apl01.DTM_CRT');
@@ -44,9 +34,9 @@
 			if(isset($_POST['order'])){
 				$this->db->order_by($this->column_order[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
 			} 
-			else if(isset($this->order1)){
-				$order1 = $this->order1;
-				$this->db->order_by(key($order1), $order1[key($order1)]);
+			else if(isset($this->order)){
+				$order = $this->order;
+				$this->db->order_by(key($order), $order[key($order)]);
 			}
 		}
 

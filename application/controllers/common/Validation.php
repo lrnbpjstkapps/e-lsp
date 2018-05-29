@@ -10,9 +10,27 @@ class Validation extends CI_Controller {
 			$this->load->model("table/M_skema", "M_skema");
 			$this->load->model("table/M_uk", "M_uk");
 			$this->load->model("table/M_kuk", "M_kuk");
+			$this->load->model("table/M_bukti", "M_kuk");
 		}
 	
 	// IS_EXIST
+	public function isBuktiKeteranganExist()
+		{
+			$data				= $this->m_globalval->getAllData();			
+			$form_name			= $data["form_name"];
+			
+			$condition			= array(
+				'UUID_BUKTI <>'	=> $this->input->post($form_name[136]),
+				'KETERANGAN'	=> $this->input->post($form_name[138]));
+			$result				= $this->M_bukti->get_entry($condition);
+			
+			if($result->num_rows()>0){
+				echo "false";
+			}else{
+				echo "true";
+			}
+		}
+		
 	public function isEkNomorExist()
 		{
 			$data			= $this->m_globalval->getAllData();			

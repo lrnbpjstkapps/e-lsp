@@ -25,9 +25,9 @@
 					<?php 
 						$i = 0;		
 						foreach($listKUK->result() as $row){ ?>
-							<input type = "hidden" name = "<?php echo $form_name[105].'_'.$i; ?>" value = "<?php echo $row->UUID_UK; ?>">
-							<input type = "hidden" name = "<?php echo $form_name[113].'_'.$i; ?>" value = "<?php echo $row->UUID_KUK; ?>">
-							<input type = "hidden" name = "<?php echo $form_name[109].'_'.$i; ?>" value = "<?php echo $row->UUID_EK; ?>">
+							<input type = "hidden" name = "<?php echo $form_name[143]; ?>" value = "<?php echo $row->UUID_UK; ?>">
+							<input type = "hidden" name = "<?php echo $form_name[178]; ?>" value = "<?php echo $row->UUID_KUK; ?>">
+							<input type = "hidden" name = "<?php echo $form_name[177]; ?>" value = "<?php echo $row->UUID_EK; ?>">
 							<tr>
 								<td>
 									<?php echo ($i+1); ?>
@@ -40,10 +40,10 @@
 								</td>
 								<?php if($saveMethod == "add"){ ?>
 									<td>
-										<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "1">
+										<input type = "radio" name = "<?php echo $form_name[179]; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "1">
 									</td>
 									<td>
-										<input type = "radio" name = "<?php echo $form_name[149].'_'.$i; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "0"> 
+										<input type = "radio" name = "<?php echo $form_name[179]; ?>" id = "<?php echo $form_id[179].'_'.$i; ?>" value = "0"> 
 									</td>
 									<td>								
 										<select multiple="multiple" name="<?php echo $form_name[136].'_'.$i.'[]'; ?>" id="<?php echo $form_id[173]; ?>">															

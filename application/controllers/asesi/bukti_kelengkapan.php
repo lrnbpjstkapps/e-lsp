@@ -69,21 +69,5 @@ class bukti_kelengkapan extends CI_Controller {
 			
 			$addtionalParam	= $this->m_param->updateIsActiveDt($data, $uuid);
 			echo $this->m_crud->updateDt("BUKTI", $addtionalParam);
-		}
-		
-	//VALIDATION
-	public function isFN138valid()
-		{
-			$data			= $this->m_globalval->getAllData();			
-			$form_name		= $data["form_name"];
-			
-			$addtionalParam	= $this->m_param->isFN138valid($form_name[136], $form_name[138]);
-			$result			= $this->m_crud->selectDt("BUKTI", $addtionalParam);
-			
-			if($result->num_rows()>0){
-				echo "false";
-			}else{
-				echo "true";
-			}
-		}
+		}	
 }

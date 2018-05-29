@@ -42,12 +42,12 @@
 				$this->DTM_UPD				= date('Y-m-d H:i:s');
 				$this->IS_ACTIVE			= (!$this->input->post($form_name[165]) ? $data->IS_ACTIVE : $this->input->post($form_name[165]));;
 					
-				return $this->db->update('SKEMA', $this, $condition);
+				return $this->db->update('BUKTI', $this, $condition);
 			}
 			
 		public function delete_entry($condition)
 			{
-				return $this->db->delete('SKEMA', $condition);
+				return $this->db->delete('BUKTI', $condition);
 			}
 		
 	}

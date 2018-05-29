@@ -1,5 +1,5 @@
 <?php
-class M_form_apl_01 extends CI_Model {
+class M_form_apl_02 extends CI_Model {
 		
 	public function form_add($data, $form_name)
 		{			
