@@ -16,6 +16,7 @@
 						url: "<?php echo $ajax_url[147]; ?>",
 						data: "<?php echo $form_name[134]; ?>="+param,
 						success: function(data){
+							document.getElementById('<?php echo $form_id[140]; ?>').value = data.NAMA_LENGKAP;                  
 							document.getElementById('<?php echo $form_id[102]; ?>').value = data.NOMOR_SKEMA;                  
 							document.getElementById('<?php echo $form_id[101]; ?>').value = data.NAMA_SKEMA;                   
 							

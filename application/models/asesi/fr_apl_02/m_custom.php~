@@ -17,7 +17,7 @@
 				return $this->db->get();
 			}
 			
-		/*function getADt_FN134_AllJoinedTable($uuidApl01, $uuidSkema)
+		function getADt_FN134_AllJoinedTable($uuidApl01, $uuidSkema)
 			{				
 				$this->db->select('APL01.UUID_APL01, SKE.NOMOR_SKEMA, SKE.NAMA_SKEMA, 
 					UK.UUID_UK, UK.KODE_UK, UK.JUDUL_UK, EK.UUID_EK, EK.NOMOR_EK, EK.NAMA_EK, KUK.UUID_KUK, KUK.NOMOR_KUK, KUK.PERNYATAAN, KUK.PERTANYAAN');
@@ -35,7 +35,7 @@
 				$this->db->order_by("EK.NOMOR_EK", "ASC");
 				$this->db->order_by("KUK.NOMOR_KUK", "ASC");
 				return $this->db->get();
-			}*/
+			}
 			
 		function getDt_FN105($uuid)
 			{				
@@ -69,7 +69,6 @@
 				return $this->db->get();
 			}
 			
-		/*			
 		function getDt_FN134_edit($uuid)
 			{				
 				$this->db->select('APL01.UUID_APL01, APL01.UUID_ADM,  APL01.NO_DOKUMEN, APL01.NAMA_LENGKAP, 
@@ -85,7 +84,6 @@
 				$this->db->where('APL01.IS_ACTIVE', '1');
 				return $this->db->get();
 			}
-		*/
 			
 		/*function getDt_listAnswer($uuidApl01, $uuidApl02)
 			{

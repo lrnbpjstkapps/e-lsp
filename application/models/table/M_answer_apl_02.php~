@@ -22,16 +22,13 @@
 		
 		public function get_detail_entry($condition)
 			{
-				$this->db->select('UK.UUID_UK, EK.UUID_EK, KUK.UUID_KUK, UK.JUDUL_UK, KUK.PERTANYAAN, ANS_APL_02.IS_KOMPETEN, ANS_APL_02.UUID_BUKTI');
-				$this->db->from("ANSWER_APL02 AS ANS_APL_02");
-				$this->db->join("FR_APL_02 AS APL02", "ANS_APL_02.UUID_APL02 = APL02.UUID_APL02", "LEFT");
-				$this->db->join("UNIT_KOMPETENSI AS UK", "ANS_APL_02.UUID_UK = UK.UUID_UK", "LEFT");
-				$this->db->join("ELEMEN_KOMPETENSI AS EK", "ANS_APL_02.UUID_EK = EK.UUID_EK", "LEFT");
-				$this->db->join("KRITERIA_UNJUK_KERJA AS KUK", "ANS_APL_02.UUID_KUK = KUK.UUID_KUK", "LEFT");
+				$this->db->select('skemauk.UUID_SKEMA_UK, skemauk.UUID_SKEMA, skemauk.UUID_UK,
+					skemauk.USR_CRT, skemauk.DTM_CRT, skemauk.USR_UPD, skemauk.DTM_UPD, skemauk.IS_ACTIVE,
+					skema.NAMA_SKEMA, skema.NOMOR_SKEMA, uk.JUDUL_UK, uk.KODE_UK');
+				$this->db->from("SKEMA_UK skemauk");
+				$this->db->join("SKEMA AS skema", "skemauk.UUID_SKEMA = skema.UUID_SKEMA", "LEFT");
+				$this->db->join("UNIT_KOMPETENSI AS uk", "skemauk.UUID_UK = uk.UUID_UK", "LEFT");
 				$this->db->where($condition);
-				$this->db->order_by("UK.KODE_UK", "ASC");
-				$this->db->order_by("EK.NOMOR_EK", "ASC");
-				$this->db->order_by("KUK.NOMOR_KUK", "ASC");
 				return $this->db->get();
 			}
 			

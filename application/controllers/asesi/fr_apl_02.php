@@ -9,11 +9,16 @@ class fr_apl_02 extends CI_Controller {
 			parent::__construct();
 			$this->load->model("common/m_globalval", "m_globalval");
 			$this->load->model("common/M_query", "M_query");
-			$this->load->model("table/M_fr_apl_02", "M_apl_02");
-			$this->load->model("table/M_answer_apl_02", "M_ans_apl_02");
-			
+			$this->load->model("form/M_form_apl_02", "M_form_apl_02");
+			$this->load->model("table/M_answer_apl_02", "M_ans_apl02");
+			$this->load->model("table/M_apl01_bukti", "M_apl01_bukti");
+			$this->load->model("table/M_bukti", "M_bukti");
+			$this->load->model("table/M_fr_apl_01", "M_apl_01");
+			$this->load->model("table/M_fr_apl_02", "M_apl_02");	
+			$this->load->model("table/M_custom", "M_custom");	
+					
 			$this->load->model("common/m_crud", "m_crud");
-			$this->load->model("asesi/fr_apl_02/m_custom", "m_custom");
+			$this->load->model("asesi/fr_apl_02/m_custom", "m_custom_old");
 			$this->load->model("asesi/fr_apl_02/m_param", "m_param");
 			$this->load->model("asesi/fr_apl_02/m_list_fr_apl_02", "m_list_apl02");
 		}
@@ -31,30 +36,31 @@ class fr_apl_02 extends CI_Controller {
 		}
 	
 	//PAGING
+	public function pagingList()
+		{
+			$data	= $this->m_globalval->getAllData();
+			$view	= $data['view'];
+			
+			$this->load->view($view[124], $data);
+			$this->load->view($view[125], $data);
+		}
+		
 	public function pagingAdd()
 		{
-			$data					= $this->m_globalval->getAllData();
-			$form_name 				= $data['form_name'];
-			$view					= $data['view'];			
-			$data["saveMethod"]		= "add";
+			$data						= $this->m_globalval->getAllData();
+			$form_name 					= $data['form_name'];
+			$view						= $data['view'];			
 			
-			$data[$form_name[115]] 	= "Karid Nurvenus";
-			$data[$form_name[146]] 	= "-";
-			$data[$form_name[147]] 	= "";
-			$data[$form_name[148]] 	= "";
-			$data[$form_name[134]] 	= "";
-			$data[$form_name[101]] 	= "";
-			$data[$form_name[100]] 	= "";
-			$data[$form_name[104]] 	= "";
-			$data[$form_name[103]] 	= "";
-			$data[$form_name[109]] 	= "";
+			$data 						= $this->M_form_apl_02->form_add($data, $form_name);
 			
-			$listApl01				= $this->m_custom->getDt_FN134_add('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
-			$data["listApl01"]		= $listApl01;
+			$condition					= array(
+				'apl01.IS_ACTIVE'		=> '1');
+			$data['listApl01']			= $this->M_apl_01->get_detail_entry($condition);
 		
-			$addtionalParam			= $this->m_param->getDt_FN136('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
-			$listBukti				= $this->m_crud->selectDt("BUKTI",  $addtionalParam);
-			$data["listBukti"]		= $listBukti;
+			$condition 					= array(
+				'UUID_USER'				=> 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f',
+				'IS_ACTIVE'				=> '1');
+			$data["listBukti"]			= $this->M_bukti->get_entry($condition);
 			
 			$this->load->view($view[126], $data);
 			$this->load->view($view[127], $data);
@@ -70,38 +76,22 @@ class fr_apl_02 extends CI_Controller {
 			$this->load->view($view[121], $data);
 		}
 		
-	public function pagingList()
-		{
-			$data	= $this->m_globalval->getAllData();
-			$view	= $data['view'];
-			
-			$this->load->view($view[124], $data);
-			$this->load->view($view[125], $data);
-		}
-		
 	public function pagingEdit($uuid)
 		{
 			$data					= $this->m_globalval->getAllData();		
 			$form_name 				= $data['form_name'];
-			$view					= $data['view'];
-			$data["saveMethod"]		= "edit";
+			$view					= $data['view'];	
 					
-			$listApl01				= $this->m_custom->getDt_FN134_edit('d8c702c5-4e7f-11e8-bf00-00ff0b0c062f');
-			$data["listApl01"]		= $listApl01;
+			$condition				= array(
+				'apl01.UUID_USER'	=> 'd8c702c5-4e7f-11e8-bf00-00ff0b0c062f',
+				'apl01.IS_ACTIVE'	=> '1');
+			$data["listApl01"]		= $this->M_apl_01->get_detail_entry($condition);
+
+			$condition 				= array(
+				'apl02.UUID_APL02'	=> $uuid);
+			$result					= $this->M_apl_02->get_detail_entry($condition)->row();
 			
-			$param 					= $this->m_param->getADt($uuid);
-			$uuidApl01				= $this->m_crud->selectDt('FR_APL_02', $param)->row()->UUID_APL01;
-			
-			$data[$form_name[115]] 	= "Karid Nurvenus";
-			$data[$form_name[146]] 	= $uuid;
-			$data[$form_name[147]] 	= "";
-			$data[$form_name[148]] 	= "";
-			$data[$form_name[134]] 	= $uuidApl01;
-			$data[$form_name[101]] 	= "";
-			$data[$form_name[100]] 	= "";
-			$data[$form_name[104]] 	= "";
-			$data[$form_name[103]] 	= "";
-			$data[$form_name[109]] 	= "";
+			$data 					= $this->M_form_apl_02->form_edit($data, $form_name, $result);
 			
 			$this->load->view($view[126], $data);
 			$this->load->view($view[127], $data);
@@ -109,24 +99,30 @@ class fr_apl_02 extends CI_Controller {
 		
 	public function pagingChild($uuidApl01, $uuidSkema, $saveMethod, $uuidApl02)
 		{
-			$data						= $this->m_globalval->getAllData();
-			$form_name					= $data['form_name'];
-			$view						= $data['view'];	
-			$data["saveMethod"]			= "add";
+			$data								= $this->m_globalval->getAllData();
+			$data['saveMethod']					= $saveMethod;
+			$form_name							= $data['form_name'];
+			$view								= $data['view'];	
 			
-			$listBukti					= $this->m_custom->getDt_listBukti($uuidApl01);
-			$data["listBukti"]			= $listBukti;
-			$data['saveMethod']			= $saveMethod;
+			$condition 							= array(
+				'apl01bukti.UUID_APL01'			=> $uuidApl01,
+				'apl01bukti.IS_ACTIVE'			=> '1');
+			$data["listBukti"]					= $this->M_apl01_bukti->get_detail_entry($condition);
 			
 			if($saveMethod == 'add')
 				{
-					$listKUK			= $this->m_custom->getADt_FN134_AllJoinedTable($uuidApl01, $uuidSkema);	
-					$data["listKUK"]	= $listKUK;
+					$condition					= array(
+						'APL01.UUID_APL01'		=> $uuidApl01,
+						'SKE.UUID_SKEMA'		=> $uuidSkema,
+						'APL01.IS_ACTIVE'		=> '1');
+					$data["listKUK"]			= $this->M_query->get_KUK_by_APL01($condition);
 				}
 			else
 				{
-					$listKUK			= $this->m_custom->getDt_listAnswer($uuidApl01, $uuidApl02);
-					$data["listKUK"]	= $listKUK;
+					$condition					= array(
+						'ANS_APL_02.UUID_APL02'	=> $uuidApl02);
+					$listKUK					= $this->M_ans_apl02->get_detail_entry($condition);
+					$data["listKUK"]			= $listKUK;
 					
 					$i = 0;
 					foreach($listKUK->result() as $row)
@@ -137,9 +133,9 @@ class fr_apl_02 extends CI_Controller {
 						}
 				}
 			
-			$data[$form_name[134]]		= $uuidApl01;
-			$data[$form_name[102]]		= $uuidSkema;
-			$data[$form_name[146]]		= $uuidApl02;
+			$data[$form_name[134]]				= $uuidApl01;
+			$data[$form_name[102]]				= $uuidSkema;
+			$data[$form_name[146]]				= $uuidApl02;
 			
 			$this->load->view($view[120], $data);
 		}
@@ -164,7 +160,7 @@ class fr_apl_02 extends CI_Controller {
 
 					for($i = 0; $i < count($this->input->post($form_name[178])); $i++)
 						{
-							$qResult		= $this->M_ans_apl_02->insert_multiple_entry($form_name, $i);
+							$qResult		= $this->M_ans_apl02->insert_multiple_entry($form_name, $i);
 							if($qResult != 1)
 								{
 									$qResult_ans_apl_02_ins = -1;
@@ -190,7 +186,7 @@ class fr_apl_02 extends CI_Controller {
 			$queryResult1		= 1;
 			$queryResult2		= 1;
 			
-			$listKUK			= $this->m_custom->getDt_listAnswer($this->input->post($form_name[134]), $this->input->post($form_name[146]));
+			$listKUK			= $this->m_custom_old->getDt_listAnswer($this->input->post($form_name[134]), $this->input->post($form_name[146]));
 			$data["listKUK"]	= $listKUK;
 			
 			$data['saveMethod']	= 'edit';
@@ -240,12 +236,15 @@ class fr_apl_02 extends CI_Controller {
 			echo json_encode($result->row());
 		}
 		
-	public function getADt_FN134()
-		{			
-			$data		= $this->m_globalval->getAllData();		
-			$form_name	= $data["form_name"];
+	public function getOneDt_apl_01()
+		{
+			$data			= $this->m_globalval->getAllData();
+			$form_name		= $data["form_name"];
 			
-			$result		= $this->m_custom->getADt_FN134($this->input->post($form_name[134]));	
+			$condition		= array(
+				'apl01.UUID_APL01'=> $this->input->post($form_name[134]));
+			$result			= $this->M_apl_01->get_detail_entry($condition);
+			
 			echo json_encode($result->row());
 		}
 		
@@ -255,14 +254,14 @@ class fr_apl_02 extends CI_Controller {
 			$form_name						= $data["form_name"];
 			
 			$uuid							= $this->input->post($form_name[105]);
-			$listUK							= $this->m_custom->getDt_FN105($uuid);
+			$listUK							= $this->m_custom_old->getDt_FN105($uuid);
 
 			$listUK_selected_temp			= array();
 			$listUK_selected				= array();
 			if($this->input->post($form_name[134])!="")
 				{
 					$uuid					= $this->input->post($form_name[134]);
-					$listUK_selected_temp	= $this->m_custom->getDt_FN105_FN134($uuid);	
+					$listUK_selected_temp	= $this->m_custom_old->getDt_FN105_FN134($uuid);	
 
 					$i = 0;
 					foreach($listUK_selected_temp->result() as $row)
@@ -302,7 +301,7 @@ class fr_apl_02 extends CI_Controller {
 			if($this->input->post($form_name[134])!="")
 				{
 					$uuid						= $this->input->post($form_name[134]);
-					$listBukti_selected_temp	= $this->m_custom->getDt_FN142_FN134($uuid);	
+					$listBukti_selected_temp	= $this->m_custom_old->getDt_FN142_FN134($uuid);	
 				
 					echo $listBukti_selected_temp;
 					$i = 0;

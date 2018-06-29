@@ -8,15 +8,15 @@ class fr_apl_01 extends CI_Controller {
 		{
 			parent::__construct();
 			$this->load->model("common/m_globalval", "m_globalval");
-			$this->load->model("table/M_fr_apl_01", "M_apl_01");
-			$this->load->model("table/M_apl01_uk", "M_apl01_uk");
-			$this->load->model("table/M_apl01_bukti", "M_apl01_bukti");
-			$this->load->model("table/M_skema", "M_skema");
-			$this->load->model("table/M_unit_kompetensi", "M_uk");
-			$this->load->model("table/M_skema_uk", "M_skema_uk");
-			$this->load->model("table/M_bukti", "M_bukti");
 			$this->load->model("datatables/M_list_apl_01", "M_list_apl_01");
 			$this->load->model("form/M_form_apl_01", "M_form_apl_01");
+			$this->load->model("table/M_apl01_uk", "M_apl01_uk");
+			$this->load->model("table/M_apl01_bukti", "M_apl01_bukti");
+			$this->load->model("table/M_bukti", "M_bukti");
+			$this->load->model("table/M_fr_apl_01", "M_apl_01");
+			$this->load->model("table/M_unit_kompetensi", "M_uk");
+			$this->load->model("table/M_skema", "M_skema");
+			$this->load->model("table/M_skema_uk", "M_skema_uk");
 		}
 	
 	public function index()

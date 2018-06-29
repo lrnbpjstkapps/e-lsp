@@ -1,0 +1,3 @@
+Skema - UK	M to M	skema_uk
+UK - EK		1 to M	
+EK - KUK	1 to M

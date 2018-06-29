@@ -63,7 +63,7 @@
 					skema.NAMA_SKEMA, skema.NOMOR_SKEMA');
 				$this->db->from("FR_APL_01 AS apl01");
 				$this->db->join("SKEMA AS skema", "apl01.UUID_SKEMA = skema.UUID_SKEMA", "LEFT");
-				$this->db->where($condition);
+				$this->db->where($condition);				
 				return $this->db->get();
 			}
 			
