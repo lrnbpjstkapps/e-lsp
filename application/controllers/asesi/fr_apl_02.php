@@ -14,8 +14,7 @@ class fr_apl_02 extends CI_Controller {
 			$this->load->model("table/M_apl01_bukti", "M_apl01_bukti");
 			$this->load->model("table/M_bukti", "M_bukti");
 			$this->load->model("table/M_fr_apl_01", "M_apl_01");
-			$this->load->model("table/M_fr_apl_02", "M_apl_02");	
-			$this->load->model("table/M_custom", "M_custom");	
+			$this->load->model("table/M_fr_apl_02", "M_apl_02");
 					
 			$this->load->model("common/m_crud", "m_crud");
 			$this->load->model("asesi/fr_apl_02/m_custom", "m_custom_old");
@@ -115,7 +114,12 @@ class fr_apl_02 extends CI_Controller {
 						'APL01.UUID_APL01'		=> $uuidApl01,
 						'SKE.UUID_SKEMA'		=> $uuidSkema,
 						'APL01.IS_ACTIVE'		=> '1');
-					$data["listKUK"]			= $this->M_query->get_KUK_by_APL01($condition);
+				
+					$order						= array(
+						'UK.KODE_UK'			=> 'ASC',
+						'EK.NOMOR_EK'			=> 'ASC',
+						'KUK.NOMOR_KUK'			=> 'ASC');
+					$data["listKUK"]			= $this->M_query->get_KUK_by_APL01($condition, $order);
 				}
 			else
 				{
@@ -145,30 +149,30 @@ class fr_apl_02 extends CI_Controller {
 		{
 			$data							= $this->m_globalval->getAllData();		
 			$form_name						= $data["form_name"];
-			$qResult_apl_02_ins				= 1;
-			$qResult_ans_apl_02_ins			= 1;
+			$qResult_apl02_ins				= 1;
+			$qResult_ans_apl02_ins			= 1;
 			
 			$_POST[$form_name[146]]			= $this->uuid->v4();
-			$qResult_ans_apl_02_ins			= $this->M_apl_02->insert_entry($form_name);
+			$qResult_apl02_ins				= $this->M_apl_02->insert_entry($form_name);
 			
-			if($qResult_apl_02_ins == 1)
+			if($qResult_apl02_ins == 1)
 				{
 					$condition				= array(
 						'apl01.UUID_APL01'	=> $this->input->post($form_name[134]),
 						'skema.UUID_SKEMA'	=> $this->input->post($form_name[102]));					
-					$data['listKUK']		= $this->M_query->getQuery_listKUK($this->input->post($form_name[134]), $this->input->post($form_name[102]));
+					$data['listKUK']		= $this->M_query->get_KUK_by_APL01($condition);
 
 					for($i = 0; $i < count($this->input->post($form_name[178])); $i++)
 						{
 							$qResult		= $this->M_ans_apl02->insert_multiple_entry($form_name, $i);
 							if($qResult != 1)
 								{
-									$qResult_ans_apl_02_ins = -1;
+									$qResult_ans_apl02_ins = -1;
 								}
 						}
 				}
 				
-			if($qResult_apl_02_ins != 1 || $qResult_ans_apl_02_ins != 1)
+			if($qResult_apl02_ins != 1 || $qResult_ans_apl02_ins != 1)
 				{
 					echo -1;
 				}
@@ -181,22 +185,27 @@ class fr_apl_02 extends CI_Controller {
 	// UPDATE		
 	public function updateDt_apl_02()
 		{
-			$data				= $this->m_globalval->getAllData();		
-			$form_name			= $data["form_name"];
-			$queryResult1		= 1;
-			$queryResult2		= 1;
+			$data					= $this->m_globalval->getAllData();		
+			$form_name				= $data["form_name"];
+			$queryResult1			= 1;
+			$queryResult2			= 1;
+			/*
+			$listKUK				= $this->m_custom_old->getDt_listAnswer($this->input->post($form_name[134]), $this->input->post($form_name[146]));
+			$data["listKUK"]		= $listKUK;
+			*/
+			$condition				= array(
+				'apl01.UUID_APL01'	=> $this->input->post($form_name[134]),
+				'skema.UUID_SKEMA'	=> $this->input->post($form_name[102]));					
+			$data['listKUK']		= $this->M_query->get_KUK_by_APL01($condition);
 			
-			$listKUK			= $this->m_custom_old->getDt_listAnswer($this->input->post($form_name[134]), $this->input->post($form_name[146]));
-			$data["listKUK"]	= $listKUK;
-			
-			$data['saveMethod']	= 'edit';
-			$data['UUID_APL02']	= "'".$this->input->post($form_name[146])."'";
+			$data['saveMethod']		= 'edit';
+			$data['UUID_APL02']		= "'".$this->input->post($form_name[146])."'";
 					
-			$addtionalParam		= $this->m_param->deleteDt($data, $this->input->post($form_name[146]));
-			$queryResult1		= $this->m_crud->deleteDt("ANSWER_APL_02", $addtionalParam);
+			$addtionalParam			= $this->m_param->deleteDt($data, $this->input->post($form_name[146]));
+			$queryResult1			= $this->m_crud->deleteDt("ANSWER_APL_02", $addtionalParam);
 	
-			$paramArr			= $this->m_param->save_fId_181_ANS_APL_02($data);
-			$queryResult2		= $this->m_crud->insertArrDt("ANSWER_APL_02", $paramArr);
+			$paramArr				= $this->m_param->save_fId_181_ANS_APL_02($data);
+			$queryResult2			= $this->m_crud->insertArrDt("ANSWER_APL_02", $paramArr);
 				
 			if($queryResult1 == -1 || $queryResult2 == -1)
 				{
@@ -211,15 +220,15 @@ class fr_apl_02 extends CI_Controller {
 	// DELETE
 	public function deleteDt_apl_02($uuid)
 		{
-			$data			= $this->m_globalval->getAllData();		
-			
-			$addtionalParam	= $this->m_param->deleteDt($data, $uuid);
-			$queryResult1	= $this->m_crud->deleteDt("ANSWER_APL_02", $addtionalParam);
+			$data				= $this->m_globalval->getAllData();		
+		
+			$condition			= array(
+				'UUID_APL02'	=> $uuid);
+			$queryResult1		= $this->M_ans_apl02->delete_entry($condition);
+		
+			$queryResult2		= $this->M_apl_02->delete_entry($condition);
 					
-			$addtionalParam	= $this->m_param->deleteDt($data, $uuid);
-			$queryResult2	= $this->m_crud->deleteDt("FR_APL_02", $addtionalParam);
-			
-			if($queryResult1 == -1 || $queryResult2 == -1)
+			if($queryResult1 != 1 || $queryResult2 != 1)
 				{
 					echo -1;
 				}
