@@ -9,17 +9,13 @@ class fr_apl_02 extends CI_Controller {
 			parent::__construct();
 			$this->load->model("common/m_globalval", "m_globalval");
 			$this->load->model("common/M_query", "M_query");
+			$this->load->model("datatables/M_list_apl02", "M_list_apl02");
 			$this->load->model("form/M_form_apl_02", "M_form_apl_02");
 			$this->load->model("table/M_answer_apl_02", "M_ans_apl02");
 			$this->load->model("table/M_apl01_bukti", "M_apl01_bukti");
 			$this->load->model("table/M_bukti", "M_bukti");
 			$this->load->model("table/M_fr_apl_01", "M_apl_01");
 			$this->load->model("table/M_fr_apl_02", "M_apl_02");
-					
-			$this->load->model("common/m_crud", "m_crud");
-			$this->load->model("asesi/fr_apl_02/m_custom", "m_custom_old");
-			$this->load->model("asesi/fr_apl_02/m_param", "m_param");
-			$this->load->model("asesi/fr_apl_02/m_list_fr_apl_02", "m_list_apl02");
 		}
 	
 	public function index()
@@ -157,11 +153,6 @@ class fr_apl_02 extends CI_Controller {
 			
 			if($qResult_apl02_ins == 1)
 				{
-					$condition				= array(
-						'apl01.UUID_APL01'	=> $this->input->post($form_name[134]),
-						'skema.UUID_SKEMA'	=> $this->input->post($form_name[102]));					
-					$data['listKUK']		= $this->M_query->get_KUK_by_APL01($condition);
-
 					for($i = 0; $i < count($this->input->post($form_name[178])); $i++)
 						{
 							$qResult		= $this->M_ans_apl02->insert_multiple_entry($form_name, $i);
@@ -187,27 +178,22 @@ class fr_apl_02 extends CI_Controller {
 		{
 			$data					= $this->m_globalval->getAllData();		
 			$form_name				= $data["form_name"];
-			$queryResult1			= 1;
-			$queryResult2			= 1;
-			/*
-			$listKUK				= $this->m_custom_old->getDt_listAnswer($this->input->post($form_name[134]), $this->input->post($form_name[146]));
-			$data["listKUK"]		= $listKUK;
-			*/
-			$condition				= array(
-				'apl01.UUID_APL01'	=> $this->input->post($form_name[134]),
-				'skema.UUID_SKEMA'	=> $this->input->post($form_name[102]));					
-			$data['listKUK']		= $this->M_query->get_KUK_by_APL01($condition);
+			$qResult_ans_apl02_ins	= 1;
 			
-			$data['saveMethod']		= 'edit';
-			$data['UUID_APL02']		= "'".$this->input->post($form_name[146])."'";
-					
-			$addtionalParam			= $this->m_param->deleteDt($data, $this->input->post($form_name[146]));
-			$queryResult1			= $this->m_crud->deleteDt("ANSWER_APL_02", $addtionalParam);
+			$condition				= array(
+				'UUID_APL02'		=> $this->input->post($form_name[146]));
+			$qResult_ans_apl02_del	= $this->M_ans_apl02->delete_entry($condition);
 	
-			$paramArr				= $this->m_param->save_fId_181_ANS_APL_02($data);
-			$queryResult2			= $this->m_crud->insertArrDt("ANSWER_APL_02", $paramArr);
+			for($i = 0; $i < count($this->input->post($form_name[178])); $i++)
+				{
+					$qResult		= $this->M_ans_apl02->insert_multiple_entry($form_name, $i);
+					if($qResult != 1)
+						{
+							$qResult_ans_apl02_ins = -1;
+						}
+				}
 				
-			if($queryResult1 == -1 || $queryResult2 == -1)
+			if($qResult_ans_apl02_ins != 1)
 				{
 					echo -1;
 				}
@@ -224,11 +210,10 @@ class fr_apl_02 extends CI_Controller {
 		
 			$condition			= array(
 				'UUID_APL02'	=> $uuid);
-			$queryResult1		= $this->M_ans_apl02->delete_entry($condition);
-		
-			$queryResult2		= $this->M_apl_02->delete_entry($condition);
+			$qResult_ans_apl02	= $this->M_ans_apl02->delete_entry($condition);		
+			$qResult_apl02		= $this->M_apl_02->delete_entry($condition);
 					
-			if($queryResult1 != 1 || $queryResult2 != 1)
+			if($qResult_ans_apl02 != 1 || $qResult_apl02 != 1)
 				{
 					echo -1;
 				}
@@ -238,14 +223,7 @@ class fr_apl_02 extends CI_Controller {
 		}
 		
 	// READ	
-	public function getADt($uuid)
-		{
-			$addtionalParam	= $this->m_param->getADt($uuid);
-			$result			= $this->m_crud->selectDt("SKEMA",  $addtionalParam);
-			echo json_encode($result->row());
-		}
-		
-	public function getOneDt_apl_01()
+	public function getOneDt_apl01()
 		{
 			$data			= $this->m_globalval->getAllData();
 			$form_name		= $data["form_name"];
@@ -255,98 +233,17 @@ class fr_apl_02 extends CI_Controller {
 			$result			= $this->M_apl_01->get_detail_entry($condition);
 			
 			echo json_encode($result->row());
-		}
+		}	
 		
-	public function getDt_105()
-		{			
-			$data							= $this->m_globalval->getAllData();
-			$form_name						= $data["form_name"];
-			
-			$uuid							= $this->input->post($form_name[105]);
-			$listUK							= $this->m_custom_old->getDt_FN105($uuid);
-
-			$listUK_selected_temp			= array();
-			$listUK_selected				= array();
-			if($this->input->post($form_name[134])!="")
-				{
-					$uuid					= $this->input->post($form_name[134]);
-					$listUK_selected_temp	= $this->m_custom_old->getDt_FN105_FN134($uuid);	
-
-					$i = 0;
-					foreach($listUK_selected_temp->result() as $row)
-						{
-							$listUK_selected[$i]	= $row->UUID_UK;	
-							$i++;
-						}					
-				}
-				
-			if($listUK->num_rows()>0){
-				foreach($listUK->result() as $row){
-					if(in_array($row->UUID_UK, $listUK_selected))
-						{
-							echo "<option value='".$row->UUID_UK."' selected> ".$row->KODE_UK." - ".$row->JUDUL_UK."</option>";
-						}
-					else
-						{
-							echo "<option value='".$row->UUID_UK."'> ".$row->KODE_UK." - ".$row->JUDUL_UK."</option>";
-						}
-					
-				}
-			}
-			exit;				
-		}
-		
-	public function getDt_142()
-		{			
-			$data							= $this->m_globalval->getAllData();
-			$form_name						= $data["form_name"];
-			$uuid							= $this->input->post($form_name[140]);
-			
-			$addtionalParam					= $this->m_param->getDt_142($uuid);
-			$listBukti						= $this->m_crud->selectDt("BUKTI",  $addtionalParam);
-
-			$listBukti_selected_temp		= array();
-			$listBukti_selected				= array();
-			if($this->input->post($form_name[134])!="")
-				{
-					$uuid						= $this->input->post($form_name[134]);
-					$listBukti_selected_temp	= $this->m_custom_old->getDt_FN142_FN134($uuid);	
-				
-					echo $listBukti_selected_temp;
-					$i = 0;
-					if($listBukti_selected_temp!=""){
-						foreach($listBukti_selected_temp->result() as $row)
-							{
-								$listBukti_selected[$i]	= $row->UUID_BUKTI;	
-								$i++;
-							}	
-					}
-				}
-				
-			if($listBukti->num_rows()>0){
-				foreach($listBukti->result() as $row){
-					if(in_array($row->UUID_BUKTI, $listBukti_selected))
-						{
-							echo "<option value='".$row->UUID_BUKTI."' selected> ".$row->KETERANGAN."</option>";
-						}
-					else
-						{
-							echo "<option value='".$row->UUID_BUKTI."'> ".$row->KETERANGAN."</option>";
-						}					
-				}
-			}
-
-			exit;				
-		}
-		
-	public function getList()
+	// DATATABLES
+	public function getList_apl02()
 		{				
-			$result				= $this->m_list_apl02->get_datatables();
-			$recordsTotal		= $this->m_list_apl02->count_all();
-			$recordsFiltered	= $this->m_list_apl02->count_filtered();
+			$result				= $this->M_list_apl02->get_datatables();
+			$recordsTotal		= $this->M_list_apl02->count_all();
+			$recordsFiltered	= $this->M_list_apl02->count_filtered();
 
-			$output				= $this->m_param->getDt_list($result, $recordsTotal, $recordsFiltered);
+			$output				= $this->M_list_apl02->get_json($result, $recordsTotal, $recordsFiltered);
 			
 			echo json_encode($output);
-		}	
+		}
 }

@@ -8,7 +8,7 @@ class fr_apl_01 extends CI_Controller {
 		{
 			parent::__construct();
 			$this->load->model("common/m_globalval", "m_globalval");
-			$this->load->model("datatables/M_list_apl_01", "M_list_apl_01");
+			$this->load->model("datatables/M_list_apl01", "M_list_apl01");
 			$this->load->model("form/M_form_apl_01", "M_form_apl_01");
 			$this->load->model("table/M_apl01_uk", "M_apl01_uk");
 			$this->load->model("table/M_apl01_bukti", "M_apl01_bukti");
@@ -318,11 +318,11 @@ class fr_apl_01 extends CI_Controller {
 	// DATATABLES
 	public function getList_apl_01()
 		{				
-			$result				= $this->M_list_apl_01->get_datatables();
-			$recordsTotal		= $this->M_list_apl_01->count_all();
-			$recordsFiltered	= $this->M_list_apl_01->count_filtered();
+			$result				= $this->M_list_apl01->get_datatables();
+			$recordsTotal		= $this->M_list_apl01->count_all();
+			$recordsFiltered	= $this->M_list_apl01->count_filtered();
 
-			$output				= $this->M_list_apl_01->get_json($result, $recordsTotal, $recordsFiltered);
+			$output				= $this->M_list_apl01->get_json($result, $recordsTotal, $recordsFiltered);
 			
 			echo json_encode($output);
 		}

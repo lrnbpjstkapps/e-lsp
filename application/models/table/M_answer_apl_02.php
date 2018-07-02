@@ -66,14 +66,7 @@
 				$this->UUID_UK			= (!$this->input->post($form_name[143])[$i] ? null : $this->input->post($form_name[143])[$i]);
 				$this->UUID_EK			= (!$this->input->post($form_name[177])[$i] ? null : $this->input->post($form_name[177])[$i]);
 				$this->UUID_KUK			= (!$this->input->post($form_name[178])[$i] ? null : $this->input->post($form_name[178])[$i]);
-				if($i < count($this->input->post($form_name[179])))
-					{
-						$this->IS_KOMPETEN		= (!$this->input->post($form_name[179])[$i] ? null : $this->input->post($form_name[179])[$i]);
-					}	
-				else
-					{
-							$this->IS_KOMPETEN	= null;
-					}
+				$this->IS_KOMPETEN		= (!isset($this->input->post($form_name[179])[$i]) ? null : $this->input->post($form_name[179])[$i]);
 				$this->UUID_BUKTI		= $uuidBukti;
 				$this->USR_CRT			= 'Karid Nurvenus';
 				$this->DTM_CRT			= date('Y-m-d H:i:s');

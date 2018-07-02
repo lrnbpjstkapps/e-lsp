@@ -578,12 +578,12 @@
 				$ajax_url[144] 	= base_url()."asesi/fr_apl_02/pagingUpload/";
 				$ajax_url[145] 	= base_url()."asesi/fr_apl_02/pagingList";
 				$ajax_url[146] 	= base_url()."asesi/fr_apl_02/pagingEdit/";
-				$ajax_url[147] 	= base_url()."asesi/fr_apl_02/getOneDt_apl_01";
+				$ajax_url[147] 	= base_url()."asesi/fr_apl_02/getOneDt_apl01";
 				$ajax_url[148] 	= base_url()."asesi/fr_apl_02/pagingChild/";
 				$ajax_url[149] 	= base_url()."asesi/fr_apl_02/saveDt_apl_02";
 				$ajax_url[150] 	= base_url()."asesi/fr_apl_02/updateDt_apl_02";
 				$ajax_url[151] 	= base_url()."asesi/fr_apl_02/deleteDt_apl_02/";
-				$ajax_url[152] 	= base_url()."asesi/fr_apl_02/getList";
+				$ajax_url[152] 	= base_url()."asesi/fr_apl_02/getList_apl02";
 				$ajax_url[153] 	= base_url()."asesor/fr_mma/pagingList";
 				$ajax_url[154] 	= base_url()."asesor/fr_mma/pagingAdd";
 				$ajax_url[155] 	= base_url()."asesor/fr_mma/pagingEdit/";

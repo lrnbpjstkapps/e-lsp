@@ -60,12 +60,19 @@
 										<td>
 											<input type = "radio" name = "<?php echo $form_name[169].'['.$i.']'; ?>" id = "<?php echo $form_id[179]; ?>" value = "0"> 
 										</td>
-									<?php } else { ?>
+									<?php } else if(${$form_name[169]}[$i] == '0'){ ?>
 										<td>
 											<input type = "radio" name = "<?php echo $form_name[169].'['.$i.']'; ?>" id = "<?php echo $form_id[179]; ?>" value = "1">
 										</td>
 										<td>
 											<input type = "radio" name = "<?php echo $form_name[169].'['.$i.']'; ?>" id = "<?php echo $form_id[179]; ?>" value = "0" checked> 
+										</td>
+									<?php } else {?>									
+										<td>
+											<input type = "radio" name = "<?php echo $form_name[169].'['.$i.']'; ?>" id = "<?php echo $form_id[179]; ?>" value = "1">
+										</td>
+										<td>
+											<input type = "radio" name = "<?php echo $form_name[169].'['.$i.']'; ?>" id = "<?php echo $form_id[179]; ?>" value = "0"> 
 										</td>
 									<?php } ?>
 									<td>								
@@ -164,8 +171,7 @@
 								}else{
 									alertify.error('<?php echo $form_label[109]; ?>');
 								}
-							}
-							
+							}							
 						}
 					});
 					return false;
