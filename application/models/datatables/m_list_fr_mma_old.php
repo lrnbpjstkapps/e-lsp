@@ -1,0 +1,83 @@
+<?php
+	class m_list_fr_mma extends CI_Model{
+		var $table = "FR_MMA AS MMA";
+		var $order1 = array('MMA.DTM_CRT' => 'DESC'); 
+		
+		var $column_order = 
+			array(
+				null, 
+				null,
+				null,
+				null,
+				null
+			); 
+			
+		var $column_search = 
+			array(
+				'NO_DOKUMEN00'
+			);
+			
+		public function _get_datatables_query(){
+			$this->db->select('MMA.UUID_MMA, MMA.NO_DOKUMEN AS NO_DOKUMEN00, APL01.NO_DOKUMEN AS NO_DOKUMEN01, APL02.NO_DOKUMEN AS NO_DOKUMEN02, SKE.NAMA_SKEMA, USER.USER_NAME, MMA.DTM_CRT, MMA.UUID_APL_01, MMA.UUID_APL_02');
+			$this->db->from($this->table);
+			$this->db->join("FR_APL_01 AS APL01", "MMA.UUID_APL_01 = APL01.UUID_APL01", "LEFT");
+			$this->db->join("FR_APL_02 AS APL02", "MMA.UUID_APL_02 = APL02.UUID_APL02", "LEFT");
+			$this->db->join("SKEMA AS SKE", "APL01.UUID_SKEMA = SKE.UUID_SKEMA", "LEFT");
+			$this->db->join("USER", "MMA.UUID_USER = USER.UUID_USER", "LEFT");
+			
+			$i = 0;
+			foreach ($this->column_search as $item){
+				if($_POST['search']['value']){					
+					if($i===0)
+						{
+							$this->db->group_start(); 
+							$this->db->like($item, $_POST['search']['value']);
+						}
+					else
+						{
+							$this->db->or_like($item, $_POST['search']['value']);
+						}
+					if(count($this->column_search) - 1 == $i) 
+						$this->db->group_end(); 
+				}
+				$i++;
+			}
+			
+			$this->db->where('MMA.IS_ACTIVE', '1');
+			
+			if(isset($_POST['order'])){
+				$this->db->order_by($this->column_order[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
+			} 
+			else if(isset($this->order1)){
+				$order1 = $this->order1;
+				$this->db->order_by(key($order1), $order1[key($order1)]);
+			}
+		}
+
+		public function get_datatables(){
+			$this->_get_datatables_query();
+			if($_POST['length'] != -1)
+				$this->db->limit($_POST['length'], $_POST['start']);
+			$query = $this->db->get();
+			return $query->result();
+		}
+
+		public function count_filtered(){
+			$this->_get_datatables_query();
+			$query = $this->db->get();
+			return $query->num_rows();
+		}
+
+		public function count_all(){
+			$this->db->select('MMA.UUID_MMA');
+			$this->db->from($this->table);
+			$this->db->join("FR_APL_01 AS APL01", "MMA.UUID_APL_01 = APL01.UUID_APL01", "LEFT");
+			$this->db->join("FR_APL_02 AS APL02", "MMA.UUID_APL_02 = APL02.UUID_APL02", "LEFT");
+			$this->db->join("SKEMA AS SKE", "APL01.UUID_SKEMA = SKE.UUID_SKEMA", "LEFT");
+			$this->db->join("USER AS USER", "MMA.UUID_USER = USER.UUID_USER", "LEFT");
+			$this->db->where('MMA.IS_ACTIVE', '1');
+			
+			return $this->db->count_all_results();
+		}
+	}
+?>

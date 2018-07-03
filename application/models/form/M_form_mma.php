@@ -1,5 +1,5 @@
 <?php
-class M_form_apl_02 extends CI_Model {
+class M_form_mma extends CI_Model {
 		
 	public function form_add($data, $form_name)
 		{			
@@ -21,7 +21,7 @@ class M_form_apl_02 extends CI_Model {
 			
 			return $data;
 		}
-			
+		
 	public function form_edit($data, $form_name, $result)
 		{
 			$data["saveMethod"]		= "edit";

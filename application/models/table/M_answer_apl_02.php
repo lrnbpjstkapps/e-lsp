@@ -22,7 +22,7 @@
 		
 		public function get_detail_entry($condition)
 			{
-				$this->db->select('UK.UUID_UK, EK.UUID_EK, KUK.UUID_KUK, UK.JUDUL_UK, KUK.PERTANYAAN, ANS_APL_02.IS_KOMPETEN, ANS_APL_02.UUID_BUKTI');
+				$this->db->select('UK.UUID_UK, EK.UUID_EK, KUK.UUID_KUK, UK.JUDUL_UK, KUK.PERTANYAAN, KUK.PERNYATAAN, ANS_APL_02.IS_KOMPETEN, ANS_APL_02.UUID_BUKTI');
 				$this->db->from("ANSWER_APL02 AS ANS_APL_02");
 				$this->db->join("FR_APL_02 AS APL02", "ANS_APL_02.UUID_APL02 = APL02.UUID_APL02", "LEFT");
 				$this->db->join("UNIT_KOMPETENSI AS UK", "ANS_APL_02.UUID_UK = UK.UUID_UK", "LEFT");

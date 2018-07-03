@@ -585,13 +585,13 @@
 				$ajax_url[151] 	= base_url()."asesi/fr_apl_02/deleteDt_apl_02/";
 				$ajax_url[152] 	= base_url()."asesi/fr_apl_02/getList_apl02";
 				$ajax_url[153] 	= base_url()."asesor/fr_mma/pagingList";
-				$ajax_url[154] 	= base_url()."asesor/fr_mma/pagingAdd";
+				$ajax_url[154] 	= base_url()."";
 				$ajax_url[155] 	= base_url()."asesor/fr_mma/pagingEdit/";
-				$ajax_url[156] 	= base_url()."asesor/fr_mma/pagingChild";
-				$ajax_url[157] 	= base_url()."asesor/fr_mma/getList";
-				$ajax_url[158] 	= base_url()."asesor/fr_mma/saveDt";
-				$ajax_url[159] 	= base_url()."asesor/fr_mma/updateDt";
-				$ajax_url[160] 	= base_url()."asesor/fr_mma/deleteDt";
+				$ajax_url[156] 	= base_url()."";
+				$ajax_url[157] 	= base_url()."asesor/fr_mma/getList_mma";
+				$ajax_url[158] 	= base_url()."";
+				$ajax_url[159] 	= base_url()."asesor/fr_mma/updateDt_mma";
+				$ajax_url[160] 	= base_url()."asesor/fr_mma/deleteDt_mma";
 				return $ajax_url;
 			}
 		
