@@ -107,7 +107,7 @@
 		public function getFormLabel()
 			{
 				$form_label[100] 	= "Judul Skema Sertifikasi";
-				$form_label[101] 	= "Nomor";
+				$form_label[101] 	= "Nomor Skema Sertifikasi";
 				$form_label[102] 	= "Apakah anda yakin ingin menyimpan data ini?";
 				$form_label[103] 	= "Apakah anda yakin ingin mengupdate data ini?";
 				$form_label[104] 	= "Apakah anda yakin ingin menghapus data ini?";
@@ -145,7 +145,7 @@
 				$form_label[136] 	= "Jabatan";
 				$form_label[137] 	= "Alamat kantor";
 				$form_label[138] 	= "Fax";
-				$form_label[139] 	= "Tujuan asesmen";
+				$form_label[139] 	= "Tujuan Asesmen";
 				$form_label[140] 	= "Tanggal Lahir";
 				$form_label[141] 	= "Jenis Skema Sertifikasi";
 				$form_label[142] 	= "Kode pos Kantor";
@@ -558,7 +558,27 @@
 				$form_desc[179]		= "- Berkas / dokumen termasuk berita acara hasil asesmen diserahkan kepada Lead Asesor / Koordinator Asesor</br>
 										- Lead Asesor menyerahkan berkas / dokumen hasil asesmen ke Bagian Administrasi LSP</br>
 										- Bagian Administrasi mengarsipkan berkas / dokumen hasil asesmen sesuai prosedur yang berlaku";
-				
+				$form_desc[180]		= "Kelompok Target Peserta";
+				$form_desc[181]		= "Pihak Relevan";
+				$form_desc[182]		= "Sertifikasi Ulang";
+				$form_desc[183]		= "Sertifikasi";
+				$form_desc[184]		= "Aturan Organisasi";
+				$form_desc[185]		= "Aturan BNSP / LSP";
+				$form_desc[186]		= "Aturan Teknis";
+				$form_desc[187]		= "Pendekatan / Jalur Asesmen";
+				$form_desc[188]		= "Lokasi Asesmen";
+				$form_desc[189]		= "Mengikuti*:";
+				$form_desc[190]		= "Acuan Pembanding";
+				$form_desc[191]		= "Pengaturan Asesmen";
+				$form_desc[192]		= "Metode dan Perangkat Asesmen";
+				$form_desc[193]		= "Pengorganisasian Asesmen";
+				$form_desc[194]		= "Aturan Pemaketan Kompetensi";
+				$form_desc[195]		= "Persyaratan Khusus";
+				$form_desc[196]		= "Mekanisme Jaminan Mutu";
+				$form_desc[197]		= "Identifikasi Management Resiko";
+				$form_desc[198]		= "* <i>pilih yang sesuai</i>";
+				$form_desc[199]		= "Berupa*:";
+
 				return $form_desc;
 			}
 

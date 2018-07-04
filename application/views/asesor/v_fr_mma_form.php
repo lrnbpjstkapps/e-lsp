@@ -7,59 +7,28 @@
 		<form class="form-horizontal">
 			<div class="modal-body form">                
 				<div class="form-body">	
-					<!-- Judul Skema sertifikasi -->
-					<div class="form-group">
-						<label class="control-label col-md-2"> <?php echo $form_label[100]; ?> </label>
-						<div class="col-md-4">
-							<input name="<?php echo $form_name[100]; ?>" value="<?php echo $$form_name[100]; ?>" id="<?php echo $form_id[101]; ?>" class="form-control" type="text" readonly>
-							<span class="help-block"></span>
-						</div>
-					</div>
-					
-					<!-- Nomor Skema sertifikasi -->
-					<div class="form-group">
-						<label class="control-label col-md-2"> <?php echo $form_label[101]; ?> </label>
-						<div class="col-md-4">
-							<input name="<?php echo $form_name[101]; ?>" value="<?php echo $$form_name[101]; ?>" id="<?php echo $form_id[102]; ?>" class="form-control" type="text" readonly>
-							<span class="help-block"></span>
-						</div>
-					</div>	
-					
-					<!-- LSP -->
-					<div class="form-group">
-						<label class="control-label col-md-2"> <?php echo $form_label[160]; ?> </label>
-						<div class="col-md-4">
-							<input name="<?php echo $form_name[151]; ?>" value="<?php echo $$form_name[151]; ?>" id="<?php echo $form_id[186]; ?>" class="form-control" type="text" readonly>
-							<span class="help-block"></span>
-						</div>
-					</div>	
-					
-					<!-- Nama Asesor -->
-					<div class="form-group">
-						<label class="control-label col-md-2"> <?php echo $form_label[156]; ?> </label>
-						<div class="col-md-4">
-							<input name="<?php echo $form_name[152]; ?>" value="<?php echo $$form_name[152]; ?>" id="<?php echo $form_id[187]; ?>" class="form-control" type="text" readonly>
-							<span class="help-block"></span>
-						</div>
-					</div>
-					
-					<!-- Tanggal -->
-					<div class="form-group">
-						<label class="control-label col-md-2"> <?php echo $form_label[162]; ?> </label>
-						<div class="col-md-4">
-							<input name="<?php echo $form_name[153]; ?>" value="<?php echo $$form_name[153]; ?>" id="<?php echo $form_id[188]; ?>" class="form-control" type="text" readonly>
-							<span class="help-block"></span>
-						</div>
-					</div>
-					
-					<!-- TUK -->
-					<div class="form-group">
-						<label class="control-label col-md-2"> <?php echo $form_label[157]; ?> </label>
-						<div class="col-md-4">
-							<input name="<?php echo $form_name[148]; ?>" value="<?php echo $$form_name[148]; ?>" id="<?php echo $form_id[177]; ?>" class="form-control" type="text" readonly>
-							<span class="help-block"></span>
-						</div>
-					</div>
+					<table class = "table table-hover" cellspacing="0" width="100%">
+						<tr>
+							<td><?php echo $form_label[100]; ?></td>
+							<td style = "width: 75%"><?php echo $$form_name[100]; ?></td>
+						</tr>
+						<tr>
+							<td><?php echo $form_label[101]; ?></td>
+							<td><?php echo $$form_name[101]; ?></td>
+						</tr>
+						<tr>
+							<td><?php echo $form_label[157]; ?></td>
+							<td><?php echo $$form_name[148]; ?></td>
+						</tr>
+						<tr>
+							<td><?php echo $form_label[156]; ?></td>
+							<td><?php echo $$form_name[152]; ?></td>
+						</tr>
+						<tr>
+							<td><?php echo $form_label[162]; ?></td>
+							<td><?php echo $$form_name[153]; ?></td>
+						</tr>
+					</table>
 					
 				<!-- 1. Menentukan pendekatan asesmen -->
 					</br><h5 style="margin-bottom: 10px;"> <b> <?php echo $form_desc[117]; ?> </b> </h5>
@@ -68,31 +37,53 @@
 						<tbody>
 							<!-- 1.1 -->
 							<tr> 
-								<td rowspan = "3"><?php echo $form_label[163]; ?></td>
-								<td><?php echo $form_label[155]; ?></td>
-								<td style = "width: 75%"><?php echo $form_label[167]; ?> <?php echo $$form_name[115]; ?></td>
+								<td rowspan = "4"><?php echo $form_label[163]; ?></td>
+								<td><?php echo $form_desc[180]; ?></td>
+								<td style = "width: 75%"><?php echo $form_label[167]; ?> input text</td>
 							</tr>
 							<tr>
 								<td><?php echo $form_label[139]; ?></td>
-								<td><?php echo $form_label[167]; ?> <?php echo $$form_name[133]; ?></td>
+								<td><?php echo $form_label[167]; ?> <input type = "checkbox"> <?php echo $form_desc[183]; ?> <input type = "checkbox"> <?php echo $form_desc[182]; ?></td>
 							</tr>
 							<tr>
 								<td><?php echo $form_label[168]; ?></td>
-								<td><?php echo $form_label[167]; ?> zzz</td>
+								<td><?php echo $form_label[167]; ?> input text</td>
+							</tr>
+							<tr>
+								<td><?php echo $form_desc[181]; ?></td>
+								<td><?php echo $form_label[167]; ?> input text</td>
 							</tr>
 							
+							<!-- -->
+							<tr>
+								<td></td>
+								<td><?php echo $form_desc[184]; ?></td>
+								<td><?php echo $form_label[167]; ?> <?php echo $form_desc[185]; ?> : input text
+									</br>: <?php echo $form_desc[188]; ?> : input text</td>
+							</tr>		
 							<!-- 1.2 -->
 							<tr>
 								<td><?php echo $form_label[164]; ?></td>
-								<td><?php echo $form_label[169]; ?></td>
-								<td><?php echo $form_label[167]; ?> zzz</td>
+								<td><?php echo $form_desc[187]; ?></td>
+								<td><?php echo $form_label[167]; ?> input text</td>
 							</tr>
 							
 							<!-- 1.3 -->
 							<tr>
 								<td><?php echo $form_label[165]; ?></td>
 								<td><?php echo $form_label[170]; ?></td>
-								<td><?php echo $form_label[167]; ?> zzz</td>
+								<td><?php echo $form_desc[189]; ?>
+									</br> <input type = "checkbox"> <?php echo $form_desc[190]; ?>
+									</br> <input type = "checkbox"> <?php echo $form_desc[191]; ?>
+									</br> <input type = "checkbox"> <?php echo $form_desc[192]; ?>
+									</br> <input type = "checkbox"> <?php echo $form_desc[193]; ?>
+									</br> <input type = "checkbox"> <?php echo $form_desc[194]; ?>
+									</br> <input type = "checkbox"> <?php echo $form_desc[195]; ?>
+									</br> <input type = "checkbox"> <?php echo $form_desc[196]; ?>
+									</br> <input type = "checkbox"> <?php echo $form_desc[197]; ?>
+									</br><?php echo $form_desc[198]; ?>
+									
+								</td>
 							</tr>
 							
 							<!-- 1.4 -->
