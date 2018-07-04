@@ -6,7 +6,8 @@
 			null, null, null, null, null, null); 
 		var $column_search	= array(
 			'apl01.NO_DOKUMEN');
-			
+		
+		// Method yang berisi syntax - syntax untuk mengambil sejumlah data.
 		public function _get_datatables_query(){
 			$this->db->select('apl01.UUID_APL01, apl01.NO_DOKUMEN, skema.NAMA_SKEMA, apl01.DTM_CRT');
 			$this->db->from($this->table);
@@ -40,6 +41,7 @@
 			}
 		}
 
+		// Mengambil sebagian data berdasarkan filternya.
 		public function get_datatables(){
 			$this->_get_datatables_query();
 			
@@ -49,12 +51,14 @@
 			return $this->db->get()->result();
 		}
 
+		// Menghitung jumlah data yang ditampilkan.
 		public function count_filtered(){
 			$this->_get_datatables_query();
 			
 			return $this->db->get()->num_rows();
 		}
 
+		// Menghitung jumlah seluruh data tanpa filter.
 		public function count_all(){
 			$this->db->select('apl01.UUID_APL01, apl01.NO_DOKUMEN, skema.NAMA_SKEMA, apl01.DTM_CRT');
 			$this->db->from($this->table);
@@ -64,6 +68,7 @@
 			return $this->db->count_all_results();
 		}
 		
+		// Mengirim data sebagai JSON.
 		public function get_json($result, $recordsTotal, $recordsFiltered)
 			{			
 				$data 		= array();

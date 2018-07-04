@@ -7,6 +7,7 @@
 		var $column_search	= array(
 			'MMA.NO_DOKUMEN00');
 			
+		// Method yang berisi syntax - syntax untuk mengambil sejumlah data.
 		public function _get_datatables_query(){
 			$this->db->select('MMA.UUID_MMA, MMA.NO_DOKUMEN AS NO_DOKUMEN00, APL01.NO_DOKUMEN AS NO_DOKUMEN01, APL02.NO_DOKUMEN AS NO_DOKUMEN02, SKE.NAMA_SKEMA, USER.USER_NAME, MMA.DTM_CRT, MMA.UUID_APL_01, MMA.UUID_APL_02');
 			$this->db->from($this->table);
@@ -44,6 +45,7 @@
 			}
 		}
 
+		// Mengambil sebagian data berdasarkan filternya.
 		public function get_datatables(){
 			$this->_get_datatables_query();			
 			if($_POST['length'] != -1)
@@ -52,12 +54,14 @@
 			return $this->db->get()->result();
 		}
 
+		// Menghitung jumlah data yang ditampilkan.
 		public function count_filtered(){
 			$this->_get_datatables_query();
 			
 			return $this->db->get()->num_rows();
 		}
 
+		// Menghitung jumlah seluruh data tanpa filter.
 		public function count_all(){
 			$this->db->select('MMA.UUID_MMA');
 			$this->db->from($this->table);
@@ -70,6 +74,7 @@
 			return $this->db->count_all_results();
 		}
 		
+		// Mengirim data sebagai JSON.
 		public function get_json($result, $recordsTotal, $recordsFiltered)
 			{			
 				$data 			= array();

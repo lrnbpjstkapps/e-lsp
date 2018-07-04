@@ -17,6 +17,7 @@
 				'NO_DOKUMEN00'
 			);
 			
+		// Method yang berisi syntax - syntax untuk mengambil sejumlah data.
 		public function _get_datatables_query(){
 			$this->db->select('MMA.UUID_MMA, MMA.NO_DOKUMEN AS NO_DOKUMEN00, APL01.NO_DOKUMEN AS NO_DOKUMEN01, APL02.NO_DOKUMEN AS NO_DOKUMEN02, SKE.NAMA_SKEMA, USER.USER_NAME, MMA.DTM_CRT, MMA.UUID_APL_01, MMA.UUID_APL_02');
 			$this->db->from($this->table);
