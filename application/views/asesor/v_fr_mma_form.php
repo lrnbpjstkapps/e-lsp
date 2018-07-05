@@ -39,33 +39,33 @@
 							<tr> 
 								<td rowspan = "4"><?php echo $form_label[163]; ?></td>
 								<td><?php echo $form_desc[180]; ?></td>
-								<td style = "width: 75%"><?php echo $form_label[167]; ?> input text</td>
+								<td style = "width: 75%"><?php echo $form_label[167]; ?> <input type="text" title = "Teridentifikasi Sudah / Belum Memenuhi Aturan Bukti" value = "Teridentifikasi Sudah / Belum Memenuhi Aturan Bukti"></td>
 							</tr>
 							<tr>
 								<td><?php echo $form_label[139]; ?></td>
-								<td><?php echo $form_label[167]; ?> <input type = "checkbox"> <?php echo $form_desc[183]; ?> <input type = "checkbox"> <?php echo $form_desc[182]; ?></td>
+								<td><?php echo $form_label[167]; ?> <input type = "radio" name = "b"> <?php echo $form_desc[183]; ?> <input type = "radio" name = "b"> <?php echo $form_desc[182]; ?></td>
 							</tr>
 							<tr>
 								<td><?php echo $form_label[168]; ?></td>
-								<td><?php echo $form_label[167]; ?> input text</td>
+								<td><?php echo $form_label[167]; ?> <input type="text" title = "TUK simulasi / tempat kerja dengan karakteristik produk / sistem / tempat kerja" value = "TUK simulasi / tempat kerja dengan karakteristik produk / sistem / tempat kerja"></td>
 							</tr>
 							<tr>
 								<td><?php echo $form_desc[181]; ?></td>
-								<td><?php echo $form_label[167]; ?> input text</td>
+								<td><?php echo $form_label[167]; ?> <input type="text"></td>
 							</tr>
 							
 							<!-- -->
 							<tr>
 								<td></td>
 								<td><?php echo $form_desc[184]; ?></td>
-								<td><?php echo $form_label[167]; ?> <?php echo $form_desc[185]; ?> : input text
-									</br>: <?php echo $form_desc[188]; ?> : input text</td>
+								<td><?php echo $form_label[167]; ?> <?php echo $form_desc[185]; ?> : <input type="text">
+									</br></br>: <?php echo $form_desc[188]; ?> : <input type="text"></td>
 							</tr>		
 							<!-- 1.2 -->
 							<tr>
 								<td><?php echo $form_label[164]; ?></td>
 								<td><?php echo $form_desc[187]; ?></td>
-								<td><?php echo $form_label[167]; ?> input text</td>
+								<td><?php echo $form_label[167]; ?> <input type = "radio" name = "a"> <?php echo $form_desc[206]; ?> <input type = "radio" name = "a"> <?php echo $form_desc[207]; ?></td>
 							</tr>
 							
 							<!-- 1.3 -->
@@ -81,8 +81,7 @@
 									</br> <input type = "checkbox"> <?php echo $form_desc[195]; ?>
 									</br> <input type = "checkbox"> <?php echo $form_desc[196]; ?>
 									</br> <input type = "checkbox"> <?php echo $form_desc[197]; ?>
-									</br><?php echo $form_desc[198]; ?>
-									
+									</br><?php echo $form_desc[198]; ?>									
 								</td>
 							</tr>
 							
@@ -90,7 +89,14 @@
 							<tr>
 								<td><?php echo $form_label[166]; ?></td>
 								<td><?php echo $form_label[171]; ?></td>
-								<td><?php echo $form_label[167]; ?> zzz</td>
+								<td><?php echo $form_desc[199]; ?>
+									</br> <input type = "checkbox"> <?php echo $form_desc[200]; ?>: <input type="text">
+									</br> <input type = "checkbox"> <?php echo $form_desc[201]; ?>: <input type="text">
+									</br> <input type = "checkbox"> <?php echo $form_desc[202]; ?>: <input type="text">
+									</br> <input type = "checkbox"> <?php echo $form_desc[203]; ?>: <input type="text">
+									</br> <input type = "checkbox"> <?php echo $form_desc[204]; ?>: <input type="text">
+									</br> <?php echo $form_desc[205]; ?>
+								</td>
 						</tbody>
 					</table>
 					
@@ -165,12 +171,6 @@
 							</tbody>
 						</table>
 					<?php } ?>
-					
-					<p class = "text-muted well well-sm no-shadow">
-						<?php echo $form_desc[119]; ?>
-						</br><?php echo $form_desc[120]." ".$form_desc[121]; ?>
-						</br><?php echo $form_desc[122]." ".$form_desc[123]; ?>
-					</p>
 					
 					<table class = "table table-hover" cellspacing = "0" width = "100%">
 						<tbody>

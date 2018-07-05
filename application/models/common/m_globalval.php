@@ -40,7 +40,8 @@
 				return $data;
 			}
 	
-		//$form_label, $form_desc
+		// $form_label & $form_desc -> $form_desc
+		// $table_column -> $header_table
 		
 		/* APPLICATION */
 		public function getApplication()
@@ -577,7 +578,16 @@
 				$form_desc[196]		= "Mekanisme Jaminan Mutu";
 				$form_desc[197]		= "Identifikasi Management Resiko";
 				$form_desc[198]		= "* <i>pilih yang sesuai</i>";
-				$form_desc[199]		= "Berupa*:";
+				$form_desc[199]		= "Berupa**:";
+				$form_desc[200]		= "Standar Kompetensi";
+				$form_desc[201]		= "Standar Produk";
+				$form_desc[202]		= "Standar Sistem";
+				$form_desc[203]		= "Regulasi Teknis";
+				$form_desc[204]		= "SOP";
+				$form_desc[205]		= "** <i>pilih yang sesuai</i>";
+				$form_desc[206]		= "Asesmen Portofolio";
+				$form_desc[207]		= "Asesmen Uji Kompetensi";
+				$form_desc[208]		= "Peran dan tanggung jawab Personil yang terlibat: *) Khusus persetujuan Asesi dapat dilakukan pada saat Konsultasi Pra Uji dan ditanda tangani pada formulir khusus persetujuan rencana asesmen";
 
 				return $form_desc;
 			}
