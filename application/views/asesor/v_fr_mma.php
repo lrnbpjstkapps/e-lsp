@@ -7,14 +7,14 @@
 	 <table id="<?php echo $form_id[185]; ?>" class="table table-hover table-striped dataTable" cellspacing="0" width="100%">
 		<thead>
 			<tr>
-				<th> <?php echo $table_column[100]; ?> </th>
-				<th> <?php echo $table_column[112]; ?> </th>
-				<th> <?php echo $table_column[124]; ?> </th>
-				<th> <?php echo $table_column[122]; ?> </th>
-				<th> <?php echo $table_column[123]; ?> </th>
-				<th> <?php echo $table_column[106]; ?> </th>
-				<th> <?php echo $table_column[113]; ?> </th>
-				<th class="sorting_disabled" align = "center"> <?php echo $table_column[101]; ?> </th>
+				<th> # </th>
+				<th> ID Dokumen </th>
+				<th> Calon Asesi </th>
+				<th> FR-APL-01 </th>
+				<th> FR-APL-02 </th>
+				<th> Skema Sertifikasi </th>
+				<th> Tanggal </th>
+				<th class="sorting_disabled" align = "center"> &nbsp </th>
 			</tr>
 		</thead>
 		<tbody>

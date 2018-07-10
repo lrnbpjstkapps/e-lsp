@@ -9,130 +9,132 @@
 				<div class="form-body">	
 					<table class = "table table-hover" cellspacing="0" width="100%">
 						<tr>
-							<td><?php echo $form_label[100]; ?></td>
+							<td rowspan = "2">Skema Sertifikasi / Klaster Asesmen</td>
+							<td>Judul</td>
 							<td style = "width: 75%"><?php echo $$form_name[100]; ?></td>
 						</tr>
 						<tr>
-							<td><?php echo $form_label[101]; ?></td>
+							<td>Nomor</td>
 							<td><?php echo $$form_name[101]; ?></td>
 						</tr>
 						<tr>
-							<td><?php echo $form_label[157]; ?></td>
-							<td><?php echo $$form_name[148]; ?></td>
+							<td>TUK</td>
+							<td colspan = "2"><?php echo $$form_name[148]; ?></td>
 						</tr>
 						<tr>
-							<td><?php echo $form_label[156]; ?></td>
-							<td><?php echo $$form_name[152]; ?></td>
+							<td>Nama Asesor</td>
+							<td colspan = "2"><?php echo $$form_name[152]; ?></td>
 						</tr>
 						<tr>
-							<td><?php echo $form_label[162]; ?></td>
-							<td><?php echo $$form_name[153]; ?></td>
+							<td>Tanggal</td>
+							<td colspan = "2"><?php echo $$form_name[153]; ?></td>
 						</tr>
 					</table>
 					
-				<!-- 1. Menentukan pendekatan asesmen -->
-					</br><h5 style="margin-bottom: 10px;"> <b> <?php echo $form_desc[117]; ?> </b> </h5>
+				<!-- 1. Menentukan Pendekatan Asesmen -->
+					</br><h5 style="margin-bottom: 10px;"> <b> 1. Menentukan Pendekatan Asesmen </b> </h5>
 						 
 					<table class = "table table-hover" cellspacing="0" width="100%">
 						<tbody>
 							<!-- 1.1 -->
 							<tr> 
-								<td rowspan = "4"><?php echo $form_label[163]; ?></td>
-								<td><?php echo $form_desc[180]; ?></td>
-								<td style = "width: 75%"><?php echo $form_label[167]; ?> <input type="text" title = "Teridentifikasi Sudah / Belum Memenuhi Aturan Bukti" value = "Teridentifikasi Sudah / Belum Memenuhi Aturan Bukti"></td>
+								<td rowspan = "4">1.1</td>
+								<td>Kelompok Target Peserta</td>
+								<td style = "width: 75%">: <input type="text" title = "Teridentifikasi Sudah / Belum Memenuhi Aturan Bukti" value = "Teridentifikasi Sudah / Belum Memenuhi Aturan Bukti"></td>
 							</tr>
 							<tr>
-								<td><?php echo $form_label[139]; ?></td>
-								<td><?php echo $form_label[167]; ?> <input type = "radio" name = "b"> <?php echo $form_desc[183]; ?> <input type = "radio" name = "b"> <?php echo $form_desc[182]; ?></td>
+								<td>Tujuan Asesmen</td>
+								<td>: <input type = "radio" name = "b"> Sertifikasi 
+									<input type = "radio" name = "b"> Sertifikasi Ulang</td>
 							</tr>
 							<tr>
-								<td><?php echo $form_label[168]; ?></td>
-								<td><?php echo $form_label[167]; ?> <input type="text" title = "TUK simulasi / tempat kerja dengan karakteristik produk / sistem / tempat kerja" value = "TUK simulasi / tempat kerja dengan karakteristik produk / sistem / tempat kerja"></td>
+								<td>Konteks Asesmen</td>
+								<td>: <input type="text" title = "TUK simulasi / tempat kerja dengan karakteristik produk / sistem / tempat kerja" value = "TUK simulasi / tempat kerja dengan karakteristik produk / sistem / tempat kerja"></td>
 							</tr>
 							<tr>
-								<td><?php echo $form_desc[181]; ?></td>
-								<td><?php echo $form_label[167]; ?> <input type="text"></td>
+								<td>Pihak Relevan</td>
+								<td>: <input type="text"></td>
 							</tr>
 							
 							<!-- -->
 							<tr>
 								<td></td>
-								<td><?php echo $form_desc[184]; ?></td>
-								<td><?php echo $form_label[167]; ?> <?php echo $form_desc[185]; ?> : <input type="text">
-									</br></br>: <?php echo $form_desc[186]; ?> : <input type="text"></td>
-							</tr>		
+								<td>Aturan Organisasi</td>
+								<td>: Aturan BNSP / LSP : <input type="text">
+									</br></br>: Aturan Teknis : <input type="text"></td>
+							</tr>	
+							
 							<!-- 1.2 -->
 							<tr>
-								<td><?php echo $form_label[164]; ?></td>
-								<td><?php echo $form_desc[187]; ?></td>
-								<td><?php echo $form_label[167]; ?> <input type = "radio" name = "a"> <?php echo $form_desc[206]; ?> <input type = "radio" name = "a"> <?php echo $form_desc[207]; ?></td>
+								<td>1.2</td>
+								<td>Pendekatan / Jalur Asesmen</td>
+								<td>: <input type = "radio" name = "a"> Asesmen Portofolio 
+									<input type = "radio" name = "a"> Asesmen Uji Kompetensi 
+								</td>
 							</tr>
 							
 							<!-- 1.3 -->
 							<tr>
-								<td><?php echo $form_label[165]; ?></td>
-								<td><?php echo $form_label[170]; ?></td>
-								<td><?php echo $form_desc[189]; ?>
-									</br> <input type = "checkbox"> <?php echo $form_desc[190]; ?>
-									</br> <input type = "checkbox"> <?php echo $form_desc[191]; ?>
-									</br> <input type = "checkbox"> <?php echo $form_desc[192]; ?>
-									</br> <input type = "checkbox"> <?php echo $form_desc[193]; ?>
-									</br> <input type = "checkbox"> <?php echo $form_desc[194]; ?>
-									</br> <input type = "checkbox"> <?php echo $form_desc[195]; ?>
-									</br> <input type = "checkbox"> <?php echo $form_desc[196]; ?>
-									</br> <input type = "checkbox"> <?php echo $form_desc[197]; ?>
-									</br><?php echo $form_desc[198]; ?>									
+								<td>1.3</td>
+								<td>Strategi Asesmen</td>
+								<td>Mengikuti: 
+									</br> <input type = "checkbox"> Acuan pembanding
+									</br> <input type = "checkbox"> Pengaturan asesmen
+									</br> <input type = "checkbox"> Metode dan perangkat asesmen
+									</br> <input type = "checkbox"> Pengorganisasian asesmen
+									</br> <input type = "checkbox"> Aturan pemaketan kompetensi
+									</br> <input type = "checkbox"> Persyaratan khusus
+									</br> <input type = "checkbox"> Mekanisme jaminan mutu
+									</br> <input type = "checkbox"> Identifikasi management resiko									
 								</td>
 							</tr>
 							
 							<!-- 1.4 -->
 							<tr>
-								<td><?php echo $form_label[166]; ?></td>
-								<td><?php echo $form_label[171]; ?></td>
-								<td><?php echo $form_desc[199]; ?>
-									</br> <input type = "checkbox"> <?php echo $form_desc[200]; ?>: <input type="text">
-									</br> <input type = "checkbox"> <?php echo $form_desc[201]; ?>: <input type="text">
-									</br> <input type = "checkbox"> <?php echo $form_desc[202]; ?>: <input type="text">
-									</br> <input type = "checkbox"> <?php echo $form_desc[203]; ?>: <input type="text">
-									</br> <input type = "checkbox"> <?php echo $form_desc[204]; ?>: <input type="text">
-									</br> <?php echo $form_desc[205]; ?>
+								<td>1.4</td>
+								<td>Acuan Pembanding</td>
+								<td>Berupa:
+									</br> <input type = "checkbox"> Standar kompetensi: <input type="text">
+									</br> <input type = "checkbox"> Standar produk: <input type="text">
+									</br> <input type = "checkbox"> Standar sistem: <input type="text">
+									</br> <input type = "checkbox"> Regulasi teknis: <input type="text">
+									</br> <input type = "checkbox"> SOP: <input type="text">
 								</td>
 						</tbody>
 					</table>
 					
 				<!-- 2. Mempersiapkan Rencana Asesmen -->
-					</br><h5 style="margin-bottom: 10px;"> <b> <?php echo $form_desc[118]; ?> </b> </h5>
+					</br><h5 style="margin-bottom: 10px;"> <b>2. Mempersiapkan Rencana Asesmen</b> </h5>
 					
 					<?php if($listAnswer->num_rows() > 0){ ?>
 						<table class = "table table-hover" cellspacing="0" width="100%">
 							<thead>
 								<tr>
-									<th rowspan="4" vertical-align = "middle"><?php echo $table_column[100]; ?></th>
-									<th rowspan="4"><?php echo $table_column[126]; ?></th>
-									<th rowspan="4"><?php echo $table_column[125]; ?></th>
-									<th colspan = "3" rowspan = "2"><?php echo $table_column[127]; ?></th>
-									<th colspan = "8"><?php echo $table_column[140]; ?></th>
-									<th class="sorting_disabled" align = "center" rowspan="4"><?php echo $table_column[101]; ?></th>
+									<th rowspan="4" vertical-align = "middle">#</th>
+									<th rowspan="4">Unit Kompetensi</th>
+									<th rowspan="4">Kriteria Unjuk Kerja</th>
+									<th colspan = "3" rowspan = "2">Jenis Bukti</th>
+									<th colspan = "8">Perangkat Asesmen</th>
 								</tr>
 								<tr>
-									<th colspan = "8"><?php echo $table_column[141]; ?></th>
+									<th colspan = "8">CLO: Ceklis Observasi, CLP: Ceklis Portofolio, DPL: Daftar Pertanyaan Lisan, DPT *): Daftar Pertanyaan Tertulis, PW: Pertanyaan Wawancara, VPK: Verifikasi Pihak Ketiga, SK: Studi Kasus</th>
 								</tr>
 								<tr>
-									<th colspan = "3"><?php echo $table_column[142]; ?></th>
-									<th colspan = "8"><?php echo $table_column[131]; ?></th>
+									<th colspan = "3">L: Bukti langsung, TL: Bukti tidak langsung, T: Bukti tambahan</th>
+									<th colspan = "8">Metode</th>
 								</tr>
 								<tr>							
-									<th> <?php echo $table_column[128]; ?> </th>
-									<th> <?php echo $table_column[129]; ?> </th>
-									<th> <?php echo $table_column[130]; ?> </th>
-									<th> <?php echo $table_column[132]; ?> </th>
-									<th> <?php echo $table_column[133]; ?> </th>
-									<th> <?php echo $table_column[134]; ?> </th>
-									<th> <?php echo $table_column[135]; ?> </th>
-									<th> <?php echo $table_column[136]; ?> </th>
-									<th> <?php echo $table_column[137]; ?> </th>
-									<th> <?php echo $table_column[138]; ?> </th>
-									<th> <?php echo $table_column[139]; ?> </th>
+									<th> L </th>
+									<th> TL </th>
+									<th> T </th>
+									<th> Observasi Demonstrasi </th>
+									<th> Verifikasi Portofolio </th>
+									<th> Tes Lisan </th>
+									<th> Tes Tertulis </th>
+									<th> Wawancara </th>
+									<th> Verifikasi Pihak Ketiga </th>
+									<th> Studi Kasus </th>
+									<th> Lainnya ... </th>
 								</tr>
 							</thead>		
 							<tbody>
@@ -152,17 +154,17 @@
 											<td>
 												<?php echo $row->PERNYATAAN; ?>
 											</td>	
-											<td><input type = "radio" name = "<?php echo $form_name[145].' '.$i; ?>" id = "<?php echo $form_id[174]; ?>" > <?= $form_label[192] ?></td>
-											<td><input type = "radio" name = "<?php echo $form_name[145].' '.$i; ?>" id = "<?php echo $form_id[174]; ?>" > <?= $form_label[193] ?></td>
-											<td><input type = "radio" name = "<?php echo $form_name[145].' '.$i; ?>" id = "<?php echo $form_id[174]; ?>" > <?= $form_label[194] ?></td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > <?= $form_label[195] ?></td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > <?= $form_label[196] ?></td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > <?= $form_label[197] ?></td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > <?= $form_label[198] ?></td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > <?= $form_label[199] ?></td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > <?= $form_label[200] ?></td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > <?= $form_label[201] ?></td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > <?= $form_label[202] ?></td>
+											<td><input type = "radio" name = "<?php echo $form_name[145].' '.$i; ?>" id = "<?php echo $form_id[174]; ?>" > L</td>
+											<td><input type = "radio" name = "<?php echo $form_name[145].' '.$i; ?>" id = "<?php echo $form_id[174]; ?>" > TL</td>
+											<td><input type = "radio" name = "<?php echo $form_name[145].' '.$i; ?>" id = "<?php echo $form_id[174]; ?>" > T</td>
+											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > CLO</td>
+											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > CLP</td>
+											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > DPL</td>
+											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > DPT</td>
+											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > PW</td>
+											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > VPK</td>
+											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > SK</td>
+											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > Lainnya ...</td>
 										</tr>					
 								<?php 
 										$i++; 
@@ -175,16 +177,16 @@
 					<table class = "table table-hover" cellspacing = "0" width = "100%">
 						<tbody>
 							<tr>
-								<td rowspan = "2" colspan = "2"><?php echo $table_column[143]; ?></td>
-								<td><?php echo $table_column[144]; ?></td>
-								<td><?php echo $table_column[145]; ?></td>
+								<td rowspan = "2" colspan = "2"><b>Pemenuhan terhadap seluruh bagian unit standar kompetensi:</b></td>
+								<td>Batasan Variabel</td>
+								<td>Panduan Asesmen</td>
 							</tr>
 							<tr>
-								<td><input type = "checkbox"> <?php echo $table_column[146]; ?></td>
-								<td><input type = "checkbox"> <?php echo $table_column[146]; ?></td>
+								<td><input type = "checkbox"> Ya</td>
+								<td><input type = "checkbox"> Ya</td>
 							</tr>
 							<tr>
-								<td colspan = "4"><?php echo $table_column[147]; ?></td>
+								<td colspan = "4"><b>Peran dan tanggung jawab Personil yang terlibat:</b> *) Khusus persetujuan Asesi dapat dilakukan pada saat Konsultasi Pra Uji dan ditanda tangani pada formulir khusus persetujuan rencana asesmen.</td>
 							</tr>
 						</tbody>
 					</table>
@@ -192,191 +194,193 @@
 					<table class = "table table-hover" cellspacing = "0" width = "100%">
 						<thead>
 							<tr>
-								<th><?= $form_label[188] ?></th>
-								<th><?= $form_label[189] ?></th>
-								<th><?= $form_label[190] ?></th>
-								<th><?= $form_label[191] ?></th>
+								<th>Nama</th>
+								<th>Jabatan / pekerjaan</th>
+								<th>Peran dan tanggung jawab dalam asesmen</th>
+								<th>Paraf / tanggal</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
+								<td>TBS</td>
 								<td>Asesor</td>
-								<td><?= $form_desc[129] ?></td>
-								<td><?= $form_desc[124] ?></td>
-								<td><input type = "checkbox" name = "" value = ""> <?= $form_desc[111] ?></td>
+								<td>- Merencanakan asesmen,
+									</br>- Mengembangkan perangkat asesmen,
+									</br>- Mengorganisasikan asesmen,
+									</br>- Melaksanakan asesmen (menetapkan dan memelihara lingkungan asesmen, mengumpulkan bukti, mereview bukti, membuat keputusan asesmen, menyampaikan keputusan asesmen, memberikan umpan balik kepada peserta, meminta umpan balik dari peserta),
+									</br>- Meninjau proses asesmen.</td>
+								<td><input type = "checkbox" name = "" value = ""> Ya</td>
 							</tr>
 							<tr>
-								<td>Manajer Sertifikasi</td>
-								<td><?= $form_desc[209] ?></td>
-								<td><?= $form_desc[126] ?></td>
-								<td><?= $form_desc[130] ?></td>
+								<td>TBS</td>
+								<td>Penyedia / Lead Asesor</td>
+								<td>- Memastikan materi uji kompetensi siap digunakan,
+									</br>- Memastikan seluruh personil yang terlibat memahami tugas dan fungsinya masing - masing.</td>
+								<td><input type = "checkbox" name = "" value = ""> Ya</td>
 							</tr>
 							<tr>
-								<td>Koordinator TUK</td>
-								<td><?= $form_desc[210] ?></td>
-								<td><?= $form_desc[127] ?></td>
-								<td><?= $form_desc[130] ?></td>
+								<td>TBS</td>
+								<td>Tenaga Teknis TUK</td>
+								<td>- Mendukung proses administrasi dan dokumentasi asesmen,
+									</br>- Memastikan alat, bahan, dan peralatan uji kompetensi sudah siap di area tempat,
+									</br>- Memberi arahan kepada peserta dalam rangka persiapan asesmen,
+									</br>- Menyiapkan konsumsi, akomodasi, dan transportasi.</td>
+								<td><input type = "checkbox" name = "" value = ""> Ya</td>
 							</tr>
-						</tbody>
-					</table>
-					
-					<table class = "table table-stripped" cellspacing = "0" width = "100%">
-						<tbody>
 							<tr>
-								<td rowspan = "4"><?= $table_column[148] ?></td>
-								<td><?= $form_desc[211] ?></td> 
+								<td>Sumber Daya Fisik (Persyaratan Teknis TUK)</td>
+								<td colspan = "3">1. Sarana: Ruang uji teori termasuk <i>layout</i> ruangan, Ruang/Lab/Bengkel termasuk <i>layout</i> ruangan
+									</br>2. Peralatan dan perlengkapan: 
+									</br>Peralatan: (mesin yang digunakan secara umum)
+									</br>Perlengkapan: (dokumen pendukung)
+									</br>Material/bahan:
+									</br></td>
+							</tr>
+							<tr>
+								<td rowspan = "4">Jangka dan Periode Waktu Asesmen</td>
+								<td>Tanggal Uji Kompetensi</td> 
 								<td colspan = "2">: <input type = "date" name = ""></td>									
 							</tr>
 							<tr>
-								<td colspan = "3"><?= $form_desc[212] ?></td>
+								<td colspan = "3">Durasi Uji Kompetensi:</td>
 							</tr>
 							<tr>
-								<td><?= $form_desc[213] ?></td>
+								<td>1. Observasi</td>
 								<td colspan = "2">: <input type = "time" name = ""> - <input type = "time" name = ""></td>
 							</tr>
 							<tr>
-								<td><?= $form_desc[214]; ?></td>
+								<td>2. Tes Lisan / Tulis</td>
 								<td colspan = "2">: <input type = "time" name = ""> - <input type = "time" name = ""></td>
 							</tr>
 							<tr>
-								<td><?php echo $form_label[186]; ?></td>
-								<td colspan = "3"><?php echo $form_label[187]; ?></td>
+								<td>Lokasi Asesmen</td>
+								<td colspan = "3">TBS</td>
 							</tr>
 						</tbody>
 					</table>
 					
-				<!-- 3. Kontekstualisasi dan meninjau rencana asesmen -->
-					</br><h5 style = "margin-bottom: 10px;"><?= $form_desc[131] ?></h5>
+				<!-- 3. Kontekstualisasi dan Meninjau Rencana Asesmen -->
+					</br><h5 style = "margin-bottom: 10px;"><b>3. Kontekstualisasi dan Meninjau Rencana Asesmen</b></h5>
 					<table class = "table table-hover" cellspacing = "0" width = "100%">
 						<tbody>
 							<tr>
-								<td><?= $form_desc[132] ?></td>
-								<td><?= $form_desc[133] ?></td>
+								<td>3.1 Karakteristik peserta:</td>
+								<td>Penyesuaian kebutuhan spesifik peserta:</td>
 							</tr>
 							<tr>
 								<td><input type = "text"></td>
 								<td><input type = "text"></td>
 							</tr>
 							<tr>
-								<td rowspan = "2"><?= $form_desc[136] ?></td>
-								<td><?= $form_desc[137] ?></br><input type = "text"></td>
+								<td rowspan = "2">3.2 Kontekstualisasi standar kompetensi: </br>(untuk mengakomodasi persyaratan spesifik industri, pada batasan variabel dan panduan penilaian)</td>
+								<td>Pada batasan variabel:
+									</br><input type = "text">
+								</td>
 							</tr>
 							<tr>
-								<td><?= $form_desc[138] ?></br><input type = "text"></td>
+								<td>Pada panduan penilaian:
+									</br><input type = "text">
+								</td>
 							</tr>
 							<tr>
-								<td><?= $form_desc[142] ?></td>
+								<td>3.3. Memeriksa metoda dan perangkat asesmen yang dipilih (sesuai / tidak sesuai) dengan rencana sertifikasi</td>
 								<td><textarea> </textarea></td>
 							</tr>
 							<tr>
-								<td><?= $form_desc[143] ?></td>
+								<td>3.4 Meninjau perangkat asesmen yang disesuaikan terhadap spesifikasi standar kompetensi (Ya / Tidak)</td>
 								<td><textarea> </textarea></td>
 							</tr>
 							<tr>
-								<td><?= $form_desc[144] ?></td>
+								<td>3.5 Memperbaharui rencana asesmen sesuai keperluan kontekstualisasi (Ya / Tidak)</td>
 								<td><textarea> </textarea></td>
 							</tr>
 							<tr>
-								<td><?= $form_desc[145] ?></td>
+								<td>3.6 Menyimpan menelusuri rencana asesmen sesuai prosedur (Ya / Tidak)</td>
 								<td><textarea> </textarea></td>
 							</tr>
 						</tbody>
 					</table>
+					
 				<!-- 4. Mengorganisasikan asesmen -->
-					</br><h5 style = "margin-bottom: 10px;" ><?= $form_desc[150] ?></h5>
+					</br><h5 style = "margin-bottom: 10px;" ><b>4. Mengorganisasikan Asesmen</b></h5>
 					<table class = "table table-hover" cellspacing = "0" width = "100%">
 						<tbody>	
 							<tr>
-								<td rowspan = "4"><?= $form_desc[151] ?></td>
-								<td><?= $form_desc[152] ?></td>
-								<td><?= $form_desc[153] ?></td>
-								<td><?= $form_desc[154] ?></td>
+								<td rowspan = "4">4.1 Pengaturan sumber daya asesmen</td>
+								<td><b>Bahan dan Sumberdaya Fisik</b></td>
+								<td><b>Status</b></td>
+								<td><b>Keterangan</b></td>
 							</tr>
 							<tr>
-								<td><?= $form_desc[155] ?></td>
-								<td><?= $form_desc[156] ?></td>
-								<td><?= $form_desc[157] ?></td>
+								<td>Tempat uji kompetensi</td>
+								<td>Disediakan oleh Kepala TUK</td>
+								<td>15 menit sebelum asesmen telah siap</td>
 							</tr>
 							<tr>
-								<td><?= $form_desc[158] ?></td>
-								<td><?= $form_desc[160] ?></td>
-								<td><?= $form_desc[157] ?></td>
+								<td>Kelengkapan tempat asesmen (penerangan, AC, in out) meja, kursi dan ATK sudah dipastikan tersedia di ruangan</td>
+								<td>Diperiksa ketersediaan dan kelengkapannya oleh Teknisi TUK</td>
+								<td>15 menit sebelum asesmen telah siap</td>
 							</tr>
 							<tr>
-								<td><?= $form_desc[159] ?></td>
-								<td><?= $form_desc[160] ?></td>
-								<td><?= $form_desc[157] ?></td>
+								<td>Alat dan bahan yang digunakan</td>
+								<td>Diperiksa ketersediaan dan kelengkapannya oleh Teknisi TUK</td>
+								<td>15 menit sebelum asesmen telah siap</td>
 							</tr>
 							<tr>
-								<td><?= $form_desc[161] ?></td>
+								<td>4.2 Pengaturan dukungan spesialis</td>
 								<td colspan = "3"><input type = "text"></td>
 							</tr>
 							<tr>
-								<td rowspan = "4"><?= $form_desc[163] ?></td>
-								<td><?= $form_desc[164] ?></td>
-								<td colspan = "2"><?= $form_desc[165] ?></td>
+								<td rowspan = "4">4.3 Pengorganisasian personil yang terlibat</td>
+								<td>Personil</td>
+								<td colspan = "2">Tugas dan Tanggung Jawab</td>
 							</tr>
 							<tr>
-								<td><?= $form_desc[166] ?></td>
-								<td colspan = "2"><?= $form_desc[167] ?></td>
+								<td>Asesor</td>
+								<td colspan = "2">- Memeriksa kesiapan dokumen / berkas asesmen
+									</br>- Memeriksa kesiapan sumber daya asesmen yang dibutuhkan
+									</br>- Memberikan arahan kepada peserta asesmen
+									</br>- Melakukan & mengawasi proses asesmen
+									</br>- Mengumpulkan & memeriksa kelengkapan berkas / dokumen asesmen</td>
 							</tr>
 							<tr>
-								<td><?= $form_desc[168] ?></td>
-								<td colspan = "2"><?= $form_desc[169] ?></td>
+								<td>Peserta</td>
+								<td colspan = "2">- Peserta ditempatkan / dikumpulkan ditempat yang telah disediakan
+										</br>- Peserta diminta mengisi & menandatangani daftar hadir
+										</br>- Peserta menerima penjelasan & pengarahan mengenai pelaksanaan asesmen, termasuk tata tertib asesmen yang berlaku
+										</br>- Peserta mengikuti jadwal asesmen yang sudah ditetapkan</td>
 							</tr>
 							<tr>
-								<td><?= $form_desc[170] ?></td>
-								<td colspan = "2"><?= $form_desc[171] ?></td>
+								<td>Koord. TUK</td>
+								<td colspan = "2">- Menyiapkan ruangan - ruangan / fasilitas asesmen
+										</br>- Membantu menyiapkan berkas / form asesmen
+										</br>- Menyiapkan peralatan tulis yang dibutuhkan
+										</br>- Memeriksa, mengumpulkan & mendokumentasikan berkas asesmen
+										</br>- Menyiapkan konsumsi, akomodasi, transportasi asesor & peserta</td>
 							</tr>
 							<tr>
-								<td colspan = "4"><?= $form_desc[172] ?></td>
+								<td colspan = "4">4.4 Strategi Komunikasi (pilih yang sesuai)</td>
 							</tr>
 							<tr>
-								<td colspan = "4"><input type = "checkbox"> <?= $form_desc[173] ?></td>
+								<td colspan = "4"><input type = "checkbox"> Wawancara, baik secara berhadapan maupun melalui telepon</td>
 							</tr>
 							<tr>
-								<td colspan = "4"><input type = "checkbox"> <?= $form_desc[174] ?></td>
+								<td colspan = "4"><input type = "checkbox"> Email, memo, korespondensi</td>
 							</tr>
 							<tr>
-								<td colspan = "4"><input type = "checkbox"> <?= $form_desc[175] ?></td>
+								<td colspan = "4"><input type = "checkbox"> Rapat</td>
 							</tr>
 							<tr>
-								<td colspan = "4"><input type = "checkbox"> <?= $form_desc[176] ?></td>
+								<td colspan = "4"><input type = "checkbox"> Video Conference / Pembelajaran Berbasis Elektronik</td>
 							</tr>
 							<tr>
-								<td colspan = "4"><input type = "checkbox"> <?= $form_desc[177] ?></td>
+								<td colspan = "4"><input type = "checkbox"> Fokus Group</td>
 							</tr>
 							<tr>
-								<td><?= $form_desc[178] ?></td>
-								<td colspan = "3"><?= $form_desc[179] ?></td>
-							</tr>
-						</tbody>
-					</table>
-					
-					<table class = "table table-hover" cellspacing = "0" width = "100%">
-						<tbody>	
-							<tr>
-								<td colspan = "3"><?= $form_desc[215] ?></td>
-							</tr>
-							<tr>
-								<td><?= $form_desc[216] ?></td>
-								<td><?= $form_desc[217] ?></td>
-								<td><?= $form_desc[218] ?></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td><?= $form_desc[170] ?></td>
-								<td><input type = "checkbox"></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td><?= $form_desc[219] ?></td>
-								<td><input type = "checkbox"></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td><?= $form_desc[220] ?></td>
-								<td><input type = "checkbox"></td>
+								<td><b>4.5</b> Penyimpanan Rekaman Asesmen dan Pelaporan</td>
+								<td colspan = "3">- Rekaman hasil pengumpulan bukti (hasil observasi demonstrasi dan hasil tes lisan) harus diserahkan kepada Lead Asesor setelah selesai asesmen pada hari pelaksanaan asesmen.
+									</br>- Rekaman hasil pengumpulan bukti, rekomendasi dan keputusan asesmen serta berita acara / laporan hasil asesmen disampaikan oleh Lead Asesor kepada TUK setelah selesai pelaksanaan asesmen pada hari pelaksanaan asesmen.
+									</br>- Seluruh berkas rekaman pelaksanaan asesmen diterima dan dikumpulkan oleh TUK yang selanjutnya disampaikan ke LSP</td>
 							</tr>
 						</tbody>
 					</table>
@@ -384,10 +388,60 @@
 					<table class = "table table-hover" cellspacing = "0" width = "100%">
 						<tbody>	
 							<tr>
-								<td rowspan = "3"><?= $form_desc[215] ?></td>
-								<td></td>
+								<td colspan = "3"><b>Konfirmasi dengan pihak yang relevan</b></td>
+							</tr>
+							<tr>
+								<td><b>Nama</b></td>
+								<td><b>Jabatan</b></td>
+								<td><b>Paraf / Tanggal</b></td>
+							</tr>
+							<tr>
+								<td>TBS</td>
+								<td>Koord. TUK</td>
+								<td><input type = "checkbox"></td>
+							</tr>
+							<tr>
+								<td>TBS</td>
+								<td>Manager Sertifikasi LSP</td>
+								<td><input type = "checkbox"></td>
+							</tr>
+							<tr>
+								<td>TBS</td>
+								<td>Manager / Supervisor di Tempat Kerja</td>
+								<td><input type = "checkbox"></td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<table class = "table table-hover" cellspacing = "0" width = "100%">
+						<tbody>	
+							<tr>
+								<td rowspan = "3" style = "width: 25%"><b>Penyusun Rencana dan Pengorganisasi Asesmen</b></td>
+								<td><b>Nama Asesor</b></td>
+								<td>TBS</td>
+							</tr>
+							<tr>
+								<td>No. Reg.</td>
+								<td>TBS</td>
+							</tr>
+							<tr>
+								<td>Persetujuan</td>
+								<td><input type = "checkbox"></td>
 							</tr>
 							
+							<tr>
+								<td rowspan = "3"><b>Diverifikasi oleh Manajemen Sertifikasi</b></td>
+								<td><b>Nama</b></td>
+								<td>TBS</td>
+							</tr>
+							<tr>
+								<td>Jabatan</td>
+								<td>Manager Sertifikasi</td>
+							</tr>
+							<tr>
+								<td>Persetujuan</td>
+								<td><input type = "checkbox"></td>
+							</tr>
 						</tbody>
 					</table>
 				</div>   
