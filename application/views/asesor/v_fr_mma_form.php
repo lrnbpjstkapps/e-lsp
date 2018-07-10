@@ -59,7 +59,7 @@
 								<td></td>
 								<td><?php echo $form_desc[184]; ?></td>
 								<td><?php echo $form_label[167]; ?> <?php echo $form_desc[185]; ?> : <input type="text">
-									</br></br>: <?php echo $form_desc[188]; ?> : <input type="text"></td>
+									</br></br>: <?php echo $form_desc[186]; ?> : <input type="text"></td>
 							</tr>		
 							<!-- 1.2 -->
 							<tr>
@@ -207,13 +207,13 @@
 							</tr>
 							<tr>
 								<td>Manajer Sertifikasi</td>
-								<td><?= $form_desc[125] ?></td>
+								<td><?= $form_desc[209] ?></td>
 								<td><?= $form_desc[126] ?></td>
 								<td><?= $form_desc[130] ?></td>
 							</tr>
 							<tr>
 								<td>Koordinator TUK</td>
-								<td><?= $form_desc[128] ?></td>
+								<td><?= $form_desc[210] ?></td>
 								<td><?= $form_desc[127] ?></td>
 								<td><?= $form_desc[130] ?></td>
 							</tr>
@@ -224,18 +224,18 @@
 						<tbody>
 							<tr>
 								<td rowspan = "4"><?= $table_column[148] ?></td>
-								<td><?= $form_label[179] ?></td> 
+								<td><?= $form_desc[211] ?></td> 
 								<td colspan = "2">: <input type = "date" name = ""></td>									
 							</tr>
 							<tr>
-								<td colspan = "3"><?= $form_label[180] ?></td>
+								<td colspan = "3"><?= $form_desc[212] ?></td>
 							</tr>
 							<tr>
-								<td><?= $form_label[181] ?></td>
+								<td><?= $form_desc[213] ?></td>
 								<td colspan = "2">: <input type = "time" name = ""> - <input type = "time" name = ""></td>
 							</tr>
 							<tr>
-								<td><?= $form_label[182]; ?></td>
+								<td><?= $form_desc[214]; ?></td>
 								<td colspan = "2">: <input type = "time" name = ""> - <input type = "time" name = ""></td>
 							</tr>
 							<tr>
@@ -254,22 +254,15 @@
 								<td><?= $form_desc[133] ?></td>
 							</tr>
 							<tr>
-								<td><?= $form_desc[134] ?></td>
-								<td><?= $form_desc[135] ?></td>
+								<td><input type = "text"></td>
+								<td><input type = "text"></td>
 							</tr>
 							<tr>
 								<td rowspan = "2"><?= $form_desc[136] ?></td>
-								<td><?= $form_desc[137] ?></td>
+								<td><?= $form_desc[137] ?></br><input type = "text"></td>
 							</tr>
 							<tr>
-								<td><?= $form_desc[138] ?></td>
-							</tr>
-							<tr>
-								<td colspan = "2"><?= $form_desc[139] ?></td>							
-							</tr>
-							<tr>
-								<td><?= $form_desc[140] ?></td>
-								<td><?= $form_desc[141] ?></td>
+								<td><?= $form_desc[138] ?></br><input type = "text"></td>
 							</tr>
 							<tr>
 								<td><?= $form_desc[142] ?></td>
@@ -286,20 +279,6 @@
 							<tr>
 								<td><?= $form_desc[145] ?></td>
 								<td><textarea> </textarea></td>
-							</tr>
-							<tr>
-								<td><?= $form_desc[146] ?></td>
-								<td><?= $form_desc[141] ?></td>
-							</tr>
-							<tr>
-								<td><?= $form_desc[147] ?></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td colspan = "2"><?= $form_desc[148] ?></td>								
-							</tr>
-							<tr>
-								<td colspan = "2"><?= $form_desc[149] ?></td>								
 							</tr>
 						</tbody>
 					</table>
@@ -330,7 +309,7 @@
 							</tr>
 							<tr>
 								<td><?= $form_desc[161] ?></td>
-								<td colspan = "3"><?= $form_desc[162] ?></td>
+								<td colspan = "3"><input type = "text"></td>
 							</tr>
 							<tr>
 								<td rowspan = "4"><?= $form_desc[163] ?></td>
@@ -365,9 +344,50 @@
 								<td colspan = "4"><input type = "checkbox"> <?= $form_desc[176] ?></td>
 							</tr>
 							<tr>
+								<td colspan = "4"><input type = "checkbox"> <?= $form_desc[177] ?></td>
+							</tr>
+							<tr>
 								<td><?= $form_desc[178] ?></td>
 								<td colspan = "3"><?= $form_desc[179] ?></td>
 							</tr>
+						</tbody>
+					</table>
+					
+					<table class = "table table-hover" cellspacing = "0" width = "100%">
+						<tbody>	
+							<tr>
+								<td colspan = "3"><?= $form_desc[215] ?></td>
+							</tr>
+							<tr>
+								<td><?= $form_desc[216] ?></td>
+								<td><?= $form_desc[217] ?></td>
+								<td><?= $form_desc[218] ?></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><?= $form_desc[170] ?></td>
+								<td><input type = "checkbox"></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><?= $form_desc[219] ?></td>
+								<td><input type = "checkbox"></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><?= $form_desc[220] ?></td>
+								<td><input type = "checkbox"></td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<table class = "table table-hover" cellspacing = "0" width = "100%">
+						<tbody>	
+							<tr>
+								<td rowspan = "3"><?= $form_desc[215] ?></td>
+								<td></td>
+							</tr>
+							
 						</tbody>
 					</table>
 				</div>   

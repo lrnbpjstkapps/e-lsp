@@ -494,34 +494,32 @@
 				$form_desc[130]		= "<i>Menunggu persetujuan</i>";
 				$form_desc[131]		= "<b>3. Kontekstualisasi dan meninjau rencana asesmen</b>";
 				$form_desc[132]		= "<b>3.1</b> Karakteristik peserta:";
-				$form_desc[133]		= "Penyesuaian kebutuhan spesifik asesi:";
+				$form_desc[133]		= "Penyesuaian kebutuhan spesifik peserta:";
 				$form_desc[134]		= "Tidak mempunyai karakteristik tertentu";
 				$form_desc[135]		= "Tidak diperlukan";
 				$form_desc[136]		= "<b>3.2</b> Kontekstualisasi standar kompetensi:</br>
 										(untuk mengakomodasi persyaratan spesifik industri,
-										pada batasan variabel dan pedoman bukti)";
-				$form_desc[137]		= "Pada batasan variabel:</br>
-										Tidak diperlukan penyesuaian / masih sesuai dengan SKK Khusus BPJS Ketenagakerjaan";
-				$form_desc[138]		= "Pada panduan penilaian:</br>
-										Tidak diperlukan penyesuaian / masih sesuai dengan SKK Khusus BPJS Ketenagakerjaan";
-				$form_desc[139]		= "<b>3.3</b> Memeriksa metoda dan perangkat asesmen yang dipilih (sesuai / tidak sesuai) dengan skema sertifikasi";
-				$form_desc[140]		= "Bila diperlukan penyesuaian metode dan perangkat asesmen dipertimbangkan terhadap:";
+										pada batasan variabel dan panduan penilaian)";
+				$form_desc[137]		= "Pada batasan variabel:";
+				$form_desc[138]		= "Pada panduan penilaian:";
+				$form_desc[139]		= "";
+				$form_desc[140]		= "";
 				$form_desc[141]		= "Catatan";
-				$form_desc[142]		= "1. Berbagai kontekstualisasi Standar Kompetensi";				
-				$form_desc[143]		= "2. Penyesuaian yang beralasan";				
-				$form_desc[144]		= "3. Kegiatan asesmen terintegrasi";				
-				$form_desc[145]		= "4. Kapasitas untuk mendukung RPL";				
+				$form_desc[142]		= "3.3. Memeriksa metoda dan perangkat asesmen yang dipilih (sesuai / tidak sesuai) dengan rencana sertifikasi";				
+				$form_desc[143]		= "3.4 Meninjau perangkat asesmen yang disesuaikan terhadap spesifikasi standar kompetensi (Ya / Tidak)";				
+				$form_desc[144]		= "3.5 Memperbaharui rencana asesmen sesuai keperluan kontekstualisasi (Ya / Tidak)";				
+				$form_desc[145]		= "3.6 Menyimpan menelusuri rencana asesmen sesuai prosedur (Ya / Tidak)";				
 				$form_desc[146]		= "<b>3.4</b> Meninjau perangkat asesmen yang disesuaikan terhadap spesifikasi standar kompetensi";
 				$form_desc[147]		= "Tidak ada penyesuaian";
 				$form_desc[148]		= "<b>3.5</b> Memperbaharui rencana asesmen sesuai kebutuhan kontekstualisasi dalam pelaksanaan asesmen tidak ada perubahan";
 				$form_desc[149]		= "<b>3.6</b> Menyimpan dan menelusuri rencana asesmen sesuai dengan kebijakan dan prosedur sistem asesmen maupun persyaratan hukum / organisasi / etika";
 				$form_desc[150]		= "<b>4. Mengorganisasikan asesmen</b>";
 				$form_desc[151]		= "<b>4.1</b> Pengaturan sumber daya asesmen";
-				$form_desc[152]		= "Bahan dan Sumberdaya Fisik";
-				$form_desc[153]		= "Status";
-				$form_desc[154]		= "Keterangan";
-				$form_desc[155]		= "Tempat Asesmen Kompetensi: TUK Learning Center Institut BPJS Ketenagakerjaan, Bogor";
-				$form_desc[156]		= "Disediakan oleh Koordinator TUK";
+				$form_desc[152]		= "<b> Bahan dan Sumberdaya Fisik </b>";
+				$form_desc[153]		= "<b>Status</b>";
+				$form_desc[154]		= "<b>Keterangan</b>";
+				$form_desc[155]		= "Tempat Uji Kompetensi";
+				$form_desc[156]		= "Disediakan oleh Kepala TUK";
 				$form_desc[157]		= "15 menit sebelum asesmen telah siap";
 				$form_desc[158]		= "Kelengkapan tempat asesmen (penerangan, AC, in out) meja, kursi dan ATK sudah dipastikan tersedia di ruangan";
 				$form_desc[159]		= "Alat dan bahan yang digunakan";
@@ -529,8 +527,8 @@
 				$form_desc[161]		= "<b>4.2</b> Pengaturan dukungan spesialis";
 				$form_desc[162]		= "Tidak ada";
 				$form_desc[163]		= "<b>4.3</b> Pengorganisasian personil yang terlibat";
-				$form_desc[164]		= "Personil:";
-				$form_desc[165]		= "Tugas dan Tanggung Jawab:";
+				$form_desc[164]		= "<b>Personil</b>";
+				$form_desc[165]		= "<b>Tugas dan Tanggung Jawab</b>";
 				$form_desc[166]		= "Asesor";
 				$form_desc[167]		= "- Memeriksa kesiapan dokumen / berkas asesmen</br>
 										- Memeriksa kesiapan sumber daya asesmen yang dibutuhkan</br>
@@ -545,20 +543,19 @@
 				$form_desc[170]		= "Koordinator TUK";
 				$form_desc[171]		= "- Menyiapkan ruangan - ruangan / fasilitas asesmen</br>
 										- Membantu menyiapkan berkas / form asesmen</br>
-										- Menyiapkan sumber daya asesmen sesuai MMA</br>
 										- Menyiapkan peralatan tulis yang dibutuhkan</br>
-										- Menyiapkan daftar hadir & memeriksa kehadiran peserta</br>
-										- Menyiapkan konsumsi dan akomodasi & transportasi Asesor & peserta (bila diperlukan)";
+										- Memeriksa, mengumpulkan & mendokumentasikan berkas asesmen</br>
+										- Menyiapkan konsumsi, akomodasi, transportasi asesor & peserta";
 				$form_desc[172]		= "<b>4.4</b> Strategi Komunikasi (pilih yang sesuai)";
 				$form_desc[173]		= "Wawancara, baik secara berhadapan maupun melalui telepon";
 				$form_desc[174]		= "Email, memo, korespondensi";
 				$form_desc[175]		= "Rapat";
 				$form_desc[176]		= "Video Conference / Pembelajaran Berbasis Elektronik";
-				$form_desc[177]		= "Focus Group";
+				$form_desc[177]		= "Fokus Group";
 				$form_desc[178]		= "<b>4.5</b> Penyimpanan Rekaman Asesmen dan Pelaporan";
-				$form_desc[179]		= "- Berkas / dokumen termasuk berita acara hasil asesmen diserahkan kepada Lead Asesor / Koordinator Asesor</br>
-										- Lead Asesor menyerahkan berkas / dokumen hasil asesmen ke Bagian Administrasi LSP</br>
-										- Bagian Administrasi mengarsipkan berkas / dokumen hasil asesmen sesuai prosedur yang berlaku";
+				$form_desc[179]		= "- Rekaman hasil pengumpulan bukti (hasil observasi demonstrasi dan hasil tes lisan) harus diserahkan kepada Lead Asesor setelah selesai asesmen pada hari pelaksanaan asesmen.</br>
+					- Rekaman hasil pengumpulan bukti, rekomendasi dan keputusan asesmen serta berita acara / laporan hasil asesmen disampaikan oleh Lead Asesor kepada TUK setelah selesai pelaksanaan asesmen pada hari pelaksanaan asesmen.</br>
+					- Seluruh berkas rekaman pelaksanaan asesmen diterima dan dikumpulkan oleh TUK yang selanjutnya disampaikan ke LSP";
 				$form_desc[180]		= "Kelompok Target Peserta";
 				$form_desc[181]		= "Pihak Relevan";
 				$form_desc[182]		= "Sertifikasi Ulang";
@@ -588,7 +585,21 @@
 				$form_desc[206]		= "Asesmen Portofolio";
 				$form_desc[207]		= "Asesmen Uji Kompetensi";
 				$form_desc[208]		= "Peran dan tanggung jawab Personil yang terlibat: *) Khusus persetujuan Asesi dapat dilakukan pada saat Konsultasi Pra Uji dan ditanda tangani pada formulir khusus persetujuan rencana asesmen";
-
+				$form_desc[209]		= "<b>Penyedia / Lead Asesor</b>";							
+				$form_desc[210]		= "<b>Tenaga Teknis TUK</b>";	
+				$form_desc[211]		= "Tanggal Uji Kompetensi";
+				$form_desc[212]		= "Durasi Uji Kompetensi:";
+				$form_desc[213]		= "1. Observasi";
+				$form_desc[214]		= "2. Tes Lisan / Tulis";
+				$form_desc[215]		= "<b>Konfirmasi dengan pihak yang relevan:</b>";
+				$form_desc[216]		= "<b>Nama</b>";
+				$form_desc[217]		= "<b>Jabatan</b>";
+				$form_desc[218]		= "<b>Paraf / Tanggal</b>";
+				$form_desc[219]		= "Manager Sertifikasi LSP";	
+				$form_desc[220]		= "Manager / Supervisor di Tempat Kerja";
+				$form_desc[221]		= "Nama Asesor:";
+				$form_desc[222]		= "No. Reg.";
+				$form_desc[223]		= "Tanda tangan / tanggal";
 				return $form_desc;
 			}
 
