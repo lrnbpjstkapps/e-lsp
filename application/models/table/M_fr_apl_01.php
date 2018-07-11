@@ -142,7 +142,7 @@
 				$this->DTM_CRT				= $data->DTM_CRT;
 				$this->USR_UPD				= 'Karid Nurvenus';
 				$this->DTM_UPD				= date('Y-m-d H:i:s');
-				$this->IS_ACTIVE			= (!$this->input->post($form_name[159]) ? $data->IS_ACTIVE : $this->input->post($form_name[159]));;
+				$this->IS_ACTIVE			= (!$this->input->post($form_name[159]) ? $data->IS_ACTIVE : $this->input->post($form_name[159]));
 					
 				return $this->db->update('FR_APL_01', $this, $condition);
 			}

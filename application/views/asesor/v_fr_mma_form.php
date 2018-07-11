@@ -23,11 +23,11 @@
 						</tr>
 						<tr>
 							<td>Nama Asesor</td>
-							<td colspan = "2"><?php echo $$form_name[152]; ?></td>
+							<td colspan = "2">TBS</td>
 						</tr>
 						<tr>
 							<td>Tanggal</td>
-							<td colspan = "2"><?php echo $$form_name[153]; ?></td>
+							<td colspan = "2">TBS</td>
 						</tr>
 					</table>
 					
@@ -40,7 +40,10 @@
 							<tr> 
 								<td rowspan = "4">1.1</td>
 								<td>Kelompok Target Peserta</td>
-								<td style = "width: 75%">: <input type="text" title = "Teridentifikasi Sudah / Belum Memenuhi Aturan Bukti" value = "Teridentifikasi Sudah / Belum Memenuhi Aturan Bukti"></td>
+								<td style = "width: 75%">: Teridentifikasi ( <select name="cars">
+									  <option value="sudah">sudah</option>
+									  <option value="belum">belum</option>
+									</select> ) memenuhi aturan bukti</td>
 							</tr>
 							<tr>
 								<td>Tujuan Asesmen</td>
@@ -49,7 +52,16 @@
 							</tr>
 							<tr>
 								<td>Konteks Asesmen</td>
-								<td>: <input type="text" title = "TUK simulasi / tempat kerja dengan karakteristik produk / sistem / tempat kerja" value = "TUK simulasi / tempat kerja dengan karakteristik produk / sistem / tempat kerja"></td>
+								<td>: TUK 
+									( <select name="cars">
+									  <option value="simulasi">simulasi</option>
+									  <option value="tempat kerja">tempat kerja</option>
+									</select> ) dengan karakteristik 
+									( <select name="cars">
+									  <option value="produk">produk</option>
+									  <option value="sistem">sistem</option>
+									  <option value="tempat kerja">tempat kerja</option>
+									</select> ) </td>
 							</tr>
 							<tr>
 								<td>Pihak Relevan</td>
@@ -233,7 +245,7 @@
 									</br>2. Peralatan dan perlengkapan: 
 									</br>Peralatan: (mesin yang digunakan secara umum)
 									</br>Perlengkapan: (dokumen pendukung)
-									</br>Material/bahan:
+									</br>3. Material/bahan:
 									</br></td>
 							</tr>
 							<tr>
@@ -268,34 +280,50 @@
 								<td>Penyesuaian kebutuhan spesifik peserta:</td>
 							</tr>
 							<tr>
-								<td><input type = "text"></td>
-								<td><input type = "text"></td>
+								<td><textarea></textarea></td>
+								<td><textarea></textarea></td>
 							</tr>
 							<tr>
 								<td rowspan = "2">3.2 Kontekstualisasi standar kompetensi: </br>(untuk mengakomodasi persyaratan spesifik industri, pada batasan variabel dan panduan penilaian)</td>
 								<td>Pada batasan variabel:
-									</br><input type = "text">
+									</br><textarea></textarea>
 								</td>
 							</tr>
 							<tr>
 								<td>Pada panduan penilaian:
-									</br><input type = "text">
+									</br><textarea></textarea>
 								</td>
 							</tr>
 							<tr>
-								<td>3.3. Memeriksa metoda dan perangkat asesmen yang dipilih (sesuai / tidak sesuai) dengan rencana sertifikasi</td>
+								<td>3.3. Memeriksa metoda dan perangkat asesmen yang dipilih  
+									( <select name="cars">
+									  <option value="sesuai">sesuai</option>
+									  <option value="tidak sesuai">tidak sesuai</option>
+									</select> ) dengan rencana sertifikasi</td>
 								<td><textarea> </textarea></td>
 							</tr>
 							<tr>
-								<td>3.4 Meninjau perangkat asesmen yang disesuaikan terhadap spesifikasi standar kompetensi (Ya / Tidak)</td>
+								<td>3.4 Meninjau perangkat asesmen yang disesuaikan terhadap spesifikasi standar kompetensi 
+									( <select name="cars">
+									  <option value="ya">Ya</option>
+									  <option value="tidak">Tidak</option>
+									</select> )</td>
 								<td><textarea> </textarea></td>
 							</tr>
 							<tr>
-								<td>3.5 Memperbaharui rencana asesmen sesuai keperluan kontekstualisasi (Ya / Tidak)</td>
+								<td>3.5 Memperbaharui rencana asesmen sesuai keperluan kontekstualisasi 
+									( <select name="cars">
+									  <option value="ya">Ya</option>
+									  <option value="tidak">Tidak</option>
+									</select> )</td>
 								<td><textarea> </textarea></td>
 							</tr>
 							<tr>
-								<td>3.6 Menyimpan menelusuri rencana asesmen sesuai prosedur (Ya / Tidak)</td>
+								<td>3.6 Menyimpan menelusuri rencana asesmen sesuai prosedur 
+									( <select name="cars">
+									  <option value="ya">Ya</option>
+									  <option value="tidak">Tidak</option>
+									</select> )</td>
 								<td><textarea> </textarea></td>
 							</tr>
 						</tbody>
@@ -328,12 +356,12 @@
 							</tr>
 							<tr>
 								<td>4.2 Pengaturan dukungan spesialis</td>
-								<td colspan = "3"><input type = "text"></td>
+								<td colspan = "3"><textarea></textarea></td>
 							</tr>
 							<tr>
 								<td rowspan = "4">4.3 Pengorganisasian personil yang terlibat</td>
-								<td>Personil</td>
-								<td colspan = "2">Tugas dan Tanggung Jawab</td>
+								<td><b>Personil</b></td>
+								<td colspan = "2"><b>Tugas dan Tanggung Jawab</b></td>
 							</tr>
 							<tr>
 								<td>Asesor</td>
@@ -377,7 +405,7 @@
 								<td colspan = "4"><input type = "checkbox"> Fokus Group</td>
 							</tr>
 							<tr>
-								<td><b>4.5</b> Penyimpanan Rekaman Asesmen dan Pelaporan</td>
+								<td>4.5 Penyimpanan Rekaman Asesmen dan Pelaporan</td>
 								<td colspan = "3">- Rekaman hasil pengumpulan bukti (hasil observasi demonstrasi dan hasil tes lisan) harus diserahkan kepada Lead Asesor setelah selesai asesmen pada hari pelaksanaan asesmen.
 									</br>- Rekaman hasil pengumpulan bukti, rekomendasi dan keputusan asesmen serta berita acara / laporan hasil asesmen disampaikan oleh Lead Asesor kepada TUK setelah selesai pelaksanaan asesmen pada hari pelaksanaan asesmen.
 									</br>- Seluruh berkas rekaman pelaksanaan asesmen diterima dan dikumpulkan oleh TUK yang selanjutnya disampaikan ke LSP</td>
