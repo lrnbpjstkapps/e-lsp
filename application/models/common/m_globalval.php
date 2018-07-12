@@ -175,9 +175,9 @@
 				$form_name[187] 	= "val_mma_aturan_lsp";
 				$form_name[188] 	= "val_mma_aturan_teknis";
 				$form_name[189] 	= "val_mma_pendekatan_asesmen";
-				$form_name[190] 	= "val_mma_strategi_asesmen";
-				$form_name[191] 	= "val_mma_acuan_pembanding";
-				$form_name[192] 	= "val_mma_acuan_pembanding_keterangan";
+				$form_name[190] 	= "val_mma_strategi_asesmen[]";
+				$form_name[191] 	= "val_mma_acuan_pembanding[]";
+				$form_name[192] 	= "val_mma_acuan_pembanding_keterangan[]";
 				$form_name[193] 	= "val_mma_batasan_variabel";
 				$form_name[194] 	= "val_mma_panduan_asesmen";
 				$form_name[195] 	= "val_mma_persetujuan_asesor";

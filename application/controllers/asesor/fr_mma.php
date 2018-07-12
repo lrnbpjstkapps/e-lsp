@@ -9,7 +9,10 @@ class fr_mma extends CI_Controller {
 			parent::__construct();
 			$this->load->model("common/m_globalval", "m_globalval");
 			$this->load->model("datatables/M_list_mma", "M_list_mma");
+			$this->load->model("form/M_form_mma", "M_form_mma");
 			$this->load->model("table/M_answer_apl_02", "M_ans_apl02");
+			$this->load->model("table/M_fr_mma", "M_fr_mma");
+			
 			
 			$this->load->model("common/m_crud", "m_crud");
 			$this->load->model("asesor/fr_mma/m_custom", "m_custom");
@@ -52,12 +55,12 @@ class fr_mma extends CI_Controller {
 			$data[$form_name[115]] 	= "Karid Nurvenus";
 			$data[$form_name[134]] 	= $result->row()->UUID_APL_01;
 			$data[$form_name[146]] 	= $result->row()->UUID_APL_02;
-			$data[$form_name[101]] 	= $result->row()->NOMOR_SKEMA;
-			$data[$form_name[100]] 	= $result->row()->NAMA_SKEMA;
+			$data[$form_name[101]] 	= $result->row()->NOMOR_SKEMA;	// APL-01
+			$data[$form_name[100]] 	= $result->row()->NAMA_SKEMA;	// APL-01
 			$data[$form_name[151]]	= "P2 BPJS Ketenagakerjaan";
-			$data[$form_name[152]]	= "Dwi Andriani Puspitasari";
+			$data[$form_name[147]]	= "Dwi Andriani Puspitasari";	// APL-02
 			$data[$form_name[153]]	= "12 Desember 2018";
-			$data[$form_name[148]]	= "Sewaktu";
+			$data[$form_name[148]]	= "Sewaktu";					// APL-02
 			$data[$form_name[133]]	= $result->row()->TUJUAN_ASESMEN;
 			
 			$condition					= array(
@@ -73,6 +76,12 @@ class fr_mma extends CI_Controller {
 					$data[$form_name[136].'_'.$i]	= explode(';', $row->UUID_BUKTI);
 					$i++;
 				}
+			
+			$condition 				= array(
+				'UUID_MMA'			=> $uuidMMA);
+			$result					= $this->M_fr_mma->get_entry($condition)->row();
+			
+			$data 					= $this->M_form_mma->form_edit($data, $form_name, $result);
 			
 			$this->load->view($view[131], $data);
 			$this->load->view($view[132], $data);

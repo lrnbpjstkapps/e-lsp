@@ -11,19 +11,19 @@
 						<tr>
 							<td rowspan = "2">Skema Sertifikasi / Klaster Asesmen</td>
 							<td>Judul</td>
-							<td style = "width: 75%"><?php echo $$form_name[100]; ?></td>
+							<td style = "width: 75%"><?= $$form_name[100]; ?></td>
 						</tr>
 						<tr>
 							<td>Nomor</td>
-							<td><?php echo $$form_name[101]; ?></td>
+							<td><?= $$form_name[101]; ?></td>
 						</tr>
 						<tr>
 							<td>TUK</td>
-							<td colspan = "2"><?php echo $$form_name[148]; ?></td>
+							<td colspan = "2"><?= $$form_name[148]; ?></td>
 						</tr>
 						<tr>
 							<td>Nama Asesor</td>
-							<td colspan = "2">TBS</td>
+							<td colspan = "2"><?= $$form_name[147]; ?></td>
 						</tr>
 						<tr>
 							<td>Tanggal</td>
@@ -40,24 +40,24 @@
 							<tr> 
 								<td rowspan = "4">1.1</td>
 								<td>Kelompok Target Peserta</td>
-								<td style = "width: 75%">: Teridentifikasi ( <select name="cars">
+								<td style = "width: 75%">: Teridentifikasi ( <select name="<?= $$form_name[182]; ?>">
 									  <option value="sudah">sudah</option>
 									  <option value="belum">belum</option>
 									</select> ) memenuhi aturan bukti</td>
 							</tr>
 							<tr>
 								<td>Tujuan Asesmen</td>
-								<td>: <input type = "radio" name = "b"> Sertifikasi 
-									<input type = "radio" name = "b"> Sertifikasi Ulang</td>
+								<td>: <input type = "radio" name = "<?= $$form_name[183]; ?>"> Sertifikasi 
+									<input type = "radio" name = "<?= $$form_name[183]; ?>"> Sertifikasi Ulang</td>
 							</tr>
 							<tr>
 								<td>Konteks Asesmen</td>
 								<td>: TUK 
-									( <select name="cars">
+									( <select name="<?= $$form_name[184]; ?>">
 									  <option value="simulasi">simulasi</option>
 									  <option value="tempat kerja">tempat kerja</option>
 									</select> ) dengan karakteristik 
-									( <select name="cars">
+									( <select name="<?= $$form_name[185]; ?>">
 									  <option value="produk">produk</option>
 									  <option value="sistem">sistem</option>
 									  <option value="tempat kerja">tempat kerja</option>
@@ -65,23 +65,23 @@
 							</tr>
 							<tr>
 								<td>Pihak Relevan</td>
-								<td>: <input type="text"></td>
+								<td>: <input type="text" name = "<?= $$form_name[186]; ?>"></td>
 							</tr>
 							
 							<!-- -->
 							<tr>
 								<td></td>
 								<td>Aturan Organisasi</td>
-								<td>: Aturan BNSP / LSP : <input type="text">
-									</br></br>: Aturan Teknis : <input type="text"></td>
+								<td>: Aturan BNSP / LSP : <input type="text" name = "<?= $form_name[187]; ?>">
+									</br></br>: Aturan Teknis : <input type="text" name = "<?= $form_name[188]; ?>"></td>
 							</tr>	
 							
 							<!-- 1.2 -->
 							<tr>
 								<td>1.2</td>
 								<td>Pendekatan / Jalur Asesmen</td>
-								<td>: <input type = "radio" name = "a"> Asesmen Portofolio 
-									<input type = "radio" name = "a"> Asesmen Uji Kompetensi 
+								<td>: <input type = "radio" name = "<?= $form_name[189]; ?>" value = "Asesmen Portofolio"> Asesmen Portofolio 
+									<input type = "radio" name = "<?= $form_name[189]; ?>" value = "Asesmen Uji Kompetensi"> Asesmen Uji Kompetensi 
 								</td>
 							</tr>
 							
@@ -90,14 +90,14 @@
 								<td>1.3</td>
 								<td>Strategi Asesmen</td>
 								<td>Mengikuti: 
-									</br> <input type = "checkbox"> Acuan pembanding
-									</br> <input type = "checkbox"> Pengaturan asesmen
-									</br> <input type = "checkbox"> Metode dan perangkat asesmen
-									</br> <input type = "checkbox"> Pengorganisasian asesmen
-									</br> <input type = "checkbox"> Aturan pemaketan kompetensi
-									</br> <input type = "checkbox"> Persyaratan khusus
-									</br> <input type = "checkbox"> Mekanisme jaminan mutu
-									</br> <input type = "checkbox"> Identifikasi management resiko									
+									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Acuan pembanding"> Acuan pembanding
+									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Pengaturan asesmen"> Pengaturan asesmen
+									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Metode dan perangkat asesmen"> Metode dan perangkat asesmen
+									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Pengorganisasian asesmen"> Pengorganisasian asesmen
+									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Aturan pemaketan kompetensi"> Aturan pemaketan kompetensi
+									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Persyaratan khusus"> Persyaratan khusus
+									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Mekanisme jaminan mutu"> Mekanisme jaminan mutu
+									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Identifikasi management resiko"> Identifikasi management resiko									
 								</td>
 							</tr>
 							
@@ -105,12 +105,12 @@
 							<tr>
 								<td>1.4</td>
 								<td>Acuan Pembanding</td>
-								<td>Berupa:
-									</br> <input type = "checkbox"> Standar kompetensi: <input type="text">
-									</br> <input type = "checkbox"> Standar produk: <input type="text">
-									</br> <input type = "checkbox"> Standar sistem: <input type="text">
-									</br> <input type = "checkbox"> Regulasi teknis: <input type="text">
-									</br> <input type = "checkbox"> SOP: <input type="text">
+								<td>Berupa: 
+									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Standar kompetensi"> Standar kompetensi: <input type="text" name = "<?= $form_name[192]; ?>">
+									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Standar produk"> Standar produk: <input type="text" name = "<?= $form_name[192]; ?>">
+									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Standar sistem"> Standar sistem: <input type="text" name = "<?= $form_name[192]; ?>">
+									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Regulasi teknis"> Regulasi teknis: <input type="text" name = "<?= $form_name[192]; ?>">
+									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "SOP"> SOP: <input type="text" name = "<?= $form_name[192]; ?>">
 								</td>
 						</tbody>
 					</table>
@@ -194,8 +194,8 @@
 								<td>Panduan Asesmen</td>
 							</tr>
 							<tr>
-								<td><input type = "checkbox"> Ya</td>
-								<td><input type = "checkbox"> Ya</td>
+								<td><input type = "checkbox" name = "<?= $form_name[193]; ?>" value = "Ya"> Ya</td>
+								<td><input type = "checkbox" name = "<?= $form_name[194]; ?>" value = "Ya"> Ya</td>
 							</tr>
 							<tr>
 								<td colspan = "4"><b>Peran dan tanggung jawab Personil yang terlibat:</b> *) Khusus persetujuan Asesi dapat dilakukan pada saat Konsultasi Pra Uji dan ditanda tangani pada formulir khusus persetujuan rencana asesmen.</td>
@@ -221,14 +221,14 @@
 									</br>- Mengorganisasikan asesmen,
 									</br>- Melaksanakan asesmen (menetapkan dan memelihara lingkungan asesmen, mengumpulkan bukti, mereview bukti, membuat keputusan asesmen, menyampaikan keputusan asesmen, memberikan umpan balik kepada peserta, meminta umpan balik dari peserta),
 									</br>- Meninjau proses asesmen.</td>
-								<td><input type = "checkbox" name = "" value = ""> Ya</td>
+								<td><input type = "checkbox" name = "<?= $form_name[196]; ?>" value = "Ya"> Ya</td>
 							</tr>
 							<tr>
 								<td>TBS</td>
 								<td>Penyedia / Lead Asesor</td>
 								<td>- Memastikan materi uji kompetensi siap digunakan,
 									</br>- Memastikan seluruh personil yang terlibat memahami tugas dan fungsinya masing - masing.</td>
-								<td><input type = "checkbox" name = "" value = ""> Ya</td>
+								<td><input type = "checkbox" name = "<?= $form_name[198]; ?>" value = "Ya"> Ya</td>
 							</tr>
 							<tr>
 								<td>TBS</td>
@@ -237,7 +237,7 @@
 									</br>- Memastikan alat, bahan, dan peralatan uji kompetensi sudah siap di area tempat,
 									</br>- Memberi arahan kepada peserta dalam rangka persiapan asesmen,
 									</br>- Menyiapkan konsumsi, akomodasi, dan transportasi.</td>
-								<td><input type = "checkbox" name = "" value = ""> Ya</td>
+								<td><input type = "checkbox" name = "<?= $form_name[200]; ?>" value = "Ya"> Ya</td>
 							</tr>
 							<tr>
 								<td>Sumber Daya Fisik (Persyaratan Teknis TUK)</td>
@@ -251,18 +251,18 @@
 							<tr>
 								<td rowspan = "4">Jangka dan Periode Waktu Asesmen</td>
 								<td>Tanggal Uji Kompetensi</td> 
-								<td colspan = "2">: <input type = "date" name = ""></td>									
+								<td colspan = "2">: <input type = "date" name = "<?= $form_name[201]; ?>"></td>									
 							</tr>
 							<tr>
 								<td colspan = "3">Durasi Uji Kompetensi:</td>
 							</tr>
 							<tr>
 								<td>1. Observasi</td>
-								<td colspan = "2">: <input type = "time" name = ""> - <input type = "time" name = ""></td>
+								<td colspan = "2">: <input type = "time" name = "<?= $form_name[202]; ?>"> - <input type = "time" name = "<?= $form_name[203]; ?>"></td>
 							</tr>
 							<tr>
 								<td>2. Tes Lisan / Tulis</td>
-								<td colspan = "2">: <input type = "time" name = ""> - <input type = "time" name = ""></td>
+								<td colspan = "2">: <input type = "time" name = "<?= $form_name[204]; ?>"> - <input type = "time" name = "<?= $form_name[205]; ?>"></td>
 							</tr>
 							<tr>
 								<td>Lokasi Asesmen</td>
@@ -280,51 +280,51 @@
 								<td>Penyesuaian kebutuhan spesifik peserta:</td>
 							</tr>
 							<tr>
-								<td><textarea></textarea></td>
-								<td><textarea></textarea></td>
+								<td><textarea name = "<?= $form_name[207]; ?>"></textarea></td>
+								<td><textarea name = "<?= $form_name[208]; ?>"></textarea></td>
 							</tr>
 							<tr>
 								<td rowspan = "2">3.2 Kontekstualisasi standar kompetensi: </br>(untuk mengakomodasi persyaratan spesifik industri, pada batasan variabel dan panduan penilaian)</td>
 								<td>Pada batasan variabel:
-									</br><textarea></textarea>
+									</br><textarea name = "<?= $form_name[209]; ?>"></textarea>
 								</td>
 							</tr>
 							<tr>
 								<td>Pada panduan penilaian:
-									</br><textarea></textarea>
+									</br><textarea name = "<?= $form_name[210]; ?>"></textarea>
 								</td>
 							</tr>
 							<tr>
 								<td>3.3. Memeriksa metoda dan perangkat asesmen yang dipilih  
-									( <select name="cars">
+									( <select name = "<?= $form_name[211]; ?>">
 									  <option value="sesuai">sesuai</option>
 									  <option value="tidak sesuai">tidak sesuai</option>
 									</select> ) dengan rencana sertifikasi</td>
-								<td><textarea> </textarea></td>
+								<td><textarea name = "<?= $form_name[212]; ?>"> </textarea></td>
 							</tr>
 							<tr>
 								<td>3.4 Meninjau perangkat asesmen yang disesuaikan terhadap spesifikasi standar kompetensi 
-									( <select name="cars">
+									( <select name = "<?= $form_name[213]; ?>">
 									  <option value="ya">Ya</option>
 									  <option value="tidak">Tidak</option>
 									</select> )</td>
-								<td><textarea> </textarea></td>
+								<td><textarea name = "<?= $form_name[214]; ?>"> </textarea></td>
 							</tr>
 							<tr>
 								<td>3.5 Memperbaharui rencana asesmen sesuai keperluan kontekstualisasi 
-									( <select name="cars">
+									( <select name = "<?= $form_name[215]; ?>">
 									  <option value="ya">Ya</option>
 									  <option value="tidak">Tidak</option>
 									</select> )</td>
-								<td><textarea> </textarea></td>
+								<td><textarea name = "<?= $form_name[216]; ?>"> </textarea></td>
 							</tr>
 							<tr>
 								<td>3.6 Menyimpan menelusuri rencana asesmen sesuai prosedur 
-									( <select name="cars">
+									( <select name = "<?= $form_name[217]; ?>">
 									  <option value="ya">Ya</option>
 									  <option value="tidak">Tidak</option>
 									</select> )</td>
-								<td><textarea> </textarea></td>
+								<td><textarea name = "<?= $form_name[218]; ?>"> </textarea></td>
 							</tr>
 						</tbody>
 					</table>
@@ -356,7 +356,7 @@
 							</tr>
 							<tr>
 								<td>4.2 Pengaturan dukungan spesialis</td>
-								<td colspan = "3"><textarea></textarea></td>
+								<td colspan = "3"><textarea name = "<?= $form_name[219]; ?>"></textarea></td>
 							</tr>
 							<tr>
 								<td rowspan = "4">4.3 Pengorganisasian personil yang terlibat</td>
@@ -390,19 +390,19 @@
 								<td colspan = "4">4.4 Strategi Komunikasi (pilih yang sesuai)</td>
 							</tr>
 							<tr>
-								<td colspan = "4"><input type = "checkbox"> Wawancara, baik secara berhadapan maupun melalui telepon</td>
+								<td colspan = "4"><input type = "checkbox" name = "<?= $form_name[220]; ?>" value = "Wawancara, baik secara berhadapan maupun melalui telepon"> Wawancara, baik secara berhadapan maupun melalui telepon</td>
 							</tr>
 							<tr>
-								<td colspan = "4"><input type = "checkbox"> Email, memo, korespondensi</td>
+								<td colspan = "4"><input type = "checkbox" name = "<?= $form_name[220]; ?>" value = "Email, memo, korespondensi"> Email, memo, korespondensi</td>
 							</tr>
 							<tr>
-								<td colspan = "4"><input type = "checkbox"> Rapat</td>
+								<td colspan = "4"><input type = "checkbox" name = "<?= $form_name[220]; ?>" value = "Rapat"> Rapat</td>
 							</tr>
 							<tr>
-								<td colspan = "4"><input type = "checkbox"> Video Conference / Pembelajaran Berbasis Elektronik</td>
+								<td colspan = "4"><input type = "checkbox" name = "<?= $form_name[220]; ?>" value = "Video Conference / Pembelajaran Berbasis Elektronik"> Video Conference / Pembelajaran Berbasis Elektronik</td>
 							</tr>
 							<tr>
-								<td colspan = "4"><input type = "checkbox"> Fokus Group</td>
+								<td colspan = "4"><input type = "checkbox" name = "<?= $form_name[220]; ?>" value = "Fokus Group"> Fokus Group</td>
 							</tr>
 							<tr>
 								<td>4.5 Penyimpanan Rekaman Asesmen dan Pelaporan</td>
