@@ -53,13 +53,14 @@ class fr_mma extends CI_Controller {
 			
 			$result					= $this->m_custom->getADt_FR_MMA($uuidMMA);			
 			$data[$form_name[115]] 	= "Karid Nurvenus";
+			$data[$form_name[145]] 	= $uuidMMA;
 			$data[$form_name[134]] 	= $result->row()->UUID_APL_01;
 			$data[$form_name[146]] 	= $result->row()->UUID_APL_02;
 			$data[$form_name[101]] 	= $result->row()->NOMOR_SKEMA;	// APL-01
 			$data[$form_name[100]] 	= $result->row()->NAMA_SKEMA;	// APL-01
-			$data[$form_name[151]]	= "P2 BPJS Ketenagakerjaan";
+			$data[$form_name[151]]	= "P2 BPJS Ketenagakerjaan";		
 			$data[$form_name[147]]	= "Dwi Andriani Puspitasari";	// APL-02
-			$data[$form_name[153]]	= "12 Desember 2018";
+			$data[$form_name[153]]	= "12 Desember 2018";	
 			$data[$form_name[148]]	= "Sewaktu";					// APL-02
 			$data[$form_name[133]]	= $result->row()->TUJUAN_ASESMEN;
 			
@@ -90,7 +91,7 @@ class fr_mma extends CI_Controller {
 	// UPDATE		
 	public function updateDt_mma()
 		{
-			$data				= $this->m_globalval->getAllData();		
+			/*$data				= $this->m_globalval->getAllData();		
 			$form_name			= $data["form_name"];
 			$queryResult1		= 1;
 			$queryResult2		= 1;
@@ -117,7 +118,28 @@ class fr_mma extends CI_Controller {
 			else	
 				{
 					echo 1;
+				}*/
+				
+			$data					= $this->m_globalval->getAllData();		
+			$form_name				= $data["form_name"];
+			$qResult_mma_ins		= 1;
+			
+			$condition				= array(
+				'UUID_MMA'			=> $this->input->post($form_name[145]));
+			$data_mma				= $this->M_fr_mma->get_entry($condition)->row();
+			
+			$condition				= array(
+				'UUID_MMA'			=> $this->input->post($form_name[145]));
+			$qResult_apl_01_upd		= $this->M_fr_mma->update_entry($form_name, $data_mma, $condition);
+				
+			if($qResult_mma_ins != 1)
+				{
+					echo -1;
 				}
+			else	
+				{
+					echo 1;
+				} 
 		}
 			
 	//DATATABLES

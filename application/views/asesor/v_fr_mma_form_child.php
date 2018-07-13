@@ -105,7 +105,7 @@
 	var validator;
 	var save_method = '<?php echo $saveMethod; ?>';
 	
-	function saveDt()
+	function saveDtChild()
 		{	
 			if(save_method == 'add') {
 				url = "<?php echo $ajax_url[149]; ?>";	

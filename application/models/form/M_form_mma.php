@@ -83,8 +83,8 @@ class M_form_mma extends CI_Model {
 			$data[$form_name[187]] 	= $result->ATURAN_LSP;
 			$data[$form_name[188]] 	= $result->ATURAN_TEKNIS;
 			$data[$form_name[189]] 	= $result->PENDEKATAN_ASESMEN;
-			$data[$form_name[190]] 	= $result->STRATEGI_ASESMEN;
-			$data[$form_name[191]] 	= $result->ACUAN_PEMBANDING;
+			$data[$form_name[19001]] = explode(",", $result->STRATEGI_ASESMEN);
+			$data[$form_name[19101]] = explode(",", $result->ACUAN_PEMBANDING);
 			$data[$form_name[192]] 	= $result->ACUAN_PEMBANDING_KETERANGAN;
 			$data[$form_name[193]] 	= $result->BATASAN_VARIABEL;
 			$data[$form_name[194]] 	= $result->PANDUAN_ASESMEN;

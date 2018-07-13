@@ -4,9 +4,11 @@
 	</div>
 	
 	<div class="box-body pad table-responsive">
-		<form class="form-horizontal">
+		<form class="form-horizontal" id="<?php echo $form_id[190]; ?>">
 			<div class="modal-body form">                
 				<div class="form-body">	
+				<!-- Hidden Variable -->
+					<input type = "hidden" name = "<?= $form_name[145]; ?>" value = "<?= $$form_name[145]; ?>">				
 					<table class = "table table-hover" cellspacing="0" width="100%">
 						<tr>
 							<td rowspan = "2">Skema Sertifikasi / Klaster Asesmen</td>
@@ -40,48 +42,50 @@
 							<tr> 
 								<td rowspan = "4">1.1</td>
 								<td>Kelompok Target Peserta</td>
-								<td style = "width: 75%">: Teridentifikasi ( <select name="<?= $$form_name[182]; ?>">
-									  <option value="sudah">sudah</option>
-									  <option value="belum">belum</option>
+								<td style = "width: 75%">: Teridentifikasi ( <select name="<?= $form_name[182]; ?>">
+									  <option value="sudah" <?php if ($$form_name[182] == 'sudah'){ echo 'selected'; } ?>>sudah</option>
+									  <option value="belum" <?php if ($$form_name[182] == 'belum'){ echo 'selected'; } ?>>belum</option>
 									</select> ) memenuhi aturan bukti</td>
 							</tr>
 							<tr>
 								<td>Tujuan Asesmen</td>
-								<td>: <input type = "radio" name = "<?= $$form_name[183]; ?>"> Sertifikasi 
-									<input type = "radio" name = "<?= $$form_name[183]; ?>"> Sertifikasi Ulang</td>
+								<td>: 
+									<input type = "radio" name = "<?= $form_name[183]; ?>" value = "Sertifikasi" <?php if ($$form_name[183] == 'Sertifikasi'){ echo 'checked'; } ?>> Sertifikasi 
+									<input type = "radio" name = "<?= $form_name[183]; ?>" value = "Sertifikasi Ulang" <?php if ($$form_name[183] == 'Sertifikasi Ulang'){ echo 'checked'; } ?>> Sertifikasi Ulang 
+								</td>
 							</tr>
 							<tr>
 								<td>Konteks Asesmen</td>
 								<td>: TUK 
-									( <select name="<?= $$form_name[184]; ?>">
-									  <option value="simulasi">simulasi</option>
-									  <option value="tempat kerja">tempat kerja</option>
+									( <select name="<?= $form_name[184]; ?>">
+										<option value="simulasi" <?php if ($$form_name[184] == 'simulasi'){ echo 'selected'; } ?>>simulasi</option>
+										<option value="tempat kerja" <?php if ($$form_name[184] == 'tempat kerja'){ echo 'selected'; } ?>>tempat kerja</option>
 									</select> ) dengan karakteristik 
-									( <select name="<?= $$form_name[185]; ?>">
-									  <option value="produk">produk</option>
-									  <option value="sistem">sistem</option>
-									  <option value="tempat kerja">tempat kerja</option>
+									( <select name="<?= $form_name[185]; ?>">
+										<option value="produk" <?php if ($$form_name[185] == 'produk'){ echo 'selected'; } ?>>produk</option>
+										<option value="sistem" <?php if ($$form_name[185] == 'sistem'){ echo 'selected'; } ?>>sistem</option>
+										<option value="tempat kerja" <?php if ($$form_name[185] == 'tempat kerja'){ echo 'selected'; } ?>>tempat kerja</option>
 									</select> ) </td>
 							</tr>
 							<tr>
 								<td>Pihak Relevan</td>
-								<td>: <input type="text" name = "<?= $$form_name[186]; ?>"></td>
+								<td>: <input type="text" name = "<?= $form_name[186]; ?>" value = "<?= $$form_name[186]; ?>"></td>
 							</tr>
 							
 							<!-- -->
 							<tr>
 								<td></td>
 								<td>Aturan Organisasi</td>
-								<td>: Aturan BNSP / LSP : <input type="text" name = "<?= $form_name[187]; ?>">
-									</br></br>: Aturan Teknis : <input type="text" name = "<?= $form_name[188]; ?>"></td>
+								<td>: Aturan BNSP / LSP : <input type="text" name = "<?= $form_name[187]; ?>" value = "<?= $$form_name[187]; ?>">
+									</br></br>: Aturan Teknis : <input type="text" name = "<?= $form_name[188]; ?>" value = "<?= $$form_name[188]; ?>"></td>
 							</tr>	
 							
 							<!-- 1.2 -->
 							<tr>
 								<td>1.2</td>
 								<td>Pendekatan / Jalur Asesmen</td>
-								<td>: <input type = "radio" name = "<?= $form_name[189]; ?>" value = "Asesmen Portofolio"> Asesmen Portofolio 
-									<input type = "radio" name = "<?= $form_name[189]; ?>" value = "Asesmen Uji Kompetensi"> Asesmen Uji Kompetensi 
+								<td>: <input type = "radio" name = "<?= $form_name[189]; ?>" value = "Asesmen Portofolio" <?php if ($$form_name[189] == 'Asesmen Portofolio'){ echo 'checked'; } ?>> Asesmen Portofolio 
+									<input type = "radio" name = "<?= $form_name[189]; ?>" value = "Asesmen Uji Kompetensi" <?php if ($$form_name[189] == 'Asesmen Uji Kompetensi'){ echo 'checked'; } ?>> Asesmen Uji Kompetensi 
 								</td>
 							</tr>
 							
@@ -90,14 +94,22 @@
 								<td>1.3</td>
 								<td>Strategi Asesmen</td>
 								<td>Mengikuti: 
-									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Acuan pembanding"> Acuan pembanding
-									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Pengaturan asesmen"> Pengaturan asesmen
-									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Metode dan perangkat asesmen"> Metode dan perangkat asesmen
-									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Pengorganisasian asesmen"> Pengorganisasian asesmen
-									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Aturan pemaketan kompetensi"> Aturan pemaketan kompetensi
-									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Persyaratan khusus"> Persyaratan khusus
-									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Mekanisme jaminan mutu"> Mekanisme jaminan mutu
-									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Identifikasi management resiko"> Identifikasi management resiko									
+									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Acuan pembanding" 
+										<?php if (in_array('Acuan pembanding', $$form_name[19001])){ echo 'checked'; } ?>> Acuan pembanding
+									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Pengaturan asesmen" 
+										<?php if (in_array('Pengaturan asesmen', $$form_name[19001])){ echo 'checked'; } ?>> Pengaturan asesmen
+									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Metode dan perangkat asesmen" 
+										<?php if (in_array('Metode dan perangkat asesmen', $$form_name[19001])){ echo 'checked'; } ?>> Metode dan perangkat asesmen
+									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Pengorganisasian asesmen" 
+										<?php if (in_array('Pengorganisasian asesmen', $$form_name[19001])){ echo 'checked'; } ?>> Pengorganisasian asesmen
+									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Aturan pemaketan kompetensi" 
+										<?php if (in_array('Aturan pemaketan kompetensi', $$form_name[19001])){ echo 'checked'; } ?>> Aturan pemaketan kompetensi
+									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Persyaratan khusus" 
+										<?php if (in_array('Persyaratan khusus', $$form_name[19001])){ echo 'checked'; } ?>> Persyaratan khusus
+									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Mekanisme jaminan mutu" 
+										<?php if (in_array('Mekanisme jaminan mutu', $$form_name[19001])){ echo 'checked'; } ?>> Mekanisme jaminan mutu
+									</br> <input type = "checkbox" name = "<?= $form_name[190]; ?>" value = "Identifikasi management resiko" 
+										<?php if (in_array('Identifikasi management resiko', $$form_name[19001])){ echo 'checked'; } ?>> Identifikasi management resiko									
 								</td>
 							</tr>
 							
@@ -106,11 +118,16 @@
 								<td>1.4</td>
 								<td>Acuan Pembanding</td>
 								<td>Berupa: 
-									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Standar kompetensi"> Standar kompetensi: <input type="text" name = "<?= $form_name[192]; ?>">
-									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Standar produk"> Standar produk: <input type="text" name = "<?= $form_name[192]; ?>">
-									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Standar sistem"> Standar sistem: <input type="text" name = "<?= $form_name[192]; ?>">
-									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Regulasi teknis"> Regulasi teknis: <input type="text" name = "<?= $form_name[192]; ?>">
-									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "SOP"> SOP: <input type="text" name = "<?= $form_name[192]; ?>">
+									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Standar kompetensi"
+										<?php if (in_array('Standar kompetensi', $$form_name[19101])){ echo 'checked'; } ?>> Standar kompetensi: <input type="text" name = "<?= $form_name[192]; ?>">
+									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Standar produk"
+										<?php if (in_array('Standar produk', $$form_name[19101])){ echo 'checked'; } ?>> Standar produk: <input type="text" name = "<?= $form_name[192]; ?>">
+									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Standar sistem"
+										<?php if (in_array('Standar sistem', $$form_name[19101])){ echo 'checked'; } ?>> Standar sistem: <input type="text" name = "<?= $form_name[192]; ?>">
+									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Regulasi teknis"
+										<?php if (in_array('Regulasi teknis', $$form_name[19101])){ echo 'checked'; } ?>> Regulasi teknis: <input type="text" name = "<?= $form_name[192]; ?>">
+									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "SOP"
+										<?php if (in_array('SOP', $$form_name[19101])){ echo 'checked'; } ?>> SOP: <input type="text" name = "<?= $form_name[192]; ?>">
 								</td>
 						</tbody>
 					</table>
@@ -251,18 +268,18 @@
 							<tr>
 								<td rowspan = "4">Jangka dan Periode Waktu Asesmen</td>
 								<td>Tanggal Uji Kompetensi</td> 
-								<td colspan = "2">: <input type = "date" name = "<?= $form_name[201]; ?>"></td>									
+								<td colspan = "2">: <input type = "date" name = "<?= $form_name[201]; ?>" value = "<?= $$form_name[201]; ?>"></td>									
 							</tr>
 							<tr>
 								<td colspan = "3">Durasi Uji Kompetensi:</td>
 							</tr>
 							<tr>
 								<td>1. Observasi</td>
-								<td colspan = "2">: <input type = "time" name = "<?= $form_name[202]; ?>"> - <input type = "time" name = "<?= $form_name[203]; ?>"></td>
+								<td colspan = "2">: <input type = "time" name = "<?= $form_name[202]; ?>" value = "<?= $$form_name[202]; ?>"> - <input type = "time" name = "<?= $form_name[203]; ?>" value = "<?= $$form_name[203]; ?>"></td>
 							</tr>
 							<tr>
 								<td>2. Tes Lisan / Tulis</td>
-								<td colspan = "2">: <input type = "time" name = "<?= $form_name[204]; ?>"> - <input type = "time" name = "<?= $form_name[205]; ?>"></td>
+								<td colspan = "2">: <input type = "time" name = "<?= $form_name[204]; ?>" value = "<?= $$form_name[204]; ?>"> - <input type = "time" name = "<?= $form_name[205]; ?>" value = "<?= $$form_name[205]; ?>"></td>
 							</tr>
 							<tr>
 								<td>Lokasi Asesmen</td>
@@ -280,18 +297,18 @@
 								<td>Penyesuaian kebutuhan spesifik peserta:</td>
 							</tr>
 							<tr>
-								<td><textarea name = "<?= $form_name[207]; ?>"></textarea></td>
-								<td><textarea name = "<?= $form_name[208]; ?>"></textarea></td>
+								<td><textarea name = "<?= $form_name[207]; ?>"><?= $$form_name[207]; ?></textarea></td>
+								<td><textarea name = "<?= $form_name[208]; ?>"><?= $$form_name[208]; ?></textarea></td>
 							</tr>
 							<tr>
 								<td rowspan = "2">3.2 Kontekstualisasi standar kompetensi: </br>(untuk mengakomodasi persyaratan spesifik industri, pada batasan variabel dan panduan penilaian)</td>
 								<td>Pada batasan variabel:
-									</br><textarea name = "<?= $form_name[209]; ?>"></textarea>
+									</br><textarea name = "<?= $form_name[209]; ?>"><?= $$form_name[209]; ?></textarea>
 								</td>
 							</tr>
 							<tr>
 								<td>Pada panduan penilaian:
-									</br><textarea name = "<?= $form_name[210]; ?>"></textarea>
+									</br><textarea name = "<?= $form_name[210]; ?>"><?= $$form_name[210]; ?></textarea>
 								</td>
 							</tr>
 							<tr>
@@ -300,7 +317,7 @@
 									  <option value="sesuai">sesuai</option>
 									  <option value="tidak sesuai">tidak sesuai</option>
 									</select> ) dengan rencana sertifikasi</td>
-								<td><textarea name = "<?= $form_name[212]; ?>"> </textarea></td>
+								<td><textarea name = "<?= $form_name[212]; ?>"><?= $$form_name[212]; ?></textarea></td>
 							</tr>
 							<tr>
 								<td>3.4 Meninjau perangkat asesmen yang disesuaikan terhadap spesifikasi standar kompetensi 
@@ -308,7 +325,7 @@
 									  <option value="ya">Ya</option>
 									  <option value="tidak">Tidak</option>
 									</select> )</td>
-								<td><textarea name = "<?= $form_name[214]; ?>"> </textarea></td>
+								<td><textarea name = "<?= $form_name[214]; ?>"><?= $$form_name[214]; ?></textarea></td>
 							</tr>
 							<tr>
 								<td>3.5 Memperbaharui rencana asesmen sesuai keperluan kontekstualisasi 
@@ -316,7 +333,7 @@
 									  <option value="ya">Ya</option>
 									  <option value="tidak">Tidak</option>
 									</select> )</td>
-								<td><textarea name = "<?= $form_name[216]; ?>"> </textarea></td>
+								<td><textarea name = "<?= $form_name[216]; ?>"><?= $$form_name[216]; ?></textarea></td>
 							</tr>
 							<tr>
 								<td>3.6 Menyimpan menelusuri rencana asesmen sesuai prosedur 
@@ -324,7 +341,7 @@
 									  <option value="ya">Ya</option>
 									  <option value="tidak">Tidak</option>
 									</select> )</td>
-								<td><textarea name = "<?= $form_name[218]; ?>"> </textarea></td>
+								<td><textarea name = "<?= $form_name[218]; ?>"><?= $$form_name[218]; ?></textarea></td>
 							</tr>
 						</tbody>
 					</table>
@@ -356,7 +373,7 @@
 							</tr>
 							<tr>
 								<td>4.2 Pengaturan dukungan spesialis</td>
-								<td colspan = "3"><textarea name = "<?= $form_name[219]; ?>"></textarea></td>
+								<td colspan = "3"><textarea name = "<?= $form_name[219]; ?>"><?= $$form_name[219]; ?></textarea></td>
 							</tr>
 							<tr>
 								<td rowspan = "4">4.3 Pengorganisasian personil yang terlibat</td>
@@ -426,17 +443,17 @@
 							<tr>
 								<td>TBS</td>
 								<td>Koord. TUK</td>
-								<td><input type = "checkbox"></td>
+								<td><input type = "checkbox" name = "<?= $form_name[222]; ?>" value = "Ya"> Ya</td>
 							</tr>
 							<tr>
 								<td>TBS</td>
 								<td>Manager Sertifikasi LSP</td>
-								<td><input type = "checkbox"></td>
+								<td><input type = "checkbox" name = "<?= $form_name[224]; ?>" value = "Ya"> Ya</td>
 							</tr>
 							<tr>
 								<td>TBS</td>
 								<td>Manager / Supervisor di Tempat Kerja</td>
-								<td><input type = "checkbox"></td>
+								<td><input type = "checkbox" name = "<?= $form_name[226]; ?>" value = "Ya"> Ya</td>
 							</tr>
 						</tbody>
 					</table>
@@ -454,7 +471,7 @@
 							</tr>
 							<tr>
 								<td>Persetujuan</td>
-								<td><input type = "checkbox"></td>
+								<td><input type = "checkbox" name = "<?= $form_name[222]; ?>" value = "Ya"> Ya</td>
 							</tr>
 							
 							<tr>
@@ -468,7 +485,7 @@
 							</tr>
 							<tr>
 								<td>Persetujuan</td>
-								<td><input type = "checkbox"></td>
+								<td><input type = "checkbox" name = "<?= $form_name[222]; ?>" value = "Ya"> Ya</td>
 							</tr>
 						</tbody>
 					</table>
@@ -483,6 +500,6 @@
 	
 	<div class="box-footer pad table-responsive">
 		<a onClick="pagingList()" class="btn bg-navy btn-default pull-right margin"> <?php echo $form_button[103]; ?> </a>
-		<a onClick="saveDt()" class="btn bg-navy btn-default pull-right margin" id="<?php echo $form_id[180]; ?>"> <?php echo $form_button[101]; ?> </a>
+		<a onClick="updateDt()" class="btn bg-navy btn-default pull-right margin" id="<?php echo $form_id[180]; ?>"> <?php echo $form_button[101]; ?> </a>
 	</div>
 </div>

@@ -176,7 +176,9 @@
 				$form_name[188] 	= "val_mma_aturan_teknis";
 				$form_name[189] 	= "val_mma_pendekatan_asesmen";
 				$form_name[190] 	= "val_mma_strategi_asesmen[]";
+				$form_name[19001] 	= "val_mma_strategi_asesmen";
 				$form_name[191] 	= "val_mma_acuan_pembanding[]";
+				$form_name[19101] 	= "val_mma_acuan_pembanding";
 				$form_name[192] 	= "val_mma_acuan_pembanding_keterangan[]";
 				$form_name[193] 	= "val_mma_batasan_variabel";
 				$form_name[194] 	= "val_mma_panduan_asesmen";
@@ -314,6 +316,7 @@
 				$form_id[187]		= "fr_mma_asesor";
 				$form_id[188]		= "fr_mma_tanggal";
 				$form_id[189]		= "fr_mma_metode";
+				$form_id[190]		= "fr_mma_form";
 				return $form_id;
 			}	
 
@@ -338,7 +341,13 @@
 				$validationMsg[102]	= "Nomor Elemen Kompetensi sudah ada.";
 				$validationMsg[103]	= "Nomor Kriteria Unjuk Kerja sudah ada.";
 				$validationMsg[104]	= "File tidak valid.";
-				$validationMsg[105]	= "Keterangan tidak boleh sama.";
+				$validationMsg[105]	= "Keterangan tidak boleh sama.";				
+				$validationMsg[106]	= "Data berhasil ditambahkan.";
+				$validationMsg[107]	= "Data gagal ditambahkan.";
+				$validationMsg[108]	= "Data berhasil diperbarui.";
+				$validationMsg[109]	= "Data gagal diperbarui.";
+				$validationMsg[110]	= "Data gagal dihapus.";
+
 				return $validationMsg;
 			}			
 		
@@ -399,7 +408,7 @@
 				$ajax_url[151] 	= base_url()."asesi/fr_apl_02/deleteDt_apl_02/";
 				$ajax_url[152] 	= base_url()."asesi/fr_apl_02/getList_apl02";
 				$ajax_url[153] 	= base_url()."asesor/fr_mma/pagingList";
-				$ajax_url[154] 	= base_url()."";
+				$ajax_url[154] 	= base_url()."asesor/fr_mma/updateDt_mma";
 				$ajax_url[155] 	= base_url()."asesor/fr_mma/pagingEdit/";
 				$ajax_url[156] 	= base_url()."";
 				$ajax_url[157] 	= base_url()."asesor/fr_mma/getList_mma";
