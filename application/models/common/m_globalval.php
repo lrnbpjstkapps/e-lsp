@@ -180,6 +180,12 @@
 				$form_name[191] 	= "val_mma_acuan_pembanding[]";
 				$form_name[19101] 	= "val_mma_acuan_pembanding";
 				$form_name[192] 	= "val_mma_acuan_pembanding_keterangan[]";
+				$form_name[19201] 	= "val_mma_acuan_pembanding_keterangan";
+				$form_name[19202] 	= "val_mma_acuan_pembanding_keterangan_kompetensi";
+				$form_name[19203] 	= "val_mma_acuan_pembanding_keterangan_produk";
+				$form_name[19204] 	= "val_mma_acuan_pembanding_keterangan_sistem";
+				$form_name[19205] 	= "val_mma_acuan_pembanding_keterangan_teknis";
+				$form_name[19206] 	= "val_mma_acuan_pembanding_keterangan_sop";
 				$form_name[193] 	= "val_mma_batasan_variabel";
 				$form_name[194] 	= "val_mma_panduan_asesmen";
 				$form_name[195] 	= "val_mma_persetujuan_asesor";
@@ -207,7 +213,8 @@
 				$form_name[217] 	= "val_mma_3_6";
 				$form_name[218] 	= "val_mma_3_6_catatan";
 				$form_name[219] 	= "val_mma_pengaturan_dukungan_spesialis";
-				$form_name[220] 	= "val_mma_strategi_komunikasi";
+				$form_name[220] 	= "val_mma_strategi_komunikasi[]";
+				$form_name[22001] 	= "val_mma_strategi_komunikasi";
 				$form_name[221] 	= "val_mma_koordinator_tuk";
 				$form_name[222] 	= "val_mma_koordinator_tuk_dtm";
 				$form_name[223] 	= "val_mma_manager_sertifikasi_lsp";

@@ -119,15 +119,20 @@
 								<td>Acuan Pembanding</td>
 								<td>Berupa: 
 									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Standar kompetensi"
-										<?php if (in_array('Standar kompetensi', $$form_name[19101])){ echo 'checked'; } ?>> Standar kompetensi: <input type="text" name = "<?= $form_name[192]; ?>">
+										<?php if (in_array('Standar kompetensi', $$form_name[19101])){ echo 'checked'; } ?>> 
+											Standar kompetensi: <input type="text" name = "<?= $form_name[192]; ?>" value = "<?= $$form_name[19202]; ?>">
 									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Standar produk"
-										<?php if (in_array('Standar produk', $$form_name[19101])){ echo 'checked'; } ?>> Standar produk: <input type="text" name = "<?= $form_name[192]; ?>">
+										<?php if (in_array('Standar produk', $$form_name[19101])){ echo 'checked'; } ?>> 
+											Standar produk: <input type="text" name = "<?= $form_name[192]; ?>" value = "<?= $$form_name[19203]; ?>">
 									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Standar sistem"
-										<?php if (in_array('Standar sistem', $$form_name[19101])){ echo 'checked'; } ?>> Standar sistem: <input type="text" name = "<?= $form_name[192]; ?>">
+										<?php if (in_array('Standar sistem', $$form_name[19101])){ echo 'checked'; } ?>> 
+											Standar sistem: <input type="text" name = "<?= $form_name[192]; ?>" value = "<?= $$form_name[19204]; ?>">
 									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Regulasi teknis"
-										<?php if (in_array('Regulasi teknis', $$form_name[19101])){ echo 'checked'; } ?>> Regulasi teknis: <input type="text" name = "<?= $form_name[192]; ?>">
+										<?php if (in_array('Regulasi teknis', $$form_name[19101])){ echo 'checked'; } ?>> 
+											Regulasi teknis: <input type="text" name = "<?= $form_name[192]; ?>" value = "<?= $$form_name[19205]; ?>">
 									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "SOP"
-										<?php if (in_array('SOP', $$form_name[19101])){ echo 'checked'; } ?>> SOP: <input type="text" name = "<?= $form_name[192]; ?>">
+										<?php if (in_array('SOP', $$form_name[19101])){ echo 'checked'; } ?>> 
+											SOP: <input type="text" name = "<?= $form_name[192]; ?>" value = "<?= $$form_name[19206]; ?>">
 								</td>
 						</tbody>
 					</table>
@@ -211,8 +216,10 @@
 								<td>Panduan Asesmen</td>
 							</tr>
 							<tr>
-								<td><input type = "checkbox" name = "<?= $form_name[193]; ?>" value = "Ya"> Ya</td>
-								<td><input type = "checkbox" name = "<?= $form_name[194]; ?>" value = "Ya"> Ya</td>
+								<td><input type = "checkbox" name = "<?= $form_name[193]; ?>" value = "Ya"
+									<?php if ($$form_name[193] == 'Ya'){ echo 'checked'; } ?>> Ya</td>
+								<td><input type = "checkbox" name = "<?= $form_name[194]; ?>" value = "Ya"
+									<?php if ($$form_name[194] == 'Ya'){ echo 'checked'; } ?>> Ya</td>
 							</tr>
 							<tr>
 								<td colspan = "4"><b>Peran dan tanggung jawab Personil yang terlibat:</b> *) Khusus persetujuan Asesi dapat dilakukan pada saat Konsultasi Pra Uji dan ditanda tangani pada formulir khusus persetujuan rencana asesmen.</td>
@@ -226,7 +233,7 @@
 								<th>Nama</th>
 								<th>Jabatan / pekerjaan</th>
 								<th>Peran dan tanggung jawab dalam asesmen</th>
-								<th>Paraf / tanggal</th>
+								<th>Persetujuan</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -238,14 +245,16 @@
 									</br>- Mengorganisasikan asesmen,
 									</br>- Melaksanakan asesmen (menetapkan dan memelihara lingkungan asesmen, mengumpulkan bukti, mereview bukti, membuat keputusan asesmen, menyampaikan keputusan asesmen, memberikan umpan balik kepada peserta, meminta umpan balik dari peserta),
 									</br>- Meninjau proses asesmen.</td>
-								<td><input type = "checkbox" name = "<?= $form_name[196]; ?>" value = "Ya"> Ya</td>
+								<td><input type = "checkbox" name = "<?= $form_name[196]; ?>" value = "Ya"
+									<?php if ($$form_name[196] != null){ echo 'checked'; } ?>> Ya</td>
 							</tr>
 							<tr>
 								<td>TBS</td>
 								<td>Penyedia / Lead Asesor</td>
 								<td>- Memastikan materi uji kompetensi siap digunakan,
 									</br>- Memastikan seluruh personil yang terlibat memahami tugas dan fungsinya masing - masing.</td>
-								<td><input type = "checkbox" name = "<?= $form_name[198]; ?>" value = "Ya"> Ya</td>
+								<td><input type = "checkbox" name = "<?= $form_name[198]; ?>" value = "Ya"
+									<?php if ($$form_name[198] != null){ echo 'checked'; } ?>> Ya</td>
 							</tr>
 							<tr>
 								<td>TBS</td>
@@ -254,7 +263,8 @@
 									</br>- Memastikan alat, bahan, dan peralatan uji kompetensi sudah siap di area tempat,
 									</br>- Memberi arahan kepada peserta dalam rangka persiapan asesmen,
 									</br>- Menyiapkan konsumsi, akomodasi, dan transportasi.</td>
-								<td><input type = "checkbox" name = "<?= $form_name[200]; ?>" value = "Ya"> Ya</td>
+								<td><input type = "checkbox" name = "<?= $form_name[200]; ?>" value = "Ya"
+									<?php if ($$form_name[200] != null){ echo 'checked'; } ?>> Ya</td>
 							</tr>
 							<tr>
 								<td>Sumber Daya Fisik (Persyaratan Teknis TUK)</td>
@@ -314,32 +324,32 @@
 							<tr>
 								<td>3.3. Memeriksa metoda dan perangkat asesmen yang dipilih  
 									( <select name = "<?= $form_name[211]; ?>">
-									  <option value="sesuai">sesuai</option>
-									  <option value="tidak sesuai">tidak sesuai</option>
+									  <option value="sesuai" <?php if ($$form_name[211] == 'sesuai'){ echo 'selected'; } ?>>sesuai</option>
+									  <option value="tidak sesuai" <?php if ($$form_name[211] == 'tidak sesuai'){ echo 'selected'; } ?>>tidak sesuai</option>
 									</select> ) dengan rencana sertifikasi</td>
 								<td><textarea name = "<?= $form_name[212]; ?>"><?= $$form_name[212]; ?></textarea></td>
 							</tr>
 							<tr>
 								<td>3.4 Meninjau perangkat asesmen yang disesuaikan terhadap spesifikasi standar kompetensi 
 									( <select name = "<?= $form_name[213]; ?>">
-									  <option value="ya">Ya</option>
-									  <option value="tidak">Tidak</option>
+									  <option value="ya" <?php if ($$form_name[213] == 'ya'){ echo 'selected'; } ?>>Ya</option>
+									  <option value="tidak" <?php if ($$form_name[213] == 'tidak'){ echo 'selected'; } ?>>Tidak</option>
 									</select> )</td>
 								<td><textarea name = "<?= $form_name[214]; ?>"><?= $$form_name[214]; ?></textarea></td>
 							</tr>
 							<tr>
 								<td>3.5 Memperbaharui rencana asesmen sesuai keperluan kontekstualisasi 
 									( <select name = "<?= $form_name[215]; ?>">
-									  <option value="ya">Ya</option>
-									  <option value="tidak">Tidak</option>
+									  <option value="ya" <?php if ($$form_name[215] == 'ya'){ echo 'selected'; } ?>>Ya</option>
+									  <option value="tidak" <?php if ($$form_name[215] == 'tidak'){ echo 'selected'; } ?>>Tidak</option>
 									</select> )</td>
 								<td><textarea name = "<?= $form_name[216]; ?>"><?= $$form_name[216]; ?></textarea></td>
 							</tr>
 							<tr>
 								<td>3.6 Menyimpan menelusuri rencana asesmen sesuai prosedur 
 									( <select name = "<?= $form_name[217]; ?>">
-									  <option value="ya">Ya</option>
-									  <option value="tidak">Tidak</option>
+									  <option value="ya" <?php if ($$form_name[217] == 'ya'){ echo 'selected'; } ?>>Ya</option>
+									  <option value="tidak" <?php if ($$form_name[217] == 'tidak'){ echo 'selected'; } ?>>Tidak</option>
 									</select> )</td>
 								<td><textarea name = "<?= $form_name[218]; ?>"><?= $$form_name[218]; ?></textarea></td>
 							</tr>
@@ -407,19 +417,24 @@
 								<td colspan = "4">4.4 Strategi Komunikasi (pilih yang sesuai)</td>
 							</tr>
 							<tr>
-								<td colspan = "4"><input type = "checkbox" name = "<?= $form_name[220]; ?>" value = "Wawancara, baik secara berhadapan maupun melalui telepon"> Wawancara, baik secara berhadapan maupun melalui telepon</td>
+								<td colspan = "4"><input type = "checkbox" name = "<?= $form_name[220]; ?>" value = "Wawancara, baik secara berhadapan maupun melalui telepon"
+									<?php if (in_array('Wawancara, baik secara berhadapan maupun melalui telepon', $$form_name[22001])){ echo 'checked'; } ?>> Wawancara, baik secara berhadapan maupun melalui telepon</td>
 							</tr>
 							<tr>
-								<td colspan = "4"><input type = "checkbox" name = "<?= $form_name[220]; ?>" value = "Email, memo, korespondensi"> Email, memo, korespondensi</td>
+								<td colspan = "4"><input type = "checkbox" name = "<?= $form_name[220]; ?>" value = "Email, memo, korespondensi"
+									<?php if (in_array('Email, memo, korespondensi', $$form_name[22001])){ echo 'checked'; } ?>> Email, memo, korespondensi</td>
 							</tr>
 							<tr>
-								<td colspan = "4"><input type = "checkbox" name = "<?= $form_name[220]; ?>" value = "Rapat"> Rapat</td>
+								<td colspan = "4"><input type = "checkbox" name = "<?= $form_name[220]; ?>" value = "Rapat"
+									<?php if (in_array('Rapat', $$form_name[22001])){ echo 'checked'; } ?>> Rapat</td>
 							</tr>
 							<tr>
-								<td colspan = "4"><input type = "checkbox" name = "<?= $form_name[220]; ?>" value = "Video Conference / Pembelajaran Berbasis Elektronik"> Video Conference / Pembelajaran Berbasis Elektronik</td>
+								<td colspan = "4"><input type = "checkbox" name = "<?= $form_name[220]; ?>" value = "Video Conference / Pembelajaran Berbasis Elektronik"
+									<?php if (in_array('Video Conference / Pembelajaran Berbasis Elektronik', $$form_name[22001])){ echo 'checked'; } ?>> Video Conference / Pembelajaran Berbasis Elektronik</td>
 							</tr>
 							<tr>
-								<td colspan = "4"><input type = "checkbox" name = "<?= $form_name[220]; ?>" value = "Fokus Group"> Fokus Group</td>
+								<td colspan = "4"><input type = "checkbox" name = "<?= $form_name[220]; ?>" value = "Fokus Group"
+									<?php if (in_array('Fokus Group', $$form_name[22001])){ echo 'checked'; } ?>> Fokus Group</td>
 							</tr>
 							<tr>
 								<td>4.5 Penyimpanan Rekaman Asesmen dan Pelaporan</td>
@@ -438,22 +453,25 @@
 							<tr>
 								<td><b>Nama</b></td>
 								<td><b>Jabatan</b></td>
-								<td><b>Paraf / Tanggal</b></td>
+								<td><b>Persetujuan</b></td>
 							</tr>
 							<tr>
 								<td>TBS</td>
 								<td>Koord. TUK</td>
-								<td><input type = "checkbox" name = "<?= $form_name[222]; ?>" value = "Ya"> Ya</td>
+								<td><input type = "checkbox" name = "<?= $form_name[222]; ?>" value = "Ya"
+									<?php if ($$form_name[222] != null){ echo 'checked'; } ?>> Ya</td>
 							</tr>
 							<tr>
 								<td>TBS</td>
 								<td>Manager Sertifikasi LSP</td>
-								<td><input type = "checkbox" name = "<?= $form_name[224]; ?>" value = "Ya"> Ya</td>
+								<td><input type = "checkbox" name = "<?= $form_name[224]; ?>" value = "Ya"
+									<?php if ($$form_name[224] != null){ echo 'checked'; } ?>> Ya</td>
 							</tr>
 							<tr>
 								<td>TBS</td>
 								<td>Manager / Supervisor di Tempat Kerja</td>
-								<td><input type = "checkbox" name = "<?= $form_name[226]; ?>" value = "Ya"> Ya</td>
+								<td><input type = "checkbox" name = "<?= $form_name[226]; ?>" value = "Ya"
+									<?php if ($$form_name[226] != null){ echo 'checked'; } ?>> Ya</td>
 							</tr>
 						</tbody>
 					</table>
@@ -471,7 +489,8 @@
 							</tr>
 							<tr>
 								<td>Persetujuan</td>
-								<td><input type = "checkbox" name = "<?= $form_name[222]; ?>" value = "Ya"> Ya</td>
+								<td><input type = "checkbox" name = "<?= $form_name[229]; ?>" value = "Ya"
+									<?php if ($$form_name[229] != null){ echo 'checked'; } ?>> Ya</td>
 							</tr>
 							
 							<tr>
@@ -485,7 +504,8 @@
 							</tr>
 							<tr>
 								<td>Persetujuan</td>
-								<td><input type = "checkbox" name = "<?= $form_name[222]; ?>" value = "Ya"> Ya</td>
+								<td><input type = "checkbox" name = "<?= $form_name[232]; ?>" value = "Ya"
+									<?php if ($$form_name[232] != null){ echo 'checked'; } ?>> Ya</td>
 							</tr>
 						</tbody>
 					</table>
