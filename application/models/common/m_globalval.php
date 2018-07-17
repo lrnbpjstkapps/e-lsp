@@ -181,11 +181,11 @@
 				$form_name[19101] 	= "val_mma_acuan_pembanding";
 				$form_name[192] 	= "val_mma_acuan_pembanding_keterangan[]";
 				$form_name[19201] 	= "val_mma_acuan_pembanding_keterangan";
-				$form_name[19202] 	= "val_mma_acuan_pembanding_keterangan_kompetensi";
-				$form_name[19203] 	= "val_mma_acuan_pembanding_keterangan_produk";
-				$form_name[19204] 	= "val_mma_acuan_pembanding_keterangan_sistem";
-				$form_name[19205] 	= "val_mma_acuan_pembanding_keterangan_teknis";
-				$form_name[19206] 	= "val_mma_acuan_pembanding_keterangan_sop";
+				$form_name[19202] 	= "val_mma_acuan_pembanding_kompetensi";
+				$form_name[19203] 	= "val_mma_acuan_pembanding_produk";
+				$form_name[19204] 	= "val_mma_acuan_pembanding_sistem";
+				$form_name[19205] 	= "val_mma_acuan_pembanding_teknis";
+				$form_name[19206] 	= "val_mma_acuan_pembanding_sop";
 				$form_name[193] 	= "val_mma_batasan_variabel";
 				$form_name[194] 	= "val_mma_panduan_asesmen";
 				$form_name[195] 	= "val_mma_persetujuan_asesor";
@@ -324,6 +324,16 @@
 				$form_id[188]		= "fr_mma_tanggal";
 				$form_id[189]		= "fr_mma_metode";
 				$form_id[190]		= "fr_mma_form";
+				$form_id[191]		= "mma_acuan_pembanding_kompetensi";
+				$form_id[192]		= "mma_acuan_pembanding_produk";
+				$form_id[193]		= "mma_acuan_pembanding_sistem";
+				$form_id[194]		= "mma_acuan_pembanding_teknis";
+				$form_id[195]		= "mma_acuan_pembanding_sop";
+				$form_id[196]		= "mma_acuan_pembanding_kompetensi_ket";
+				$form_id[197]		= "mma_acuan_pembanding_produk_ket";
+				$form_id[198]		= "mma_acuan_pembanding_sistem_ket";
+				$form_id[199]		= "mma_acuan_pembanding_teknis_ket";
+				$form_id[200]		= "mma_acuan_pembanding_sop_ket";
 				return $form_id;
 			}	
 

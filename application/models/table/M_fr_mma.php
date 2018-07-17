@@ -165,9 +165,9 @@
 				$this->ATURAN_LSP 					= (!$this->input->post($form_name[187]) ? $data->ATURAN_LSP : $this->input->post($form_name[187]));
 				$this->ATURAN_TEKNIS 				= (!$this->input->post($form_name[188]) ? $data->ATURAN_TEKNIS : $this->input->post($form_name[188]));
 				$this->PENDEKATAN_ASESMEN 			= (!$this->input->post($form_name[189]) ? $data->PENDEKATAN_ASESMEN : $this->input->post($form_name[189]));
-				$this->STRATEGI_ASESMEN 			= (!$this->input->post($form_name[190]) ? null : implode(',', $this->input->post($form_name[190])));
-				$this->ACUAN_PEMBANDING 			= (!$this->input->post($form_name[191]) ? null : implode(',', $this->input->post($form_name[191])));
-				$this->ACUAN_PEMBANDING_KETERANGAN 	= (!$this->input->post($form_name[192]) ? null : implode('|', $this->input->post($form_name[192])));
+				$this->STRATEGI_ASESMEN 			= (!$this->input->post($form_name[190]) ? null : implode('|', $this->input->post($form_name[190])));
+				$this->ACUAN_PEMBANDING 			= (!$this->input->post($form_name[191]) ? null : implode('|', $this->input->post($form_name[191])));
+				$this->ACUAN_PEMBANDING_KETERANGAN 	= (!$this->input->post($form_name[192]) ? null : implode('|', array_filter($this->input->post($form_name[192]), "isArrayValueNull")));
 				$this->BATASAN_VARIABEL 			= (!$this->input->post($form_name[193]) ? 'Tidak' : $this->input->post($form_name[193]));
 				$this->PANDUAN_ASESMEN 				= (!$this->input->post($form_name[194]) ? 'Tidak' : $this->input->post($form_name[194]));
 				$this->PERSETUJUAN_ASESOR 			= (!$this->input->post($form_name[195]) ? $data->PERSETUJUAN_ASESOR : $this->input->post($form_name[195]));
@@ -195,7 +195,7 @@
 				$this->_3_6 						= (!$this->input->post($form_name[217]) ? $data->_3_6 : $this->input->post($form_name[217]));
 				$this->_3_6_CATATAN 				= (!$this->input->post($form_name[218]) ? $data->_3_6_CATATAN : $this->input->post($form_name[218]));
 				$this->PENGATURAN_DUKUNGAN_SPESIALIS = (!$this->input->post($form_name[219]) ? $data->PENGATURAN_DUKUNGAN_SPESIALIS : $this->input->post($form_name[219]));
-				$this->STRATEGI_KOMUNIKASI 			= (!$this->input->post($form_name[220]) ? null : implode(';', $this->input->post($form_name[220])));
+				$this->STRATEGI_KOMUNIKASI 			= (!$this->input->post($form_name[220]) ? null : implode('|', $this->input->post($form_name[220])));
 				$this->KOORDINATOR_TUK 				= (!$this->input->post($form_name[221]) ? $data->KOORDINATOR_TUK : $this->input->post($form_name[221]));
 				$this->KOORDINATOR_TUK_DTM 			= (!$this->input->post($form_name[222]) ? null : date('Y-m-d H:i:s'));
 				$this->MANAGER_SERTIFIKASI_LSP 		= (!$this->input->post($form_name[223]) ? $data->MANAGER_SERTIFIKASI_LSP : $this->input->post($form_name[223]));
@@ -220,6 +220,14 @@
 		public function delete_entry($condition)
 			{
 				return $this->db->delete('FR_MMA', $condition);
+			}
+
+		function isArrayValueNull($dt)
+			{ 
+			    if($dt == null)
+			       return FALSE;
+			    else
+			       return TRUE; 
 			}
 		
 	}

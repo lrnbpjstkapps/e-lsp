@@ -83,38 +83,58 @@ class M_form_mma extends CI_Model {
 			$data[$form_name[187]] 	= $result->ATURAN_LSP;
 			$data[$form_name[188]] 	= $result->ATURAN_TEKNIS;
 			$data[$form_name[189]] 	= $result->PENDEKATAN_ASESMEN;
-			$data[$form_name[19001]] = explode(",", $result->STRATEGI_ASESMEN);
-			$data[$form_name[192]] = explode(",", $result->ACUAN_PEMBANDING);
+			$data[$form_name[19001]] = explode("|", $result->STRATEGI_ASESMEN);
+			$data[$form_name[19101]] = explode("|", $result->ACUAN_PEMBANDING);
+			$data[$form_name[19201]] = explode("|", $result->ACUAN_PEMBANDING_KETERANGAN);
 
-			for($i = 0; $i < count ($data[$form_name[192]]); $i++)
+			for($i = 0; $i < count (explode("|", $result->ACUAN_PEMBANDING)); $i++)
 				{
-					if(explode(",", $result->STRATEGI_ASESMEN)[0] == "Standar kompetensi")
+					$words 		= explode("|", $result->ACUAN_PEMBANDING)[$i];
+					$words_ket 	= explode("|", $result->ACUAN_PEMBANDING_KETERANGAN)[$i];
+
+					if($words == "Standar kompetensi")
 						{
-							$data[$form_name[19202]] = explode(",", $result->ACUAN_PEMBANDING);
+							$data[$form_name[19202]] = $words_ket;
 						}
-					else if(explode(",", $result->STRATEGI_ASESMEN)[0] == "Standar produk")
+					else if($words == "Standar produk")
 						{
-							$data[$form_name[19202]] = explode(",", $result->ACUAN_PEMBANDING);
+							$data[$form_name[19203]] = $words_ket;
 						}
-					else if(explode(",", $result->STRATEGI_ASESMEN)[0] == "Standar sistem")
+					else if($words == "Standar sistem")
 						{
-							$data[$form_name[19202]] = explode(",", $result->ACUAN_PEMBANDING);
+							$data[$form_name[19204]] = $words_ket;
 						}
-					else if(explode(",", $result->STRATEGI_ASESMEN)[0] == "Regulasi teknis")
+					else if($words == "Regulasi teknis")
 						{
-							$data[$form_name[19202]] = explode(",", $result->ACUAN_PEMBANDING);
+							$data[$form_name[19205]] = $words_ket;
 						}
-					else if(explode(",", $result->STRATEGI_ASESMEN)[0] == "SOP")
+					else if($words == "SOP")
 						{
-							$data[$form_name[19202]] = explode(",", $result->ACUAN_PEMBANDING);
+							$data[$form_name[19206]] = $words_ket;
 						}
 				}
 
-			$data[$form_name[19202]] 	= explode("|", $result->ACUAN_PEMBANDING_KETERANGAN); 
-			$data[$form_name[19203]] 	= explode("|", $result->ACUAN_PEMBANDING_KETERANGAN); 
-			$data[$form_name[19204]] 	= explode("|", $result->ACUAN_PEMBANDING_KETERANGAN); 
-			$data[$form_name[19205]] 	= explode("|", $result->ACUAN_PEMBANDING_KETERANGAN); 
-			$data[$form_name[19206]] 	= explode("|", $result->ACUAN_PEMBANDING_KETERANGAN); 
+			if(empty($data[$form_name[19202]]))
+			{
+				$data[$form_name[19202]] = "";
+			}
+			if(empty($data[$form_name[19203]]))
+			{
+				$data[$form_name[19203]] = "";
+			}
+			if(empty($data[$form_name[19204]]))
+			{
+				$data[$form_name[19204]] = "";
+			}
+			if(empty($data[$form_name[19205]]))
+			{
+				$data[$form_name[19205]] = "";
+			}
+			if(empty($data[$form_name[19206]]))
+			{
+				$data[$form_name[19206]] = "";
+			}
+
 			$data[$form_name[193]] 	= $result->BATASAN_VARIABEL;
 			$data[$form_name[194]] 	= $result->PANDUAN_ASESMEN;
 			$data[$form_name[195]] 	= $result->PERSETUJUAN_ASESOR;
@@ -143,7 +163,7 @@ class M_form_mma extends CI_Model {
 			$data[$form_name[218]] 	= $result->_3_6_CATATAN;
 			$data[$form_name[219]] 	= $result->PENGATURAN_DUKUNGAN_SPESIALIS;
 			$data[$form_name[220]] 	= $result->STRATEGI_KOMUNIKASI;
-			$data[$form_name[22001]] = explode(";", $result->STRATEGI_KOMUNIKASI);
+			$data[$form_name[22001]] = explode("|", $result->STRATEGI_KOMUNIKASI);
 			$data[$form_name[221]] 	= $result->KOORDINATOR_TUK;
 			$data[$form_name[222]] 	= $result->KOORDINATOR_TUK_DTM;
 			$data[$form_name[223]] 	= $result->MANAGER_SERTIFIKASI_LSP;

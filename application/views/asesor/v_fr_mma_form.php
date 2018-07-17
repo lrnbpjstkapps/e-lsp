@@ -118,21 +118,21 @@
 								<td>1.4</td>
 								<td>Acuan Pembanding</td>
 								<td>Berupa: 
-									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Standar kompetensi"
+									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Standar kompetensi" id = "<?= $form_id[191]; ?>" onchange="disableKompetensiKet()"
 										<?php if (in_array('Standar kompetensi', $$form_name[19101])){ echo 'checked'; } ?>> 
-											Standar kompetensi: <input type="text" name = "<?= $form_name[192]; ?>" value = "<?= $$form_name[19202]; ?>">
-									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Standar produk"
+											Standar kompetensi: <input type="text" name = "<?= $form_name[192]; ?>" value = "<?= $$form_name[19202]; ?>" id = "<?= $form_id[196]; ?>">
+									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Standar produk" id = "<?= $form_id[192]; ?>" onchange="disableProdukKet()"
 										<?php if (in_array('Standar produk', $$form_name[19101])){ echo 'checked'; } ?>> 
-											Standar produk: <input type="text" name = "<?= $form_name[192]; ?>" value = "<?= $$form_name[19203]; ?>">
-									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Standar sistem"
+											Standar produk: <input type="text" name = "<?= $form_name[192]; ?>" value = "<?= $$form_name[19203]; ?>" id = "<?= $form_id[197]; ?>">
+									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Standar sistem" id = "<?= $form_id[193]; ?>" onchange="disableSistemKet()"
 										<?php if (in_array('Standar sistem', $$form_name[19101])){ echo 'checked'; } ?>> 
-											Standar sistem: <input type="text" name = "<?= $form_name[192]; ?>" value = "<?= $$form_name[19204]; ?>">
-									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Regulasi teknis"
+											Standar sistem: <input type="text" name = "<?= $form_name[192]; ?>" value = "<?= $$form_name[19204]; ?>" id = "<?= $form_id[198]; ?>">
+									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "Regulasi teknis" id = "<?= $form_id[194]; ?>" onchange="disableTeknisKet()"
 										<?php if (in_array('Regulasi teknis', $$form_name[19101])){ echo 'checked'; } ?>> 
-											Regulasi teknis: <input type="text" name = "<?= $form_name[192]; ?>" value = "<?= $$form_name[19205]; ?>">
-									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "SOP"
+											Regulasi teknis: <input type="text" name = "<?= $form_name[192]; ?>" value = "<?= $$form_name[19205]; ?>" id = "<?= $form_id[199]; ?>">
+									</br> <input type = "checkbox" name = "<?= $form_name[191]; ?>" value = "SOP" id = "<?= $form_id[195]; ?>" onchange="disableSOPKet()"
 										<?php if (in_array('SOP', $$form_name[19101])){ echo 'checked'; } ?>> 
-											SOP: <input type="text" name = "<?= $form_name[192]; ?>" value = "<?= $$form_name[19206]; ?>">
+											SOP: <input type="text" name = "<?= $form_name[192]; ?>" value = "<?= $$form_name[19206]; ?>" id = "<?= $form_id[200]; ?>">
 								</td>
 						</tbody>
 					</table>
