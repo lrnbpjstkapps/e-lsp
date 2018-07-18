@@ -10,14 +10,12 @@ class fr_mma extends CI_Controller {
 			$this->load->model("common/m_globalval", "m_globalval");
 			$this->load->model("datatables/M_list_mma", "M_list_mma");
 			$this->load->model("form/M_form_mma", "M_form_mma");
+			$this->load->model("form/M_form_mma_kuk", "M_form_mma_kuk");
 			$this->load->model("table/M_answer_apl_02", "M_ans_apl02");
 			$this->load->model("table/M_fr_mma", "M_fr_mma");
-			
-			
-			$this->load->model("common/m_crud", "m_crud");
+			$this->load->model("table/M_mma_kuk", "M_mma_kuk");
+		
 			$this->load->model("asesor/fr_mma/m_custom", "m_custom");
-			$this->load->model("asesor/fr_mma/m_param", "m_param");
-			
 		}
 	
 	public function index()
@@ -82,7 +80,12 @@ class fr_mma extends CI_Controller {
 				'UUID_MMA'			=> $uuidMMA);
 			$result					= $this->M_fr_mma->get_entry($condition)->row();
 			
-			$data 					= $this->M_form_mma->form_edit($data, $form_name, $result);
+			$data 					= $this->M_form_mma->form_edit($data, $form_name, $result);	
+
+			$condition				= array(
+				'UUID_MMA'			=> $uuidMMA);
+			$data_mma				= $this->M_fr_mma->get_entry($condition)->row();			
+			$data 					= $this->M_form_mma_kuk->form_edit($data, $form_name, $result);
 			
 			$this->load->view($view[131], $data);
 			$this->load->view($view[132], $data);
@@ -90,36 +93,7 @@ class fr_mma extends CI_Controller {
 	
 	// UPDATE		
 	public function updateDt_mma()
-		{
-			/*$data				= $this->m_globalval->getAllData();		
-			$form_name			= $data["form_name"];
-			$queryResult1		= 1;
-			$queryResult2		= 1;
-			
-			$listKUK			= $this->m_custom->getADt_FN134_AllJoinedTable($this->input->post($form_name[134]), $this->input->post($form_name[102]));
-			$data['listKUK']	= $listKUK;
-			
-			$data['saveMethod']	= 'edit';
-			$data['UUID_APL02']	= "'".$this->input->post($form_name[146])."'";
-					
-			if($listKUK->num_rows() > 0)
-				{
-					$addtionalParam		= $this->m_param->deleteDt($data, $this->input->post($form_name[146]));
-					$queryResult1		= $this->m_crud->deleteDt("ANSWER_APL_02", $addtionalParam);
-			
-					$paramArr			= $this->m_param->save_fId_181_ANS_APL_02($data);
-					$queryResult2		= $this->m_crud->insertArrDt("ANSWER_APL_02", $paramArr);				
-				}
-				
-			if($queryResult1 == -1 || $queryResult2 == -1)
-				{
-					echo -1;
-				}
-			else	
-				{
-					echo 1;
-				}*/
-				
+		{				
 			$data					= $this->m_globalval->getAllData();		
 			$form_name				= $data["form_name"];
 			$qResult_mma_ins		= 1;
@@ -131,6 +105,11 @@ class fr_mma extends CI_Controller {
 			$condition				= array(
 				'UUID_MMA'			=> $this->input->post($form_name[145]));
 			$qResult_apl_01_upd		= $this->M_fr_mma->update_entry($form_name, $data_mma, $condition);
+				
+			for($i = 0; $i < count($this->input->post($form_name[178])); $i++)
+				{
+					$this->M_mma_kuk->insert_multiple_entry($form_name, $i);
+				}
 				
 			if($qResult_mma_ins != 1)
 				{

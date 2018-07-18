@@ -87,7 +87,7 @@ class M_form_mma extends CI_Model {
 			$data[$form_name[19101]] = explode("|", $result->ACUAN_PEMBANDING);
 			$data[$form_name[19201]] = explode("|", $result->ACUAN_PEMBANDING_KETERANGAN);
 
-			for($i = 0; $i < count (explode("|", $result->ACUAN_PEMBANDING)); $i++)
+			for($i = 0; $i < count (explode("|", $result->ACUAN_PEMBANDING_KETERANGAN)); $i++)
 				{
 					$words 		= explode("|", $result->ACUAN_PEMBANDING)[$i];
 					$words_ket 	= explode("|", $result->ACUAN_PEMBANDING_KETERANGAN)[$i];
@@ -176,7 +176,7 @@ class M_form_mma extends CI_Model {
 			$data[$form_name[230]] 	= $result->MANAGER_SERTIFIKASI;
 			$data[$form_name[231]] 	= $result->MANAGER_SERTIFIKASI_JABATAN;
 			$data[$form_name[232]] 	= $result->MANAGER_SERTIFIKASI_DTM;
-			$data[$form_name[163]] 	= $result->UUID_ADM;
+			$data[$form_name[163]] 	= $result->UUID_ADM;			
 
 			return $data;
 		}		

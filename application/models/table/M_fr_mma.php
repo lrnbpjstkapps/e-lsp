@@ -167,7 +167,7 @@
 				$this->PENDEKATAN_ASESMEN 			= (!$this->input->post($form_name[189]) ? $data->PENDEKATAN_ASESMEN : $this->input->post($form_name[189]));
 				$this->STRATEGI_ASESMEN 			= (!$this->input->post($form_name[190]) ? null : implode('|', $this->input->post($form_name[190])));
 				$this->ACUAN_PEMBANDING 			= (!$this->input->post($form_name[191]) ? null : implode('|', $this->input->post($form_name[191])));
-				$this->ACUAN_PEMBANDING_KETERANGAN 	= (!$this->input->post($form_name[192]) ? null : implode('|', array_filter($this->input->post($form_name[192]), "isArrayValueNull")));
+				$this->ACUAN_PEMBANDING_KETERANGAN 	= (!$this->input->post($form_name[192]) ? null : implode('|', array_filter($this->input->post($form_name[192]), array($this, "isArrayValueNull"))));
 				$this->BATASAN_VARIABEL 			= (!$this->input->post($form_name[193]) ? 'Tidak' : $this->input->post($form_name[193]));
 				$this->PANDUAN_ASESMEN 				= (!$this->input->post($form_name[194]) ? 'Tidak' : $this->input->post($form_name[194]));
 				$this->PERSETUJUAN_ASESOR 			= (!$this->input->post($form_name[195]) ? $data->PERSETUJUAN_ASESOR : $this->input->post($form_name[195]));
@@ -213,6 +213,8 @@
 				$this->USR_UPD						= 'Karid Nurvenus';
 				$this->DTM_UPD						= date('Y-m-d H:i:s');
 				$this->IS_ACTIVE					= (!$this->input->post($form_name[233]) ? $data->IS_ACTIVE : $this->input->post($form_name[233]));
+
+				
 					
 				return $this->db->update('FR_MMA', $this, $condition);
 			}
@@ -222,7 +224,7 @@
 				return $this->db->delete('FR_MMA', $condition);
 			}
 
-		function isArrayValueNull($dt)
+		public function isArrayValueNull($dt)
 			{ 
 			    if($dt == null)
 			       return FALSE;

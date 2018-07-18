@@ -228,6 +228,10 @@
 				$form_name[231] 	= "val_mma_manager_sertifikasi_jabatan";
 				$form_name[232] 	= "val_mma_manager_sertifikasi_dtm";			
 				$form_name[233] 	= "val_mma_is_active";	
+				$form_name[234] 	= "val_mma_kuk_jenis_bukti";
+				$form_name[235] 	= "val_mma_kuk_perangkat_asesmen";
+				$form_name[236] 	= "val_mma_kuk_uuid";
+
 				return $form_name;
 			}		
 		

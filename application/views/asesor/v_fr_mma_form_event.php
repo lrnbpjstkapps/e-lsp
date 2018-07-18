@@ -77,7 +77,13 @@
 		}
 	}
 		
-	$(document).ready(function() {		
+	$(document).ready(function() {
+		disableKompetensiKet();
+		disableProdukKet();
+		disableSistemKet();
+		disableTeknisKet();
+		disableSOPKet();
+		
 		validator = $("#<?php echo $form_id[190]; ?>").validate({
 			rules: 
 				{

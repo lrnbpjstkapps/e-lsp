@@ -175,9 +175,9 @@
 								<?php 
 									$i = 0;		
 									foreach($listAnswer->result() as $row){ ?>
-										<input type = "hidden" name = "<?php echo $form_name[105].'_'.$i; ?>" value = "<?php echo $row->UUID_UK; ?>">
-										<input type = "hidden" name = "<?php echo $form_name[113].'_'.$i; ?>" value = "<?php echo $row->UUID_KUK; ?>">
-										<input type = "hidden" name = "<?php echo $form_name[109].'_'.$i; ?>" value = "<?php echo $row->UUID_EK; ?>">
+										<input type = "hidden" name = "<?php echo $form_name[143]; ?>" value = "<?php echo $row->UUID_UK; ?>">
+										<input type = "hidden" name = "<?php echo $form_name[178]; ?>" value = "<?php echo $row->UUID_KUK; ?>">
+										<input type = "hidden" name = "<?php echo $form_name[177]; ?>" value = "<?php echo $row->UUID_EK; ?>">
 										<tr>
 											<td>
 												<?php echo ($i+1); ?>
@@ -187,18 +187,33 @@
 											</td>
 											<td>
 												<?php echo $row->PERNYATAAN; ?>
-											</td>	
-											<td><input type = "radio" name = "<?php echo $form_name[145].' '.$i; ?>" id = "<?php echo $form_id[174]; ?>" > L</td>
-											<td><input type = "radio" name = "<?php echo $form_name[145].' '.$i; ?>" id = "<?php echo $form_id[174]; ?>" > TL</td>
-											<td><input type = "radio" name = "<?php echo $form_name[145].' '.$i; ?>" id = "<?php echo $form_id[174]; ?>" > T</td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > CLO</td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > CLP</td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > DPL</td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > DPT</td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > PW</td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > VPK</td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > SK</td>
-											<td><input type = "radio" name = "<?php echo $form_name[154].' '.$i; ?>" id = "<?php echo $form_id[189]; ?>" > Lainnya ...</td>
+											</td>
+											
+										<!-- Jenis Bukti -->
+											<td><input type = "radio" name = "<?php echo $form_name[234].'['.$i.']'; ?>" value = "L"
+												<?php if ($$form_name[234] == 'L'){ echo 'checked'; } ?>> L</td>
+											<td><input type = "radio" name = "<?php echo $form_name[234].'['.$i.']'; ?>" value = "TL"
+												<?php if ($$form_name[234] == 'TL'){ echo 'checked'; } ?>> TL</td>
+											<td><input type = "radio" name = "<?php echo $form_name[234].'['.$i.']'; ?>" value = "T"
+												<?php if ($$form_name[234] == 'T'){ echo 'checked'; } ?>> T</td>
+											
+										<!-- Perangkat Asesmen -->
+											<td><input type = "radio" name = "<?php echo $form_name[235].'['.$i.']'; ?>" value = "CLO"
+												<?php if ($$form_name[235] == 'CLO'){ echo 'checked'; } ?>> CLO</td>
+											<td><input type = "radio" name = "<?php echo $form_name[235].'['.$i.']'; ?>" value = "CLP"
+												<?php if ($$form_name[235] == 'CLP'){ echo 'checked'; } ?>> CLP</td>
+											<td><input type = "radio" name = "<?php echo $form_name[235].'['.$i.']'; ?>" value = "DPL"
+												<?php if ($$form_name[235] == 'DPL'){ echo 'checked'; } ?>> DPL</td>
+											<td><input type = "radio" name = "<?php echo $form_name[235].'['.$i.']'; ?>" value = "DPL"
+												<?php if ($$form_name[235] == 'DPT'){ echo 'checked'; } ?>> DPT</td>
+											<td><input type = "radio" name = "<?php echo $form_name[235].'['.$i.']'; ?>" value = "PW"
+												<?php if ($$form_name[235] == 'PW'){ echo 'checked'; } ?>> PW</td>
+											<td><input type = "radio" name = "<?php echo $form_name[235].'['.$i.']'; ?>" value = "VPK"
+												<?php if ($$form_name[235] == 'VPK'){ echo 'checked'; } ?>> VPK</td>
+											<td><input type = "radio" name = "<?php echo $form_name[235].'['.$i.']'; ?>" value = "SK"
+												<?php if ($$form_name[235] == 'SK'){ echo 'checked'; } ?>> SK</td>
+											<td><input type = "radio" name = "<?php echo $form_name[235].'['.$i.']'; ?>" value = "Lainnya"
+												<?php if ($$form_name[235] == 'Lainnya'){ echo 'checked'; } ?>> Lainnya ...</td>
 										</tr>					
 								<?php 
 										$i++; 
