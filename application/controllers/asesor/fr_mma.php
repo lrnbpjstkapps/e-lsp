@@ -83,8 +83,8 @@ class fr_mma extends CI_Controller {
 			$data 					= $this->M_form_mma->form_edit($data, $form_name, $result);	
 
 			$condition				= array(
-				'UUID_MMA'			=> $uuidMMA);
-			$data_mma				= $this->M_fr_mma->get_entry($condition)->row();			
+				'MMA_KUK.UUID_MMA'	=> $uuidMMA);
+			$result					= $this->M_mma_kuk->get_detail_entry($condition);			
 			$data 					= $this->M_form_mma_kuk->form_edit($data, $form_name, $result);
 			
 			$this->load->view($view[131], $data);
@@ -96,7 +96,9 @@ class fr_mma extends CI_Controller {
 		{				
 			$data					= $this->m_globalval->getAllData();		
 			$form_name				= $data["form_name"];
-			$qResult_mma_ins		= 1;
+			$qResult_mma_upd		= 1;
+			$qResult_mma_kuk_ins	= 1;
+			$qResult_mma_kuk_del	= 1;
 			
 			$condition				= array(
 				'UUID_MMA'			=> $this->input->post($form_name[145]));
@@ -104,14 +106,16 @@ class fr_mma extends CI_Controller {
 			
 			$condition				= array(
 				'UUID_MMA'			=> $this->input->post($form_name[145]));
-			$qResult_apl_01_upd		= $this->M_fr_mma->update_entry($form_name, $data_mma, $condition);
-				
+			$qResult_mma_upd		= $this->M_fr_mma->update_entry($form_name, $data_mma, $condition);
+
+			$qResult_mma_kuk_del	= $this->M_mma_kuk->delete_entry($condition);
+			
 			for($i = 0; $i < count($this->input->post($form_name[178])); $i++)
 				{
-					$this->M_mma_kuk->insert_multiple_entry($form_name, $i);
+					$qResult_mma_kuk_ins = $this->M_mma_kuk->insert_multiple_entry($form_name, $i);
 				}
 				
-			if($qResult_mma_ins != 1)
+			if($qResult_mma_upd != 1 || $qResult_mma_kuk_ins != 1 || $qResult_mma_kuk_del != 1)
 				{
 					echo -1;
 				}

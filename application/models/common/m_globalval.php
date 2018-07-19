@@ -59,7 +59,7 @@
 				$menu_title[112] 	= "FR-APL-02. Asesmen Mandiri - Edit";
 				$menu_title[113] 	= "FR-APL-02. Asesmen Mandiri - Upload";
 				$menu_title[114] 	= "FR-MMA. Merencanakan dan Mengorganisasikan Asesmen";
-				$menu_title[115] 	= "";
+				$menu_title[115] 	= "FR-MAK-02. Keputusan dan Umpan Balik Asesmen";
 				$menu_title[116] 	= "FR-MMA. Merencanakan dan Mengorganisasikan Asesmen - Validasi";
 				return $menu_title;
 			}		
@@ -368,6 +368,10 @@
 				$validationMsg[108]	= "Data berhasil diperbarui.";
 				$validationMsg[109]	= "Data gagal diperbarui.";
 				$validationMsg[110]	= "Data gagal dihapus.";
+				$validationMsg[111]	= "Apakah anda yakin ingin menyimpan data ini?";
+				$validationMsg[112]	= "Apakah anda yakin ingin mengupdate data ini?";
+				$validationMsg[113]	= "Apakah anda yakin ingin menghapus data ini?";
+				$validationMsg[114]	= "Data berhasil dihapus.";
 
 				return $validationMsg;
 			}			
@@ -429,13 +433,19 @@
 				$ajax_url[151] 	= base_url()."asesi/fr_apl_02/deleteDt_apl_02/";
 				$ajax_url[152] 	= base_url()."asesi/fr_apl_02/getList_apl02";
 				$ajax_url[153] 	= base_url()."asesor/fr_mma/pagingList";
-				$ajax_url[154] 	= base_url()."asesor/fr_mma/updateDt_mma";
+				$ajax_url[154] 	= base_url()."";
 				$ajax_url[155] 	= base_url()."asesor/fr_mma/pagingEdit/";
 				$ajax_url[156] 	= base_url()."";
 				$ajax_url[157] 	= base_url()."asesor/fr_mma/getList_mma";
 				$ajax_url[158] 	= base_url()."";
 				$ajax_url[159] 	= base_url()."asesor/fr_mma/updateDt_mma";
 				$ajax_url[160] 	= base_url()."asesor/fr_mma/deleteDt_mma";
+
+				$ajax_url[161] 	= base_url()."asesi/fr_mak_02/pagingList";
+				$ajax_url[162] 	= base_url()."asesi/fr_mak_02/pagingEdit";
+				$ajax_url[163] 	= base_url()."asesi/fr_mak_02/getList_mma";
+				$ajax_url[164] 	= base_url()."asesi/fr_mak_02/updateDt_mma";
+				$ajax_url[165] 	= base_url()."asesi/fr_mak_02/deleteDt_mma";
 				return $ajax_url;
 			}
 		
@@ -488,10 +498,14 @@
 				$view[130]	= "asesor/v_fr_mma_event";
 				$view[131]	= "asesor/v_fr_mma_form";
 				$view[132]	= "asesor/v_fr_mma_form_event";
-				$view[133]	= "asesor/v_fr_mma_form_child";
+				$view[133]	= "asesi/v_fr_mak_02_paging_event";
 				$view[134]	= "asesor/v_fr_mma_paging_event";
 				$view[135]	= "asesor/v_about";
 				$view[136]	= "asesor/v_about_event";
+				$view[137]	= "asesi/v_fr_mak_02";
+				$view[138]	= "asesi/v_fr_mak_02_event";
+				$view[139]	= "asesi/v_fr_mak_02_form";
+				$view[140]	= "asesi/v_fr_mak_02_form_event";
 				return $view;
 			}
 			

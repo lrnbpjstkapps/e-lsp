@@ -18,6 +18,21 @@
 			{
 				return $this->db->get_where('MMA_KUK', $condition);
 			}
+
+		public function get_detail_entry($condition)
+			{
+				$this->db->select('UK.UUID_UK, EK.UUID_EK, KUK.UUID_KUK, UK.JUDUL_UK, KUK.PERTANYAAN, KUK.PERNYATAAN, MMA_KUK.JENIS_BUKTI, MMA_KUK.METODE');
+				$this->db->from("MMA_KUK AS MMA_KUK");
+				$this->db->join("FR_MMA AS MMA", "MMA_KUK.UUID_MMA = MMA.UUID_MMA", "LEFT");
+				$this->db->join("UNIT_KOMPETENSI AS UK", "MMA_KUK.UUID_UK = UK.UUID_UK", "LEFT");
+				$this->db->join("ELEMEN_KOMPETENSI AS EK", "MMA_KUK.UUID_EK = EK.UUID_EK", "LEFT");
+				$this->db->join("KRITERIA_UNJUK_KERJA AS KUK", "MMA_KUK.UUID_KUK = KUK.UUID_KUK", "LEFT");
+				$this->db->where($condition);
+				$this->db->order_by("UK.KODE_UK", "ASC");
+				$this->db->order_by("EK.NOMOR_EK", "ASC");
+				$this->db->order_by("KUK.NOMOR_KUK", "ASC");
+				return $this->db->get();
+			}
 			
 		public function insert_multiple_entry($form_name, $i)
 			{

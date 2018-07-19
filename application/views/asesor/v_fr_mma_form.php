@@ -191,29 +191,29 @@
 											
 										<!-- Jenis Bukti -->
 											<td><input type = "radio" name = "<?php echo $form_name[234].'['.$i.']'; ?>" value = "L"
-												<?php if ($$form_name[234] == 'L'){ echo 'checked'; } ?>> L</td>
+												<?php if (${$form_name[234]}[$i] == 'L'){ echo 'checked'; } ?>> L</td>
 											<td><input type = "radio" name = "<?php echo $form_name[234].'['.$i.']'; ?>" value = "TL"
-												<?php if ($$form_name[234] == 'TL'){ echo 'checked'; } ?>> TL</td>
+												<?php if (${$form_name[234]}[$i] == 'TL'){ echo 'checked'; } ?>> TL</td>
 											<td><input type = "radio" name = "<?php echo $form_name[234].'['.$i.']'; ?>" value = "T"
-												<?php if ($$form_name[234] == 'T'){ echo 'checked'; } ?>> T</td>
+												<?php if (${$form_name[234]}[$i] == 'T'){ echo 'checked'; } ?>> T</td>
 											
 										<!-- Perangkat Asesmen -->
 											<td><input type = "radio" name = "<?php echo $form_name[235].'['.$i.']'; ?>" value = "CLO"
-												<?php if ($$form_name[235] == 'CLO'){ echo 'checked'; } ?>> CLO</td>
+												<?php if (${$form_name[235]}[$i] == 'CLO'){ echo 'checked'; } ?>> CLO</td>
 											<td><input type = "radio" name = "<?php echo $form_name[235].'['.$i.']'; ?>" value = "CLP"
-												<?php if ($$form_name[235] == 'CLP'){ echo 'checked'; } ?>> CLP</td>
+												<?php if (${$form_name[235]}[$i] == 'CLP'){ echo 'checked'; } ?>> CLP</td>
 											<td><input type = "radio" name = "<?php echo $form_name[235].'['.$i.']'; ?>" value = "DPL"
-												<?php if ($$form_name[235] == 'DPL'){ echo 'checked'; } ?>> DPL</td>
-											<td><input type = "radio" name = "<?php echo $form_name[235].'['.$i.']'; ?>" value = "DPL"
-												<?php if ($$form_name[235] == 'DPT'){ echo 'checked'; } ?>> DPT</td>
+												<?php if (${$form_name[235]}[$i] == 'DPL'){ echo 'checked'; } ?>> DPL</td>
+											<td><input type = "radio" name = "<?php echo $form_name[235].'['.$i.']'; ?>" value = "DPT"
+												<?php if (${$form_name[235]}[$i] == 'DPT'){ echo 'checked'; } ?>> DPT</td>
 											<td><input type = "radio" name = "<?php echo $form_name[235].'['.$i.']'; ?>" value = "PW"
-												<?php if ($$form_name[235] == 'PW'){ echo 'checked'; } ?>> PW</td>
+												<?php if (${$form_name[235]}[$i] == 'PW'){ echo 'checked'; } ?>> PW</td>
 											<td><input type = "radio" name = "<?php echo $form_name[235].'['.$i.']'; ?>" value = "VPK"
-												<?php if ($$form_name[235] == 'VPK'){ echo 'checked'; } ?>> VPK</td>
+												<?php if (${$form_name[235]}[$i] == 'VPK'){ echo 'checked'; } ?>> VPK</td>
 											<td><input type = "radio" name = "<?php echo $form_name[235].'['.$i.']'; ?>" value = "SK"
-												<?php if ($$form_name[235] == 'SK'){ echo 'checked'; } ?>> SK</td>
+												<?php if (${$form_name[235]}[$i] == 'SK'){ echo 'checked'; } ?>> SK</td>
 											<td><input type = "radio" name = "<?php echo $form_name[235].'['.$i.']'; ?>" value = "Lainnya"
-												<?php if ($$form_name[235] == 'Lainnya'){ echo 'checked'; } ?>> Lainnya ...</td>
+												<?php if (${$form_name[235]}[$i] == 'Lainnya'){ echo 'checked'; } ?>> Lainnya ...</td>
 										</tr>					
 								<?php 
 										$i++; 

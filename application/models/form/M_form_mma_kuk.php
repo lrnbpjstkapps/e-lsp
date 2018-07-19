@@ -12,8 +12,12 @@ class M_form_mma_kuk extends CI_Model {
 		
 	public function form_edit($data, $form_name, $result)
 		{
-			$data[$form_name[234]] 	= $result->JENIS_BUKTI;			
-			$data[$form_name[235]] 	= $result->METODE;			
+			$i = 0;
+			foreach ($result->result() as $row) {				
+				$data[$form_name[234]][$i] 	= $row->JENIS_BUKTI;			
+				$data[$form_name[235]][$i] 	= $row->METODE;	
+				$i++;
+			}					
 
 			return $data;
 		}		

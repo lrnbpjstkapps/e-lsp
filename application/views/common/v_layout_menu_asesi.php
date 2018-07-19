@@ -57,7 +57,7 @@
             <li><a href="<?php echo base_url(); ?>asesi/fr_apl_01"><i class="fa fa-folder-open"></i> FR-APL-01</a></li>
 			<li><a href="<?php echo base_url(); ?>asesi/fr_apl_02"><i class="fa fa-folder-open"></i> FR-APL-02</a></li>
 			<li><a href="<?php echo base_url(); ?>asesi/fr_mak_02"><i class="fa fa-folder-open"></i> FR-MAK-02</a></li>
-			<li><a href="<?php echo base_url(); ?>asesi/fr_mak_04"><i class="fa fa-folder-open"></i> FR-MAK-04</a></li>
+			<li><a href="<?php echo base_url(); ?>asesi/fr_mak_03"><i class="fa fa-folder-open"></i> FR-MAK-03</a></li>
           </ul>
         </li>
         <li class="treeview">

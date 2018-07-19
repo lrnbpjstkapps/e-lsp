@@ -1,6 +1,6 @@
 <div class="box box-info">
 	<div class="box-header with-border">
-	  <h3 class="box-title"> <?php echo $menu_title[110]; ?> </h3>
+	  <h3 class="box-title"> <?php echo $menu_title[115]; ?> </h3>
 	  <a onClick="pagingAdd()" class="btn bg-navy pull-right margin"> <?php echo $form_button[106]; ?> </a>
 	</div>
 	
