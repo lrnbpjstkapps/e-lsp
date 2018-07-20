@@ -61,6 +61,9 @@
 				$menu_title[114] 	= "FR-MMA. Merencanakan dan Mengorganisasikan Asesmen";
 				$menu_title[115] 	= "FR-MAK-02. Keputusan dan Umpan Balik Asesmen";
 				$menu_title[116] 	= "FR-MMA. Merencanakan dan Mengorganisasikan Asesmen - Validasi";
+				$menu_title[117] 	= "FR-MAK-02. Keputusan dan Umpan Balik Asesmen - Tambah";
+				$menu_title[118] 	= "FR-MAK-02. Keputusan dan Umpan Balik Asesmen - Edit";
+				$menu_title[119] 	= "FR-MAK-02. Keputusan dan Umpan Balik Asesmen - Upload";
 				return $menu_title;
 			}		
 		
@@ -433,9 +436,9 @@
 				$ajax_url[151] 	= base_url()."asesi/fr_apl_02/deleteDt_apl_02/";
 				$ajax_url[152] 	= base_url()."asesi/fr_apl_02/getList_apl02";
 				$ajax_url[153] 	= base_url()."asesor/fr_mma/pagingList";
-				$ajax_url[154] 	= base_url()."";
+				$ajax_url[154] 	= base_url()."asesi/fr_mak_02/saveDt_mak02";
 				$ajax_url[155] 	= base_url()."asesor/fr_mma/pagingEdit/";
-				$ajax_url[156] 	= base_url()."";
+				$ajax_url[156] 	= base_url()."asesi/fr_mak_02/pagingAdd";
 				$ajax_url[157] 	= base_url()."asesor/fr_mma/getList_mma";
 				$ajax_url[158] 	= base_url()."";
 				$ajax_url[159] 	= base_url()."asesor/fr_mma/updateDt_mma";
@@ -443,9 +446,9 @@
 
 				$ajax_url[161] 	= base_url()."asesi/fr_mak_02/pagingList";
 				$ajax_url[162] 	= base_url()."asesi/fr_mak_02/pagingEdit";
-				$ajax_url[163] 	= base_url()."asesi/fr_mak_02/getList_mma";
-				$ajax_url[164] 	= base_url()."asesi/fr_mak_02/updateDt_mma";
-				$ajax_url[165] 	= base_url()."asesi/fr_mak_02/deleteDt_mma";
+				$ajax_url[163] 	= base_url()."asesi/fr_mak_02/getList_mak02";
+				$ajax_url[164] 	= base_url()."asesi/fr_mak_02/updateDt_mak02";
+				$ajax_url[165] 	= base_url()."asesi/fr_mak_02/deleteDt_mak02";
 				return $ajax_url;
 			}
 		

@@ -79,6 +79,20 @@
 			{
 				return $this->db->get_where('FR_MMA', $condition);
 			}
+
+		public function get_entry_detail($condition)
+			{
+				$this->db->select('MMA.UUID_MMA, MMA.UUID_USER, MMA.UUID_APL_01, MMA.UUID_APL_02, MMA.NO_DOKUMEN AS NO_DOKUMEN00, 
+					APL01.NO_DOKUMEN AS NO_DOKUMEN01, APL02.NO_DOKUMEN AS NO_DOKUMEN02, SKEMA.NOMOR_SKEMA, SKEMA.NAMA_SKEMA, 
+					USER.USER_NAME, MMA.DTM_CRT, APL01.TUJUAN_ASESMEN');
+				$this->db->from("FR_MMA AS MMA");
+				$this->db->join("FR_APL_01 AS APL01", "MMA.UUID_APL_01 = APL01.UUID_APL01", "LEFT");
+				$this->db->join("FR_APL_02 AS APL02", "MMA.UUID_APL_02 = APL02.UUID_APL02", "LEFT");
+				$this->db->join("SKEMA", "APL01.UUID_SKEMA = SKEMA.UUID_SKEMA", "LEFT");
+				$this->db->join("USER", "MMA.UUID_USER = USER.UUID_USER", "LEFT");
+				$this->db->where($condition);
+				return $this->db->get();
+			}
 			
 		public function insert_entry($form_name)
 			{

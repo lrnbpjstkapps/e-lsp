@@ -52,7 +52,7 @@
 			"order"				: [], 
 			"ajax"				: 
 				{
-					"url"		: "<?php echo $ajax_url[152]; ?>",
+					"url"		: "<?php echo $ajax_url[163]; ?>",
 					"type"		: "POST"
 				},
 			"columnDefs"		: 

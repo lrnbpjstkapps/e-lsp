@@ -1,9 +1,9 @@
 <div class="box box-info">
 	<div class="box-header with-border">
 	  <?php if($saveMethod=="add"){ ?>
-		  <h3 class="box-title"> <?php echo $menu_title[111]; ?> </h3>
+		  <h3 class="box-title"> <?php echo $menu_title[117]; ?> </h3>
 	  <?php }else{ ?>
-		  <h3 class="box-title"> <?php echo $menu_title[112]; ?> </h3>
+		  <h3 class="box-title"> <?php echo $menu_title[118]; ?> </h3>
 	  <?php } ?>
 	</div>
 	
@@ -11,66 +11,29 @@
 		<form class="form-horizontal">
 			<div class="modal-body form">                
 				<div class="form-body">					
-					<p class="text-muted well well-sm no-shadow"> 
-						<?php echo $form_desc[112]; ?> 		
-						</br><?php echo $form_desc[113]; ?> 		
-						</br><?php echo $form_desc[114]; ?> 		
-						</br><?php echo $form_desc[115]; ?> 		
-						</br><?php echo $form_desc[116]; ?> 
-					</p>						
-
-					<!-- FR-APL-01 -->
-					<div class="form-group">
-						<label class="control-label col-md-2"> <?php echo $form_label[158]; ?> </label>
-						<div class="col-md-5">
-							<?php if($$form_name[134]==""){ ?>
-								<select name="<?php echo $form_name[134]; ?>" id="<?php echo $form_id[178]; ?>" onChange="setDt134()" class="form-control">
-									<option value = ""><?php echo $form_label[159]; ?></option>
-									<?php foreach($listApl01->result() as $row){ ?>
-											<option value = "<?php echo $row->UUID_APL01; ?>"><?php echo "(".date('d M y - H:i', strtotime($row->DTM_CRT)).") ".$row->NAMA_SKEMA." (ID ".$row->NO_DOKUMEN.")"; ?></option>
-									<?php } ?>
-								</select>
-							<?php }else{ ?>
-								<select name="<?php echo $form_name[134]; ?>" id="<?php echo $form_id[178]; ?>" class="form-control" disabled>
-									<option value = ""><?php echo $form_label[159]; ?></option>
-									<?php foreach($listApl01->result() as $row){ ?>
-										<?php if($$form_name[134]==$row->UUID_APL01){?>
-											<option value = "<?php echo $row->UUID_APL01; ?>" selected><?php echo "(".date('d M y - H:i', strtotime($row->DTM_CRT)).") ".$row->NAMA_SKEMA." (ID ".$row->NO_DOKUMEN.")"; ?></option>
-										<?php } ?>
-									<?php } ?>
-								</select>
-							<?php } ?>
-							<span class="help-block"></span>
-						</div>
-					</div>	
-
-					<!-- Nama Peserta -->
-					<div class="form-group">
-						<label class="control-label col-md-2"> <?php echo $form_label[155]; ?> </label>
-						<div class="col-md-4">
-							<input name="<?php echo $form_name[115]; ?>" value="<?php echo $$form_name[115]; ?>" id="<?php echo $form_id[140]; ?>" class="form-control" type="text" readonly>
-							<span class="help-block"></span>
-						</div>
-					</div>
-
-					<!-- Nomor Skema sertifikasi -->
-					<div class="form-group">
-						<label class="control-label col-md-2"> <?php echo $form_label[101]; ?> </label>
-						<div class="col-md-4">
-							<input name="<?php echo $form_name[101]; ?>" value="<?php echo $$form_name[101]; ?>" id="<?php echo $form_id[102]; ?>" class="form-control" type="text" readonly>
-							<span class="help-block"></span>
-						</div>
-					</div>
-					
-					<!-- Judul Skema sertifikasi -->
-					<div class="form-group">
-						<label class="control-label col-md-2"> <?php echo $form_label[100]; ?> </label>
-						<div class="col-md-4">
-							<input name="<?php echo $form_name[100]; ?>" value="<?php echo $$form_name[100]; ?>" id="<?php echo $form_id[101]; ?>" class="form-control" type="text" readonly>
-							<span class="help-block"></span>
-						</div>
-					</div>
-					
+					<table class = "table table-hover" cellspacing="0" width="100%">
+						<tr>
+							<td rowspan = "2">Skema Sertifikasi / Klaster Asesmen</td>
+							<td>Judul</td>
+							<td style = "width: 75%">TBS</td>
+						</tr>
+						<tr>
+							<td>Nomor</td>
+							<td><?= $$form_name[101]; ?></td>
+						</tr>
+						<tr>
+							<td>TUK</td>
+							<td colspan = "2">TBS</td>
+						</tr>
+						<tr>
+							<td>Nama Asesor</td>
+							<td colspan = "2">TBS</td>
+						</tr>
+						<tr>
+							<td>Tanggal</td>
+							<td colspan = "2">TBS</td>
+						</tr>
+					</table>						
 				</div>   
 			</div>
 					

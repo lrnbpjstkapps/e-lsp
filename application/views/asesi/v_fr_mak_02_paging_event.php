@@ -4,7 +4,7 @@
 <script text="text/javascript">		
 	function pagingAdd()
 		{
-			$("#<?php echo $form_id[116]; ?>").load("<?php echo $ajax_url[143]; ?>");
+			$("#<?php echo $form_id[116]; ?>").load("<?php echo $ajax_url[156]; ?>");
 		};
 		
 	function uploadDt(uuid)
@@ -14,15 +14,15 @@
 		
 	function pagingList()
 		{
-			$("#<?php echo $form_id[116]; ?>").load("<?php echo $ajax_url[145]; ?>");
+			$("#<?php echo $form_id[116]; ?>").load("<?php echo $ajax_url[161]; ?>");
 		}
 		
 	function editDt(uuid)
 		{
-			$("#<?php echo $form_id[116]; ?>").load("<?php echo $ajax_url[146]; ?>"+uuid);
+			$("#<?php echo $form_id[116]; ?>").load("<?php echo $ajax_url[162]; ?>"+uuid);
 		}
 		
 	$(document).ready(function(){			
-		$("#<?php echo $form_id[116]; ?>").load("<?php echo $ajax_url[145]; ?>");
+		$("#<?php echo $form_id[116]; ?>").load("<?php echo $ajax_url[161]; ?>");
 	});
 </script>
