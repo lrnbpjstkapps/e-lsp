@@ -64,6 +64,10 @@
 				$menu_title[117] 	= "FR-MAK-02. Keputusan dan Umpan Balik Asesmen - Tambah";
 				$menu_title[118] 	= "FR-MAK-02. Keputusan dan Umpan Balik Asesmen - Edit";
 				$menu_title[119] 	= "FR-MAK-02. Keputusan dan Umpan Balik Asesmen - Upload";
+				$menu_title[120] 	= "FR-MAK-03. Banding Asesmen";
+				$menu_title[121] 	= "FR-MAK-03. Banding Asesmen - Tambah";
+				$menu_title[122] 	= "FR-MAK-03. Banding Asesmen - Edit";
+				$menu_title[123] 	= "FR-MAK-03. Banding Asesmen - Upload";
 				return $menu_title;
 			}		
 		
@@ -234,6 +238,12 @@
 				$form_name[234] 	= "val_mma_kuk_jenis_bukti";
 				$form_name[235] 	= "val_mma_kuk_perangkat_asesmen";
 				$form_name[236] 	= "val_mma_kuk_uuid";
+
+				$form_name[237] 	= "val_mak_03_uuid";
+				$form_name[236] 	= "val_mak_03_penjelasan_banding";
+				$form_name[236] 	= "val_mak_03_diskusi_banding_asesor";
+				$form_name[236] 	= "val_mak_03_melibatkan_orang";
+				$form_name[236] 	= "val_mak_03_alasan_banding";
 
 				return $form_name;
 			}		
@@ -443,12 +453,19 @@
 				$ajax_url[158] 	= base_url()."";
 				$ajax_url[159] 	= base_url()."asesor/fr_mma/updateDt_mma";
 				$ajax_url[160] 	= base_url()."asesor/fr_mma/deleteDt_mma";
-
 				$ajax_url[161] 	= base_url()."asesi/fr_mak_02/pagingList";
 				$ajax_url[162] 	= base_url()."asesi/fr_mak_02/pagingEdit";
 				$ajax_url[163] 	= base_url()."asesi/fr_mak_02/getList_mak02";
 				$ajax_url[164] 	= base_url()."asesi/fr_mak_02/updateDt_mak02";
 				$ajax_url[165] 	= base_url()."asesi/fr_mak_02/deleteDt_mak02";
+
+				$ajax_url[166] 	= base_url()."asesi/fr_mak_03/saveDt_mak03";
+				$ajax_url[167] 	= base_url()."asesi/fr_mak_03/pagingAdd";
+				$ajax_url[168] 	= base_url()."asesi/fr_mak_03/pagingList";
+				$ajax_url[169] 	= base_url()."asesi/fr_mak_03/pagingEdit";
+				$ajax_url[170] 	= base_url()."asesi/fr_mak_03/getList_mak03";
+				$ajax_url[171] 	= base_url()."asesi/fr_mak_03/updateDt_mak03";
+				$ajax_url[172] 	= base_url()."asesi/fr_mak_03/deleteDt_mak03";
 				return $ajax_url;
 			}
 		
@@ -509,6 +526,11 @@
 				$view[138]	= "asesi/v_fr_mak_02_event";
 				$view[139]	= "asesi/v_fr_mak_02_form";
 				$view[140]	= "asesi/v_fr_mak_02_form_event";
+				$view[141]	= "asesi/v_fr_mak_03";
+				$view[142]	= "asesi/v_fr_mak_03_event";
+				$view[143]	= "asesi/v_fr_mak_03_form";
+				$view[144]	= "asesi/v_fr_mak_03_form_event";
+				$view[145]	= "asesi/v_fr_mak_03_paging_event";
 				return $view;
 			}
 			

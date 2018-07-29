@@ -60,9 +60,7 @@ class M_form_mma extends CI_Model {
 			$data[$form_name[229]] 	= "";
 			$data[$form_name[230]] 	= "";
 			$data[$form_name[231]] 	= "";
-			$data[$form_name[232]] 	= "";
-
-			
+			$data[$form_name[232]] 	= "";			
 			return $data;
 		}
 		

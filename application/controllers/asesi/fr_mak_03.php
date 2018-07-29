@@ -26,7 +26,7 @@ class fr_mak_03 extends CI_Controller {
 			$view					= $data['view'];
 			
 			$data["dview"]			= "";
-			$data["dviewEvent"]		= $view[133];
+			$data["dviewEvent"]		= $view[145];
 			$data["dlayoutMenu"]	= $layout[105];
 			$this->load->view($layout[100], $data);
 		}
@@ -37,8 +37,8 @@ class fr_mak_03 extends CI_Controller {
 			$data	= $this->m_globalval->getAllData();
 			$view	= $data['view'];
 			
-			$this->load->view($view[137], $data);
-			$this->load->view($view[138], $data);
+			$this->load->view($view[141], $data);
+			$this->load->view($view[142], $data);
 		}
 		
 	public function pagingAdd()
@@ -48,8 +48,8 @@ class fr_mak_03 extends CI_Controller {
 			$form_name 					= $data['form_name'];
 			$view						= $data['view'];			
 			
-			$this->load->view($view[139], $data);
-			$this->load->view($view[140], $data);
+			$this->load->view($view[143], $data);
+			$this->load->view($view[144], $data);
 		}
 		
 	public function pagingEdit($uuid)
@@ -74,7 +74,7 @@ class fr_mak_03 extends CI_Controller {
 		}
 		
 	// CREATE		
-	public function saveDt_mak02()
+	public function saveDt_mak03()
 		{
 			$data							= $this->m_globalval->getAllData();		
 			$form_name						= $data["form_name"];
@@ -107,7 +107,7 @@ class fr_mak_03 extends CI_Controller {
 		}
 	
 	// UPDATE		
-	public function updateDt_mak02()
+	public function updateDt_mak03()
 		{
 			$data					= $this->m_globalval->getAllData();		
 			$form_name				= $data["form_name"];
@@ -137,7 +137,7 @@ class fr_mak_03 extends CI_Controller {
 		}
 	
 	// DELETE
-	public function deleteDt_mak02($uuid)
+	public function deleteDt_mak03($uuid)
 		{
 			$data				= $this->m_globalval->getAllData();		
 		
@@ -156,7 +156,7 @@ class fr_mak_03 extends CI_Controller {
 		}
 		
 	// DATATABLES
-	public function getList_mak02()
+	public function getList_mak03()
 		{				
 			$result				= $this->M_list_apl02->get_datatables();
 			$recordsTotal		= $this->M_list_apl02->count_all();
